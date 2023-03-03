@@ -1,7 +1,7 @@
 @forward "element-plus/theme-chalk/src/common/var.scss" with (
   $colors: (
     "primary": (
-      "base": #5db8e4,
+      "base": #d63c31,
     ),
   ),
   $border-radius: (
@@ -10,12 +10,12 @@
   //inputs
   $input:
     (
-      "border": rgba(137, 146, 169, 0.2),
-      "bg-color": #fdfdfd,
-      "text-color": rgba(24, 28, 37, 0.25),
+      "border": #cecece,
+      "bg-color": #ffffff,
+      "text-color": rgba(24, 28, 37, 0.75),
     ),
   $input-padding-horizontal: (
-    "large": 17px,
+    "large": 12px,
   )
 );
 

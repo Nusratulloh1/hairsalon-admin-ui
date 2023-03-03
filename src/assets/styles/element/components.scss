@@ -47,7 +47,13 @@
       color: #181c25;
     }
     &__label {
-      color: #181c25;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+
+      /* identical to box height */
+
+      color: #333333;
     }
 
     .el-input {

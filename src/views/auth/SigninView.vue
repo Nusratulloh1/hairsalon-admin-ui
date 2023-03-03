@@ -1,7 +1,7 @@
 <template>
   <div class="grid md:grid-cols-2 h-full">
     <div class="space-y-6 px-4 md:px-24 md:pt-8 h-full relative">
-      <div class="header flex flex-col items-start space-y-8 md:space-y-12">
+      <div class="header flex flex-col items-start space-y-6 md:space-y-8">
         <LogoutIconWithName />
         <h1 class="header__title">
           Welcome to AKFA University Admissions 2023/2024!
@@ -14,6 +14,14 @@
         :hide-required-asterisk="true"
         label-position="top"
       >
+        <el-form-item label="Full Name" prop="full_name">
+          <el-input
+            v-model="ruleForm.full_name"
+            type="text"
+            autocomplete="off"
+            class="!h-11"
+          />
+        </el-form-item>
         <el-form-item label="E-mail Address" prop="email">
           <el-input
             v-model="ruleForm.email"
@@ -30,25 +38,28 @@
             class="!h-11"
           />
         </el-form-item>
-        <div class="flex flex-col items-start">
-          <RouterLink to="/forgot-password" class="forgot-password"
-            >Забыли пароль?</RouterLink
-          >
-          <el-button
-            class="mt-4 md:mt-7"
-            type="primary"
-            size="large"
-            @click="submitForm(ruleFormRef)"
-            :loading="loading"
-          >
-            Sign In
-          </el-button>
-        </div>
-        <div class="absolute bottom-12">
+        <el-form-item label="Confirm Password" prop="confirm_password">
+          <el-input
+            v-model="ruleForm.confirm_password"
+            type="password"
+            autocomplete="off"
+            class="!h-11"
+          />
+        </el-form-item>
+        <el-button
+          class="mt-2 md:mt-4"
+          type="primary"
+          size="large"
+          @click="submitForm(ruleFormRef)"
+          :loading="loading"
+        >
+          Create Account
+        </el-button>
+        <div class="mt-4 md:mt-6">
           <p>
-            Don't have an account?
-            <RouterLink to="/signin" class="text-primary font-medium"
-              >Sign Up</RouterLink
+            Already have an account?
+            <RouterLink to="/login" class="text-primary font-medium"
+              >Log In</RouterLink
             >
           </p>
         </div>
@@ -75,11 +86,41 @@ const router = useRouter();
 
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
+  full_name: "",
   email: "",
   password: "",
+  confirm_password: "",
 });
 
+const validatePass = (rule: any, value: any, callback: any) => {
+  if (value === "") {
+    callback(new Error(i18n.t("validation.fillField")));
+  } else {
+    if (ruleForm.confirm_password !== "") {
+      if (!ruleFormRef.value) return;
+      ruleFormRef.value.validateField("confirm_password", () => null);
+    }
+    callback();
+  }
+};
+const validatePass2 = (rule: any, value: any, callback: any) => {
+  if (value === "") {
+    callback(new Error(i18n.t("validation.fillField")));
+  } else if (value !== ruleForm.password) {
+    callback(new Error(i18n.t("validation.passwordsDontMatch")));
+  } else {
+    callback();
+  }
+};
+
 const rules = reactive<FormRules>({
+  full_name: [
+    {
+      required: true,
+      message: i18n.t("validation.fillField"),
+      trigger: "blur",
+    },
+  ],
   email: [
     {
       required: true,
@@ -93,17 +134,14 @@ const rules = reactive<FormRules>({
     },
   ],
   password: [
-    {
-      required: true,
-      message: i18n.t("validation.fillField"),
-      trigger: "blur",
-    },
+    { validator: validatePass, trigger: "blur" },
     {
       min: 8,
       message: i18n.t("validation.minimumLength", { value: 8 }),
       trigger: "blur",
     },
   ],
+  confirm_password: [{ validator: validatePass2, trigger: "blur" }],
 });
 
 const loading = ref(false);

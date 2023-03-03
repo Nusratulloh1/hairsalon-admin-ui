@@ -10,7 +10,13 @@ const title = "Axel";
 
 NProgress.configure({ showSpinner: false });
 
-const whiteList = ["/login", "/invite", "/forgot-password", "/reset-password"];
+const whiteList = [
+  "/login",
+  "/signin",
+  "/invite",
+  "/forgot-password",
+  "/reset-password",
+];
 
 const getPageTitle = (key: string) => {
   const { t, te } = i18n.global as any;

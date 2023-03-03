@@ -24,6 +24,17 @@ const router = createRouter({
       ],
     },
     {
+      path: "/signin",
+      component: LoginLayout,
+      children: [
+        {
+          path: "",
+          name: "signin",
+          component: () => import("@/views/auth/SigninView.vue"),
+        },
+      ],
+    },
+    {
       path: "/forgot-password",
       component: LoginLayout,
       children: [
