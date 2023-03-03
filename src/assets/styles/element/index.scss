@@ -1,0 +1,22 @@
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "primary": (
+      "base": #5db8e4,
+    ),
+  ),
+  $border-radius: (
+    "base": 10px,
+  ),
+  //inputs
+  $input:
+    (
+      "border": rgba(137, 146, 169, 0.2),
+      "bg-color": #fdfdfd,
+      "text-color": rgba(24, 28, 37, 0.25),
+    ),
+  $input-padding-horizontal: (
+    "large": 17px,
+  )
+);
+
+@use "element-plus/theme-chalk/src/index.scss" as *;

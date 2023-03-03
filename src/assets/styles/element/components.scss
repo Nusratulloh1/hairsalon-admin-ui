@@ -1,0 +1,67 @@
+// Table
+.el-table--striped {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: justify;
+  th {
+    border: none !important;
+    font-weight: 500;
+    color: #8492a9;
+  }
+  tr.el-table__row--striped td.el-table__cell {
+    background: #f6f7f9 !important;
+    color: #282e36;
+  }
+}
+
+// Pagination
+
+.el-pagination {
+  li,
+  .btn-next {
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+    background: rgba(93, 184, 228, 0.1) !important;
+    border-radius: 6px !important;
+    color: #5db8e4 !important;
+    width: 44px !important;
+    height: 44px !important;
+    &.is-active,
+    &.more {
+      background: transparent !important;
+    }
+  }
+  .btn-next .el-icon {
+    display: inline !important;
+    width: auto !important;
+  }
+}
+
+// Form
+.el-form {
+  .el-form-item {
+    &.is-required:not(.is-no-asterisk).asterisk-right
+      > .el-form-item__label::after {
+      margin-left: 2px;
+      color: #181c25;
+    }
+    &__label {
+      color: #181c25;
+    }
+
+    .el-input {
+      &--large {
+        height: 54px !important;
+      }
+    }
+  }
+}
+
+// Button
+
+.el-button {
+  &--large {
+    height: 44px !important;
+  }
+}

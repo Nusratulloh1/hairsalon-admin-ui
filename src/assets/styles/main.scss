@@ -1,0 +1,88 @@
+@import "./tailwind.scss";
+@import "colors";
+@import "mixins";
+
+@import "./element/components.scss";
+html {
+  font-family: Manrope, sans-serif;
+}
+
+.app-header {
+  .header-search .el-input__wrapper {
+    &,
+    &:hover,
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+  .el-dropdown-menu__item:not(.is-disabled):focus {
+    background-color: $bg-purple !important;
+  }
+}
+
+.app-breadcrumb {
+  .el-breadcrumb__inner {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #77787d;
+  }
+}
+
+.app-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #f7f7f7;
+}
+
+.view {
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: $bold-text;
+  }
+  &__description {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: $light-text;
+  }
+}
+
+.gray-button {
+  background-color: #f8f8f8 !important;
+  color: #8492a9 !important;
+  border-color: #f8f8f8 !important;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.app-light-tag {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: justify;
+  padding: 2px 8px;
+  background: rgba(93, 184, 228, 0.1);
+  border-radius: 4px;
+}
+
+.light-blue-btn {
+  background: rgba(94, 184, 227, 0.1) !important;
+  border: none !important;
+  color: $primary !important;
+  height: 100%;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.gray-tag {
+  color: #282e36 !important;
+  background: #f4f5f7;
+  border-radius: 16px;
+  padding: 8px 24px;
+}
