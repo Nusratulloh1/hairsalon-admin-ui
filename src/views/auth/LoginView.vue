@@ -32,7 +32,7 @@
         </el-form-item>
         <div class="flex flex-col items-start">
           <RouterLink to="/forgot-password" class="forgot-password"
-            >Забыли пароль?</RouterLink
+            >Forgot Password?</RouterLink
           >
           <el-button
             class="mt-4 md:mt-7"
