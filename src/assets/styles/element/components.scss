@@ -1,3 +1,4 @@
+@import "../colors.scss";
 // Table
 .el-table--striped {
   font-size: 14px;
@@ -6,7 +7,8 @@
   th {
     border: none !important;
     font-weight: 500;
-    color: #8492a9;
+    background-color: $primary !important;
+    color: #fff;
   }
   tr.el-table__row--striped td.el-table__cell {
     background: #f6f7f9 !important;

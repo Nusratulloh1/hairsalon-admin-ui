@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper">
-    <TheHeader class="the-header"></TheHeader>
-    <div
-      class="content max-w-screen-xl mx-auto pb-4 px-8 md:px-0 pt-12 md:pt-20 pb-8 md:pb-12"
-    >
+    <TheHeader class="the-header border-b"></TheHeader>
+    <TheSidebar class="sidebar" />
+    <div class="content p-4 md:p-8">
       <RouterView />
     </div>
     <TheFooter />
@@ -13,28 +12,32 @@
 <script setup lang="ts">
 import TheHeader from "./components/Header/TheHeader.vue";
 import TheFooter from "./components/Footer/TheFooter.vue";
+import TheSidebar from "./components/Sidebar/TheSidebar.vue";
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/styles/colors.scss";
 .wrapper {
-  background: $app-bg-gradient;
+  background: #ffffff;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 300px 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header"
-    "main"
-    "footer";
+    "sidebar header"
+    "sidebar main"
+    "sidebar footer";
 
   .the-header {
-    height: 94px;
-    background: $app-bg-gradient;
+    height: 90px;
+    // background: $app-bg-gradient;
   }
   .content {
     grid-area: main;
     overflow: auto;
+  }
+  .sidebar {
+    grid-area: sidebar;
   }
 }
 </style>

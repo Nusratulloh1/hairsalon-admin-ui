@@ -6,7 +6,7 @@ import type { RouteLocationNormalized } from "vue-router";
 import { useUsersStore } from "./stores/user";
 import { i18n } from "@/i18n";
 
-const title = "Axel";
+const title = "Admission";
 
 NProgress.configure({ showSpinner: false });
 

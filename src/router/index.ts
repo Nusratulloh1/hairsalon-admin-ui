@@ -1,13 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DashboardLayout from "@/layout/DashboardLayout.vue";
 import LoginLayout from "@/layout/LoginLayout.vue";
-import {
-  clientsRoutes,
-  companyRoutes,
-  orderssRoutes,
-  toolsRoutes,
-  warehouseRoutes,
-} from "./modules";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -79,11 +72,18 @@ const router = createRouter({
         },
       ],
     },
-    companyRoutes,
-    clientsRoutes,
-    warehouseRoutes,
-    orderssRoutes,
-    toolsRoutes,
+    {
+      path: "/tuition",
+      component: DashboardLayout,
+      children: [
+        {
+          path: "",
+          name: "tuition",
+          component: () => import("@/views/tuition/TuitionView.vue"),
+          meta: { breadcrumb: "tuition" },
+        },
+      ],
+    },
   ],
 });
 

@@ -1,72 +1,21 @@
 <template>
   <div class="app-header">
-    <TheLogo />
+    <div></div>
     <div class="flex space-x-6">
-      <div class="white-card header-search">
-        <el-input
-          v-model="input"
-          placeholder="Искать клиента, заказ, сотрудника"
-          :prefix-icon="Search"
-          size="large"
-        />
-      </div>
-      <el-dropdown
-        trigger="click"
-        class="flex justify-center white-card"
-        @command="handleLanChange"
-      >
-        <div class="flex items-center justify-center space-x-2 px-2">
-          <LanguageIcon class="h-5 w-5 fill-purple" />
-          <span class="text-purple">{{ activeLang }}</span>
-          <el-icon class="text-purple">
-            <arrow-down class="text-purple" />
-          </el-icon>
-        </div>
-        <template #dropdown>
-          <el-dropdown-menu class="purple-dropdown">
-            <el-dropdown-item
-              command="ru"
-              class="flex items-center space-x-3 !py-3"
-            >
-              <span class="text-purple">Русский</span>
-            </el-dropdown-item>
-            <el-dropdown-item
-              command="uz"
-              class="flex items-center space-x-3 !py-3"
-            >
-              <span class="text-purple">O'zbekcha</span>
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
       <el-dropdown
         @command="handleProfileChange"
         trigger="click"
-        class="flex justify-center white-card"
+        class="flex justify-center"
       >
         <div class="flex items-center justify-center space-x-2 px-2">
-          <UserIcon class="h-5 w-5 fill-purple" />
-          <span class="text-purple">{{ $t("app.profile") }}</span>
-          <el-icon class="text-purple">
-            <arrow-down class="text-purple" />
+          <UserIcon class="h-5 w-5 fill-gray-400" />
+          <span class="text-gray-500 font-medium text-base">John Doe</span>
+          <el-icon class="text-gray-500 text-base">
+            <arrow-down class="text-gray-500" />
           </el-icon>
         </div>
         <template #dropdown>
-          <el-dropdown-menu class="purple-dropdown">
-            <el-dropdown-item
-              command="profile"
-              class="flex items-center space-x-3 !py-3"
-            >
-              <UserIcon class="h-5 w-5 fill-purple" />
-              <span class="text-purple">{{ $t("app.profile") }}</span>
-            </el-dropdown-item>
-            <el-dropdown-item
-              command="subscription"
-              class="flex items-center space-x-3 !py-3"
-            >
-              <DiamondIcon class="h-5 w-5 fill-purple" />
-              <span class="text-purple">{{ $t("app.subscription") }}</span>
-            </el-dropdown-item>
+          <el-dropdown-menu class="purple-dropdown w-36">
             <el-dropdown-item
               command="logout"
               class="flex items-center space-x-3 !py-3"
@@ -131,7 +80,7 @@ const handleProfileChange = (command: string) => {
 @import "@/assets/styles/colors.scss";
 .app-header {
   background: $bg-white;
-  padding: 0 89px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -149,6 +98,6 @@ const handleProfileChange = (command: string) => {
 <style lang="scss">
 @import "@/assets/styles/colors.scss";
 .purple-dropdown .el-dropdown-menu__item:not(.is-disabled):focus {
-  background-color: $bg-purple !important;
+  // background-color: $bg-purple !important;
 }
 </style>
