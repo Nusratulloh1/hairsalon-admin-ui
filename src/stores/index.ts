@@ -6,3 +6,4 @@ export * from "./file";
 export * from "./goals";
 export * from "./templates";
 export * from "./warehouse";
+export * from "./application";

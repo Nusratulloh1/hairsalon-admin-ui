@@ -1,7 +1,7 @@
 <template>
   <div class="table-wrapper">
     <el-table
-      :data="list"
+      :data="tuitions"
       stripe
       style="width: 100%"
       row-class-name="cursor-pointer"
@@ -33,6 +33,15 @@
 </template>
 
 <script setup lang="ts">
+import { useGuideStore } from "@/stores";
+import { onMounted, computed } from "vue";
+
+const guideStore = useGuideStore();
+onMounted(() => {
+  guideStore.fetchTuitions();
+});
+
+const tuitions = computed(() => guideStore.tuitions);
 const list = [
   {
     id: "64023675a87e9a14fec7cebc",

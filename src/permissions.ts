@@ -10,13 +10,7 @@ const title = "Admission";
 
 NProgress.configure({ showSpinner: false });
 
-const whiteList = [
-  "/login",
-  "/signin",
-  "/invite",
-  "/forgot-password",
-  "/reset-password",
-];
+const whiteList = ["/login", "/signin", "/check-mail"];
 
 const getPageTitle = (key: string) => {
   const { t, te } = i18n.global as any;
@@ -46,12 +40,13 @@ router.beforeEach(
         // If is logged in, redirect to the home page
         next({ path: "/" });
         NProgress.done();
+      } else if (to.path === "/verification" && !store.user?.is_verified) {
+        next();
       } else {
         // Check whether the user has obtained his permission roles
         if (!store.getUser) {
           try {
             await store.getUserInfo();
-
             next({ ...to, replace: true });
           } catch (err: any) {
             // Remove token and redirect to login page

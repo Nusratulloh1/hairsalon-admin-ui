@@ -7,6 +7,14 @@ export interface IAcceptInvite {
   confirm_password: string;
   password: string;
 }
+
+export interface ISigninForm {
+  email: string;
+  first_name: string;
+  last_name: string;
+  confirm_password: string;
+  password: string;
+}
 export interface IResetInvite {
   code: string;
   otp: string;
@@ -23,9 +31,9 @@ export interface IUser {
   id: string;
   email: string;
   phone: string;
-  name: string;
-  surname: string;
-  middle_name?: string;
+  first_name: string;
+  last_name: string;
   avatar?: string;
   roles: IUserRole[];
+  is_verified: boolean;
 }

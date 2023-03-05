@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 
-import request from "@/utils/file-request";
+import request from "@/utils/request";
 
 export const useFileStore = defineStore("file", {
   actions: {
     async uploadFile(file: File) {
       const formData = new FormData();
-
+      console.log("file", file);
       formData.append("file", file, file.name);
 
       return request.post("/file/upload", formData);

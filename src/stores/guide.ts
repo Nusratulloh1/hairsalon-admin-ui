@@ -9,6 +9,9 @@ interface GuideState {
   roles?: IRole[] | null;
   usd: IUSD | null;
   weather: any;
+  tuitions: any[];
+  examDates: any[];
+  regions: any[];
 }
 
 export const useGuideStore = defineStore("guide", {
@@ -16,6 +19,9 @@ export const useGuideStore = defineStore("guide", {
     roles: [],
     usd: null,
     weather: null,
+    tuitions: [],
+    examDates: [],
+    regions: [],
   }),
 
   actions: {
@@ -24,6 +30,18 @@ export const useGuideStore = defineStore("guide", {
         for_client: true,
       });
       this.roles = response;
+    },
+    async fetchTuitions() {
+      const tuitions = await request.post("/program/list");
+      this.tuitions = tuitions;
+    },
+    async fetchExamDates() {
+      const examDates = await request.post("/application/exam-dates");
+      this.examDates = examDates;
+    },
+    async fetchRegions() {
+      const regions = await request.post("/application/regions");
+      this.regions = regions;
     },
     async fetchUSD() {
       const response = await request.post("/reference/currency");
@@ -51,5 +69,17 @@ export const useGuideStore = defineStore("guide", {
         description: "",
       };
     },
+    getExamDates: (state): ControlItem[] =>
+      state.examDates.map((date) => ({ value: date.id, label: date.duration })),
+    getRegions: (state): ControlItem[] =>
+      state.regions.map((region) => ({
+        value: region.id,
+        label: region.name?.uz,
+      })),
+    getTuitions: (state): ControlItem[] =>
+      state.tuitions.map((tution) => ({
+        value: tution.id,
+        label: tution.program,
+      })),
   },
 });

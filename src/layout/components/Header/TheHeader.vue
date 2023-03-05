@@ -9,7 +9,10 @@
       >
         <div class="flex items-center justify-center space-x-2 px-2">
           <UserIcon class="h-5 w-5 fill-gray-400" />
-          <span class="text-gray-500 font-medium text-base">John Doe</span>
+          <span class="text-gray-500 font-medium text-base"
+            >{{ store.getUser?.first_name || " " }}
+            {{ store.getUser?.last_name }}</span
+          >
           <el-icon class="text-gray-500 text-base">
             <arrow-down class="text-gray-500" />
           </el-icon>
@@ -31,15 +34,9 @@
 </template>
 
 <script setup lang="ts">
-import TheLogo from "./TheLogo.vue";
-import {
-  DiamondIcon,
-  UserIcon,
-  LogoutIcon,
-  LanguageIcon,
-} from "@/components/icons";
+import { UserIcon, LogoutIcon } from "@/components/icons";
 
-import { Search, ArrowDown } from "@element-plus/icons-vue";
+import { ArrowDown } from "@element-plus/icons-vue";
 import { ref } from "vue";
 import { setLocale, i18n } from "@/i18n";
 import { ElMessageBox } from "element-plus";
@@ -53,13 +50,6 @@ const route = useRoute();
 const localeShorts: any = {
   uz: "Uz",
   ru: "Ру",
-};
-const activeLang = ref<string>(localeShorts[i18n.global.locale.value]);
-const input = ref("");
-
-const handleLanChange = (command: string) => {
-  setLocale(command);
-  activeLang.value = localeShorts[command];
 };
 
 const handleProfileChange = (command: string) => {

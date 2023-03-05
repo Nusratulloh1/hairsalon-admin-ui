@@ -1,7 +1,7 @@
 <template>
   <div class="grid md:grid-cols-2 h-full">
-    <div class="space-y-6 px-4 md:px-24 md:pt-8 h-full relative">
-      <div class="header flex flex-col items-start space-y-6 md:space-y-8">
+    <div class="space-y-6 px-4 md:px-24 md:pt-6 h-full relative">
+      <div class="header flex flex-col items-start space-y-6 md:space-y-6">
         <LogoutIconWithName />
         <h1 class="header__title">
           Welcome to AKFA University Admissions 2023/2024!
@@ -14,9 +14,17 @@
         :hide-required-asterisk="true"
         label-position="top"
       >
-        <el-form-item label="Full Name" prop="full_name">
+        <el-form-item label="First Name" prop="first_name">
           <el-input
-            v-model="ruleForm.full_name"
+            v-model="ruleForm.first_name"
+            type="text"
+            autocomplete="off"
+            class="!h-11"
+          />
+        </el-form-item>
+        <el-form-item label="Last Name" prop="last_name">
+          <el-input
+            v-model="ruleForm.last_name"
             type="text"
             autocomplete="off"
             class="!h-11"
@@ -55,7 +63,7 @@
         >
           Create Account
         </el-button>
-        <div class="mt-4 md:mt-6">
+        <div class="mt-4 md:mt-6 mb-2">
           <p>
             Already have an account?
             <RouterLink to="/login" class="text-primary font-medium"
@@ -72,13 +80,14 @@
 </template>
 
 <script setup lang="ts">
+import sha1 from "sha1";
 import { LogoutIconWithName } from "@/components/icons";
-import LoginCard from "./components/LoginCard.vue";
 import { reactive, ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { useUsersStore } from "@/stores/user";
 import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
+import type { ISigninForm } from "@/models/backend";
 
 const i18n = useI18n();
 const store = useUsersStore();
@@ -86,7 +95,8 @@ const router = useRouter();
 
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
-  full_name: "",
+  first_name: "",
+  last_name: "",
   email: "",
   password: "",
   confirm_password: "",
@@ -114,7 +124,14 @@ const validatePass2 = (rule: any, value: any, callback: any) => {
 };
 
 const rules = reactive<FormRules>({
-  full_name: [
+  first_name: [
+    {
+      required: true,
+      message: i18n.t("validation.fillField"),
+      trigger: "blur",
+    },
+  ],
+  last_name: [
     {
       required: true,
       message: i18n.t("validation.fillField"),
@@ -151,12 +168,17 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (valid) {
       try {
         loading.value = true;
-        await store.login(ruleForm);
+        const data: ISigninForm = {
+          ...ruleForm,
+          password: sha1(ruleForm.password),
+          confirm_password: sha1(ruleForm.confirm_password),
+        };
+        await store.signin(data);
+        await store.sendVerifyEmail();
+        router.push("/check-mail");
         loading.value = false;
-        router.push("/");
       } catch (error) {
         console.log("error", error);
-
         loading.value = false;
       }
     }

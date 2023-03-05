@@ -12,7 +12,7 @@ request.interceptors.request.use(
   (config) => {
     const store = useUsersStore();
     if (store.token) {
-      config.headers["Authorization"] = `Bearer ${store.token}`;
+      config.headers["Authorization"] = `${store.token}`;
     }
     return config;
   },

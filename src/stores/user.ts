@@ -3,6 +3,7 @@ import type {
   IUser,
   IAcceptInvite,
   IResetInvite,
+  ISigninForm,
 } from "@/models/backend";
 import { defineStore } from "pinia";
 import {
@@ -35,12 +36,27 @@ export const useUsersStore = defineStore("users", {
       setRefreshToken(response.refresh_token);
     },
 
+    async signin(signinForm: ISigninForm) {
+      const response = await request.post("/auth/register", signinForm);
+      this.token = response.access_token;
+      setAccessToken(response.access_token);
+    },
+
+    async sendVerifyEmail() {
+      return request.post("/auth/send-verify-email");
+    },
+    async verifyEmail(code: string) {
+      return request.post("/auth/verify", { code });
+    },
+
     async acceptInviteSetPassword(acceptInvite: IAcceptInvite) {
       return request.post("/auth/accept-invite-set-password", acceptInvite);
     },
+
     async resetPassword(acceptInvite: IResetInvite) {
       return request.post("/auth/reset-password", acceptInvite);
     },
+
     async sendCodeToEmail(formData: { email: string }) {
       try {
         const response = await request.post("/auth/email-send-code", formData);

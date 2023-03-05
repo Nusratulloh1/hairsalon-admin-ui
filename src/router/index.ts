@@ -17,6 +17,17 @@ const router = createRouter({
       ],
     },
     {
+      path: "/check-mail",
+      component: LoginLayout,
+      children: [
+        {
+          path: "",
+          name: "check-mail",
+          component: () => import("@/views/auth/CheckMailView.vue"),
+        },
+      ],
+    },
+    {
       path: "/signin",
       component: LoginLayout,
       children: [
@@ -39,12 +50,12 @@ const router = createRouter({
       ],
     },
     {
-      path: "/invite",
+      path: "/verification",
       component: LoginLayout,
       children: [
         {
           path: "",
-          name: "invite",
+          name: "verification",
           component: () => import("@/views/auth/InviteView.vue"),
         },
       ],

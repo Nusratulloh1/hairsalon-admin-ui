@@ -62,13 +62,12 @@
 
 <script setup lang="ts">
 import { LogoutIconWithName } from "@/components/icons";
-import LoginCard from "./components/LoginCard.vue";
 import { reactive, ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { useUsersStore } from "@/stores/user";
 import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
-
+import sha1 from "sha1";
 const i18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
@@ -113,7 +112,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (valid) {
       try {
         loading.value = true;
-        await store.login(ruleForm);
+        const data = {
+          ...ruleForm,
+          password: sha1(ruleForm.password),
+        };
+        await store.login(data);
         loading.value = false;
         router.push("/");
       } catch (error) {
