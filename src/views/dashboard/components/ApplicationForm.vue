@@ -66,6 +66,7 @@
           v-model="ruleForm.first_name"
           type="text"
           autocomplete="off"
+          :placeholder="$t('shared.text')"
           size="large"
         />
       </el-form-item>
@@ -89,7 +90,7 @@
       <el-form-item label="Date of Birth" prop="birth_date">
         <el-date-picker
           v-model="ruleForm.birth_date"
-          placeholder="Выберите"
+          :placeholder="$t('shared.select')"
           size="large"
           class="!w-full"
         >
@@ -370,13 +371,13 @@ const rules = reactive<FormRules>({
       trigger: "blur",
     },
   ],
-  certificate_number: [
-    {
-      required: true,
-      message: i18n.t("validation.fillField"),
-      trigger: "blur",
-    },
-  ],
+  //   certificate_number: [
+  //     {
+  //       required: true,
+  //       message: i18n.t("validation.fillField"),
+  //       trigger: "blur",
+  //     },
+  //   ],
   first_name: [
     {
       required: true,
@@ -461,13 +462,13 @@ const rules = reactive<FormRules>({
       trigger: "submit",
     },
   ],
-  certificate: [
-    {
-      required: true,
-      message: i18n.t("validation.fillField"),
-      trigger: "submit",
-    },
-  ],
+  //   certificate: [
+  //     {
+  //       required: true,
+  //       message: i18n.t("validation.fillField"),
+  //       trigger: "submit",
+  //     },
+  //   ],
 });
 
 onMounted(async () => {

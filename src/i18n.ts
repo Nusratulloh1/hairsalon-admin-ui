@@ -21,8 +21,8 @@ const numberFormats: any = {
 
 export const i18n = createI18n({
   legacy: false,
-  locale: "ru",
-  fallbackLocale: "uz",
+  locale: "en",
+  fallbackLocale: "ru",
   globalInjection: true,
   messages,
   numberFormats,

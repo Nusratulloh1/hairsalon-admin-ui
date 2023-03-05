@@ -1,6 +1,6 @@
 <template>
-  <div class="grid md:grid-cols-2 h-full">
-    <div class="space-y-6 px-4 md:px-24 md:pt-8 h-full relative">
+  <div class="grid grid-cols-1 md:grid-cols-2 h-full">
+    <div class="space-y-6 px-4 md:px-24 pt-4 md:pt-8 h-full relative">
       <div class="header flex flex-col items-start space-y-8 md:space-y-12">
         <LogoutIconWithName />
         <h1 class="header__title">
@@ -54,7 +54,9 @@
         </div>
       </el-form>
     </div>
-    <div class="right-content h-full flex items-center justify-center">
+    <div
+      class="hidden md:flex right-content h-full items-center justify-center"
+    >
       <p>Join us now and start empowering your future!</p>
     </div>
   </div>
