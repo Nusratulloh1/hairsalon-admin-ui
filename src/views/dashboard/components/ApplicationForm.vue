@@ -167,6 +167,21 @@
           </template>
         </el-upload>
       </el-form-item>
+      <el-form-item
+        label="English proficiency certificate"
+        prop="proficiency_certificate"
+      >
+        <el-select
+          v-model="ruleForm.proficiency_certificate"
+          size="large"
+          class="w-full"
+        >
+          <el-option label="IELTS" value="ielts" />
+          <el-option label="TOEFL" value="toefl" />
+          <el-option label="DUOLINGO" value="duolingo" />
+          <el-option label="IEPTE" value="iepte" />
+        </el-select>
+      </el-form-item>
       <el-form-item label="English proficiency certificate" prop="certificate">
         <el-upload
           ref="uploadRef"
@@ -313,7 +328,8 @@ const ruleForm = reactive({
   take_internal_exam: false,
   is_accept: false,
   is_scholarship: true,
-  certificate_number: "",
+  certificate_number: null as any,
+  proficiency_certificate: null as any,
   exam_date_id: "",
   program_id: "",
   passport_number: "",
