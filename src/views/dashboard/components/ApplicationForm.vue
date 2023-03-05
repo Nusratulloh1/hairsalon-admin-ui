@@ -5,6 +5,7 @@
     :rules="rules"
     label-position="top"
     require-asterisk-position="right"
+    v-loading="loading"
   >
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item label="Phone Number" prop="phone">
@@ -528,6 +529,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         }
 
         await applicationStore.createApplication(data);
+        loading.value = false;
         ElMessage({
           message: "Successfully created",
           type: "success",
