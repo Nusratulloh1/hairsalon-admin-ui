@@ -8,18 +8,28 @@
     >
       <el-table-column
         prop="program"
-        label="Programm"
-        min-width="180"
+        label="Faculties & Departments"
+        min-width="200"
         align="left"
       />
       <el-table-column
         prop="per_semester"
-        label="Semestr fee (UZS)"
-        width="180"
+        label="Local Students (UZS)"
+        min-width="160"
         align="center"
       >
         <template #default="{ row }">
           {{ $n(row.per_semester) }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="fee_foreign_student"
+        label="International Students (USD)"
+        min-width="160"
+        align="center"
+      >
+        <template #default="{ row }">
+          {{ $n(row.fee_foreign_student) }}
         </template>
       </el-table-column>
       <el-table-column
