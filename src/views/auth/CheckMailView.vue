@@ -5,8 +5,8 @@
       <h1 class="header__title">Thank you for registration!</h1>
       <div class="space-y-4">
         <p class="font-medium">
-          Please, verify your email from the message that has been sent to your
-          via mail, in order to use our system!
+          Please, verify your email from the message that has been sent to you
+          via email, in order to use our system!
         </p>
         <p class="text-primary">
           Note, if you can not find the email, check the spam folder!
