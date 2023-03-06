@@ -47,7 +47,11 @@ router.beforeEach(
         if (!store.getUser) {
           try {
             await store.getUserInfo();
-            next({ ...to, replace: true });
+            if (!store.user?.is_verified) {
+              next("/check-mail");
+            } else {
+              next({ ...to, replace: true });
+            }
           } catch (err: any) {
             // Remove token and redirect to login page
             store.resetToken();
