@@ -49,7 +49,8 @@
               Adress Information
             </dt>
             <dd class="mt-1 text-sm text-gray-900">
-              {{ application.city?.name?.uz }}, {{ application.address }}
+              {{ application.city?.name?.en || application.city?.name?.uz }},
+              {{ application.address }}
             </dd>
           </div>
           <div class="sm:col-span-1">
