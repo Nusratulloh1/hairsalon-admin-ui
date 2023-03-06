@@ -72,10 +72,12 @@ export const useGuideStore = defineStore("guide", {
     getExamDates: (state): ControlItem[] =>
       state.examDates.map((date) => ({ value: date.id, label: date.duration })),
     getRegions: (state): ControlItem[] =>
-      state.regions.map((region) => ({
-        value: region.id,
-        label: region.name?.uz,
-      })),
+      state.regions
+        .filter((region) => region.type === "province")
+        .map((region) => ({
+          value: region.id,
+          label: region.name?.en || region.name?.uz,
+        })),
     getTuitions: (state): ControlItem[] =>
       state.tuitions.map((tution) => ({
         value: tution.id,

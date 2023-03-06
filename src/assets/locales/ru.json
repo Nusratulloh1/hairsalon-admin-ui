@@ -36,6 +36,7 @@
   },
   "app": {
     "dashboard": "Главная",
+    "tuition": "Tuition Fee",
     "dashboardTitle": "Админ панель для контроля и управления бизнеса",
     "company": "Предприятие",
     "managementCompanyStructure": "Управление структурой предприятия",

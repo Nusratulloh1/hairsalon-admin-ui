@@ -17,7 +17,7 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="City" prop="city_id">
+      <el-form-item label="Region" prop="city_id">
         <el-select
           v-model="ruleForm.city_id"
           :placeholder="$t('shared.select')"
@@ -56,6 +56,8 @@
           size="large"
           class="w-full"
         >
+          <el-option label="School" value="SCHOOL" />
+          <el-option label="Lyceum" value="LYCEUM" />
         </el-select>
       </el-form-item>
     </div>
@@ -212,12 +214,11 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item
-        label="If you do not have English certificate, you can take the
-    INTERNAL ENGLISH EXAM"
-        prop="take_internal_exam"
-      >
-        <el-checkbox v-model="ruleForm.take_internal_exam" size="large" />
+      <el-form-item prop="take_internal_exam">
+        <el-checkbox v-model="ruleForm.take_internal_exam" size="large"
+          >If you do not have English certificate, you can take the INTERNAL
+          ENGLISH EXAM</el-checkbox
+        >
       </el-form-item>
     </div>
     <div class="app-divider my-2 md:my-4" />
@@ -279,11 +280,10 @@
           <el-radio :label="false">No</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item
-        label="I allow to use of my personal Information."
-        prop="is_accept"
-      >
-        <el-checkbox v-model="ruleForm.is_accept" size="large" />
+      <el-form-item prop="is_accept">
+        <el-checkbox v-model="ruleForm.is_accept" size="large"
+          >I allow to use of my personal Information.</el-checkbox
+        >
       </el-form-item>
     </div>
   </el-form>

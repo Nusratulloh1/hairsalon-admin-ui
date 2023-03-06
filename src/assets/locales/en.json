@@ -35,7 +35,8 @@
     "unit": "Единицы измерения"
   },
   "app": {
-    "dashboard": "Главная",
+    "dashboard": "Dashboard",
+    "tuition": "Tuition Fee",
     "dashboardTitle": "Админ панель для контроля и управления бизнеса",
     "company": "Предприятие",
     "managementCompanyStructure": "Управление структурой предприятия",

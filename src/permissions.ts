@@ -36,7 +36,7 @@ router.beforeEach(
 
     // Determine whether the user has logged in
     if (store.token) {
-      if (to.path === "/login") {
+      if (to.path === "/login" || to.path === "/signin") {
         // If is logged in, redirect to the home page
         next({ path: "/" });
         NProgress.done();
@@ -47,7 +47,10 @@ router.beforeEach(
         if (!store.getUser) {
           try {
             await store.getUserInfo();
-            if (!store.user?.is_verified) {
+            if (!store.user) {
+              store.resetToken();
+              next(`/login`);
+            } else if (!store.user?.is_verified) {
               next("/check-mail");
             } else {
               next({ ...to, replace: true });
