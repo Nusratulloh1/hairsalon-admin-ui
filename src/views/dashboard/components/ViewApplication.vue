@@ -90,8 +90,10 @@
       </dl>
       <div class="app-divider my-2 md:my-4" />
       <div class="flex items-center space-x-4">
-        <p class="font-medium text-base">Status:</p>
-        <el-tag>{{ application.status }}</el-tag>
+        <p class="font-medium text-xl">Status:</p>
+        <el-tag size="large"
+          ><span class="text-base">{{ application.status }}</span></el-tag
+        >
       </div>
     </div>
   </div>
