@@ -537,6 +537,10 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         applicationStore.getApplication();
       } catch (error: any) {
         loading.value = false;
+        ElMessage({
+          message: error?.message || "Error",
+          type: "error",
+        });
         console.log("error", error.message);
       }
     } else {
