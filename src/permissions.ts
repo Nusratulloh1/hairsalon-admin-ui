@@ -53,10 +53,13 @@ router.beforeEach(
             } else if (!store.user?.is_verified) {
               next("/check-mail");
             } else {
-              next({ ...to, replace: true });
+              if (to.meta?.admin && store.user.role !== "admin") {
+                next("/404");
+              } else {
+                next({ ...to, replace: true });
+              }
             }
           } catch (err: any) {
-            // Remove token and redirect to login page
             store.resetToken();
             ElMessage({
               message: err?.message || "Has Error",

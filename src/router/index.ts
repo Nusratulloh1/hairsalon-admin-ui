@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DashboardLayout from "@/layout/DashboardLayout.vue";
 import LoginLayout from "@/layout/LoginLayout.vue";
+import { adminRoutes } from "./modules";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -94,6 +95,11 @@ const router = createRouter({
           meta: { breadcrumb: "tuition" },
         },
       ],
+    },
+    adminRoutes,
+    {
+      path: "/:pathMatch(.*)*",
+      component: () => import("@/views/404/404.vue"),
     },
   ],
 });

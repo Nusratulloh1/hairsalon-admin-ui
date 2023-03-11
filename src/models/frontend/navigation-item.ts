@@ -6,3 +6,9 @@ export interface INavigationItem {
   shortName: string;
   childrens?: INavigationItem[];
 }
+
+export interface ISidebarItem {
+  route: string;
+  title: string;
+  icon: any;
+}

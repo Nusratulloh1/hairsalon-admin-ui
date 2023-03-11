@@ -13,19 +13,51 @@
 import TheHeader from "./components/Header/TheHeader.vue";
 import TheFooter from "./components/Footer/TheFooter.vue";
 import TheSidebar from "./components/Sidebar/TheSidebar.vue";
-import { Menu, WalletFilled } from "@element-plus/icons-vue";
+import {
+  Menu,
+  Postcard,
+  Memo,
+  User,
+  Document,
+  Bell,
+  ChatRound,
+} from "@element-plus/icons-vue";
 import type { ISidebarItem } from "@/models/frontend";
-
 const routes: ISidebarItem[] = [
   {
-    route: "/",
+    route: "/admin",
     title: "Dashboard",
     icon: Menu,
   },
   {
-    route: "/tuition",
-    title: "Tuition Fee",
-    icon: WalletFilled,
+    route: "/admin/applicants",
+    title: "Applicants",
+    icon: Postcard,
+  },
+  {
+    route: "/admin/departments",
+    title: "Departments",
+    icon: Memo,
+  },
+  {
+    route: "/admin/users",
+    title: "Users",
+    icon: User,
+  },
+  {
+    route: "/admin/exam-dates",
+    title: "Exam Dates",
+    icon: Document,
+  },
+  {
+    route: "/admin/notifications",
+    title: "Notifications",
+    icon: Bell,
+  },
+  {
+    route: "/admin/sms",
+    title: "Sms mailing",
+    icon: ChatRound,
   },
 ];
 </script>
@@ -45,7 +77,6 @@ const routes: ISidebarItem[] = [
 
   .the-header {
     height: 90px;
-    // background: $app-bg-gradient;
   }
   .content {
     grid-area: main;

@@ -34,6 +34,6 @@ export interface IUser {
   first_name: string;
   last_name: string;
   avatar?: string;
-  roles: IUserRole[];
+  role: "user" | "admin";
   is_verified: boolean;
 }
