@@ -53,7 +53,7 @@ router.beforeEach(
             } else if (!store.user?.is_verified) {
               next("/check-mail");
             } else {
-              if (to.meta?.admin && store.user.role !== "admin") {
+              if (to.meta?.admin && store.user.role === "user") {
                 next("/404");
               } else {
                 next({ ...to, replace: true });
