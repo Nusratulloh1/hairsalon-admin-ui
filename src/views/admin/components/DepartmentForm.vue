@@ -8,33 +8,43 @@
       require-asterisk-position="right"
     >
       <div class="grid sm:grid-cols-1 gap-y-1">
-        <el-form-item :label="$t('app.title')" prop="name">
+        <el-form-item label="Faculties & Departments" prop="program">
           <el-input
-            v-model="ruleForm.name"
+            v-model="ruleForm.program"
             type="text"
             autocomplete="off"
             :placeholder="$t('shared.text')"
             size="large"
           />
         </el-form-item>
-        <el-form-item :label="$t('app.address')" prop="address">
+        <el-form-item label="Local Students (UZS)" prop="per_semester">
           <el-input
-            v-model="ruleForm.address"
+            v-model="ruleForm.per_semester"
+            autocomplete="off"
+            :placeholder="$t('shared.text')"
+            size="large"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item
+          label="International Students (USD)"
+          prop="fee_foreign_student"
+        >
+          <el-input
+            v-model="ruleForm.fee_foreign_student"
+            autocomplete="off"
+            :placeholder="$t('shared.text')"
+            size="large"
+            type="number"
+          />
+        </el-form-item>
+        <el-form-item label="Duration (Semestrs)" prop="duration">
+          <el-input
+            v-model="ruleForm.duration"
             autocomplete="off"
             :placeholder="$t('shared.text')"
             size="large"
           />
-        </el-form-item>
-        <el-form-item :label="$t('app.orgType')" prop="type">
-          <el-select
-            v-model="ruleForm.type"
-            :placeholder="$t('shared.select')"
-            size="large"
-            class="w-full"
-          >
-            <el-option :label="$t('app.showroom')" value="showroom" />
-            <el-option :label="$t('app.factory')" value="factory" />
-          </el-select>
         </el-form-item>
       </div>
     </el-form>
@@ -49,39 +59,46 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from "element-plus";
 import { ref, reactive, onMounted } from "vue";
-import type { IOrganization } from "@/models/backend/organization.model";
 import { useI18n } from "vue-i18n";
 
 const i18n = useI18n();
 
 const props = defineProps<{
-  organization?: IOrganization | null;
+  department?: any | null;
   type?: "create" | "edit";
 }>();
 
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
-  name: "",
-  address: "",
-  type: "",
+  program: "",
+  per_semester: "",
+  fee_foreign_student: "",
+  duration: "",
 });
 
 const rules = reactive<FormRules>({
-  name: [
+  program: [
     {
       required: true,
       message: i18n.t("validation.fillField"),
       trigger: "blur",
     },
   ],
-  address: [
+  per_semester: [
     {
       required: true,
       message: i18n.t("validation.fillField"),
       trigger: "blur",
     },
   ],
-  type: [
+  fee_foreign_student: [
+    {
+      required: true,
+      message: i18n.t("validation.fillField"),
+      trigger: "blur",
+    },
+  ],
+  duration: [
     {
       required: true,
       message: i18n.t("validation.fillField"),
@@ -93,8 +110,8 @@ const rules = reactive<FormRules>({
 const emit = defineEmits(["onSubmit"]);
 
 onMounted(() => {
-  if (props.organization && props.type === "edit") {
-    Object.assign(ruleForm, props.organization);
+  if (props.department && props.type === "edit") {
+    Object.assign(ruleForm, props.department);
   }
 });
 
