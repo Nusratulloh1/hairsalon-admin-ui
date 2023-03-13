@@ -25,12 +25,12 @@ export const useGuideStore = defineStore("guide", {
   }),
 
   actions: {
-    // async fetchRoles() {
-    //   const response = await request.post("/reference/roles", {
-    //     for_client: true,
-    //   });
-    //   this.roles = response;
-    // },
+    async fetchRoles() {
+      const response = await request.post("/reference/roles", {
+        for_client: true,
+      });
+      this.roles = response;
+    },
     async fetchTuitions() {
       const tuitions = await request.post("/program/list");
       this.tuitions = tuitions;
@@ -57,32 +57,32 @@ export const useGuideStore = defineStore("guide", {
       const regions = await request.post("/application/regions");
       this.regions = regions;
     },
-    // async fetchUSD() {
-    //   const response = await request.post("/reference/currency");
-    //   this.usd = response;
-    // },
-    // async fetchWeather() {
-    //   const response = await request.post("/reference/weather");
-    //   this.weather = response;
-    // },
+    async fetchUSD() {
+      const response = await request.post("/reference/currency");
+      this.usd = response;
+    },
+    async fetchWeather() {
+      const response = await request.post("/reference/weather");
+      this.weather = response;
+    },
   },
 
   getters: {
     roleControls: (state): ControlItem[] => makeControlItems(state.roles),
-    // getWeather: (state): { temp: number; description: string } => {
-    //   if (state.weather) {
-    //     return {
-    //       temp: state.weather.main?.temp,
-    //       description: Array.isArray(state.weather.weather)
-    //         ? state.weather.weather[0]?.description
-    //         : "",
-    //     };
-    //   }
-    //   return {
-    //     temp: 0,
-    //     description: "",
-    //   };
-    // },
+    getWeather: (state): { temp: number; description: string } => {
+      if (state.weather) {
+        return {
+          temp: state.weather.main?.temp,
+          description: Array.isArray(state.weather.weather)
+            ? state.weather.weather[0]?.description
+            : "",
+        };
+      }
+      return {
+        temp: 0,
+        description: "",
+      };
+    },
     getExamDates: (state): ControlItem[] =>
       state.examDates.map((date) => ({ value: date.id, label: date.duration })),
     getRegions: (state): ControlItem[] =>
