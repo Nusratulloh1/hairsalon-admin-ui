@@ -25,7 +25,7 @@
     "priceValue": "{value} @:shared.sum",
     "deleteConfirm": "Это действие не может быть отменено. Продолжать?",
     "warning": "Warning",
-    "deleteCompleted": "Удаление завершено",
+    "deleteCompleted": "Removal completed",
     "gander": "Пол",
     "MALE": "Мужчина",
     "createdAt": "Дата создания",

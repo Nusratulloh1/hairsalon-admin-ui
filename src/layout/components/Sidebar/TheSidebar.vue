@@ -4,20 +4,23 @@
       <LogoIcon classes="logo" />
       <h1 class="logo-text">Admission</h1>
     </div>
-    <el-menu-item index="/">
-      <el-icon class="icon"><Menu /></el-icon>
-      <template #title>Dashboard</template>
-    </el-menu-item>
-    <el-menu-item index="/tuition">
-      <el-icon class="icon"><WalletFilled /></el-icon>
-      <template #title>Tuition Fee</template>
+    <el-menu-item
+      v-for="route of props.routes"
+      :key="route.route"
+      :index="route.route"
+    >
+      <el-icon class="icon"><component :is="route.icon" /></el-icon>
+      <template #title>{{ route.title }}</template>
     </el-menu-item>
   </el-menu>
 </template>
 
 <script setup lang="ts">
 import { LogoIcon } from "@/components/icons";
-import { Menu, WalletFilled } from "@element-plus/icons-vue";
+import type { ISidebarItem } from "@/models/frontend";
+const props = defineProps<{
+  routes: ISidebarItem[];
+}>();
 </script>
 
 <style scoped lang="scss">
