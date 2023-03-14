@@ -7,3 +7,4 @@ export * from "./goals";
 export * from "./templates";
 export * from "./warehouse";
 export * from "./application";
+export * from "./exam-dates";
