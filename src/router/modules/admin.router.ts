@@ -30,7 +30,7 @@ export const adminRoutes = {
     {
       path: "exam-dates",
       name: "exam-dates",
-      component: () => import("@/views/admin/ExamDatesView.vue"),
+      component: () => import("@/views/admin/ExamYearsView.vue"),
       meta: { admin: true },
     },
     {
