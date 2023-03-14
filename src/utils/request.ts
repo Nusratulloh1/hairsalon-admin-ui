@@ -26,11 +26,14 @@ request.interceptors.response.use(
   (response) => response.data,
   (error) => {
     const errorResponse = JSON.parse(error.request.response);
-    ElMessage({
-      message: errorResponse.message,
-      type: "error",
-      duration: 5 * 1000,
-    });
+
+    if (errorResponse.statusCode !== 401) {
+      ElMessage({
+        message: errorResponse.message,
+        type: "error",
+        duration: 5 * 1000,
+      });
+    }
     return Promise.reject(error);
   }
 );

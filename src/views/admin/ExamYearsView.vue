@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-end mb-4">
     <el-button type="primary" size="large" @click="openDepartmentFormDialog"
-      >ADD DEPARTMENTS</el-button
+      >Add Exam Year</el-button
     >
   </div>
   <div class="table-wrapper" v-loading="loading">
