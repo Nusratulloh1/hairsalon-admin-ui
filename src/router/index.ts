@@ -85,6 +85,18 @@ const router = createRouter({
       ],
     },
     {
+      path: "/resend",
+      component: DashboardLayout,
+      children: [
+        {
+          path: ":id",
+          name: "resend",
+          component: () => import("@/views/dashboard/ResendForm.vue"),
+          meta: { breadcrumb: "resend" },
+        },
+      ],
+    },
+    {
       path: "/tuition",
       component: DashboardLayout,
       children: [
