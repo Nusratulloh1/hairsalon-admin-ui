@@ -53,7 +53,7 @@
 <script setup lang="ts">
 import { useExamDatesStore } from "@/stores";
 import { onMounted, computed, ref } from "vue";
-import { Delete, EditPen, View } from "@element-plus/icons-vue";
+import { Delete, View } from "@element-plus/icons-vue";
 import { useModal } from "@/composables";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { useI18n } from "vue-i18n";
@@ -81,17 +81,7 @@ const openDepartmentFormDialog = () => {
   modal.setWidth("50%");
   modal.showModal();
 };
-const onEditClick = async (row: any) => {
-  try {
-    examYear.value = row;
-    formType.value = "edit";
-    modal.setTitle(i18n.t("Add exam year"));
-    modal.setWidth("50%");
-    modal.showModal();
-  } catch (error: any) {
-    console.log("error", error.message);
-  }
-};
+
 const confirmDelete = (id: string) => {
   ElMessageBox.confirm(
     "This action cannot be undone. Continue?",

@@ -19,12 +19,14 @@ import request from "@/utils/request";
 interface UserState {
   token?: string;
   user: IUser | null;
+  users: IUser[];
 }
 
 export const useUsersStore = defineStore("users", {
   state: (): UserState => ({
     token: getAccessToken() || "",
     user: null,
+    users: [],
   }),
 
   actions: {
@@ -45,6 +47,7 @@ export const useUsersStore = defineStore("users", {
     async sendVerifyEmail() {
       return request.post("/auth/send-verify-email");
     },
+
     async verifyEmail(code: string) {
       return request.post("/auth/verify", { code });
     },
@@ -64,6 +67,25 @@ export const useUsersStore = defineStore("users", {
       } catch (error: any) {
         console.log("error", error.message);
       }
+    },
+
+    async createUser(formData: Omit<IUser, "id" | "is_verified">) {
+      await request.post("/users/create", formData);
+      this.getUsers();
+    },
+
+    async updateUser(formData: Omit<IUser, "is_verified">) {
+      await request.post("/users/update", formData);
+      this.getUsers();
+    },
+
+    async remoevUser(id: string) {
+      await request.post("/users/remove", { id });
+      this.getUsers();
+    },
+
+    async getUsers() {
+      this.users = await request.post("/users/list");
     },
 
     async getUserInfo() {

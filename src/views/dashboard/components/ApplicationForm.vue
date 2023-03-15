@@ -303,7 +303,7 @@ import {
   type FormRules,
   type UploadFile,
 } from "element-plus";
-import { ref, reactive, onMounted, computed } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import {
   passportNumberPattern,
