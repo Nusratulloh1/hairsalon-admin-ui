@@ -8,7 +8,7 @@
       require-asterisk-position="right"
     >
       <div class="grid sm:grid-cols-1 gap-y-1">
-        <el-form-item label="Faculties & Departments" prop="program">
+        <el-form-item label="Exam year" prop="program">
           <el-input
             v-model="ruleForm.program"
             type="text"
