@@ -92,10 +92,33 @@
       <div class="app-divider my-2 md:my-4" />
       <div class="flex items-center space-x-4">
         <p class="font-medium text-xl">Status:</p>
-        <el-tag size="large"
-          ><span class="text-base">{{ application.status }}</span></el-tag
+        <el-tag
+          size="large"
+          v-if="application.status === 'pending'"
+          type="warning"
+          ><span class="text-base">Pending</span></el-tag
+        >
+        <el-tag
+          size="large"
+          v-if="application.status === 'accept'"
+          type="success"
+          ><span class="text-base">Accept</span></el-tag
+        >
+        <el-tag
+          size="large"
+          v-if="application.status === 'reject'"
+          type="danger"
+          ><span class="text-base">Reject</span></el-tag
         >
       </div>
+      <el-button
+        class="mt-6"
+        v-if="application.status === 'reject'"
+        size="large"
+        type="primary"
+        @click="router.push(`/resend/${application.id}`)"
+        >Resend application</el-button
+      >
     </div>
   </div>
 </template>
@@ -104,7 +127,9 @@
 import { useFileStore, useUsersStore } from "@/stores";
 import { format } from "date-fns";
 import { onMounted, ref, computed } from "vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const fileStore = useFileStore();
 const userStore = useUsersStore();
 

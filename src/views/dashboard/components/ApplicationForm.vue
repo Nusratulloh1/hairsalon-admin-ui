@@ -303,7 +303,7 @@ import {
   type FormRules,
   type UploadFile,
 } from "element-plus";
-import { ref, reactive, onMounted, computed } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import {
   passportNumberPattern,
@@ -312,6 +312,8 @@ import {
 } from "@/utils/regex";
 import { convertPhone } from "@/utils/mappers";
 import { format } from "date-fns";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
@@ -488,6 +490,10 @@ const rules = reactive<FormRules>({
   //   ],
 });
 
+const props = defineProps<{
+  application?: any;
+}>();
+
 onMounted(async () => {
   if (!guideStore.getExamDates.length) {
     guideStore.fetchExamDates();
@@ -510,7 +516,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
           ...ruleForm,
           phone: convertPhone(ruleForm.phone),
           birth_date: format(new Date(ruleForm.birth_date), "yyyy-MM-dd"),
-        };
+        } as any;
 
         const passport = await fileStore.uploadFile(ruleForm.passport);
         data["passport"] = passport;
@@ -527,8 +533,13 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         } else {
           delete data.certificate;
         }
-
-        await applicationStore.createApplication(data);
+        if (props.application) {
+          data["id"] = props.application.id;
+          await applicationStore.updateApplication(data);
+          router.push("/");
+        } else {
+          await applicationStore.createApplication(data);
+        }
         loading.value = false;
         ElMessage({
           message: "Successfully created",

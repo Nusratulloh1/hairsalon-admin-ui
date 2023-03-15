@@ -27,3 +27,58 @@ export interface IApplicationByGender {
   female: number;
   male: number;
 }
+interface IImageBucket {
+  id: string;
+  name: string;
+  size: number;
+  type: string;
+  created_at: Date;
+  bucket_name: string;
+}
+export interface IAplication {
+  id: string;
+  phone: string;
+  graduation_place: string;
+  address: string;
+  graduation_id: string;
+  first_name: string;
+  last_name: string;
+  passport_serial: string;
+  passport_number: string;
+  birth_date: string;
+  gender: "male" | "female";
+  passport: IImageBucket;
+  photo: IImageBucket;
+  diploma: IImageBucket;
+  certificate?: IImageBucket;
+  proficiency_certificate?: string;
+  certificate_number?: string;
+  take_internal_exam: boolean;
+  is_scholarship: boolean;
+  is_accept: boolean;
+  application_year: string;
+  status: string;
+  created_at: Date;
+  creator: {
+    id: string;
+    email: string;
+  };
+  region: {
+    id: string;
+    name: string;
+  };
+  program: {
+    id: string;
+    name: string;
+  };
+  exam_date: {
+    id: string;
+    name: string;
+  };
+  responder?: any;
+}
+
+export interface IApplicationFilter {
+  limit: number;
+  page: number;
+}

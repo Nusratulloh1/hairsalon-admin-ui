@@ -30,10 +30,10 @@ export interface IUserRole {
 export interface IUser {
   id: string;
   email: string;
-  phone: string;
+  phone?: string;
   first_name: string;
   last_name: string;
   avatar?: string;
-  role: "user" | "admin";
+  role: "user" | "admin" | "moderator" | "super_admin";
   is_verified: boolean;
 }
