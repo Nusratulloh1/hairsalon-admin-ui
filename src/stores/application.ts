@@ -58,5 +58,9 @@ export const useApplicationStore = defineStore("application", {
         "/application/report/gender"
       );
     },
+
+    async getApplicationFileId() {
+      return request.post("/application/export", { page: 1, limit: 20 });
+    },
   },
 });
