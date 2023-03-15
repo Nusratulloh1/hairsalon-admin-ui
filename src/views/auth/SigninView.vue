@@ -32,7 +32,7 @@
         </el-form-item>
         <el-form-item label="E-mail Address" prop="email">
           <el-input
-            v-model="ruleForm.email"
+            v-model.trim="ruleForm.email"
             type="text"
             autocomplete="off"
             class="!h-11"
@@ -40,7 +40,7 @@
         </el-form-item>
         <el-form-item label="Password" prop="password">
           <el-input
-            v-model="ruleForm.password"
+            v-model.trim="ruleForm.password"
             type="password"
             autocomplete="off"
             class="!h-11"
@@ -48,7 +48,7 @@
         </el-form-item>
         <el-form-item label="Confirm Password" prop="confirm_password">
           <el-input
-            v-model="ruleForm.confirm_password"
+            v-model.trim="ruleForm.confirm_password"
             type="password"
             autocomplete="off"
             class="!h-11"

@@ -4,6 +4,7 @@ export interface IExamYear {
 }
 
 export interface IExamDate {
+  id: string;
   year_id: string;
   duration: string;
 }

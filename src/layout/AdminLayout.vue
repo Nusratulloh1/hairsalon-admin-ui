@@ -45,8 +45,8 @@ const routes: ISidebarItem[] = [
     icon: User,
   },
   {
-    route: "/admin/exam-dates",
-    title: "Exam Dates",
+    route: "/admin/exam-years",
+    title: "Exam Years",
     icon: Document,
   },
   {
