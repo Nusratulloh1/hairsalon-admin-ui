@@ -49,16 +49,16 @@ const routes: ISidebarItem[] = [
     title: "Exam Years",
     icon: Document,
   },
-  {
-    route: "/admin/notifications",
-    title: "Notifications",
-    icon: Bell,
-  },
-  {
-    route: "/admin/sms",
-    title: "Sms mailing",
-    icon: ChatRound,
-  },
+  // {
+  //   route: "/admin/notifications",
+  //   title: "Notifications",
+  //   icon: Bell,
+  // },
+  // {
+  //   route: "/admin/sms",
+  //   title: "Sms mailing",
+  //   icon: ChatRound,
+  // },
 ];
 </script>
 
