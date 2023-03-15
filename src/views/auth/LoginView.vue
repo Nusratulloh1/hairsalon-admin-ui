@@ -44,7 +44,7 @@
             Sign In
           </el-button>
         </div>
-        <div class="absolute bottom-12">
+        <div class="bottom-12 mt-6 md:mt-8">
           <p>
             Don't have an account?
             <RouterLink to="/signin" class="text-primary font-medium"
