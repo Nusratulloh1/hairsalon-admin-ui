@@ -76,48 +76,48 @@ onMounted(() => {
   examYearStore.fetchExamYears();
 });
 const openDepartmentFormDialog = () => {
-  formType.value = "create";
-  modal.setTitle("Add department");
-  modal.setWidth("50%");
-  modal.showModal();
+  // formType.value = "create";
+  // modal.setTitle("Add department");
+  // modal.setWidth("50%");
+  // modal.showModal();
 };
 const onEditClick = async (row: any) => {
-  try {
-    tuition.value = row;
-    formType.value = "edit";
-    modal.setTitle(i18n.t("Edit department"));
-    modal.setWidth("50%");
-    modal.showModal();
-  } catch (error: any) {
-    console.log("error", error.message);
-  }
+  // try {
+  //   tuition.value = row;
+  //   formType.value = "edit";
+  //   modal.setTitle(i18n.t("Edit department"));
+  //   modal.setWidth("50%");
+  //   modal.showModal();
+  // } catch (error: any) {
+  //   console.log("error", error.message);
+  // }
 };
 const confirmDelete = (id: string) => {
-  ElMessageBox.confirm(
-    "This action cannot be undone. Continue?",
-    i18n.t("shared.warning"),
-    {
-      confirmButtonText: "Yes",
-      cancelButtonText: "Cencel",
-      type: "warning",
-      center: true,
-    }
-  )
-    .then(async () => {
-      try {
-        loading.value = true;
-        await guideStore.removeTuition(id);
-        loading.value = false;
-        ElMessage({
-          type: "success",
-          message: i18n.t("shared.deleteCompleted"),
-        });
-      } catch (error: any) {
-        loading.value = false;
-        console.log("error", error);
-      }
-    })
-    .catch(() => {});
+  // ElMessageBox.confirm(
+  //   "This action cannot be undone. Continue?",
+  //   i18n.t("shared.warning"),
+  //   {
+  //     confirmButtonText: "Yes",
+  //     cancelButtonText: "Cencel",
+  //     type: "warning",
+  //     center: true,
+  //   }
+  // )
+  //   .then(async () => {
+  //     try {
+  //       loading.value = true;
+  //       await guideStore.removeTuition(id);
+  //       loading.value = false;
+  //       ElMessage({
+  //         type: "success",
+  //         message: i18n.t("shared.deleteCompleted"),
+  //       });
+  //     } catch (error: any) {
+  //       loading.value = false;
+  //       console.log("error", error);
+  //     }
+  //   })
+  //   .catch(() => {});
 };
 const submitForm = async (department: any) => {
   try {
