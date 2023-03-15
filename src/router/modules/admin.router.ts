@@ -28,9 +28,15 @@ export const adminRoutes = {
       meta: { admin: true },
     },
     {
-      path: "exam-dates",
-      name: "exam-dates",
+      path: "exam-years",
+      name: "exam-years",
       component: () => import("@/views/admin/ExamYearsView.vue"),
+      meta: { admin: true },
+    },
+    {
+      path: "exam-years/:id",
+      name: "exam-dates",
+      component: () => import("@/views/admin/ExamDatesView.vue"),
       meta: { admin: true },
     },
     {

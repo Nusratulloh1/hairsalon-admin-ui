@@ -1,47 +1,27 @@
 <template>
-  <div class="flex justify-end mb-4">
-    <el-button type="primary" size="large" @click="openDepartmentFormDialog"
-      >ADD DEPARTMENTS</el-button
+  <div class="flex justify-between items-center mb-4">
+    <div class="flex items-center space-x-2">
+      <el-button text @click="router.back()"
+        ><Back class="h-4 w-4 text-blue-500"
+      /></el-button>
+      <h1>{{ route.params.id }}</h1>
+    </div>
+    <el-button type="primary" size="large" @click="openExamDateFormDialog"
+      >Add Exam Date</el-button
     >
   </div>
   <div class="table-wrapper" v-loading="loading">
     <el-table
-      :data="tuitions"
+      :data="examDates"
       stripe
       style="width: 100%"
       row-class-name="cursor-pointer"
     >
       <el-table-column
-        prop="program"
-        label="Faculties & Departments"
+        prop="duration"
+        label="Exam date"
         min-width="200"
         align="left"
-      />
-      <el-table-column
-        prop="per_semester"
-        label="Local Students (UZS)"
-        min-width="160"
-        align="center"
-      >
-        <template #default="{ row }">
-          {{ $n(row.per_semester) }}
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="fee_foreign_student"
-        label="International Students (USD)"
-        min-width="160"
-        align="center"
-      >
-        <template #default="{ row }">
-          {{ $n(row.fee_foreign_student) }}
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="duration"
-        label="Duration (Semestrs)"
-        min-width="180"
-        align="center"
       />
       <el-table-column label="Operations" align="center">
         <template #default="scope">
@@ -51,6 +31,7 @@
               @click="onEditClick(scope.row)"
             />
             <Delete
+              v-if="!scope.row.is_active"
               class="h-4 w-4 text-primary"
               @click="confirmDelete(scope.row.id)"
             />
@@ -59,9 +40,9 @@
       </el-table-column>
     </el-table>
     <teleport to="#modal" v-if="showModal">
-      <DepartmentForm
+      <ExamDateForm
         :type="formType"
-        :department="tuition"
+        :date="examDate"
         @on-submit="submitForm($event)"
       />
     </teleport>
@@ -69,43 +50,55 @@
 </template>
 
 <script setup lang="ts">
-import { useGuideStore } from "@/stores";
+import { useExamDatesStore } from "@/stores";
 import { onMounted, computed, ref } from "vue";
-import { Delete, EditPen } from "@element-plus/icons-vue";
+import { Delete, EditPen, Back } from "@element-plus/icons-vue";
 import { useModal } from "@/composables";
-import DepartmentForm from "./components/DepartmentForm.vue";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { useI18n } from "vue-i18n";
+import ExamDateForm from "./components/ExamDateForm.vue";
+import { useRoute, useRouter } from "vue-router";
+
+const route = useRoute();
+const router = useRouter();
 const modal = useModal();
 const formType = ref<"create" | "edit">("create");
 const i18n = useI18n();
-const guideStore = useGuideStore();
+const examYearStore = useExamDatesStore();
+
 const showModal = computed(() => modal.show.value);
 const loading = ref(false);
 
-const tuitions = computed(() => guideStore.tuitions);
-const tuition = ref(tuitions.value[0]);
+const examDates = computed(() => examYearStore.examDates);
+const examDate = ref(examDates.value[0]);
 
-onMounted(() => {
-  guideStore.fetchTuitions();
+onMounted(async () => {
+  try {
+    await examYearStore.fetchExamDates(route.params.id as string);
+  } catch (error) {
+    router.push("/404");
+  }
 });
-const openDepartmentFormDialog = () => {
+
+const openExamDateFormDialog = () => {
   formType.value = "create";
-  modal.setTitle("Add department");
+  modal.setTitle("Add exam date");
   modal.setWidth("50%");
   modal.showModal();
 };
+
 const onEditClick = async (row: any) => {
   try {
-    tuition.value = row;
+    examDate.value = row;
     formType.value = "edit";
-    modal.setTitle(i18n.t("Edit department"));
+    modal.setTitle(i18n.t("Add exam date"));
     modal.setWidth("50%");
     modal.showModal();
   } catch (error: any) {
     console.log("error", error.message);
   }
 };
+
 const confirmDelete = (id: string) => {
   ElMessageBox.confirm(
     "This action cannot be undone. Continue?",
@@ -120,12 +113,13 @@ const confirmDelete = (id: string) => {
     .then(async () => {
       try {
         loading.value = true;
-        await guideStore.removeTuition(id);
-        loading.value = false;
+        await examYearStore.removeExamDates(id);
+        fetchDates();
         ElMessage({
           type: "success",
           message: i18n.t("shared.deleteCompleted"),
         });
+        loading.value = false;
       } catch (error: any) {
         loading.value = false;
         console.log("error", error);
@@ -133,34 +127,39 @@ const confirmDelete = (id: string) => {
     })
     .catch(() => {});
 };
-const submitForm = async (department: any) => {
+
+const submitForm = async (data: any) => {
   try {
     loading.value = true;
-    const data = {
-      ...department,
-      per_semester: +department.per_semester,
-      fee_foreign_student: +department.fee_foreign_student,
-    };
-    if (formType.value === "edit" && tuition.value) {
-      data["id"] = tuition.value.id;
-      await guideStore.editTuition(data);
+
+    data["year_id"] = route.params.id;
+
+    if (formType.value === "edit" && examDate.value) {
+      data["id"] = examDate.value.id;
+      await examYearStore.editExamDates(data);
+
       ElMessage({
         message: i18n.t("shared.updated"),
         type: "success",
       });
     } else {
-      await guideStore.createTuition(data);
+      await examYearStore.createExamDates(data);
       ElMessage({
         message: i18n.t("shared.created"),
         type: "success",
       });
     }
+    fetchDates();
     loading.value = false;
     modal.hideModal();
   } catch (error: any) {
     loading.value = false;
     console.log("error", error);
   }
+};
+
+const fetchDates = () => {
+  examYearStore.fetchExamDates(route.params.id as string);
 };
 </script>
 

@@ -8,20 +8,14 @@
       require-asterisk-position="right"
     >
       <div class="grid sm:grid-cols-1 gap-y-1">
-        <el-form-item label="Exam year" prop="id">
+        <el-form-item label="Date" prop="id">
           <el-input
-            v-model="ruleForm.id"
+            v-model="ruleForm.duration"
             type="text"
             autocomplete="off"
             :placeholder="$t('shared.text')"
             size="large"
           />
-        </el-form-item>
-        <el-form-item prop="is_active" label="Active">
-          <el-radio-group v-model="ruleForm.is_active">
-            <el-radio :label="true">Yes</el-radio>
-            <el-radio :label="false">No</el-radio>
-          </el-radio-group>
         </el-form-item>
       </div>
     </el-form>
@@ -41,18 +35,17 @@ import { useI18n } from "vue-i18n";
 const i18n = useI18n();
 
 const props = defineProps<{
-  year?: any | null;
+  date?: any | null;
   type?: "create" | "edit";
 }>();
 
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
-  id: "",
-  is_active: false,
+  duration: "",
 });
 
 const rules = reactive<FormRules>({
-  id: [
+  duration: [
     {
       required: true,
       message: i18n.t("validation.fillField"),
@@ -64,8 +57,8 @@ const rules = reactive<FormRules>({
 const emit = defineEmits(["onSubmit"]);
 
 onMounted(() => {
-  if (props.year && props.type === "edit") {
-    Object.assign(ruleForm, props.year);
+  if (props.date && props.type === "edit") {
+    Object.assign(ruleForm, props.date);
   }
 });
 

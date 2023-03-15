@@ -26,7 +26,7 @@ request.interceptors.response.use(
   (response) => response.data,
   (error) => {
     const errorResponse = JSON.parse(error.request.response);
-
+    console.log("errorResponse", errorResponse);
     if (errorResponse.statusCode !== 401) {
       ElMessage({
         message: errorResponse.message,

@@ -34,24 +34,28 @@ export const useExamDatesStore = defineStore("exam-dates", {
       this.fetchExamYears();
     },
 
-    async fetchExamDates() {
-      const examDates = await request.post("/exam-date/list");
-      this.examDates = examDates;
+    async fetchExamDates(id: string) {
+      const examDates = await request.post("/exam-date/list", {
+        year_id: id,
+        page: 1,
+        limit: 100,
+      });
+      this.examDates = examDates.data;
     },
 
     async createExamDates(date: any) {
       await request.post("/exam-date/create", date);
-      this.fetchExamDates();
+      // this.fetchExamDates();
     },
 
     async editExamDates(date: any) {
       await request.post("/exam-date/update", date);
-      this.fetchExamDates();
+      // this.fetchExamDates();
     },
 
     async removeExamDates(id: string) {
       await request.post("/exam-date/remove", { id });
-      this.fetchExamDates();
+      // this.fetchExamDates();
     },
   },
 
