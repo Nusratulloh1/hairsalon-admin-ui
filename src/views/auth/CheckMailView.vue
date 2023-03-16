@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { LogoutIconWithName } from "@/components/icons";
-import { reactive, ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useUsersStore } from "@/stores/user";
 import { useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
@@ -38,6 +38,13 @@ const store = useUsersStore();
 const router = useRouter();
 
 const loading = ref(false);
+
+onMounted(() => {
+  if (store.user?.is_verified) {
+    router.push("/");
+  }
+});
+
 const resend = async () => {
   try {
     loading.value = true;
