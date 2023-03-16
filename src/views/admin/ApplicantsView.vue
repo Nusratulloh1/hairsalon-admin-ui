@@ -139,7 +139,9 @@
         show-overflow-tooltip
       >
         <template #default="{ row }">
-          {{ row.responder && row.responder.name }}
+          <div v-if="row.responder">
+            {{ row.responder.first_name }} {{ row.responder.last_name }}
+          </div>
         </template>
       </el-table-column>
       <el-table-column

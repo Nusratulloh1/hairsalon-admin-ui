@@ -8,6 +8,7 @@
       v-for="route of props.routes"
       :key="route.route"
       :index="route.route"
+      @click="emit('onRouteClick')"
     >
       <el-icon class="icon"><component :is="route.icon" /></el-icon>
       <template #title>{{ route.title }}</template>
@@ -21,6 +22,7 @@ import type { ISidebarItem } from "@/models/frontend";
 const props = defineProps<{
   routes: ISidebarItem[];
 }>();
+const emit = defineEmits(["onRouteClick"]);
 </script>
 
 <style scoped lang="scss">

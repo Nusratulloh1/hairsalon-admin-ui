@@ -1,6 +1,12 @@
 <template>
   <div class="app-header">
-    <div></div>
+    <div>
+      <div class="block md:hidden">
+        <el-button @click="emit('onBurgerClick')" text
+          ><Fold class="h-6 w-6"></Fold
+        ></el-button>
+      </div>
+    </div>
     <div class="flex space-x-6">
       <el-dropdown
         @command="handleProfileChange"
@@ -36,9 +42,7 @@
 <script setup lang="ts">
 import { UserIcon, LogoutIcon } from "@/components/icons";
 
-import { ArrowDown } from "@element-plus/icons-vue";
-import { ref } from "vue";
-import { setLocale, i18n } from "@/i18n";
+import { ArrowDown, Fold } from "@element-plus/icons-vue";
 import { ElMessageBox } from "element-plus";
 import { useI18n } from "vue-i18n";
 import { useUsersStore } from "@/stores/user";
@@ -47,11 +51,8 @@ const I18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
 const route = useRoute();
-const localeShorts: any = {
-  uz: "Uz",
-  ru: "Ру",
-};
 
+const emit = defineEmits(["onBurgerClick"]);
 const handleProfileChange = (command: string) => {
   if (command === "logout") {
     ElMessageBox.confirm(I18n.t("app.doYouwantLogOut"), I18n.t("app.warning"), {

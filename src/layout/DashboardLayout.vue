@@ -1,6 +1,18 @@
 <template>
   <div class="wrapper">
-    <TheHeader class="the-header border-b"></TheHeader>
+    <TheHeader
+      class="the-header border-b"
+      @onBurgerClick="drawer = !drawer"
+    ></TheHeader>
+    <el-drawer
+      v-model="drawer"
+      :with-header="false"
+      :show-close="false"
+      direction="ltr"
+      size="300px"
+    >
+      <TheSidebar :routes="routes" @onRouteClick="drawer = false" />
+    </el-drawer>
     <TheSidebar class="sidebar" :routes="routes" />
     <div class="content p-4 md:p-8">
       <RouterView />
@@ -15,7 +27,7 @@ import TheFooter from "./components/Footer/TheFooter.vue";
 import TheSidebar from "./components/Sidebar/TheSidebar.vue";
 import { Menu, WalletFilled } from "@element-plus/icons-vue";
 import type { ISidebarItem } from "@/models/frontend";
-
+import { ref } from "vue";
 const routes: ISidebarItem[] = [
   {
     route: "/",
@@ -28,6 +40,8 @@ const routes: ISidebarItem[] = [
     icon: WalletFilled,
   },
 ];
+
+const drawer = ref(false);
 </script>
 
 <style scoped lang="scss">
@@ -45,7 +59,6 @@ const routes: ISidebarItem[] = [
 
   .the-header {
     height: 90px;
-    // background: $app-bg-gradient;
   }
   .content {
     grid-area: main;
@@ -54,5 +67,24 @@ const routes: ISidebarItem[] = [
   .sidebar {
     grid-area: sidebar;
   }
+}
+@media screen and (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+  .sidebar {
+    display: none;
+  }
+}
+</style>
+
+<style>
+.el-drawer__body {
+  padding: 12px 0px !important;
 }
 </style>
