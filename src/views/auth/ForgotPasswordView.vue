@@ -1,44 +1,50 @@
 <template>
-  <LoginCard class="space-y-6 md:!pb-24 md:!pt-16">
-    <div class="header flex flex-col">
-      <div class="text-center"></div>
-      <LogoIcon classes="header__logo mx-auto mb-4 md:mb-6" />
-      <h1 class="header__title">Забыли пароль?</h1>
-      <p class="header__text">
-        Войдите в свой аккаунт, чтобы ничего не потерять.
-      </p>
-    </div>
-    <el-form
-      ref="ruleFormRef"
-      :model="ruleForm"
-      :rules="rules"
-      :hide-required-asterisk="true"
-      label-position="top"
-    >
-      <el-form-item label="Введите свою почту" prop="email">
-        <el-input
-          v-model="ruleForm.email"
-          type="text"
-          autocomplete="off"
-          size="large"
-          class="!h-11"
-        />
-      </el-form-item>
-      <el-button
-        class="w-full mt-4 md:mt-6"
-        type="primary"
-        size="large"
-        @click="submitForm(ruleFormRef)"
+  <div class="wrapper">
+    <div class="content shadow-xl md:w-96 space-y-6">
+      <div class="header flex flex-col">
+        <div class="text-center space-y-4"></div>
+        <LogoutIconWithName />
+        <h1 class="header__title mt-4">Forgot password?</h1>
+      </div>
+      <el-form
+        ref="ruleFormRef"
+        :model="ruleForm"
+        :rules="rules"
+        :hide-required-asterisk="true"
+        label-position="top"
       >
-        Войти в систему
-      </el-button>
-    </el-form>
-  </LoginCard>
+        <el-form-item label="Enter your email" prop="email">
+          <el-input
+            v-model="ruleForm.email"
+            type="text"
+            autocomplete="off"
+            size="large"
+            class="!h-11"
+          />
+        </el-form-item>
+        <div class="md:mt-4 text-sm">
+          <p>
+            Just remembered your password?
+            <RouterLink to="/login" class="text-primary font-medium"
+              >Log In</RouterLink
+            >
+          </p>
+        </div>
+        <el-button
+          class="w-full mt-4 md:mt-8"
+          type="primary"
+          size="large"
+          @click="submitForm(ruleFormRef)"
+        >
+          Resset password
+        </el-button>
+      </el-form>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { LogoIcon } from "@/components/icons";
-import LoginCard from "./components/LoginCard.vue";
+import { LogoutIconWithName } from "@/components/icons";
 import { reactive, ref } from "vue";
 import { ElMessage, type FormInstance, type FormRules } from "element-plus";
 import { useUsersStore } from "@/stores/user";
@@ -90,6 +96,17 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 @import "@/assets/styles/mixins.scss";
 @import "@/assets/styles/colors.scss";
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    // @include card;
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 300px;
+  }
+}
 .header {
   &__logo {
     height: 25px;

@@ -10,7 +10,13 @@ const title = "Admission";
 
 NProgress.configure({ showSpinner: false });
 
-const whiteList = ["/login", "/signin", "/check-mail"];
+const whiteList = [
+  "/login",
+  "/signin",
+  "/check-mail",
+  "/forgot-password",
+  "/reset-password",
+];
 
 const getPageTitle = (key: string) => {
   const { t, te } = i18n.global as any;
