@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
 
 import request from "@/utils/request";
-import type { IStaff, IStaffList, ListData } from "@/models/backend";
+import type { IStaff, IStaffList, IUser, ListData } from "@/models/backend";
 
 interface StaffState {
-  staffs?: ListData<IStaffList>;
+  staffs: ListData<IUser>;
   loading: boolean;
   currentStaff: IStaff | null;
 }
@@ -42,6 +42,18 @@ export const useStaffStore = defineStore("staff", {
       }
     },
 
+    async getStaffs(data: any) {
+      try {
+        this.loading = true;
+        const staffs = await request.post("/staff/list", data);
+        this.staffs = staffs;
+        this.loading = false;
+      } catch (error: any) {
+        this.loading = false;
+        console.log("error", error?.message);
+      }
+    },
+
     async getStaffById(id: string) {
       try {
         this.loading = true;
@@ -59,9 +71,8 @@ export const useStaffStore = defineStore("staff", {
       try {
         this.loading = true;
         await request.post("/staff/remove", {
-          user_id: id,
+          id,
         });
-        this.fetchStaff();
         this.loading = false;
       } catch (error: any) {
         this.loading = false;

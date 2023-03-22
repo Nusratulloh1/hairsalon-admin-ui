@@ -1,12 +1,12 @@
 <template>
   <div class="flex justify-end mb-4">
-    <!-- <el-button type="primary" size="large" @click="openDepartmentFormDialog"
-      >Add User</el-button
-    > -->
+    <el-button type="primary" size="large" @click="openDepartmentFormDialog"
+      >Add Staff</el-button
+    >
   </div>
   <div class="table-wrapper" v-loading="loading">
     <el-table
-      :data="users.data"
+      :data="stafs.data"
       stripe
       style="width: 100%"
       row-class-name="cursor-pointer"
@@ -29,8 +29,8 @@
         min-width="180"
         align="left"
       />
-      <!-- <el-table-column prop="role" label="Role" min-width="180" align="left" /> -->
-      <!-- <el-table-column label="Operations" align="center">
+      <el-table-column prop="role" label="Role" min-width="180" align="left" />
+      <el-table-column label="Operations" align="center">
         <template #default="{ row }">
           <div
             class="flex justify-center space-x-3"
@@ -43,7 +43,7 @@
             />
           </div>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
     <div class="py-4">
       <el-pagination
@@ -51,17 +51,17 @@
         @current-change="onPaginationChange"
         layout="prev, pager, next"
         :page-size="pagination.limit"
-        :total="users.total"
+        :total="stafs.total"
       />
     </div>
     <teleport to="#modal" v-if="showModal">
-      <UserForm :type="formType" :user="user" @on-submit="submitForm($event)" />
+      <UserForm :type="formType" :user="staf" @on-submit="submitForm($event)" />
     </teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useUsersStore } from "@/stores";
+import { useStaffStore } from "@/stores";
 import { onMounted, computed, ref, reactive } from "vue";
 import { Delete, EditPen } from "@element-plus/icons-vue";
 import { useModal } from "@/composables";
@@ -74,36 +74,40 @@ const i18n = useI18n();
 
 const showModal = computed(() => modal.show.value);
 const loading = ref(false);
-const userStore = useUsersStore();
-const users = computed(() => userStore.users);
-const user = ref();
+const stafsStore = useStaffStore();
+const stafs = computed(() => stafsStore.staffs);
+const staf = ref();
 
 const pagination = reactive({
   page: 1,
   limit: 20,
 });
 
+const fetchStaffs = () => {
+  stafsStore.getStaffs(pagination);
+};
+
 const onPaginationChange = (event: number) => {
   pagination.page = event;
-  userStore.getUsers(pagination);
+  fetchStaffs();
 };
 
 onMounted(() => {
-  userStore.getUsers(pagination);
+  fetchStaffs();
 });
 
 const openDepartmentFormDialog = () => {
   formType.value = "create";
-  modal.setTitle("Add user");
+  modal.setTitle("Add staff");
   modal.setWidth("50%");
   modal.showModal();
 };
 
 const onEditClick = async (row: any) => {
   try {
-    user.value = row;
+    staf.value = row;
     formType.value = "edit";
-    modal.setTitle(i18n.t("Edit user"));
+    modal.setTitle(i18n.t("Edit staff"));
     modal.setWidth("50%");
     modal.showModal();
   } catch (error: any) {
@@ -125,7 +129,8 @@ const confirmDelete = (id: string) => {
     .then(async () => {
       try {
         loading.value = true;
-        await userStore.remoevUser(id);
+        await stafsStore.removeStaff(id);
+        fetchStaffs();
         loading.value = false;
         ElMessage({
           type: "success",
@@ -142,20 +147,21 @@ const confirmDelete = (id: string) => {
 const submitForm = async (data: any) => {
   try {
     loading.value = true;
-    if (formType.value === "edit" && user.value) {
-      data["id"] = user.value.id;
-      await userStore.updateUser(data);
+    if (formType.value === "edit" && staf.value) {
+      data["id"] = staf.value.id;
+      await stafsStore.editStaff(data);
       ElMessage({
         message: i18n.t("shared.updated"),
         type: "success",
       });
     } else {
-      await userStore.createUser(data);
+      await stafsStore.createStaff(data);
       ElMessage({
         message: i18n.t("shared.created"),
         type: "success",
       });
     }
+    fetchStaffs();
     loading.value = false;
     modal.hideModal();
   } catch (error: any) {

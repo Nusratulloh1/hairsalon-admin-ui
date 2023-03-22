@@ -53,5 +53,3 @@ app.use(router);
 app.directive("mask", mask as any);
 
 app.mount("#app");
-
-export { Sentry };

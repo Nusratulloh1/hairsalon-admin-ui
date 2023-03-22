@@ -28,6 +28,12 @@ export const adminRoutes = {
       meta: { admin: true },
     },
     {
+      path: "staffs",
+      name: "staffs",
+      component: () => import("@/views/admin/StafsView.vue"),
+      meta: { admin: true },
+    },
+    {
       path: "exam-years",
       name: "exam-years",
       component: () => import("@/views/admin/ExamYearsView.vue"),
