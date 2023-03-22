@@ -1,3 +1,4 @@
+import { Sentry } from "@/main";
 import { useUsersStore } from "@/stores/user";
 import axios from "axios";
 import { ElMessage } from "element-plus";
@@ -25,6 +26,7 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   (response) => response.data,
   (error) => {
+    Sentry.captureException(error);
     const errorResponse = JSON.parse(error.request.response);
     console.log("errorResponse", errorResponse);
     if (errorResponse.statusCode !== 401) {
