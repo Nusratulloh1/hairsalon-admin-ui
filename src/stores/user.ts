@@ -61,12 +61,8 @@ export const useUsersStore = defineStore("users", {
     },
 
     async sendCodeToEmail(formData: { email: string }) {
-      try {
-        const response = await request.post("/auth/email-send-code", formData);
-        setCode(response.code);
-      } catch (error: any) {
-        console.log("error", error.message);
-      }
+      const response = await request.post("/auth/email-send-code", formData);
+      setCode(response.code);
     },
 
     async createUser(formData: Omit<IUser, "id" | "is_verified">) {

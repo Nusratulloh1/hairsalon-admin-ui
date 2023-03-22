@@ -1,65 +1,69 @@
 <template>
-  <LoginCard class="space-y-6">
-    <div class="header flex flex-col items-center">
-      <LogoIcon classes="header__logo" />
-      <h1 class="header__title">{{ $t("app.setPassword") }}</h1>
-    </div>
-    <el-form
-      ref="ruleFormRef"
-      :model="ruleForm"
-      :rules="rules"
-      :hide-required-asterisk="true"
-      label-position="top"
-    >
-      <el-form-item :label="$t('app.code')" prop="otp">
-        <el-input
-          v-model="ruleForm.otp"
-          type="text"
-          autocomplete="off"
-          :placeholder="$t('app.code')"
-          size="large"
-          class="!w-80 !h-11"
-        />
-      </el-form-item>
-      <el-form-item :label="$t('app.password')" prop="password">
-        <el-input
-          v-model="ruleForm.password"
-          type="password"
-          autocomplete="off"
-          :placeholder="$t('app.password')"
-          size="large"
-          class="!w-80 !h-11"
-        />
-      </el-form-item>
-      <el-form-item :label="$t('app.confirmPassword')" prop="confirm_password">
-        <el-input
-          v-model="ruleForm.confirm_password"
-          type="password"
-          autocomplete="off"
-          :placeholder="$t('app.confirmPassword')"
-          size="large"
-          class="!w-80 !h-11"
-        />
-      </el-form-item>
-      <RouterLink to="/forgot-password" class="forgot-password">{{
-        $t("app.resendCode")
-      }}</RouterLink>
-      <el-button
-        class="w-full mt-4 md:mt-7"
-        type="primary"
-        size="large"
-        @click="submitForm(ruleFormRef)"
-        :loading="loading"
+  <div class="wrapper">
+    <div class="content shadow-xl md:w-96 space-y-6">
+      <div class="header flex flex-col items-center space-y-4">
+        <LogoutIconWithName />
+        <h1 class="header__title">{{ $t("app.setPassword") }}</h1>
+      </div>
+      <el-form
+        ref="ruleFormRef"
+        :model="ruleForm"
+        :rules="rules"
+        :hide-required-asterisk="true"
+        label-position="top"
       >
-        {{ $t("shared.save") }}
-      </el-button>
-    </el-form>
-  </LoginCard>
+        <el-form-item :label="$t('app.code')" prop="otp">
+          <el-input
+            v-model="ruleForm.otp"
+            type="text"
+            autocomplete="off"
+            :placeholder="$t('app.code')"
+            size="large"
+            class="!w-80 !h-11"
+          />
+        </el-form-item>
+        <el-form-item :label="$t('app.password')" prop="password">
+          <el-input
+            v-model="ruleForm.password"
+            type="password"
+            autocomplete="off"
+            :placeholder="$t('app.password')"
+            size="large"
+            class="!w-80 !h-11"
+          />
+        </el-form-item>
+        <el-form-item
+          :label="$t('app.confirmPassword')"
+          prop="confirm_password"
+        >
+          <el-input
+            v-model="ruleForm.confirm_password"
+            type="password"
+            autocomplete="off"
+            :placeholder="$t('app.confirmPassword')"
+            size="large"
+            class="!w-80 !h-11"
+          />
+        </el-form-item>
+        <RouterLink to="/forgot-password" class="forgot-password">{{
+          $t("app.resendCode")
+        }}</RouterLink>
+        <el-button
+          class="w-full mt-4 md:mt-7"
+          type="primary"
+          size="large"
+          @click="submitForm(ruleFormRef)"
+          :loading="loading"
+        >
+          {{ $t("shared.save") }}
+        </el-button>
+      </el-form>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { LogoIcon } from "@/components/icons";
-import LoginCard from "./components/LoginCard.vue";
+import { LogoutIconWithName } from "@/components/icons";
 import { reactive, ref } from "vue";
 import { ElMessage, type FormInstance, type FormRules } from "element-plus";
 import { useUsersStore } from "@/stores/user";
@@ -155,6 +159,17 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 <style scoped lang="scss">
 @import "@/assets/styles/mixins.scss";
 @import "@/assets/styles/colors.scss";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    padding: 2rem;
+    border-radius: 10px;
+    min-width: 300px;
+  }
+}
 
 .header {
   &__logo {
