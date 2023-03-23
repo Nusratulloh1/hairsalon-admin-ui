@@ -12,6 +12,7 @@
         :rules="rules"
         :hide-required-asterisk="true"
         label-position="top"
+        v-if="!success"
       >
         <el-form-item label="Enter your email" prop="email">
           <el-input
@@ -35,10 +36,20 @@
           type="primary"
           size="large"
           @click="submitForm(ruleFormRef)"
+          :loading="loading"
         >
           Resset password
         </el-button>
       </el-form>
+      <div v-else>
+        <p class="font-medium mb-2">
+          Please, verify your email from the message that has been sent to you
+          via email!
+        </p>
+        <p class="text-primary">
+          Note, if you can not find the email, check the spam folder!
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -73,18 +84,22 @@ const rules = reactive<FormRules>({
     },
   ],
 });
-
+const loading = ref(false);
+const success = ref(false);
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate(async (valid, fields) => {
     if (valid) {
+      loading.value = true;
       await store.sendCodeToEmail(ruleForm);
       ElMessage({
         message: i18n.t("app.codeSentToEmail"),
         type: "success",
         duration: 5 * 1000,
       });
-      router.push("/reset-password");
+      loading.value = false;
+      success.value = true;
+      // router.push("/reset-password");
     } else {
       console.log("error submit!", fields);
     }

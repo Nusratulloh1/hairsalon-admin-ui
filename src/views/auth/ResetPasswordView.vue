@@ -12,16 +12,6 @@
         :hide-required-asterisk="true"
         label-position="top"
       >
-        <el-form-item :label="$t('app.code')" prop="otp">
-          <el-input
-            v-model="ruleForm.otp"
-            type="text"
-            autocomplete="off"
-            :placeholder="$t('app.code')"
-            size="large"
-            class="!w-80 !h-11"
-          />
-        </el-form-item>
         <el-form-item :label="$t('app.password')" prop="password">
           <el-input
             v-model="ruleForm.password"
@@ -69,7 +59,7 @@ import { ElMessage, type FormInstance, type FormRules } from "element-plus";
 import { useUsersStore } from "@/stores/user";
 import { useRouter, useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
-import { getCode } from "@/utils/cookies";
+import sha1 from "sha1";
 
 const i18n = useI18n();
 const store = useUsersStore();
@@ -80,7 +70,6 @@ const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
   password: "",
   confirm_password: "",
-  otp: "",
 });
 
 const validatePass = (rule: any, value: any, callback: any) => {
@@ -114,18 +103,6 @@ const rules = reactive<FormRules>({
     },
   ],
   confirm_password: [{ validator: validatePass2, trigger: "blur" }],
-  otp: [
-    {
-      required: true,
-      message: i18n.t("validation.fillField"),
-      trigger: "blur",
-    },
-    {
-      min: 6,
-      message: i18n.t("validation.minimumLength", { value: 6 }),
-      trigger: "blur",
-    },
-  ],
 });
 
 const loading = ref(false);
@@ -135,10 +112,14 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (valid) {
       try {
         loading.value = true;
-        await store.resetPassword({
-          ...ruleForm,
-          code: getCode() || "",
-        });
+        console.log("route.params", route.query.code);
+        const data = {
+          password: sha1(ruleForm.password),
+          confirm_password: sha1(ruleForm.confirm_password),
+          code: route.query.code as string,
+        };
+        console.log("data", data);
+        await store.resetPassword(data);
         loading.value = false;
         ElMessage({
           message: i18n.t("app.passwordChanged"),
