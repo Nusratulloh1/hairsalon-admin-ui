@@ -1,4 +1,3 @@
-// import { Sentry } from "@/main";
 import { useUsersStore } from "@/stores/user";
 import axios from "axios";
 import { ElMessage } from "element-plus";
@@ -6,7 +5,7 @@ import * as Sentry from "@sentry/vue";
 
 const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API,
-  timeout: 10000,
+  timeout: 60000,
 });
 
 // Request interceptors

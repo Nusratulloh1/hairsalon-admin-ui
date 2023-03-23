@@ -135,6 +135,7 @@
     "confirmPassword": "Confirm password",
     "setPassword": "Set password!",
     "codeSentToEmail": "The code has been sent to the specified address",
+    "linkSentToEmail": "The code has been sent to the specified address",
     "passwordChanged": "Password changed successfully",
     "resendCode": "Send code again",
     "code": "Code",

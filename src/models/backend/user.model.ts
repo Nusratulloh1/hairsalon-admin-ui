@@ -17,7 +17,7 @@ export interface ISigninForm {
 }
 export interface IResetInvite {
   code: string;
-  otp: string;
+  otp?: string;
   confirm_password: string;
   password: string;
 }
