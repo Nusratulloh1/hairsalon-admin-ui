@@ -28,7 +28,17 @@
         label="Email"
         min-width="180"
         align="left"
-      />
+      /><el-table-column
+        prop="verified"
+        label="Verified"
+        min-width="100"
+        align="center"
+      >
+        <template #default="{ row }">
+          <el-tag v-if="row.is_verified" type="success">Yes</el-tag>
+          <el-tag v-else type="danger">No</el-tag>
+        </template>
+      </el-table-column>
       <!-- <el-table-column prop="role" label="Role" min-width="180" align="left" /> -->
       <!-- <el-table-column label="Operations" align="center">
         <template #default="{ row }">

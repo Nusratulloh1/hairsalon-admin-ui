@@ -6,7 +6,7 @@ import * as Sentry from "@sentry/vue";
 
 const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API,
-  timeout: 5000,
+  timeout: 10000,
 });
 
 // Request interceptors
