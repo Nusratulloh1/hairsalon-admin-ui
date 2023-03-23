@@ -25,7 +25,14 @@
 import TheHeader from "./components/Header/TheHeader.vue";
 import TheFooter from "./components/Footer/TheFooter.vue";
 import TheSidebar from "./components/Sidebar/TheSidebar.vue";
-import { Menu, Postcard, Memo, User, Document } from "@element-plus/icons-vue";
+import {
+  Menu,
+  Postcard,
+  Memo,
+  User,
+  Document,
+  Service,
+} from "@element-plus/icons-vue";
 import type { ISidebarItem } from "@/models/frontend";
 import { ref } from "vue";
 const routes: ISidebarItem[] = [
@@ -48,6 +55,11 @@ const routes: ISidebarItem[] = [
     route: "/admin/users",
     title: "Users",
     icon: User,
+  },
+  {
+    route: "/admin/staffs",
+    title: "Staffs",
+    icon: Service,
   },
   {
     route: "/admin/exam-years",

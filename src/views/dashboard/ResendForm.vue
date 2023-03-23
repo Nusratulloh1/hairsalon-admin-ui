@@ -13,7 +13,6 @@ import { onMounted, computed, ref } from "vue";
 const applicationStore = useApplicationStore();
 const loading = ref(false);
 onMounted(async () => {
-  console.log("ente");
   try {
     loading.value = true;
     await applicationStore.getApplication();

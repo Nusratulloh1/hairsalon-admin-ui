@@ -4,6 +4,7 @@ import type {
   IAcceptInvite,
   IResetInvite,
   ISigninForm,
+  ListData,
 } from "@/models/backend";
 import { defineStore } from "pinia";
 import {
@@ -19,14 +20,19 @@ import request from "@/utils/request";
 interface UserState {
   token?: string;
   user: IUser | null;
-  users: IUser[];
+  users: ListData<IUser[]>;
 }
 
 export const useUsersStore = defineStore("users", {
   state: (): UserState => ({
     token: getAccessToken() || "",
     user: null,
-    users: [],
+    users: {
+      page: 1,
+      limit: 30,
+      total: 0,
+      data: [],
+    },
   }),
 
   actions: {
@@ -67,21 +73,18 @@ export const useUsersStore = defineStore("users", {
 
     async createUser(formData: Omit<IUser, "id" | "is_verified">) {
       await request.post("/users/create", formData);
-      this.getUsers();
     },
 
     async updateUser(formData: Omit<IUser, "is_verified">) {
       await request.post("/users/update", formData);
-      this.getUsers();
     },
 
     async remoevUser(id: string) {
       await request.post("/users/remove", { id });
-      this.getUsers();
     },
 
-    async getUsers() {
-      this.users = await request.post("/users/list");
+    async getUsers(data: any) {
+      this.users = await request.post("/users/list", data);
     },
 
     async getUserInfo() {

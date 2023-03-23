@@ -50,6 +50,11 @@ export const useApplicationStore = defineStore("application", {
     async createApplication(application: any) {
       return request.post("/application/create", application);
     },
+
+    async addApplication(application: any) {
+      return request.post("/application/add", application);
+    },
+
     async updateApplication(application: any) {
       return request.post("/application/update", application);
     },

@@ -57,13 +57,22 @@
         >
       </div>
     </div>
-    <el-button
-      type="primary"
-      size="large"
-      :loading="loading"
-      @click="exportToExcel"
-      >Export excel</el-button
-    >
+    <div class="flex items-center">
+      <el-button
+        type="primary"
+        size="large"
+        :loading="loading"
+        @click="exportToExcel"
+        >Export excel</el-button
+      >
+      <el-button
+        type="success"
+        size="large"
+        :loading="loading"
+        @click="$router.push({ name: 'create-applicants' })"
+        >Add Applicant</el-button
+      >
+    </div>
   </div>
   <div class="table-wrapper" v-loading="loading">
     <el-table
