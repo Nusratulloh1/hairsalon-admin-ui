@@ -143,58 +143,22 @@
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item label="Passport photo" prop="passport">
-        <el-upload
-          ref="uploadRef"
-          class="upload-demo"
-          :limit="1"
-          action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-          :auto-upload="false"
-          list-type="picture"
-          accept="image/*"
-          :on-change="(file: UploadFile) => (ruleForm.passport = file.raw as any)"
-        >
-          <template #trigger>
-            <el-button :icon="Plus" type="primary" plain size="large">
-              Upload Photo
-            </el-button>
-          </template>
-        </el-upload>
+        <AppUpload
+          @upload="(file) => (ruleForm.passport = file)"
+          @remove="() => (ruleForm.passport = null)"
+        />
       </el-form-item>
       <el-form-item label="Photo" prop="photo">
-        <el-upload
-          ref="uploadRef"
-          class="upload-demo"
-          :limit="1"
-          action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-          :auto-upload="false"
-          list-type="picture"
-          accept="image/*"
-          :on-change="(file: UploadFile) => (ruleForm.photo = file.raw as any)"
-        >
-          <template #trigger>
-            <el-button :icon="Plus" type="primary" plain size="large">
-              Upload Photo
-            </el-button>
-          </template>
-        </el-upload>
+        <AppUpload
+          @upload="(file) => (ruleForm.photo = file)"
+          @remove="() => (ruleForm.photo = null)"
+        />
       </el-form-item>
       <el-form-item label="Diploma" prop="diploma">
-        <el-upload
-          ref="uploadRef"
-          class="upload-demo"
-          :limit="1"
-          action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-          :auto-upload="false"
-          list-type="picture"
-          accept="image/*"
-          :on-change="(file: UploadFile) => (ruleForm.diploma = file.raw as any)"
-        >
-          <template #trigger>
-            <el-button :icon="Plus" type="primary" plain size="large">
-              Upload Photo
-            </el-button>
-          </template>
-        </el-upload>
+        <AppUpload
+          @upload="(file) => (ruleForm.diploma = file)"
+          @remove="() => (ruleForm.diploma = null)"
+        />
       </el-form-item>
       <el-form-item
         label="English proficiency certificate"
@@ -212,22 +176,10 @@
         </el-select>
       </el-form-item>
       <el-form-item label="English proficiency certificate" prop="certificate">
-        <el-upload
-          ref="uploadRef"
-          class="upload-demo"
-          :limit="1"
-          action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-          :auto-upload="false"
-          list-type="picture"
-          accept="image/*"
-          :on-change="(file: UploadFile) => (ruleForm.certificate = file.raw as any)"
-        >
-          <template #trigger>
-            <el-button :icon="Plus" type="primary" plain size="large">
-              Upload Photo
-            </el-button>
-          </template>
-        </el-upload>
+        <AppUpload
+          @upload="(file) => (ruleForm.certificate = file)"
+          @remove="() => (ruleForm.certificate = null)"
+        />
       </el-form-item>
       <el-form-item
         label="Certificate Number (TRF if you have IELTS)"
@@ -340,6 +292,7 @@ import { convertPhone } from "@/utils/mappers";
 import { format } from "date-fns";
 import { useRouter } from "vue-router";
 import sha1 from "sha1";
+import AppUpload from "@/components/common/AppUpload.vue";
 const router = useRouter();
 
 const guideStore = useGuideStore();
@@ -554,21 +507,10 @@ const submitForm = async (formEl: FormInstance | undefined) => {
           password: sha1(ruleForm.password),
         } as any;
 
-        const passport = await fileStore.uploadFile(ruleForm.passport);
-        data["passport"] = passport;
-
-        const photo = await fileStore.uploadFile(ruleForm.photo);
-        data["photo"] = photo;
-
-        const diploma = await fileStore.uploadFile(ruleForm.diploma);
-        data["diploma"] = diploma;
-
-        if (ruleForm.certificate) {
-          const certificate = await fileStore.uploadFile(ruleForm.certificate);
-          data["certificate"] = certificate;
-        } else {
+        if (!ruleForm.certificate) {
           delete data.certificate;
         }
+
         await applicationStore.addApplication(data);
         loading.value = false;
         ElMessage({
