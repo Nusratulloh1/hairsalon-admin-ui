@@ -1,9 +1,12 @@
 <template>
   <div class="app-footer">
-    <p>
-      2023 Copyrights © <span class="text-primary">AKFA University</span
-      ><a class="ml-2" href="tel:+998-71-200-01-23">+998-71-200-01-23</a>
+    <p class="leading-none">
+      2023 Copyrights © <span class="text-primary">AKFA University</span>
     </p>
+    <a class="text-sm mt-1" href="tel:+998-71-200-01-23"
+      >If you have questions or difficulties, please contact us:
+      <span class="text-primary">+998-71-200-01-23</span></a
+    >
   </div>
 </template>
 
@@ -15,14 +18,16 @@
   background: #fff;
   height: 80px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #ffffff;
   box-shadow: 1.5px 2.6px 10px rgba(119, 119, 119, 0.1);
-  p {
+  p,
+  a {
     font-weight: 400;
     font-size: 14px;
-    line-height: 50px;
+    // line-height: 50px;
     color: #898989;
   }
 }
