@@ -240,7 +240,12 @@
     </div>
   </el-form>
   <div class="flex pt-4">
-    <el-button type="primary" size="large" @click="submitForm(ruleFormRef)">
+    <el-button
+      :disabled="!ruleForm.is_accept"
+      type="primary"
+      size="large"
+      @click="submitForm(ruleFormRef)"
+    >
       Submit
     </el-button>
   </div>
@@ -270,7 +275,6 @@ const router = useRouter();
 
 const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
-const fileStore = useFileStore();
 
 const i18n = useI18n();
 
@@ -458,6 +462,7 @@ onMounted(async () => {
     guideStore.fetchTuitions();
   }
 });
+
 const loading = ref(false);
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
@@ -497,7 +502,10 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         console.log("error", error.message);
       }
     } else {
-      console.log("error submit!", fields);
+      ElMessage({
+        message: "The form is invalid, Please check it correctly",
+        type: "warning",
+      });
     }
   });
 };

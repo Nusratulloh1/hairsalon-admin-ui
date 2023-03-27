@@ -266,21 +266,21 @@
     </div>
   </el-form>
   <div class="flex pt-4">
-    <el-button type="primary" size="large" @click="submitForm(ruleFormRef)">
+    <el-button
+      type="primary"
+      size="large"
+      @click="submitForm(ruleFormRef)"
+      :disabled="!ruleForm.is_accept"
+    >
       Submit
     </el-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Back, InfoFilled, Plus } from "@element-plus/icons-vue";
-import { useFileStore, useGuideStore, useApplicationStore } from "@/stores";
-import {
-  ElMessage,
-  type FormInstance,
-  type FormRules,
-  type UploadFile,
-} from "element-plus";
+import { Back, InfoFilled } from "@element-plus/icons-vue";
+import { useGuideStore, useApplicationStore } from "@/stores";
+import { ElMessage, type FormInstance, type FormRules } from "element-plus";
 import { ref, reactive, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
 import {
@@ -297,7 +297,6 @@ const router = useRouter();
 
 const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
-const fileStore = useFileStore();
 
 const i18n = useI18n();
 
@@ -527,7 +526,10 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         console.log("error", error.message);
       }
     } else {
-      console.log("error submit!", fields);
+      ElMessage({
+        message: "The form is invalid, Please check it correctly",
+        type: "warning",
+      });
     }
   });
 };

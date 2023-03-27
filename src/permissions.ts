@@ -88,7 +88,7 @@ router.beforeEach(
         next();
       } else {
         // Other pages that do not have permission to access are redirected to the login page.
-        next(`/login?redirect=${to.path}`);
+        next(`/signin?redirect=${to.path}`);
         NProgress.done();
       }
     }
