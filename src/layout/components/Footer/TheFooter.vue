@@ -1,6 +1,9 @@
 <template>
   <div class="app-footer">
-    <p>2023 Copyrights © <span class="text-primary">AKFA University</span></p>
+    <p>
+      2023 Copyrights © <span class="text-primary">AKFA University</span
+      ><a class="ml-2" href="tel:+998-71-200-01-23">+998-71-200-01-23</a>
+    </p>
   </div>
 </template>
 

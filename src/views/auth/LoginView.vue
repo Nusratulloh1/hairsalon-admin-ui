@@ -55,9 +55,14 @@
       </el-form>
     </div>
     <div
-      class="hidden md:flex right-content h-full items-center justify-center"
+      class="relative hidden md:flex right-content h-full items-center justify-center"
     >
       <p>Join us now and start empowering your future!</p>
+      <a
+        class="ml-2 absolute inset-x-2/4 bottom-2 -translate-x-12 text-white"
+        href="tel:+998-71-200-01-23"
+        >+998-71-200-01-23</a
+      >
     </div>
   </div>
 </template>
