@@ -59,9 +59,10 @@
     >
       <p>Join us now and start empowering your future!</p>
       <a
-        class="ml-2 absolute inset-x-2/4 bottom-2 -translate-x-12 text-white"
+        class="ml-2 absolute text-sm bottom-2 text-white text-center"
         href="tel:+998-71-200-01-23"
-        >+998-71-200-01-23</a
+        >If you have questions or difficulties, please contact us:
+        +998-71-200-01-23</a
       >
     </div>
   </div>
