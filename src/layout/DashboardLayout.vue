@@ -62,7 +62,7 @@ const drawer = ref(false);
   }
   .content {
     grid-area: main;
-    overflow: auto;
+    overflow-x: hidden;
   }
   .sidebar {
     grid-area: sidebar;

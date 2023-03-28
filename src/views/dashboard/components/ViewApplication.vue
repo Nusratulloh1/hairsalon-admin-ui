@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+  <div class="overflow-hidden bg-white shadow sm:rounded-lg max-w-full">
     <div class="px-4 py-5 sm:px-6">
       <div class="flex space-x-8">
         <img :src="file_url" alt="File" srcset="" class="w-36 h-48" />
