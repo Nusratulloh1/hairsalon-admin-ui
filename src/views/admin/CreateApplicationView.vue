@@ -116,6 +116,15 @@
           size="large"
         />
       </el-form-item>
+      <el-form-item label="Passport Number. (1234567)" prop="passport_number">
+        <el-input
+          v-model="ruleForm.passport_number"
+          v-mask="'#######'"
+          autocomplete="off"
+          :placeholder="$t('shared.text')"
+          size="large"
+        />
+      </el-form-item>
       <el-form-item label="Date of Birth" prop="birth_date">
         <el-date-picker
           v-model="ruleForm.birth_date"
@@ -130,15 +139,6 @@
           <el-option label="Male" value="male" />
           <el-option label="Female" value="female" />
         </el-select>
-      </el-form-item>
-      <el-form-item label="Passport Number. (1234567)" prop="passport_number">
-        <el-input
-          v-model="ruleForm.passport_number"
-          v-mask="'#######'"
-          autocomplete="off"
-          :placeholder="$t('shared.text')"
-          size="large"
-        />
       </el-form-item>
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
@@ -193,7 +193,10 @@
         />
       </el-form-item>
       <el-form-item prop="take_internal_exam">
-        <el-checkbox v-model="ruleForm.take_internal_exam" size="large"
+        <el-checkbox
+          class="!whitespace-normal"
+          v-model="ruleForm.take_internal_exam"
+          size="large"
           >If you do not have English certificate, you can take the INTERNAL
           ENGLISH EXAM</el-checkbox
         >
