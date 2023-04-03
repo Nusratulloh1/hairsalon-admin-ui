@@ -8,7 +8,7 @@
     v-loading="loading"
   >
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item label="Phone Number" prop="phone">
+      <el-form-item label="Phone Number" prop="phone" id="phone">
         <el-input
           v-model="ruleForm.phone"
           v-mask="'998 ## ###-##-##'"
@@ -17,7 +17,7 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="Region" prop="city_id">
+      <el-form-item label="Region" prop="city_id" id="city_id">
         <el-select
           v-model="ruleForm.city_id"
           :placeholder="$t('shared.select')"
@@ -33,7 +33,11 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="Name of graduation place" prop="graduation_place">
+      <el-form-item
+        label="Name of graduation place"
+        prop="graduation_place"
+        id="graduation_place"
+      >
         <el-input
           v-model="ruleForm.graduation_place"
           autocomplete="off"
@@ -41,7 +45,7 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="Street Address" prop="address">
+      <el-form-item label="Street Address" prop="address" id="address">
         <el-input
           v-model="ruleForm.address"
           autocomplete="off"
@@ -49,7 +53,7 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="Graduation" prop="graduation_id">
+      <el-form-item label="Graduation" prop="graduation_id" id="graduation_id">
         <el-select
           v-model="ruleForm.graduation_id"
           :placeholder="$t('shared.select')"
@@ -64,7 +68,7 @@
     <div class="app-divider my-2 md:my-4" />
     <h1 class="title mb-3">Passport Information</h1>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item label="First Name" prop="first_name">
+      <el-form-item label="First Name" prop="first_name" id="first_name">
         <el-input
           v-model="ruleForm.first_name"
           type="text"
@@ -73,7 +77,7 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="Last Name" prop="last_name">
+      <el-form-item label="Last Name" prop="last_name" id="last_name">
         <el-input
           v-model="ruleForm.last_name"
           autocomplete="off"
@@ -81,7 +85,11 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="Passport Series. (AB)" prop="passport_serial">
+      <el-form-item
+        label="Passport Series. (AB)"
+        prop="passport_serial"
+        id="passport_serial"
+      >
         <el-input
           v-model="ruleForm.passport_serial"
           v-mask="'AA'"
@@ -90,7 +98,11 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="Passport Number. (1234567)" prop="passport_number">
+      <el-form-item
+        label="Passport Number. (1234567)"
+        prop="passport_number"
+        id="passport_number"
+      >
         <el-input
           v-model="ruleForm.passport_number"
           v-mask="'#######'"
@@ -99,7 +111,7 @@
           size="large"
         />
       </el-form-item>
-      <el-form-item label="Date of Birth" prop="birth_date">
+      <el-form-item label="Date of Birth" prop="birth_date" id="birth_date">
         <el-date-picker
           v-model="ruleForm.birth_date"
           :placeholder="$t('shared.select')"
@@ -108,7 +120,7 @@
         >
         </el-date-picker>
       </el-form-item>
-      <el-form-item label="Gender" prop="gender">
+      <el-form-item label="Gender" prop="gender" id="gender">
         <el-select v-model="ruleForm.gender" size="large" class="w-full">
           <el-option label="Male" value="male" />
           <el-option label="Female" value="female" />
@@ -116,19 +128,19 @@
       </el-form-item>
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item label="Passport photo" prop="passport">
+      <el-form-item label="Passport photo" prop="passport" id="passport">
         <AppUpload
           @upload="(file) => (ruleForm.passport = file)"
           @remove="() => (ruleForm.passport = null)"
         />
       </el-form-item>
-      <el-form-item label="Photo" prop="photo">
+      <el-form-item label="Photo" prop="photo" id="photo">
         <AppUpload
           @upload="(file) => (ruleForm.photo = file)"
           @remove="() => (ruleForm.photo = null)"
         />
       </el-form-item>
-      <el-form-item label="Diploma" prop="diploma">
+      <el-form-item label="Diploma" prop="diploma" id="diploma">
         <AppUpload
           @upload="(file) => (ruleForm.diploma = file)"
           @remove="() => (ruleForm.diploma = null)"
@@ -179,7 +191,7 @@
     <div class="app-divider my-2 md:my-4" />
     <h1 class="title mb-3">Exam Preferences</h1>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item label="Department" prop="program_id">
+      <el-form-item label="Department" prop="program_id" id="program_id">
         <el-select
           v-model="ruleForm.program_id"
           :placeholder="$t('shared.select')"
@@ -195,7 +207,7 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item label="Exam date" prop="exam_date_id">
+      <el-form-item label="Exam date" prop="exam_date_id" id="exam_date_id">
         <el-select
           v-model="ruleForm.exam_date_id"
           :placeholder="$t('shared.select')"
@@ -210,7 +222,7 @@
           />
         </el-select>
       </el-form-item>
-      <el-form-item prop="is_scholarship">
+      <el-form-item prop="is_scholarship" id="is_scholarship">
         <template #label>
           <div class="flex items-center space-x-2">
             <span>Scholarship</span>
@@ -505,11 +517,21 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         console.log("error", error.message);
       }
     } else {
+      const arrayFields = Object.keys(fields as any);
+      goDown(arrayFields[0]);
       ElMessage({
         message: "The form is invalid, Please check it correctly",
         type: "warning",
       });
     }
+  });
+};
+const goDown = (target: string) => {
+  console.log("target", target);
+  document.getElementById(target)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest",
   });
 };
 </script>
