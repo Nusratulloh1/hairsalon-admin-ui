@@ -30,7 +30,7 @@ import type { ISidebarItem } from "@/models/frontend";
 import { ref } from "vue";
 const routes: ISidebarItem[] = [
   {
-    route: "/dashboard",
+    route: "/",
     title: "Dashboard",
     icon: Menu,
   },

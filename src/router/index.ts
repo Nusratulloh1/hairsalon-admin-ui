@@ -7,18 +7,18 @@ import { adminRoutes } from "./modules";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: "/",
-      component: LandingLayout,
-      children: [
-        {
-          path: "",
-          name: "landing",
-          component: () => import("@/views/landing/LandingView.vue"),
-          meta: { breadcrumb: "landing" },
-        },
-      ]
-    },
+    // {
+    //   path: "/",
+    //   component: LandingLayout,
+    //   children: [
+    //     {
+    //       path: "",
+    //       name: "landing",
+    //       component: () => import("@/views/landing/LandingView.vue"),
+    //       meta: { breadcrumb: "landing" },
+    //     },
+    //   ]
+    // },
     {
       path: "/login",
       component: LoginLayout,
@@ -86,7 +86,7 @@ const router = createRouter({
       ],
     },
     {
-      path: "/dashboard",
+      path: "/",
       component: DashboardLayout,
       children: [
         {
