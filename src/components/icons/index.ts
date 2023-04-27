@@ -15,3 +15,4 @@ export { default as StorageIcon } from "./StorageIcon.vue";
 export { default as ActiveOrderIcon } from "./ActiveOrderIcon.vue";
 export { default as EmptyListIcon } from "./EmptyListIcon.vue";
 export { default as LogoutIconWithName } from "./LogoIconWithName.vue";
+export { default as AUIconWithName } from "./AUIconWithName.vue";

@@ -41,7 +41,7 @@ const loading = ref(false);
 
 onMounted(() => {
   if (store.user?.is_verified) {
-    router.push("/");
+    router.push("/dashboard");
   }
 });
 
