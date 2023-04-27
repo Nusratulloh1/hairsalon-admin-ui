@@ -498,7 +498,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         if (props.application) {
           data["id"] = props.application.id;
           await applicationStore.updateApplication(data);
-          router.push("/");
+          router.push("/dashboard");
         } else {
           await applicationStore.createApplication(data);
         }
