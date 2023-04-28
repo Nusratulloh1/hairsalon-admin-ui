@@ -1,9 +1,11 @@
 <template>
-    <section class="container mx-auto py-20">
-        <Carousel id="gallery" class="w-full h-[766px] bg-green-500" :items-to-show="1" :wrap-around="false"
+    <section class="container mx-auto">
+        <Carousel id="gallery" class="w-full" :items-to-show="1" :wrap-around="true"
             v-model="currentSlide">
-            <Slide v-for="slide in 10" :key="slide">
-                <div class="carousel__item">{{ slide }}</div>
+            <Slide v-for="(slide,i) in images" :key="i">
+                <div class="carousel__item w-full">
+                    <img :src="slide" class="w-full h-[766px] object-cover object-center" alt="gallery">
+                </div>
             </Slide>
             <template #addons>
                 <navigation>
@@ -29,9 +31,12 @@
             </template>
         </Carousel>
 
-        <Carousel id="thumbnails" class="mt-8" :items-to-show="4" :wrap-around="true" v-model="currentSlide" ref="carousel">
-            <Slide v-for="slide in 10" :key="slide">
-                <div class="carousel__item bg-slate-200 w-[95%] h-[194px]" @click="slideTo(slide - 1)">{{ slide }}</div>
+        <Carousel id="thumbnails" class="mt-8" :items-to-show="4" :wrap-around="true" :breakpoints="breakpoints"
+            v-model="currentSlide" ref="carousel">
+            <Slide v-for="(slide, i) in images" :key="slide">
+                <div class="carousel__item bg-slate-200 w-[95%] h-[194px]" @click="slideTo(i - 1)">
+                    <img :src="slide" class="w-full h-full" alt="gallery">
+                </div>
             </Slide>
         </Carousel>
     </section>
@@ -43,14 +48,22 @@ import { ref } from 'vue';
 
 const breakpoints = {
     200: {
-        itemsToShow: 1,
-        snapAlign: 'center',
-    },
-    1024: {
         itemsToShow: 2,
         snapAlign: 'center',
     },
+    1024: {
+        itemsToShow: 4,
+        snapAlign: 'center',
+    },
 }
+const images = ref([
+    new URL('@/assets/images/landing/gallery-1.jpg', import.meta.url).href,
+    new URL('@/assets/images/landing/gallery-2.jpg', import.meta.url).href,
+    new URL('@/assets/images/landing/gallery-3.jpg', import.meta.url).href,
+    new URL('@/assets/images/landing/gallery-4.jpg', import.meta.url).href,
+    new URL('@/assets/images/landing/gallery-5.jpg', import.meta.url).href
+    
+])
 const currentSlide = ref(0)
 
 const slideTo = (val: number): void => {
