@@ -24,6 +24,7 @@
         <LLifeStudents></LLifeStudents>
         <LEvents></LEvents>
         <LFeedbackSlider></LFeedbackSlider>
+        <LQuestions></LQuestions>
         <LGallery></LGallery>
         <section class="pt-28 pb-40">
             <h3 class=" font-bold text-[42px] leading-[59px] uppercase text-white text-center max-w-[1129px] mx-auto">
@@ -46,6 +47,7 @@ import LLifeStudents from "./components/LLifeStudents.vue";
 import LEvents from "./components/LEvents.vue";
 import LFeedbackSlider from "./components/LFeedbackSlider.vue";
 import LGallery from "./components/LGallery.vue";
+import LQuestions from "./components/LQuestions.vue";
 </script>
 <style lang="scss">
 .landing {
