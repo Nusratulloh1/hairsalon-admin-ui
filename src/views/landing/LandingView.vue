@@ -53,7 +53,7 @@ import LQuestions from "./components/LQuestions.vue";
 .landing {
 
     .top-section {
-        height: 85vh;
+        height: 100vh;
         background: url("../../assets/images/landing/top-header.jpg"), no-repeat, 50%;
         background-size: cover;
     }

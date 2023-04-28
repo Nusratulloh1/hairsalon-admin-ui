@@ -1,19 +1,30 @@
 <template>
-    <section class="container mx-auto py-20">
+    <section class="container mx-auto py-20 px-5 sm:px-0">
         <h3 class="text-white uppercase text-[42px] leading-[51px] font-bold max-w-[1026px]">
             ЧАСТЫЕ ВОПРОСЫ:
         </h3>
-        <div class="grid grid-cols-2 mt-16">
+        <div class="grid grid-cols-1 xl:grid-cols-2 mt-16 gap-[60px]">
             <div>
                 <h6 class=" uppercase text-[32px] leading-[39px] text-white mb-10">
                     General Questions
                 </h6>
-                <div class="border-[1.6px] border-[#4E4E4E] pl-8 mb-6 rounded-md overflow-hidden" v-for="(item, i) in questions"
-                    :key="item.id">
-                    <div class="card-header flex items-center justify-between" @click.prevent="toggleExpand(i, item)">
-                        <p class="text-white">{{ item.title }}</p>
-                        <button class="icon bg-[#4E4E4E] p-[25px] h-full">
-                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="border-[1.6px] border-[#4E4E4E] pl-8 mb-6 rounded-md overflow-hidden"
+                    v-for="(item, i) in questions" :key="item.id">
+                    <div class="card-header flex items-center justify-between transition-all"
+                        @click.prevent="toggleExpand(i, item)">
+                        <h6 class="text-white text-sm sm:text-lg flex items-center gap-8">
+                            <p>01</p>
+                            {{ item.title }}
+                        </h6>
+                        <button class="icon bg-[#4E4E4E] p-[25px] h-[66.93px]" :class="item.isExpand ? 'bg-[#C02221]' : ''">
+                            <svg v-if="item.isExpand" width="17" height="3" viewBox="0 0 17 3" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M1.05185 3.00071H15.4625C16.0053 3.00071 16.4452 2.50636 16.4452 1.89627C16.4452 1.28634 16.0054 0.791992 15.4625 0.791992H1.05185C0.509234 0.792143 0.0693359 1.28649 0.0693359 1.89642C0.0693359 2.50636 0.509234 3.00071 1.05185 3.00071Z"
+                                    fill="white" />
+                            </svg>
+                            <svg v-else width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M17.7184 8.31732H10.3562V0.954906C10.3562 0.447014 9.94386 0.034668 9.4358 0.034668C8.9279 0.034668 8.51556 0.447014 8.51556 0.954906V8.31732H1.15315C0.645256 8.31732 0.23291 8.72966 0.23291 9.23755C0.23291 9.74561 0.645256 10.158 1.15315 10.158H8.51556V17.5202C8.51556 18.0283 8.9279 18.4406 9.4358 18.4406C9.94386 18.4406 10.3562 18.0283 10.3562 17.5202V10.158H17.7184C18.2265 10.158 18.6389 9.74561 18.6389 9.23755C18.6389 8.72966 18.2265 8.31732 17.7184 8.31732V8.31732Z"
                                     fill="white" />
@@ -21,17 +32,54 @@
                         </button>
                     </div>
 
-                    <div class="card-body" :id="'content' + item.id"
-                        :style="item.isExpand ?  `height: ${item.computedHeight} !important; padding: 15px 32px 35px`  : ''">
+                    <div class="card-body transition-[0.2s]" :id="'content' + item.id"
+                        :style="item.isExpand ? `height: ${item.computedHeight} !important; padding: 20px 32px 35px 50px` : 'height: 0'">
                         <p class="text-sm text-white">{{ item.content }}</p>
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end">
-                <div class="w-full">
-                    <h6 class=" uppercase text-[32px] leading-[39px] text-white">
+            <div class="xl:flex xl:justify-end">
+                <div class="xl:w-[90%]">
+                    <h6 class="uppercase text-[32px] leading-[39px] text-white">
                         How to apply?
                     </h6>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-10 mt-10">
+                        <div class="w-full border-[1.6px] border-[#4E4E4E] rounded-md pt-16 px-[14px] pb-20 relative">
+                            <p class="text-base text-white">
+                                Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices.
+                            </p>
+                            <div class=" bg-white rounded-full w-20 h-20 text-center py-7 top-[-29px] left-[40%] absolute">
+                                <p class="font-bold text-[32px] leading-[24px] popins">1</p>
+                            </div>
+                        </div>
+                        <div class="w-full border-[1.6px] border-[#4E4E4E] rounded-md pt-16 px-[14px] pb-20 relative">
+                            <p class="text-base text-white">
+                                Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices.
+                            </p>
+                            <div class=" bg-white rounded-full w-20 h-20 text-center py-7 top-[-29px] left-[40%] absolute">
+                                <p class="font-bold text-[32px] leading-[24px] popins">2</p>
+                            </div>
+                        </div>
+                        <div class="w-full border-[1.6px] border-[#4E4E4E] rounded-md pt-16 px-[14px] pb-6 relative">
+                            <p class="text-base text-white">
+                                Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices.
+                            </p>
+                            <div class=" bg-white rounded-full w-20 h-20 text-center py-7 top-[-29px] left-[40%] absolute">
+                                <p class="font-bold text-[32px] leading-[24px] popins">3</p>
+                            </div>
+                        </div>
+                        <div class="w-full border-[1.6px] border-[#4E4E4E] rounded-md pt-16 px-[14px] pb-6 relative">
+                            <p class="text-base text-white">
+                                Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices.
+                            </p>
+                            <div class=" bg-white rounded-full w-20 h-20 text-center py-7 top-[-29px] left-[40%] absolute">
+                                <p class="font-bold text-[32px] leading-[24px] popins">4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="gradient-button w-full text-lg font-bold py-5 mt-[60px] h-[65px]">
+                        ПОДАТЬ ДОКУМЕНТЫ
+                    </button>
                 </div>
             </div>
         </div>
@@ -46,7 +94,7 @@ const questions = ref([
         id: 1,
         title: 'Lorem ipsum dolor sit amet consectetur. Sagittis id.',
         content: 'Lorem ipsum dolor sit amet consectetur. In augue ipsum tellus ultrices. Ac pharetra ultrices consectetur consequat tellus massa. Nec aliquam cras sagittis duis sed euismod arcu hac. Ornare amet ligula ornare lacus aliquam aenean. Eu lacus imperdiet urna amet congue adipiscing. Faucibus magna nisl ullamcorper in facilisis consequat aliquam. Id placerat dui habitasse quisque nisl tincidunt facilisi mi id.Dictum elit velit.',
-        isExpand: false,
+        isExpand: true,
         computedHeight: 0,
     },
     {
@@ -73,19 +121,12 @@ const questions = ref([
 ])
 const toggleExpand = (i: any, item: any): void => {
     questions.value[i].isExpand = !questions.value[i].isExpand
-    console.log(questions.value);
-    
 }
 
 const getComputedHeight = (): void => {
     questions.value.forEach(item => {
         var elem = document.getElementById('content' + item.id)
-        console.log(elem);
-
         var content: any = [elem][0];
-        console.log(content);
-
-
         content.style.height = 'auto';
         content.style.position = 'absolute';
         content.style.visibility = 'hidden';
@@ -105,6 +146,10 @@ onMounted(() => {
 })
 </script>
 <style scoped>
+.popins {
+    font-family: 'Poppins';
+}
+
 /* .card-body {
   height: 0;
   overflow: hidden;
