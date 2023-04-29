@@ -1,32 +1,35 @@
 <template>
-    <section class="container mx-auto py-20">
-        <h3 class="text-white uppercase text-[42px] leading-[51px] font-bold max-w-[1026px] mb-14">
+    <section class="container mx-auto py-10 sm:py-20 px-5 sm:px-0">
+        <h3
+            class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[1026px] mb-7 sm:mb-14">
             ЧТО ДУМАЮТ НАШИ СТУДЕНТЫ:
         </h3>
-        <carousel :items-to-show="2" :autoplay="6000" :transition="500" id="feedback" :breakpoints="breakpoints" class="h-[439px]">
-            <slide v-for="slide in 10" :key="slide">
-                <div class="bg-white w-[95%] h-[439px] rounded-2xl py-7 px-9 xl:py-[53px] xl:px-16">
-                    <svg width="62" height="48" viewBox="0 0 62 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <carousel :items-to-show="2" :autoplay="6000" :transition="500" id="feedback" :breakpoints="breakpoints"
+            class="h-[439px]">
+            <slide v-for="slide in 4" :key="slide">
+                <div class="bg-white w-[95%] h-[439px] rounded-2xl  py-7 px-9 xl:py-[53px] xl:px-16">
+                    <svg class=" w-10 h-8 sm:w-[62px] sm:h-12" viewBox="0 0 62 48" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M28.8001 35.46C28.8731 37.1634 28.5696 38.862 27.9115 40.4349C27.2533 42.0077 26.2565 43.4162 24.9921 44.56L24.9821 44.568C22.3642 46.8892 18.9548 48.1163 15.4581 47.996H15.4801C13.3666 48.1103 11.2538 47.7577 9.29182 46.9634C7.32986 46.1691 5.56689 44.9525 4.12814 43.4L4.12014 43.392C1.23572 39.9692 -0.23549 35.5756 0.00613983 31.106L0.00413983 31.148C-0.129905 26.5064 0.732817 21.8899 2.53414 17.61L2.45414 17.824C3.89237 14.4683 5.88785 11.3801 8.35614 8.68999L8.33414 8.71399C10.3733 6.5018 12.7362 4.61164 15.3421 3.10799L15.4861 3.03199C17.4571 1.89496 19.5141 0.91396 21.6381 0.0979902L21.9501 -0.00800977L28.2181 10.572C25.6135 11.6229 23.3272 13.3336 21.5841 15.536L21.5581 15.57C19.8225 17.6374 18.734 20.17 18.4281 22.852L18.4221 22.916C19.7861 22.9501 21.1274 23.2721 22.3582 23.8608C23.589 24.4495 24.6815 25.2916 25.5641 26.332L25.5761 26.346C27.8203 28.8448 28.9813 32.132 28.8041 35.486L28.8061 35.456L28.8001 35.46ZM62.6961 35.46C62.7683 37.1638 62.4643 38.8626 61.8058 40.4357C61.1474 42.0088 60.1505 43.4176 58.8862 44.562L58.8761 44.57C56.2588 46.8921 52.849 48.1194 49.3521 47.998H49.3741C47.2605 48.1128 45.1475 47.7605 43.1855 46.9662C41.2235 46.1718 39.4606 44.9549 38.0221 43.402L38.0141 43.392C35.1285 39.9691 33.6572 35.5744 33.9001 31.104L33.8981 31.146C33.7641 26.5044 34.6268 21.8879 36.4281 17.608L36.3481 17.822C37.7857 14.4669 39.7798 11.3788 42.2461 8.68799L42.2241 8.71199C44.264 6.49975 46.6276 4.6096 49.2341 3.10599L49.3781 3.02999C51.3487 1.89216 53.4057 0.911128 55.5301 0.0959902L55.8421 -0.0100098L62.1082 10.57C59.5031 11.6222 57.2168 13.3343 55.4741 15.538L55.4482 15.572C53.7125 17.6394 52.624 20.172 52.3181 22.854L52.3121 22.918C53.6755 22.952 55.0163 23.2739 56.2465 23.8626C57.4767 24.4513 58.5684 25.2935 59.4501 26.334L59.4622 26.348C61.7088 28.8449 62.872 32.1317 62.6961 35.486L62.6982 35.456L62.6961 35.46Z"
-                            fill="black" />
+                            fill="rgb(203 213 225 / 1)" />
                     </svg>
-                    <p class="text-base text-black my-8 text-left">
+                    <p class=" text-sm sm:text-base text-black my-4 sm:my-8 text-left">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit semper consequat in dolor mattis
                         pellentesque suspendisse vulputate nec. Scelerisque elementum, consequat pharetra lectus eget
                         vivamus ut. Magna aliquam tellus at volutpat cras aliquet facilisi quis adipiscing. Proin egestas et
                         pellentesque augue pretium, amet. Natoque blandit augue integer maecenas mattis amet, nec.
                     </p>
-                    <div class="flex items-center gap-4">
-                     <img src="@/assets/images/landing/avatar.svg" alt="avatar">
-                       <div>
-                        <p class=" text-lg font-medium">
-                            Brooklyn Simmons
-                        </p>
-                        <p class=" text-base text-[#C02221] text-left">
-                            Pendron.Inc, CEO
-                        </p>
-                       </div>
+                    <div class="flex items-center gap-2 flex-wrap sm:gap-4 absolute bottom-7 sm:bottom-[53px]">
+                        <img src="@/assets/images/landing/avatar.svg" class=" w-12 h-12 sm:w-auto sm:h-auto" alt="avatar">
+                        <div>
+                            <p class=" text-sm sm:text-lg font-medium">
+                                Brooklyn Simmons
+                            </p>
+                            <p class=" text-xs sm:text-base text-[#C02221] text-left">
+                                Pendron.Inc, CEO
+                            </p>
+                        </div>
                     </div>
                 </div>
             </slide>
@@ -64,26 +67,27 @@ const breakpoints = {
     200: {
         itemsToShow: 1,
         snapAlign: 'center',
-      },
-      1024: {
+    },
+    1024: {
         itemsToShow: 2,
         snapAlign: 'center',
-      },
-    }
+    },
+}
 
 </script>
 <style>
- #feedback .carousel__prev,
- #feedback .carousel__next {
+#feedback .carousel__prev,
+#feedback .carousel__next {
     background: #C02221 !important;
     width: 56px !important;
     height: 56px;
     border-radius: 50%;
 }
-#feedback .carousel__next{
+
+#feedback .carousel__next {
     right: -24px;
 }
-#feedback .carousel__prev{
+
+#feedback .carousel__prev {
     left: -24px;
-}
-</style>
+}</style>

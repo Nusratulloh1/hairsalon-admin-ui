@@ -1,22 +1,22 @@
 <template>
     <section class="container mx-auto py-20 px-5 sm:px-0">
-        <h3 class="text-white uppercase text-[42px] leading-[51px] font-bold max-w-[1026px]">
+        <h3 class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[1026px]">
             ЧАСТЫЕ ВОПРОСЫ:
         </h3>
-        <div class="grid grid-cols-1 xl:grid-cols-2 mt-16 gap-[60px]">
+        <div class="grid grid-cols-1 xl:grid-cols-2 mt-8 sm:mt-16 gap-[60px]">
             <div>
-                <h6 class=" uppercase text-[32px] leading-[39px] text-white mb-10">
+                <h6 class=" uppercase text-xl sm:text-[32px] sm:leading-[39px] text-white mb-6 sm:mb-10">
                     General Questions
                 </h6>
-                <div class="border-[1.6px] border-[#4E4E4E] pl-8 mb-6 rounded-md overflow-hidden"
+                <div class="border-[1.6px] border-[#4E4E4E] pl-4 sm:pl-8 mb-6 rounded-md overflow-hidden"
                     v-for="(item, i) in questions" :key="item.id">
                     <div class="card-header flex items-center justify-between transition-all"
                         @click.prevent="toggleExpand(i, item)">
-                        <h6 class="text-white text-sm sm:text-lg flex items-center gap-8">
+                        <h6 class="text-white text-sm sm:text-lg flex items-center gap-4 sm:gap-8">
                             <p>01</p>
                             {{ item.title }}
                         </h6>
-                        <button class="icon bg-[#4E4E4E] p-[25px] h-[66.93px]" :class="item.isExpand ? 'bg-[#C02221]' : ''">
+                        <button class="icon bg-[#4E4E4E] p-4 sm:p-[25px] h-14 sm:h-[66.93px]" :class="item.isExpand ? 'bg-[#C02221]' : ''">
                             <svg v-if="item.isExpand" width="17" height="3" viewBox="0 0 17 3" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -32,15 +32,15 @@
                         </button>
                     </div>
 
-                    <div class="card-body transition-[0.2s]" :id="'content' + item.id"
-                        :style="item.isExpand ? `height: ${item.computedHeight} !important; padding: 20px 32px 35px 50px` : 'height: 0'">
-                        <p class="text-sm text-white">{{ item.content }}</p>
+                    <div class="card-body transition-[0.2s] pl-7 sm:pl-[50px]" :id="'content' + item.id"
+                        :style="item.isExpand ? `height: ${item.computedHeight} !important; padding: 20px 32px 35px` : 'height: 0'">
+                        <p class=" text-xs sm:text-sm text-white">{{ item.content }}</p>
                     </div>
                 </div>
             </div>
             <div class="xl:flex xl:justify-end">
                 <div class="xl:w-[90%]">
-                    <h6 class="uppercase text-[32px] leading-[39px] text-white">
+                    <h6 class=" uppercase text-xl sm:text-[32px] sm:leading-[39px] text-white mb-6 sm:mb-10">
                         How to apply?
                     </h6>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-10 mt-10">
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="gradient-button w-full text-lg font-bold py-5 mt-[60px] h-[65px]">
+                    <button class="gradient-button w-full text-sm sm:text-lg font-bold py-3 sm:py-5 mt-[60px]">
                         ПОДАТЬ ДОКУМЕНТЫ
                     </button>
                 </div>
@@ -149,10 +149,7 @@ onMounted(() => {
 .popins {
     font-family: 'Poppins';
 }
-
-/* .card-body {
-  height: 0;
-  overflow: hidden;
-  transition: 0.3s;
-} */
+.card-header{
+    transition: 0.5s;
+}
 </style>
