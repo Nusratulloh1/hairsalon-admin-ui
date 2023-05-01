@@ -6,7 +6,7 @@
         </h3>
         <carousel :items-to-show="2" :autoplay="6000" :transition="500" id="feedback" :breakpoints="breakpoints"
             class="h-[439px]">
-            <slide v-for="slide in 4" :key="slide">
+            <slide v-for="feedback in feedbacks" :key="feedback.id">
                 <div class="bg-white w-[95%] h-[439px] rounded-2xl  py-7 px-9 xl:py-[53px] xl:px-16">
                     <svg class=" w-10 h-8 sm:w-[62px] sm:h-12" viewBox="0 0 62 48" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -15,19 +15,16 @@
                             fill="rgb(203 213 225 / 1)" />
                     </svg>
                     <p class=" text-sm sm:text-base text-black my-4 sm:my-8 text-left">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit semper consequat in dolor mattis
-                        pellentesque suspendisse vulputate nec. Scelerisque elementum, consequat pharetra lectus eget
-                        vivamus ut. Magna aliquam tellus at volutpat cras aliquet facilisi quis adipiscing. Proin egestas et
-                        pellentesque augue pretium, amet. Natoque blandit augue integer maecenas mattis amet, nec.
+                        {{ feedback.body }}
                     </p>
                     <div class="flex items-center gap-2 flex-wrap sm:gap-4 absolute bottom-7 sm:bottom-[53px]">
-                        <img src="@/assets/images/landing/avatar.svg" class=" w-12 h-12 sm:w-auto sm:h-auto" alt="avatar">
-                        <div>
+                        <img :src="feedback.image" class=" w-12 h-12 sm:w-auto sm:h-auto" alt="avatar">
+                        <div class=" text-start">
                             <p class=" text-sm sm:text-lg font-medium">
-                                Brooklyn Simmons
+                                {{ feedback.name }}
                             </p>
                             <p class=" text-xs sm:text-base text-[#C02221] text-left">
-                                Pendron.Inc, CEO
+                                {{ feedback.position }}
                             </p>
                         </div>
                     </div>
@@ -62,6 +59,7 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
+import { ref } from 'vue';
 
 const breakpoints = {
     200: {
@@ -73,6 +71,27 @@ const breakpoints = {
         snapAlign: 'center',
     },
 }
+const feedbacks = ref([
+    {
+        id: 1,
+        name: 'Емиль Истамов',
+        position: 'Студент 1 курса Школы Инжиниринга',
+        body: `Как президент Совета Студентов, я хотел бы выразить огромную благодарность всем преподавателям и
+                        администрации Университета AKFA за качественную программу обучения и за то, что они создали такое
+                        увлекательное и образовательное окружение для нас, студентов. Я горжусь тем, что являюсь студентом
+                        Университета AKFA и благодарен за то, что мне дается возможность получать высшее образование в таком
+                        замечательном учебном заведении.`,
+                        image: new URL('@/assets/images/landing/emil.svg', import.meta.url).href,
+    },
+    {
+        id: 1,
+        name: 'Саодат Назарова',
+        position: 'Студент первого курса Школы Бизнеса ',
+        body: `Я хочу выразить благодарность Университету AKFA за качественную программу обучения. Я получил уникальный опыт и знания, которые помогут мне в будущей карьере. Особенно мне понравилась возможность практических занятий и использование передовых технологий в обучении.
+Я также хотел бы отметить, что Университет AKFA создает хорошую атмосферу для студентов, которые желают расширить свой кругозор и познакомиться с новыми людьми. `,
+image: new URL('@/assets/images/landing/saodat.svg', import.meta.url).href,
+    }
+])
 
 </script>
 <style>
@@ -90,4 +109,5 @@ const breakpoints = {
 
 #feedback .carousel__prev {
     left: -24px;
-}</style>
+}
+</style>

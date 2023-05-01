@@ -1,7 +1,7 @@
 <template>
-    <div class=" landing">
+    <div class="landing">
         <LHeader></LHeader>
-        <LFaculties></LFaculties>
+        <LFaculties id="faculty"></LFaculties>
         <LTeachersSlider></LTeachersSlider>
         <section class="py-12 md:py-24 px-5 sm:px-0 container mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
             <div>
@@ -50,6 +50,8 @@ import LEvents from "./components/LEvents.vue";
 import LFeedbackSlider from "./components/LFeedbackSlider.vue";
 import LGallery from "./components/LGallery.vue";
 import LQuestions from "./components/LQuestions.vue";
+import { ref } from "vue";
+
 </script>
 <style lang="scss">
 .landing {

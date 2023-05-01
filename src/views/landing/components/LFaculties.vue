@@ -10,7 +10,7 @@
             </p>
         </div>
         <div class="faculties grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mt-12 sm:mt-[106px]">
-            <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px]">
+            <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px] !bg-center">
                 <span class="text-white font-medium text-base">8 семестров</span>
                 <h6 class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px]">
                     Школа
@@ -26,7 +26,7 @@
                     ПОДАТЬ ДОКУМЕНТЫ
                 </button>
             </div>
-            <div class="faculty img2 w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px]">
+            <div class="faculty img2 w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px] !bg-center">
                 <span class="text-white font-medium text-base">8 семестров</span>
                 <h6 class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px]">
                     Школа
@@ -42,7 +42,7 @@
                     ПОДАТЬ ДОКУМЕНТЫ
                 </button>
             </div>
-            <div class="faculty img3 w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px]">
+            <div class="faculty img3 w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px] !bg-center">
                 <span class="text-white font-medium text-base">12 семестров</span>
                 <h6 class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px]">
                     Школа
@@ -58,7 +58,7 @@
                     ПОДАТЬ ДОКУМЕНТЫ
                 </button>
             </div>
-            <div class="faculty img4 w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px]">
+            <div class="faculty img4 w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px] !bg-center">
                 <span class="text-white font-medium text-base">10 семестров</span>
                 <h6 class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px]">
                     Школа
