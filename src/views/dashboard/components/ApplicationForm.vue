@@ -7,9 +7,9 @@
     require-asterisk-position="right"
     v-loading="loading"
   >
-  <VOnboardingWrapper ref="wrapper" :steps="steps" />
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item label="Phone Number" prop="phone" id="phone">
+      <el-form-item label="Phone Number" prop="phone" id="phone" v-if="store.getUser?.country?.code === 'UZ'">
+        <el-tooltip content="Be sure to enter your personal phone number as we need it to support feedback with you" placement="top">
         <el-input
           v-model="ruleForm.phone"
           v-mask="'998 ## ###-##-##'"
@@ -17,8 +17,9 @@
           placeholder="+998"
           size="large"
         />
+      </el-tooltip>
       </el-form-item>
-      <el-form-item label="Region" prop="city_id" id="city_id">
+      <el-form-item label="Region" prop="city_id" id="city_id" v-if="store.getUser?.country?.code === 'UZ'">
         <el-select
           v-model="ruleForm.city_id"
           placeholder="Select your region"
@@ -39,20 +40,24 @@
         prop="graduation_place"
         id="graduation_place"
       >
+      <el-tooltip content="Be sure to write your correct place of graduation" placement="top">
         <el-input
           v-model="ruleForm.graduation_place"
           autocomplete="off"
           placeholder="Write the name graduation place"
           size="large"
         />
+      </el-tooltip>
       </el-form-item>
-      <el-form-item label="Street Address" prop="address" id="address">
+      <el-form-item label="Street Address" prop="address" id="address" v-if="store.getUser?.country?.code === 'UZ'">
+        <el-tooltip content="Be sure to enter your current address" placement="top">
         <el-input
           v-model="ruleForm.address"
           autocomplete="off"
           placeholder="Write your address"
           size="large"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item label="Graduation" prop="graduation_id" id="graduation_id">
         <el-select
@@ -70,6 +75,7 @@
     <h1 class="title mb-3">Passport Information</h1>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-2">
       <el-form-item label="First Name" prop="first_name" id="first_name">
+        <el-tooltip content="Please write your first name like in passport" placement="top">
         <el-input
           v-model="ruleForm.first_name"
           type="text"
@@ -77,40 +83,45 @@
           placeholder="Write your first name"
           size="large"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item label="Last Name" prop="last_name" id="last_name">
+        <el-tooltip content="Please write your last name like in passport" placement="top">
         <el-input
           v-model="ruleForm.last_name"
           autocomplete="off"
           placeholder="Write your last name"
           size="large"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item
         label="Passport Series. (AB)"
         prop="passport_serial"
         id="passport_serial"
       >
+      <el-tooltip content="Please write your first letters in passport" placement="top">
         <el-input
           v-model="ruleForm.passport_serial"
-          v-mask="'AA'"
           autocomplete="off"
           placeholder="Write down the numbers of your passport or ID card"
           size="large"
         />
+        </el-tooltip>
       </el-form-item>
       <el-form-item
         label="Passport Number. (1234567)"
         prop="passport_number"
         id="passport_number"
       >
+      <el-tooltip content="Please write your passport numbers (numbers after letters)" placement="top">
         <el-input
           v-model="ruleForm.passport_number"
-          v-mask="'#######'"
           autocomplete="off"
           :placeholder="$t('shared.text')"
           size="large"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item label="Date of Birth" prop="birth_date" id="birth_date">
         <el-date-picker
@@ -130,22 +141,28 @@
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item label="Passport photo" prop="passport" id="passport">
+        <el-tooltip content="Make sure that your passport does not exceed two megabytes and that all the necessary data is visible on the photo" placement="top">
         <AppUpload
           @upload="(file) => (ruleForm.passport = file)"
           @remove="() => (ruleForm.passport = null)"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item label="Photo" prop="photo" id="photo">
+        <el-tooltip content="Make sure your photo matches your passport photo and format" placement="top">
         <AppUpload
           @upload="(file) => (ruleForm.photo = file)"
           @remove="() => (ruleForm.photo = null)"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item label="Diploma" prop="diploma" id="diploma">
+        <el-tooltip content="Make sure that there is nothing in the photo except for the diploma and all the necessary data are visible correctly" placement="top">
         <AppUpload
           @upload="(file) => (ruleForm.diploma = file)"
           @remove="() => (ruleForm.diploma = null)"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item
         label="English proficiency certificate"
@@ -163,10 +180,12 @@
         </el-select>
       </el-form-item>
       <el-form-item label="English proficiency certificate" prop="certificate">
+        <el-tooltip content="Make sure that there is nothing in the photo except for the certigicate and all the necessary data are visible correctly" placement="top">
         <AppUpload
           @upload="(file) => (ruleForm.certificate = file)"
           @remove="() => (ruleForm.certificate = null)"
         />
+      </el-tooltip>
       </el-form-item>
       <el-form-item
         label="Certificate Number (TRF if you have IELTS)"
@@ -270,6 +289,7 @@
 <script setup lang="ts">
 import { InfoFilled, Plus } from "@element-plus/icons-vue";
 import { useFileStore, useGuideStore, useApplicationStore } from "@/stores";
+import { useUsersStore } from "@/stores/user";
 import {
   ElMessage,
   type FormInstance,
@@ -287,23 +307,9 @@ import { convertPhone } from "@/utils/mappers";
 import { format } from "date-fns";
 import { useRouter } from "vue-router";
 import AppUpload from "@/components/common/AppUpload.vue";
-import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
 import 'v-onboarding/dist/style.css'
 const router = useRouter();
-
-const wrapper = ref(null)
-    const { start, goToStep, finish } = useVOnboarding(wrapper)
-    const steps = [
-      { attachTo: { element: '#phone' }, content: { title: "Fill hone please !!!" } },
-      { attachTo: { element: '#city_id' }, content: { title: "Fill fcity please !!!" } },
-      { attachTo: { element: '#graduation_place' }, content: { title: "Fill fcity please !!!" } },
-      { attachTo: { element: '#address' }, content: { title: "Fill hone please !!!" } },
-      { attachTo: { element: '#graduation_id' }, content: { title: "Fill fcity please !!!" } },
-      { attachTo: { element: '#first_name' }, content: { title: "Fill fcity please !!!" } },
-      { attachTo: { element: '#last_name' }, content: { title: "Fill hone please !!!" } },
-      { attachTo: { element: '#passport_serial' }, content: { title: "Fill fcity please !!!" } },
-      { attachTo: { element: '#passport_number' }, content: { title: "Fill fcity please !!!" } }
-    ]
+const store = useUsersStore();
 
 const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
@@ -484,7 +490,6 @@ const props = defineProps<{
 }>();
 
 onMounted(async () => {
-  start()
   if (!guideStore.getExamDates.length) {
     guideStore.fetchExamDates();
   }
@@ -511,6 +516,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 
         if (!ruleForm.certificate) {
           delete data.certificate;
+        }
+        if (store.getUser?.country.code !== 'UZ') {
+          delete data.phone;
+          delete data.city_id;
+          delete data.address;
         }
 
         if (props.application) {

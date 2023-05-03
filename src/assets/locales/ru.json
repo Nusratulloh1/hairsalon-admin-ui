@@ -163,6 +163,7 @@
     "fillField": "Пожалуйста заполните это поле",
     "inputEmail": "Пожалуйста, введите адрес электронной почты",
     "minimumLength": "Минимальная длина {value}",
+    "maximumLength": "Maximum длина {value}",
     "pattern": "Введите в правильном формате",
     "passwordsDontMatch": "Два пароля не совпадают!"
   },

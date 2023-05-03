@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 h-full">
-    <div class="space-y-6 px-4 md:px-24 pt-4 md:pt-8 h-full relative">
+  <div class=" h-full">
+    <div class="space-y-6 mx-auto md:w-1/2 px-4 md:px-24 pt-4 md:pt-8 h-full relative">
       <div class="header flex flex-col items-start space-y-8 md:space-y-12">
         <LogoutIconWithName />
         <h1 class="header__title">
@@ -54,7 +54,7 @@
         </div>
       </el-form>
     </div>
-    <div
+    <!-- <div
       class="relative hidden md:flex right-content h-full items-center justify-center"
     >
       <p>Join us now and start empowering your future!</p>
@@ -64,7 +64,7 @@
         >If you have questions or difficulties, please contact us:
         +998-71-200-01-23</a
       >
-    </div>
+    </div> -->
   </div>
 </template>
 

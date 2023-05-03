@@ -11,7 +11,6 @@ const title = "Admission";
 NProgress.configure({ showSpinner: false });
 
 const whiteList = [
-  "/dashboard",
   "/",
   "/login",
   "/signin",
@@ -19,18 +18,15 @@ const whiteList = [
   "/forgot-password",
   "/reset-password",
 ];
-
 const getPageTitle = (key: string) => {
   const { t, te } = i18n.global as any;
   const hasKey = te(`app.${key}`) as any;
   if (hasKey) {
     const pageName = t(`app.${key}`);
-
     return `${pageName} - ${title}`;
   }
   return title;
 };
-
 router.beforeEach(
   async (
     to: RouteLocationNormalized,
