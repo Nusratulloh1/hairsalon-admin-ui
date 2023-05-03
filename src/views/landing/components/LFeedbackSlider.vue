@@ -2,7 +2,7 @@
     <section class="container mx-auto py-10 sm:py-20 px-5 sm:px-0">
         <h3
             class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[1026px] mb-7 sm:mb-14">
-            ЧТО ДУМАЮТ НАШИ СТУДЕНТЫ:
+            WHAT OUR STUDENTS THINK:
         </h3>
         <carousel :items-to-show="2" :autoplay="6000" :transition="500" id="feedback" :breakpoints="breakpoints"
             class="h-[439px]">
@@ -54,6 +54,21 @@
                 </navigation>
             </template>
         </carousel>
+        <div class="w-full flex items-center flex-wrap gap-5 justify-center sm:gap-12 mt-10">
+            <a href="tel:+998+71+200-05-22"
+                class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
+                <svg width="19" height="16" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M3.7054 6.21517C5.12746 7.8361 6.9953 8.92957 9.02156 9.32452L9.97203 7.38237C10.091 7.14002 10.3207 7.00511 10.5551 7.00902C11.3184 7.03045 12.1025 6.91943 12.874 6.66488C13.2179 6.55141 13.5769 6.7616 13.6808 7.13722L14.336 9.50603C14.4399 9.88166 14.2474 10.2738 13.9035 10.3873C8.08502 12.3072 1.94494 8.71263 0.187194 2.35747C0.0833011 1.98184 0.278842 1.58866 0.61965 1.47621L2.78842 0.760599C3.13233 0.647124 3.49137 0.857316 3.59527 1.23294C3.82832 2.07556 4.17782 2.85021 4.61675 3.53258C4.74949 3.74359 4.77386 4.02728 4.65493 4.26963L3.7054 6.21517Z"
+                        fill="white" />
+                </svg>
+                MORE
+            </a>
+            <button @click="$router.push('/login')"
+                class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
+                APPLY NOW
+            </button>
+        </div>
     </section>
 </template>
 <script setup lang="ts">
@@ -74,22 +89,18 @@ const breakpoints = {
 const feedbacks = ref([
     {
         id: 1,
-        name: 'Емиль Истамов',
-        position: 'Студент 1 курса Школы Инжиниринга',
-        body: `Как президент Совета Студентов, я хотел бы выразить огромную благодарность всем преподавателям и
-                        администрации Университета AKFA за качественную программу обучения и за то, что они создали такое
-                        увлекательное и образовательное окружение для нас, студентов. Я горжусь тем, что являюсь студентом
-                        Университета AKFA и благодарен за то, что мне дается возможность получать высшее образование в таком
-                        замечательном учебном заведении.`,
-                        image: new URL('@/assets/images/landing/emil.svg', import.meta.url).href,
+        name: 'Emil Ismatov',
+        position: 'First year student of the Engineering School',
+        body: `As President of the Student Council, I would like to express my deep gratitude to all the faculty and administration of AKFA University for the quality program of study and for creating such an exciting and educational environment for us students. I am proud to be a student of AKFA University and grateful that I am given the opportunity to pursue higher education in such a wonderful institution.`,
+        image: new URL('@/assets/images/landing/emil.svg', import.meta.url).href,
     },
     {
         id: 1,
-        name: 'Саодат Назарова',
-        position: 'Студент первого курса Школы Бизнеса ',
-        body: `Я хочу выразить благодарность Университету AKFA за качественную программу обучения. Я получил уникальный опыт и знания, которые помогут мне в будущей карьере. Особенно мне понравилась возможность практических занятий и использование передовых технологий в обучении.
-Я также хотел бы отметить, что Университет AKFA создает хорошую атмосферу для студентов, которые желают расширить свой кругозор и познакомиться с новыми людьми. `,
-image: new URL('@/assets/images/landing/saodat.svg', import.meta.url).href,
+        name: 'Saodat Nazarova',
+        position: 'First year student of the Business School',
+        body: `I want to express my gratitude to AKFA University for a quality study program. I gained unique experience and knowledge that will help me in my future career. I especially liked the possibility of practical training and the use of advanced technologies in teaching.
+I would also like to note that AKFA University creates a good atmosphere for students who want to broaden their horizons and meet new people.`,
+        image: new URL('@/assets/images/landing/saodat.svg', import.meta.url).href,
     }
 ])
 

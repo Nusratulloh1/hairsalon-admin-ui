@@ -1,6 +1,6 @@
 <template>
     <footer class=" bg-[#232323] pt-[14px] pb-14">
-        <div class="container mx-auto px-5 sm:px-0 gap-5 md:gap-0 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5">
+        <div class="container mx-auto px-5 sm:px-0 flex items-center justify-between flex-wrap">
             <ul>
                 <li>
                     <AUIconWithName class="w-40 h-[86px]"></AUIconWithName>
@@ -21,7 +21,7 @@
                     Email: <a href="mailto:info@akfauniversity.org">info@akfauniversity.org</a>
                 </li>
             </ul>
-            <ul class="mt-[11px] md:mx-auto">
+            <!-- <ul class="mt-[11px] md:mx-auto">
                 <li>
                     Admissions
                 </li>
@@ -91,8 +91,8 @@
                     <a href="https://www.akfauniversity.uz/live-work/calendars" target="_blank"
                         rel="noopener noreferrer">Calendars</a>
                 </li>
-            </ul>
-            <ul class="md:mx-auto flex items-end">
+            </ul> -->
+            <ul class=" mt-6">
                 <li class="flex items-center gap-3">
                     <a href="https://www.akfauniversity.uz/meet-au/our-values" target="_blank" class=" p-3 bg-white rounded-full text-center" rel="noopener noreferrer">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

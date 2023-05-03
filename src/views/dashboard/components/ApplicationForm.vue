@@ -7,20 +7,21 @@
     require-asterisk-position="right"
     v-loading="loading"
   >
+  <VOnboardingWrapper ref="wrapper" :steps="steps" />
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item label="Phone Number" prop="phone" id="phone">
         <el-input
           v-model="ruleForm.phone"
           v-mask="'998 ## ###-##-##'"
           autocomplete="off"
-          :placeholder="$t('shared.text')"
+          placeholder="+998"
           size="large"
         />
       </el-form-item>
       <el-form-item label="Region" prop="city_id" id="city_id">
         <el-select
           v-model="ruleForm.city_id"
-          :placeholder="$t('shared.select')"
+          placeholder="Select your region"
           filterable
           size="large"
           class="w-full"
@@ -41,7 +42,7 @@
         <el-input
           v-model="ruleForm.graduation_place"
           autocomplete="off"
-          :placeholder="$t('shared.text')"
+          placeholder="Write the name graduation place"
           size="large"
         />
       </el-form-item>
@@ -49,14 +50,14 @@
         <el-input
           v-model="ruleForm.address"
           autocomplete="off"
-          :placeholder="$t('shared.text')"
+          placeholder="Write your address"
           size="large"
         />
       </el-form-item>
       <el-form-item label="Graduation" prop="graduation_id" id="graduation_id">
         <el-select
           v-model="ruleForm.graduation_id"
-          :placeholder="$t('shared.select')"
+          placeholder="Select your graduation"
           size="large"
           class="w-full"
         >
@@ -67,13 +68,13 @@
     </div>
     <div class="app-divider my-2 md:my-4" />
     <h1 class="title mb-3">Passport Information</h1>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-2">
       <el-form-item label="First Name" prop="first_name" id="first_name">
         <el-input
           v-model="ruleForm.first_name"
           type="text"
           autocomplete="off"
-          :placeholder="$t('shared.text')"
+          placeholder="Write your first name"
           size="large"
         />
       </el-form-item>
@@ -81,7 +82,7 @@
         <el-input
           v-model="ruleForm.last_name"
           autocomplete="off"
-          :placeholder="$t('shared.text')"
+          placeholder="Write your last name"
           size="large"
         />
       </el-form-item>
@@ -94,7 +95,7 @@
           v-model="ruleForm.passport_serial"
           v-mask="'AA'"
           autocomplete="off"
-          :placeholder="$t('shared.text')"
+          placeholder="Write down the numbers of your passport or ID card"
           size="large"
         />
       </el-form-item>
@@ -114,14 +115,14 @@
       <el-form-item label="Date of Birth" prop="birth_date" id="birth_date">
         <el-date-picker
           v-model="ruleForm.birth_date"
-          :placeholder="$t('shared.select')"
+          placeholder="Select your date of birth"
           size="large"
           class="!w-full"
         >
         </el-date-picker>
       </el-form-item>
       <el-form-item label="Gender" prop="gender" id="gender">
-        <el-select v-model="ruleForm.gender" size="large" class="w-full">
+        <el-select v-model="ruleForm.gender" size="large" placeholder="Choose gender" class="w-full">
           <el-option label="Male" value="male" />
           <el-option label="Female" value="female" />
         </el-select>
@@ -174,7 +175,7 @@
         <el-input
           v-model="ruleForm.certificate_number"
           autocomplete="off"
-          :placeholder="$t('shared.text')"
+          placeholder="Write the number of your document"
           size="large"
         />
       </el-form-item>
@@ -194,7 +195,7 @@
       <el-form-item label="Department" prop="program_id" id="program_id">
         <el-select
           v-model="ruleForm.program_id"
-          :placeholder="$t('shared.select')"
+          placeholder="Select a department"
           filterable
           size="large"
           class="w-full"
@@ -210,7 +211,7 @@
       <el-form-item label="Exam date" prop="exam_date_id" id="exam_date_id">
         <el-select
           v-model="ruleForm.exam_date_id"
-          :placeholder="$t('shared.select')"
+          placeholder="Choose an exam day"
           size="large"
           class="w-full"
         >
@@ -286,7 +287,23 @@ import { convertPhone } from "@/utils/mappers";
 import { format } from "date-fns";
 import { useRouter } from "vue-router";
 import AppUpload from "@/components/common/AppUpload.vue";
+import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
+import 'v-onboarding/dist/style.css'
 const router = useRouter();
+
+const wrapper = ref(null)
+    const { start, goToStep, finish } = useVOnboarding(wrapper)
+    const steps = [
+      { attachTo: { element: '#phone' }, content: { title: "Fill hone please !!!" } },
+      { attachTo: { element: '#city_id' }, content: { title: "Fill fcity please !!!" } },
+      { attachTo: { element: '#graduation_place' }, content: { title: "Fill fcity please !!!" } },
+      { attachTo: { element: '#address' }, content: { title: "Fill hone please !!!" } },
+      { attachTo: { element: '#graduation_id' }, content: { title: "Fill fcity please !!!" } },
+      { attachTo: { element: '#first_name' }, content: { title: "Fill fcity please !!!" } },
+      { attachTo: { element: '#last_name' }, content: { title: "Fill hone please !!!" } },
+      { attachTo: { element: '#passport_serial' }, content: { title: "Fill fcity please !!!" } },
+      { attachTo: { element: '#passport_number' }, content: { title: "Fill fcity please !!!" } }
+    ]
 
 const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
@@ -467,6 +484,7 @@ const props = defineProps<{
 }>();
 
 onMounted(async () => {
+  start()
   if (!guideStore.getExamDates.length) {
     guideStore.fetchExamDates();
   }
@@ -542,5 +560,37 @@ const goDown = (target: string) => {
   font-size: 18px;
   line-height: 25px;
   color: #1f1f1f;
+}
+</style>
+<style>
+[data-v-onboarding-wrapper] [data-popper-arrow]::before {
+  content: '';
+  background: var(--v-onboarding-step-arrow-background, white);
+  top: 0;
+  left: 0;
+  transition: transform 0.2s ease-out,visibility 0.2s ease-out;
+  visibility: visible;
+  transform: translateX(0px) rotate(45deg);
+  transform-origin: center;
+  width: var(--v-onboarding-step-arrow-size, 10px);
+  height: var(--v-onboarding-step-arrow-size, 10px);
+  position: absolute;
+  z-index: -1;
+}
+
+[data-v-onboarding-wrapper] [data-popper-placement^='top'] > [data-popper-arrow] {
+  bottom: 5px;
+}
+
+[data-v-onboarding-wrapper] [data-popper-placement^='right'] > [data-popper-arrow] {
+  left: -4px;
+}
+
+[data-v-onboarding-wrapper] [data-popper-placement^='bottom'] > [data-popper-arrow] {
+  top: -4px;
+}
+
+[data-v-onboarding-wrapper] [data-popper-placement^='left'] > [data-popper-arrow] {
+  right: -4px;
 }
 </style>
