@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li>
-                    Email: <a href="mailto:info@akfauniversity.org">info@akfauniversity.org</a>
+                    Email: <a href="mailto:info@akfauniversity.com">info@akfauniversity.com</a>
                 </li>
             </ul>
             <!-- <ul class="mt-[11px] md:mx-auto">
