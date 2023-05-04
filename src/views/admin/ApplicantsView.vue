@@ -218,7 +218,7 @@ onMounted(async () => {
     guideStore.fetchExamDates();
   }
   if (!guideStore.getRegions.length) {
-    guideStore.fetchRegions();
+    guideStore.fetchRegions({});
   }
   if (!guideStore.getTuitions.length) {
     guideStore.fetchTuitions();
