@@ -5,7 +5,8 @@
                 class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[564px] mb-4">
                 OUR SPECIALISTS
             </h3>
-            <carousel :transition="500" id="teachers" :autoplay="4000"  :breakpoints="breakpoints" :itemsToScroll="2" class=" mt-14">
+            <carousel :transition="500" id="teachers" :autoplay="4000" :breakpoints="breakpoints" :itemsToScroll="2"
+                class=" mt-14">
                 <slide v-for="teacher in teachers" :key="teacher.id">
                     <div class="w-[95%] teacher">
                         <img :src="teacher.image" class="w-full h-44 object-cover object-center" alt="teacgher">
@@ -15,7 +16,9 @@
                             {{ teacher.name }}
                         </h5>
                         <p class=" text-[#C1C1C1] text-xs font-medium text-start">
-                            {{ teacher.body }}
+                            Understanding the importance of support to the applicants, AKFA University does offer merit
+                            scholarship up to 100% to the prospective students who participate and gain the highest scores
+                            in the scholarship-based entrance examination.
                         </p>
                     </div>
                 </slide>
@@ -67,34 +70,34 @@ const teachers = ref([
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
         image: new URL('@/assets/images/landing/teacher-5.jpg', import.meta.url).href,
     },
-    {
-        id: 6,
-        name: 'Dr. Sajid Khan, PhD',
-        position: 'профессор computer science',
-        body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-        image: new URL('@/assets/images/landing/teacher-6.jpg', import.meta.url).href,
-    }
+    // {
+    //     id: 6,
+    //     name: 'Dr. Sajid Khan, PhD',
+    //     position: 'профессор computer science',
+    //     body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
+    //     image: new URL('@/assets/images/landing/teacher-6.jpg', import.meta.url).href,
+    // }
 ])
 
 const breakpoints = ref(
     {
-    200: {
-        itemsToShow: 1,
-        snapAlign: 'center',
-    },
-    574: {
-        itemsToShow: 2,
-        snapAlign: 'center',
-    },
-    1024: {
-        itemsToShow: 4,
-        snapAlign: 'center',
-    },
-    1280: {
-        itemsToShow: 5,
-        snapAlign: 'center',
-    },
-}
+        200: {
+            itemsToShow: 1,
+            snapAlign: 'center',
+        },
+        574: {
+            itemsToShow: 2,
+            snapAlign: 'center',
+        },
+        1024: {
+            itemsToShow: 4,
+            snapAlign: 'center',
+        },
+        1280: {
+            itemsToShow: 5,
+            snapAlign: 'center',
+        },
+    }
 )
 
 </script>
@@ -139,5 +142,4 @@ const breakpoints = ref(
             }
         }
     }
-}
-</style>
+}</style>
