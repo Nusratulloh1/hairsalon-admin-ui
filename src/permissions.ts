@@ -54,12 +54,18 @@ router.beforeEach(
             if (!store.user) {
               store.resetToken();
               next(`/login`);
-            } else if (!store.user?.is_verified) {
-              next("/check-mail");
-            } else {
+            }
+            // else if (!store.user?.is_verified) {
+            //   next("/check-mail");
+            // }
+            else {
               if (to.meta?.admin && store.user.role === "user") {
                 next("/404");
-              } else if (store.user.role !== "user" && !to.meta.admin) {
+              } else if (
+                store.user.role !== "user" &&
+                !to.meta.admin &&
+                !to.meta.public
+              ) {
                 next("/admin");
               } else {
                 next({ ...to, replace: true });
