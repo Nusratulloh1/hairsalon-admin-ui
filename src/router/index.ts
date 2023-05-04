@@ -15,9 +15,9 @@ const router = createRouter({
           path: "",
           name: "landing",
           component: () => import("@/views/landing/LandingView.vue"),
-          meta: { breadcrumb: "landing" },
+          meta: { breadcrumb: "landing", public: true },
         },
-      ]
+      ],
     },
     {
       path: "/login",

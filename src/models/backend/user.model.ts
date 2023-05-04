@@ -16,10 +16,10 @@ export interface ISigninForm {
   password: string;
 }
 export interface ICountryCodes {
-name: string;
-code: string;
-dial_code: string;
-
+  name: string;
+  code: string;
+  dial_code: string;
+  id: string;
 }
 
 export interface IResetInvite {
@@ -41,7 +41,7 @@ export interface IUser {
   first_name: string;
   last_name: string;
   avatar?: string;
-  country: { code: string },
+  country: { code: string };
   role: "user" | "admin" | "moderator" | "super_admin";
   is_verified: boolean;
 }
