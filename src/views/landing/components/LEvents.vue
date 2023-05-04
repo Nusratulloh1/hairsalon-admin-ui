@@ -3,7 +3,7 @@
         <h3 class="text-white uppercase text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold mb-16">
             ближайшие события
         </h3>
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-16 gap-y-14">
+        <!-- <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-16 gap-y-14">
             <div class="w-full bg-white rounded-2xl sm:h-[327px] flex flex-wrap relative">
                 <img src="@/assets/images/landing/event1.jpg"
                     class="w-full sm:w-[45%] h-[327px] object-center sm:h-full object-cover rounded-2xl" alt="event">
@@ -32,7 +32,7 @@
                                 Школа Бизнеса
                             </h6>
                         </div>
-                        <!-- <button class="flex items-center gap-1 text-xs text-[#C02221] font-normal mt-3">
+                        <button class="flex items-center gap-1 text-xs text-[#C02221] font-normal mt-3">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.75 7.5H11.25" stroke="#C02221" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round" />
@@ -40,7 +40,7 @@
                                     stroke-linejoin="round" />
                             </svg>
                             Add to calendar
-                        </button> -->
+                        </button>
                     </div>
                 <div
                     class="bg-white w-14 h-14 sm:w-[74px] sm:h-[74px] px-3 sm:px-5 py-3 sm:py-4 absolute shadow-sm top-[-13px] sm:top-[-26px] left-[-13px] sm:left-[-26px]">
@@ -81,7 +81,7 @@
                                 AKFA University
                             </h6>
                         </div>
-                        <!-- <button class="flex items-center gap-1 text-xs text-[#C02221] font-normal mt-3">
+                        <button class="flex items-center gap-1 text-xs text-[#C02221] font-normal mt-3">
                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.75 7.5H11.25" stroke="#C02221" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round" />
@@ -89,7 +89,7 @@
                                     stroke-linejoin="round" />
                             </svg>
                             Add to calendar
-                        </button> -->
+                        </button>
                     </div>
                 <div
                     class="bg-white w-14 h-14 sm:w-[74px] sm:h-[74px] px-3 sm:px-5 py-3 sm:py-4 absolute shadow-sm top-[-13px] sm:top-[-26px] left-[-13px] sm:left-[-26px]">
@@ -102,6 +102,6 @@
                     </p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
 </template>
