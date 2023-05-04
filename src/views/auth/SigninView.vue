@@ -87,7 +87,15 @@
         >
           Create Account
         </el-button>
-        <div class="mt-4 md:mt-6 mb-2">
+        <div class="mt-4 md:mt-6">
+          <p>
+            Can’t register to our platform?
+            <a href="tel:+998 71 200-05-22" class="text-primary font-medium"
+              >Click here</a
+            >
+          </p>
+        </div>
+        <div class="bottom-12 mt-3">
           <p>
             Already have an account?
             <RouterLink to="/login" class="text-primary font-medium"
@@ -124,7 +132,7 @@ import type { ISigninForm } from "@/models/backend";
 const i18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
-
+const staticRegion = ref("");
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
   // first_name: "",

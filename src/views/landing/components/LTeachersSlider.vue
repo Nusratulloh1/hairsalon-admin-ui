@@ -8,7 +8,7 @@
             <carousel :transition="500" id="teachers" :autoplay="4000"  :breakpoints="breakpoints" :itemsToScroll="2" class=" mt-14">
                 <slide v-for="teacher in teachers" :key="teacher.id">
                     <div class="w-[95%] teacher">
-                        <img :src="teacher.image" class="w-full h-44" alt="teacgher">
+                        <img :src="teacher.image" class="w-full h-44 object-cover object-center" alt="teacgher">
                         <p class=" text-[#C02221] text-[10px] leading-3 font-bold mt-2 uppercase text-start">{{
                             teacher.position }}</p>
                         <h5 class="text-white my-2 text-lg font-medium text-start">
@@ -37,14 +37,14 @@ const teachers = ref([
         name: 'Dr. Gyo Jun, PhD',
         position: 'Professor & Project Manager',
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-        image: new URL('@/assets/images/landing/teacher-1.webp', import.meta.url).href,
+        image: new URL('@/assets/images/landing/teacher-1.jpg', import.meta.url).href,
     },
     {
         id: 2,
         name: 'Dr.Niladri Maiti, PhD',
         position: 'Dean of AU Dental School',
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-        image: new URL('@/assets/images/landing/teacher-3.webp', import.meta.url).href,
+        image: new URL('@/assets/images/landing/teacher-3.jpg', import.meta.url).href,
     },
     {
         id: 3,
@@ -58,21 +58,21 @@ const teachers = ref([
         name: 'Dr. Tofazzal Hossain',
         position: 'Dean of AU Medical School',
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-        image: new URL('@/assets/images/landing/teacher-4.webp', import.meta.url).href,
+        image: new URL('@/assets/images/landing/teacher-6.jpg', import.meta.url).href,
     },
     {
         id: 5,
         name: 'Sergey Puchka',
         position: 'Director of strategy',
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-        image: new URL('@/assets/images/landing/teacher-5.webp', import.meta.url).href,
+        image: new URL('@/assets/images/landing/teacher-5.jpg', import.meta.url).href,
     },
     {
         id: 6,
         name: 'Dr. Sajid Khan, PhD',
         position: 'профессор computer science',
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-        image: new URL('@/assets/images/landing/teacher-6.webp', import.meta.url).href,
+        image: new URL('@/assets/images/landing/teacher-6.jpg', import.meta.url).href,
     }
 ])
 
