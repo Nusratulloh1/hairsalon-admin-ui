@@ -12,7 +12,7 @@
         <div class="faculties grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 relative">
             <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 relative h-[510px] md:h-[616px] !bg-center !bg-cover"
                 :style="`background: url(${faculty.bg}), no-repeat, 50%;`" v-for="faculty in faculties" :key="faculty.id">
-                <span class="text-white font-medium text-base">{{ faculty.semesters }} семестров</span>
+                <span class="text-white font-medium text-base">{{ faculty.semesters }} semesters</span>
                 <h6
                     class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px] max-w-[284px]">
                     {{ faculty.name }}

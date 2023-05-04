@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="bg-white">
-            <div class="container mx-auto pt-4 px-5 sm:px-0">
+            <div class=" pt-4 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0">
                 <h3
                     class="text-[#C02221] uppercase text-xl  sm:text-3xl lg:text-[56px] lg:leading-[68px] font-bold max-w-[1026px]">
                     Students Life
@@ -10,7 +10,7 @@
         </div>
         <div class="w-full h-[565px] student-life mt-1 relative">
             <div class=" bg-black absolute bottom-12 w-full h-[288px]">
-                <div class="container mx-auto py-10 flex px-5 sm:px-0 items-center justify-between flex-wrap md:flex-nowrap gap-4">
+                <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10 flex items-center justify-between flex-wrap md:flex-nowrap gap-4">
                     <h3 class=" text-2xl sm:text-4xl md:text-5xl md:leading-[54px] xl:text-[56px] xl:leading-[68px] uppercase text-white max-w-[752px]">
                         Experience Student Life Like Never Before at
                         <br>

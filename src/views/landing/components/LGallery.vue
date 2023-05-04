@@ -1,5 +1,5 @@
 <template>
-    <section class="container mx-auto px-5 sm:px-0">
+    <section class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0">
         <Carousel id="gallery" class="w-full" :items-to-show="1" :wrap-around="true" v-model="currentSlide">
             <Slide v-for="(slide, i) in images" :key="i">
                 <div class="carousel__item w-full">

@@ -1,6 +1,6 @@
 <template>
     <footer class=" bg-[#232323] pt-[14px] pb-14">
-        <div class="container mx-auto px-5 sm:px-0 flex items-center justify-between flex-wrap">
+        <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 flex items-center justify-between flex-wrap">
             <ul>
                 <li>
                     <AUIconWithName class="w-40 h-[86px]"></AUIconWithName>
