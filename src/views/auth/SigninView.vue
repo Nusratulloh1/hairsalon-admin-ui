@@ -1,13 +1,21 @@
 <template>
   <div class="h-full">
-    <div class="space-y-6 mx-auto md:w-1/2 px-4 md:px-24 pt-4 md:pt-6 h-full relative">
+    <div
+      class="space-y-6 mx-auto md:w-1/2 px-4 md:px-24 pt-4 md:pt-6 h-full relative"
+    >
       <div class="header flex flex-col items-start space-y-6 md:space-y-6">
         <LogoutIconWithName />
         <h1 class="header__title">
           Welcome to AKFA University Admissions 2023/2024!
         </h1>
       </div>
-      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" :hide-required-asterisk="true" label-position="top">
+      <el-form
+        ref="ruleFormRef"
+        :model="ruleForm"
+        :rules="rules"
+        :hide-required-asterisk="true"
+        label-position="top"
+      >
         <!-- <el-form-item label="First Name" prop="first_name">
           <el-input
             v-model="ruleForm.first_name"
@@ -25,38 +33,74 @@
           />
         </el-form-item> -->
         <el-form-item label="E-mail Address" prop="email">
-          <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-11" />
+          <el-input
+            v-model.trim="ruleForm.email"
+            type="text"
+            autocomplete="off"
+            class="!h-11"
+          />
         </el-form-item>
         <el-form-item label="Country" prop="email">
-          <el-select v-model="staticRegion" filterable class="!h-11 w-full" @change="setNumber"
-            placeholder="Select your country here" size="large">
-            <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code" />
+          <el-select
+            v-model="ruleForm.country_id"
+            filterable
+            class="!h-11 w-full"
+            @change="setNumber"
+            placeholder="Select your country here"
+            size="large"
+          >
+            <el-option
+              v-for="(code, i) in countryCodesList"
+              :key="i"
+              :label="code.name"
+              :value="code.id"
+            />
           </el-select>
         </el-form-item>
         <el-form-item label="Phone Number" prop="phone">
           <el-input v-model.trim="ruleForm.phone" type="text" class="!h-11" />
         </el-form-item>
         <el-form-item label="Password" prop="password">
-          <el-input v-model.trim="ruleForm.password" type="password" placeholder="Enter your password" autocomplete="off"
-            class="!h-11" />
+          <el-input
+            v-model.trim="ruleForm.password"
+            type="password"
+            placeholder="Enter your password"
+            autocomplete="off"
+            class="!h-11"
+          />
         </el-form-item>
         <el-form-item label="Confirm Password" prop="confirm_password">
-          <el-input v-model.trim="ruleForm.confirm_password" type="password" placeholder="Re-enter your password"
-            autocomplete="off" class="!h-11" />
+          <el-input
+            v-model.trim="ruleForm.confirm_password"
+            type="password"
+            placeholder="Re-enter your password"
+            autocomplete="off"
+            class="!h-11"
+          />
         </el-form-item>
-        <el-button class="mt-2 md:mt-4" type="primary" size="large" @click="submitForm(ruleFormRef)" :loading="loading">
+        <el-button
+          class="mt-2 md:mt-4"
+          type="primary"
+          size="large"
+          @click="submitForm(ruleFormRef)"
+          :loading="loading"
+        >
           Create Account
         </el-button>
         <div class="mt-4 md:mt-6">
           <p>
             Can’t register to our platform?
-            <a href="tel:+998 71 200-05-22" class="text-primary font-medium">Click here</a>
+            <a href="tel:+998 71 200-05-22" class="text-primary font-medium"
+              >Click here</a
+            >
           </p>
         </div>
         <div class="bottom-12 mt-3">
           <p>
             Already have an account?
-            <RouterLink  to="/login" class="text-primary font-medium">Log In</RouterLink>
+            <RouterLink to="/login" class="text-primary font-medium"
+              >Log In</RouterLink
+            >
           </p>
         </div>
       </el-form>
@@ -88,7 +132,7 @@ import type { ISigninForm } from "@/models/backend";
 const i18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
-const staticRegion = ref("")
+const staticRegion = ref("");
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
   // first_name: "",
@@ -99,13 +143,14 @@ const ruleForm = reactive({
   password: "",
   confirm_password: "",
 });
-const countryCodesList = computed(() => store.countryCodes)
-const setNumber = (target: any): void => {
-  staticRegion.value = target.name
-  ruleForm.country_id = target.id
-  ruleForm.phone = target.dial_code
-
-}
+const countryCodesList = computed(() => store.countryCodes);
+const setNumber = (country_id: string): void => {
+  const country = countryCodesList.value?.find((c) => c.id === country_id);
+  if (country) {
+    ruleForm.country_id = country.id;
+    ruleForm.phone = country.dial_code;
+  }
+};
 const validatePass = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error(i18n.t("validation.fillField")));
@@ -127,8 +172,8 @@ const validatePass2 = (rule: any, value: any, callback: any) => {
   }
 };
 onMounted(() => {
-  store.countryCode()
-})
+  store.countryCode();
+});
 const rules = reactive<FormRules>({
   // first_name: [
   //   {
@@ -195,8 +240,8 @@ const submitForm = async (formEl: FormInstance | undefined) => {
           confirm_password: sha1(ruleForm.confirm_password),
         };
         await store.signin(data);
-        await store.sendVerifyEmail();
-        router.push("/check-mail");
+        // await store.sendVerifyEmail();
+        router.push("/login");
         loading.value = false;
       } catch (error) {
         console.log("error", error);
