@@ -54,28 +54,28 @@ const faculties = ref([
         name: 'Engineering School',
         desc: `We provide students with a first-class academic experience with a focus on research and development, building educational processes in accordance with leading international practices.`,
         semesters: '8',
-        bg: new URL('@/assets/images/landing/semester-bg-1.jpg', import.meta.url).href,
+        bg: new URL('@/assets/images/landing/semester-bg-1.webp', import.meta.url).href,
     },
     {
         id: 2,
         name: 'Business School',
         desc: `Business training based on the case method, which is inspired by the Harvard Business School. We prepare students for successful careers as leaders and entrepreneurs.`,
         semesters: '8',
-        bg: new URL('@/assets/images/landing/semester-bg-2.jpg', import.meta.url).href,
+        bg: new URL('@/assets/images/landing/semester-bg-2.webp', import.meta.url).href,
     },
     {
         id: 3,
         name: 'Medical School',
         desc: `The mission of the school is to prepare good doctors with comprehensive knowledge, outstanding skills and love for patients, based on advanced international medical education systems.`,
         semesters: '12',
-        bg: new URL('@/assets/images/landing/semester-bg-3.jpg', import.meta.url).href,
+        bg: new URL('@/assets/images/landing/semester-bg-3.webp', import.meta.url).href,
     },
     {
         id: 4,
         name: 'Dental School',
         desc: `Through our partnership with ADEE (Association for Dental Education in Europe), we provide our students with a high-quality international program, participate in international competitions, grants, exchange programs, digital education`,
         semesters: '10',
-        bg: new URL('@/assets/images/landing/semester-bg-4.jpg', import.meta.url).href,
+        bg: new URL('@/assets/images/landing/semester-bg-4.webp', import.meta.url).href,
     }
 ])
 

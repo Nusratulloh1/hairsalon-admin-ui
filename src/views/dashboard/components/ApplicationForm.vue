@@ -19,7 +19,7 @@
         />
       </el-tooltip>
       </el-form-item>
-      <el-form-item label="Region" prop="city_id" id="city_id" v-if="store.getUser?.country?.code === 'UZ'">
+      <el-form-item label="Region" prop="city_id" id="city_id">
         <el-select
           v-model="ruleForm.city_id"
           placeholder="Select your region"
@@ -413,6 +413,11 @@ const rules = reactive<FormRules>({
       trigger: "blur",
     },
     {
+      max: 10,
+      message: i18n.t("validation.maximumLength", { value: 10 }),
+      trigger: "blur",
+    },
+    {
       type: "string",
       required: true,
       pattern: passportNumberPattern,
@@ -421,6 +426,11 @@ const rules = reactive<FormRules>({
     },
   ],
   passport_serial: [
+  {
+      max: 10,
+      message: i18n.t("validation.maximumLength", { value: 10 }),
+      trigger: "blur",
+    },
     {
       required: true,
       message: i18n.t("validation.fillField"),
@@ -494,7 +504,11 @@ onMounted(async () => {
     guideStore.fetchExamDates();
   }
   if (!guideStore.getRegions.length) {
-    guideStore.fetchRegions();
+    let obj = {}
+    if(store.getUser?.country.code !== 'UZ'){
+      obj = { type: 'province'}
+    }
+    guideStore.fetchRegions(obj);
   }
   if (!guideStore.getTuitions.length) {
     guideStore.fetchTuitions();
@@ -518,8 +532,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
           delete data.certificate;
         }
         if (store.getUser?.country.code !== 'UZ') {
-          delete data.phone;
-          delete data.city_id;
+          data.phone =  store.getUser?.phone;
           delete data.address;
         }
 

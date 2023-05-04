@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="flex justify-end">
-                <img src="@/assets/images/landing/stipent.jpg"
+                <img src="@/assets/images/landing/stipent.webp"
                     class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
                     alt="stipent">
             </div>
@@ -90,7 +90,6 @@ import LEvents from "./components/LEvents.vue";
 import LFeedbackSlider from "./components/LFeedbackSlider.vue";
 import LGallery from "./components/LGallery.vue";
 import LQuestions from "./components/LQuestions.vue";
-import { ref } from "vue";
 
 </script>
 <style lang="scss">
@@ -98,7 +97,7 @@ import { ref } from "vue";
 
     .top-section {
         height: 100vh;
-        background: url("../../assets/images/landing/top-header.jpg"), no-repeat, 50%;
+        background: url("../../assets/images/landing/top-header.webp"), no-repeat, 50%;
         background-size: cover;
     }
 
@@ -108,7 +107,6 @@ import { ref } from "vue";
 
     .gradient-button {
         background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%)
-            /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
         ;
         color: white;
         border-radius: 10px;

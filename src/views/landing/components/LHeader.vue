@@ -9,7 +9,7 @@
                 </li>
                 <li class="flex items-center gap-5">
                     <div class="flex flex-wrap items-center">
-                        <el-dropdown>
+                        <el-dropdown disabled>
                             <button
                                 class=" bg-[#D5131C] text-[#EBEBEB] text-xs sm:text-sm flex items-center gap-2 p-[6px] sm:p-[10px] rounded-xl">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"

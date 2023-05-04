@@ -32,7 +32,7 @@
 </template>
 <style scoped>
 .student-life {
-    background: url('@/assets/images/landing/student-life.jpg'), no-repeat, 50%;
+    background: url('@/assets/images/landing/student-life.webp'), no-repeat, 50%;
     background-size: cover;
 }
 

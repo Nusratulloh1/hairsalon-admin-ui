@@ -3,7 +3,7 @@
     <div class="content p-4 md:p-8">
       <RouterView />
     </div>
-    <TheFooter class=" absolute bottom-0 w-full"></TheFooter>
+    <TheFooter class=" absolute bottom-0 w-full !hidden md:!flex"></TheFooter>
   </div>
 </template>
 
