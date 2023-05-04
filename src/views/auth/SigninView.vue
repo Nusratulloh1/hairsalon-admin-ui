@@ -28,7 +28,7 @@
           <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-11" />
         </el-form-item>
         <el-form-item label="Country" prop="email">
-          <el-select v-model="ruleForm.country_id" filterable class="!h-11 w-full" @change="setNumber"
+          <el-select v-model="staticRegion" filterable class="!h-11 w-full" @change="setNumber"
             placeholder="Select your country here" size="large">
             <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code" />
           </el-select>
@@ -47,10 +47,16 @@
         <el-button class="mt-2 md:mt-4" type="primary" size="large" @click="submitForm(ruleFormRef)" :loading="loading">
           Create Account
         </el-button>
-        <div class="mt-4 md:mt-6 mb-2">
+        <div class="mt-4 md:mt-6">
+          <p>
+            Can’t register to our platform?
+            <a href="tel:+998 71 200-05-22" class="text-primary font-medium">Click here</a>
+          </p>
+        </div>
+        <div class="bottom-12 mt-3">
           <p>
             Already have an account?
-            <RouterLink to="/login" class="text-primary font-medium">Log In</RouterLink>
+            <RouterLink  to="/login" class="text-primary font-medium">Log In</RouterLink>
           </p>
         </div>
       </el-form>
@@ -82,7 +88,7 @@ import type { ISigninForm } from "@/models/backend";
 const i18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
-
+const staticRegion = ref("")
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
   // first_name: "",
@@ -95,6 +101,7 @@ const ruleForm = reactive({
 });
 const countryCodesList = computed(() => store.countryCodes)
 const setNumber = (target: any): void => {
+  staticRegion.value = target.name
   ruleForm.country_id = target.id
   ruleForm.phone = target.dial_code
 
@@ -183,10 +190,10 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       try {
         loading.value = true;
         const data: ISigninForm = {
-...ruleForm,
-password: sha1(ruleForm.password),
-confirm_password: sha1(ruleForm.confirm_password),
-};
+          ...ruleForm,
+          password: sha1(ruleForm.password),
+          confirm_password: sha1(ruleForm.confirm_password),
+        };
         await store.signin(data);
         await store.sendVerifyEmail();
         router.push("/check-mail");

@@ -54,16 +54,16 @@
         </div>
         <div class="flex items-center flex-wrap justify-center gap-[14px] mt-[4vh]">
             <button
-            @click="scrollToElement('our_teachers')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:w-[303px] opacity-90 hover:opacity-100">What
+            @click="scrollToElement('faculty')"
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:w-[310px] opacity-90 hover:opacity-100">What
                 directions do we have?</button>
             <button
             @click="scrollToElement('life')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[303px] opacity-90 hover:opacity-100">Life
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">Life
                 in AKFA University</button>
             <button
             @click="scrollToElement('video')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[303px] opacity-90 hover:opacity-100">How
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">How
                 to apply?</button>
         </div>
         <hr class=" mt-[4.2vh] mb-[5.4vh]" />
