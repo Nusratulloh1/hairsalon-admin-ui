@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="container mx-auto px-5 sm:px-0 py-10">
+        <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10">
             <h3
                 class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[564px] mb-4">
                 OUR SPECIALISTS
@@ -23,7 +23,7 @@
                     </div>
                 </slide>
                 <template #addons="{ slidesCount }">
-                    <Pagination v-if="slidesCount > 1" class="container m-auto px-5 sm:px-0" />
+                    <Pagination v-if="slidesCount > 1" class="container m-auto px-5 sm:px-10 xl:px-0" />
                 </template>
             </carousel>
         </div>

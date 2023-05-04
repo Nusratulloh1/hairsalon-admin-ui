@@ -3,7 +3,7 @@
         <LHeader></LHeader>
         <LFaculties id="faculty"></LFaculties>
         <LLifeStudents id="life"></LLifeStudents>
-        <section class="py-12 md:py-24 px-5 sm:px-0 container mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
+        <section class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
             <div>
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
@@ -39,7 +39,7 @@
         </section>
         <LTeachersSlider id="our_teachers"></LTeachersSlider>
         <!-- <LEvents></LEvents> -->
-        <section class="py-12 px-5 sm:px-0 container mx-auto" id="video">
+        <section class="py-12 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0" id="video">
             <div>
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">

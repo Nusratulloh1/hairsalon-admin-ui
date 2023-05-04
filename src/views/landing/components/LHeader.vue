@@ -1,6 +1,6 @@
 <template>
     <header class="top-section relative">
-        <nav class="container 2xl:max-w-[100%] mx-auto 2xl:mx-0 sm:pt-9 px-5 2xl:px-[72px]">
+        <nav class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 2xl:max-w-[100%] 2xl:mx-0 sm:pt-9 2xl:px-[72px]">
             <ul class="flex items-center justify-between">
                 <li>
                     <a href="/">

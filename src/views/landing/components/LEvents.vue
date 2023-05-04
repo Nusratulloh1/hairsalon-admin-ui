@@ -1,5 +1,5 @@
 <template>
-    <section class="container mx-auto py-10 sm:py-0 px-5 sm:px-0">
+    <section class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10 sm:py-0">
         <h3 class="text-white uppercase text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold mb-16">
             ближайшие события
         </h3>
