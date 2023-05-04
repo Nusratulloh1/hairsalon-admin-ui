@@ -307,7 +307,6 @@ import { convertPhone } from "@/utils/mappers";
 import { format } from "date-fns";
 import { useRouter } from "vue-router";
 import AppUpload from "@/components/common/AppUpload.vue";
-import 'v-onboarding/dist/style.css'
 const router = useRouter();
 const store = useUsersStore();
 
