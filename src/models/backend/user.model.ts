@@ -10,11 +10,18 @@ export interface IAcceptInvite {
 
 export interface ISigninForm {
   email: string;
-  first_name: string;
-  last_name: string;
+  country_id: string;
+  phone: string;
   confirm_password: string;
   password: string;
 }
+export interface ICountryCodes {
+name: string;
+code: string;
+dial_code: string;
+
+}
+
 export interface IResetInvite {
   code: string;
   otp?: string;
@@ -34,6 +41,7 @@ export interface IUser {
   first_name: string;
   last_name: string;
   avatar?: string;
+  country: { code: string },
   role: "user" | "admin" | "moderator" | "super_admin";
   is_verified: boolean;
 }

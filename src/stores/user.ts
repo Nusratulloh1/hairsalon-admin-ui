@@ -5,6 +5,7 @@ import type {
   IResetInvite,
   ISigninForm,
   ListData,
+  ICountryCodes
 } from "@/models/backend";
 import { defineStore } from "pinia";
 import {
@@ -20,6 +21,7 @@ import request from "@/utils/request";
 interface UserState {
   token?: string;
   user: IUser | null;
+  countryCodes: ICountryCodes[] | null,
   users: ListData<IUser[]>;
 }
 
@@ -27,6 +29,7 @@ export const useUsersStore = defineStore("users", {
   state: (): UserState => ({
     token: getAccessToken() || "",
     user: null,
+    countryCodes: null,
     users: {
       page: 1,
       limit: 30,
@@ -49,7 +52,10 @@ export const useUsersStore = defineStore("users", {
       this.token = response.access_token;
       setAccessToken(response.access_token);
     },
-
+    async countryCode() {
+      const countryCode = await request.post("/country/list");
+      this.countryCodes = countryCode
+    },
     async sendVerifyEmail() {
       return request.post("/auth/send-verify-email");
     },

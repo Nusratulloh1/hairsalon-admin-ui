@@ -164,6 +164,7 @@
     "fillField": "Please fill in this field",
     "inputEmail": "Please enter an email address",
     "minimumLength": "Minimum length {value}",
+    "maximumLength": "Maximum length {value}",
     "pattern": "Enter in correct format",
     "passwordsDontMatch": "The two passwords don't match!"
   },

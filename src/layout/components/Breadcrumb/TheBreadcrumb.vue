@@ -22,7 +22,7 @@ export default {
     const applicationRoutes = router.getRoutes();
     const mainBreadcrumbItem: IBreadcrumb = {
       name: breadCrumbNames.dashboard,
-      path: "/",
+      path: "/dashboard",
     };
     let breadcrumbItems = ref<IBreadcrumb[]>([]);
 

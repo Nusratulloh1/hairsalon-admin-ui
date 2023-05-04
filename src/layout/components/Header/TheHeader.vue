@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <div>
-      <div class="block md:hidden">
+      <div>
         <el-button @click="emit('onBurgerClick')" text
           ><Fold class="h-6 w-6"></Fold
         ></el-button>

@@ -1,74 +1,119 @@
 <template>
-    <div class=" landing">
-        <header class="top-section relative">
-            <nav class=" pl-[72px] pr-[79px] pt-9">
-                <ul class="flex items-center justify-between">
-                    <li>
-                        <AUIconWithName></AUIconWithName>
-                    </li>
-                    <li>
-                        <a href="tel:+998 71 200-05-22"
-                            class="flex items-center gap-[14px] font-semibold text-white text-[32px]">
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6.03333 12.9833C8.43333 17.7 12.3 21.55 17.0167 23.9667L20.6833 20.3C21.1333 19.85 21.8 19.7 22.3833 19.9C24.25 20.5167 26.2667 20.85 28.3333 20.85C29.25 20.85 30 21.6 30 22.5167V28.3333C30 29.25 29.25 30 28.3333 30C12.6833 30 0 17.3167 0 1.66667C0 0.75 0.75 0 1.66667 0H7.5C8.41667 0 9.16667 0.75 9.16667 1.66667C9.16667 3.75 9.5 5.75 10.1167 7.61667C10.3 8.2 10.1667 8.85 9.7 9.31667L6.03333 12.9833Z"
-                                    fill="#FF0A0A" />
-                            </svg>
-                            <span>+998 71 200-05-22</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class=" max-w-[886px] mx-auto mt-[17vh] text-center">
-                <h2 class="font-bold text-7xl leading-[87px] text-white">
-                    ДОБРО ПОЖАЛОВАТЬ В
-                    <br>
-                    <span class="text-[#FF0000]">УНИВЕРСИТЕТ AKFA</span>
-                </h2>
-                <h4 class=" mt-[3.3vh] font-semibold text-4xl uppercase text-[#F6F6F6] leading-[44px]">
-                    приём документов на 2023-2024
-                    <br>
-                    учебный год уже открыт
-                </h4>
-                <button class="gradient-button w-[303px] px-9 py-5 font-bold text-xl mt-[3.3vh]">ПОДАТЬ ДОКУМЕНТЫ</button>
-                <button class="absolute bottom-[38px] left-0 right-0 m-auto w-16">
-                    <svg width="59" height="34" viewBox="0 0 59 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M1.16755 6.73732L27.3206 33.1382C27.6319 33.4516 27.9692 33.6741 28.3325 33.8057C28.6957 33.9373 29.0849 34.002 29.5 34C29.9151 34 30.3043 33.9341 30.6675 33.8025C31.0308 33.6709 31.3681 33.4495 31.6794 33.1382L57.9103 6.73732C58.6368 6.00613 59 5.09216 59 3.99538C59 2.89861 58.6108 1.95852 57.8325 1.17511C57.0541 0.391705 56.146 0 55.1082 0C54.0704 0 53.1623 0.391705 52.3839 1.17511L29.5 24.2073L6.6161 1.17511C5.88962 0.443932 4.99399 0.0783386 3.92919 0.0783386C2.86438 0.0783386 1.94384 0.470043 1.16755 1.25345C0.389183 2.03686 0 2.95084 0 3.99538C0 5.03993 0.389183 5.95391 1.16755 6.73732Z"
-                            fill="white" />
-                    </svg>
-                </button>
+    <div class="landing">
+        <LHeader></LHeader>
+        <LFaculties id="faculty"></LFaculties>
+        <LLifeStudents id="life"></LLifeStudents>
+        <section class="py-12 md:py-24 px-5 sm:px-0 container mx-auto grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
+            <div>
+                <h5
+                    class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
+                    Get scholarships from the first steps according to your achievements!
+                </h5>
+                <p class=" text-white mt-10 md:mt-20 font-[450] text-sm md:text-xl max-w-[641px]" style="font-family: 
+                Arial, Helvetica, sans-serif">
+                    Understanding the importance of support to the applicants, AKFA University does offer merit scholarship
+                    up to 100% to the prospective students who participate and gain the highest scores in the
+                    scholarship-based entrance examination.
+                </p>
+                <div class="w-full flex items-center flex-wrap gap-5 sm:gap-12 mt-12">
+                    <a href="tel:+998+71+200-05-22"
+                        class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
+                        <svg width="19" height="16" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M3.7054 6.21517C5.12746 7.8361 6.9953 8.92957 9.02156 9.32452L9.97203 7.38237C10.091 7.14002 10.3207 7.00511 10.5551 7.00902C11.3184 7.03045 12.1025 6.91943 12.874 6.66488C13.2179 6.55141 13.5769 6.7616 13.6808 7.13722L14.336 9.50603C14.4399 9.88166 14.2474 10.2738 13.9035 10.3873C8.08502 12.3072 1.94494 8.71263 0.187194 2.35747C0.0833011 1.98184 0.278842 1.58866 0.61965 1.47621L2.78842 0.760599C3.13233 0.647124 3.49137 0.857316 3.59527 1.23294C3.82832 2.07556 4.17782 2.85021 4.61675 3.53258C4.74949 3.74359 4.77386 4.02728 4.65493 4.26963L3.7054 6.21517Z"
+                                fill="white" />
+                        </svg>
+                        MORE
+                    </a>
+                    <button @click="$router.push('/login')"
+                        class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
+                        APPLY NOW
+                    </button>
+                </div>
             </div>
-        </header>
-        <section class="container mx-auto pt-[121px] pb-[106px]">
-            <h5 class="text-white font-bold text-[42px] leading-[51px] uppercase">
-                Выбери свой <span class="text-[#FF0000]">карьерный путь:</span>
-            </h5>
-            <p class="text-white mt-8 w-[641px] text-xl font-[450]" style="font-family: 'Suisse Intl';">
-                Мы знаем, как трудно абитуриенту принимать важные решения, поэтому мы сделаем все возможное, чтобы помочь
-                тебе найти свой путь и стать отличным специалистом в своей области. Будь уверенным в своем будущем!
-            </p>
+            <div class="flex justify-end">
+                <img src="@/assets/images/landing/stipent.webp"
+                    class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
+                    alt="stipent">
+            </div>
         </section>
+        <LTeachersSlider id="our_teachers"></LTeachersSlider>
+        <!-- <LEvents></LEvents> -->
+        <section class="py-12 px-5 sm:px-0 container mx-auto" id="video">
+            <div>
+                <h5
+                    class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
+                    HOW TO APPLY?
+                </h5>
+                <div class="flex justify-center w-full">
+                    <div
+                        class=" bg-[#737373] w-full h-56 sm:w-[871.73px] sm:h-[473px] rounded-[10px] flex items-center justify-center my-5 sm:my-8">
+                        <button class="relative flex w-20 h-16 sm:w-[167px] sm:h-[160px]">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF0000] opacity-70"></span>
+                            <span class="relative inline-flex">
+                                <svg class=" w-20 h-16 sm:w-[167px] sm:h-[160px]" viewBox="0 0 85 82" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M31.875 59.45L61.625 41L31.875 22.55V59.45ZM42.5 82C36.6208 82 31.0958 80.9231 25.925 78.7692C20.7542 76.6153 16.2562 73.6948 12.4312 70.0075C8.60625 66.3175 5.57883 61.9783 3.349 56.99C1.11917 52.0017 0.00283333 46.6717 0 41C0 35.3283 1.11633 29.9983 3.349 25.01C5.58167 20.0217 8.60908 15.6825 12.4312 11.9925C16.2562 8.3025 20.7542 5.38193 25.925 3.2308C31.0958 1.07967 36.6208 0.00273333 42.5 0C48.3792 0 53.9042 1.07693 59.075 3.2308C64.2458 5.38467 68.7437 8.30523 72.5687 11.9925C76.3937 15.6825 79.4226 20.0217 81.6552 25.01C83.8879 29.9983 85.0028 35.3283 85 41C85 46.6717 83.8837 52.0017 81.651 56.99C79.4183 61.9783 76.3909 66.3175 72.5687 70.0075C68.7437 73.6975 64.2458 76.6194 59.075 78.7733C53.9042 80.9272 48.3792 82.0027 42.5 82ZM42.5 73.8C51.9917 73.8 60.0312 70.6225 66.6187 64.2675C73.2062 57.9125 76.5 50.1567 76.5 41C76.5 31.8433 73.2062 24.0875 66.6187 17.7325C60.0312 11.3775 51.9917 8.2 42.5 8.2C33.0083 8.2 24.9687 11.3775 18.3812 17.7325C11.7937 24.0875 8.5 31.8433 8.5 41C8.5 50.1567 11.7937 57.9125 18.3812 64.2675C24.9687 70.6225 33.0083 73.8 42.5 73.8Z"
+                                        fill="white" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
+                    <button
+                        class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
+                        TRY TUTORIAL
+                    </button>
+                    <button @click="$router.push('/login')"
+                        class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
+                        APPLY NOW
+                    </button>
+                </div>
+            </div>
+        </section>
+        <LFeedbackSlider></LFeedbackSlider>
+        <!-- <LQuestions></LQuestions> -->
+        <!-- <LGallery></LGallery> -->
+        <LFooter></LFooter>
     </div>
 </template>
 <script lang="ts" setup>
-import { AUIconWithName } from "@/components/icons";
+import LHeader from "./components/LHeader.vue";
+import LFooter from "./components/LFooter.vue";
+import LFaculties from "./components/LFaculties.vue";
+import LTeachersSlider from "./components/LTeachersSlider.vue";
+import LLifeStudents from "./components/LLifeStudents.vue";
+import LEvents from "./components/LEvents.vue";
+import LFeedbackSlider from "./components/LFeedbackSlider.vue";
+import LGallery from "./components/LGallery.vue";
+import LQuestions from "./components/LQuestions.vue";
 
 </script>
-<style lang="scss" scoped>
-
+<style lang="scss">
 .landing {
 
     .top-section {
-        height: 85vh;
-        background: url("../../assets/images/landing/top-header.jpg"), no-repeat, 50%;
+        height: 100vh;
+        background: url("../../assets/images/landing/top-header.webp"), no-repeat, 50%;
         background-size: cover;
     }
 
+    .stipent {
+        object-position: 0 -30px;
+    }
+
     .gradient-button {
-        background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%);
+        background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%)
+        ;
         color: white;
         border-radius: 10px;
+
+        &:hover {
+            background: #FF0000;
+        }
     }
 }
 </style>

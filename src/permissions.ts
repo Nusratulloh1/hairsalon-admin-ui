@@ -11,25 +11,22 @@ const title = "Admission";
 NProgress.configure({ showSpinner: false });
 
 const whiteList = [
-  // "/",
+  "/",
   "/login",
   "/signin",
   "/check-mail",
   "/forgot-password",
   "/reset-password",
 ];
-
 const getPageTitle = (key: string) => {
   const { t, te } = i18n.global as any;
   const hasKey = te(`app.${key}`) as any;
   if (hasKey) {
     const pageName = t(`app.${key}`);
-
     return `${pageName} - ${title}`;
   }
   return title;
 };
-
 router.beforeEach(
   async (
     to: RouteLocationNormalized,
@@ -45,7 +42,7 @@ router.beforeEach(
     if (store.token) {
       if (to.path === "/login" || to.path === "/signin") {
         // If is logged in, redirect to the home page
-        next({ path: "/" });
+        next({ path: "/dashboard" });
         NProgress.done();
       } else if (to.path === "/verification" && !store.user?.is_verified) {
         next();

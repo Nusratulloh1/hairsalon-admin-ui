@@ -3,9 +3,9 @@
     <p class="leading-none">
       2023 Copyrights © <span class="text-primary">AKFA University</span>
     </p>
-    <a class="text-sm mt-1 text-center px-8" href="tel:+998-71-200-01-23"
+    <a class="text-sm mt-1 text-center px-8" href="tel:+998 71 200-05-22"
       >If you have questions or difficulties, please contact us:
-      <span class="text-primary">+998-71-200-01-23</span></a
+      <span class="text-primary">+998 71 200-05-22</span></a
     >
   </div>
 </template>

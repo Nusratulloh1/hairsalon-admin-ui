@@ -1,7 +1,7 @@
 @import "./tailwind.scss";
 @import "colors";
 @import "mixins";
-
+@import "../fonts/font.scss";
 @import "./element/components.scss";
 html {
   font-family: Manrope, sans-serif;
