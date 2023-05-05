@@ -8,7 +8,7 @@
                     </a>
                 </li>
                 <li class="flex items-center gap-5">
-                    <div class="flex flex-wrap items-center">
+                    <!-- <div class="flex flex-wrap items-center">
                         <el-dropdown disabled>
                             <button
                                 class=" bg-[#D5131C] text-[#EBEBEB] text-xs sm:text-sm flex items-center gap-2 p-[6px] sm:p-[10px] rounded-xl">
@@ -33,9 +33,9 @@
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
-                    </div>
+                    </div> -->
                     <a href="tel:+998 71 200-05-22"
-                        class="hidden sm:flex items-center gap-1 sm:gap-[14px] font-semibold text-white text-sm sm:text-2xl lg:text-[32px] border-[#FF0000] border-b-[3px]">
+                        class="flex items-center gap-1 sm:gap-[14px] font-semibold text-white text-xs sm:text-2xl lg:text-[32px] border-[#FF0000] border-b-[3px]">
                         <span>+998 71 200-05-22</span>
                     </a>
                 </li>
@@ -55,7 +55,7 @@
         <div class="flex items-center flex-wrap justify-center gap-[14px] mt-[4vh]">
             <button
             @click="scrollToElement('faculty')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:w-[310px] opacity-90 hover:opacity-100">What
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:min-w-[310px] opacity-90 hover:opacity-100">What
                 directions do we have?</button>
             <button
             @click="scrollToElement('life')"
