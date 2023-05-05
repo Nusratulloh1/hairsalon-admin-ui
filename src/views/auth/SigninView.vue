@@ -58,7 +58,8 @@
           </el-select>
         </el-form-item>
         <el-form-item label="Phone Number" prop="phone">
-          <el-input v-model.trim="ruleForm.phone" type="text" class="!h-11" />
+          <el-input v-model.trim="ruleForm.phone" v-if="ruleForm.phone.includes('998')" v-mask="'+### ## ###-##-##'" autocomplete="off" type="text" class="!h-11" />
+          <el-input v-model.trim="ruleForm.phone" v-else type="text" autocomplete="off" class="!h-11" />
         </el-form-item>
         <el-form-item label="Password" prop="password">
           <el-input
