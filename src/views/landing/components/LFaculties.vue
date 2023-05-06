@@ -27,8 +27,7 @@
             </div>
             <div class="py-[60px] w-full absolute bottom-0 flex items-center justify-center flex-wrap gap-5 sm:gap-12"
                 style="background: rgba(118, 118, 118, 0.46)">
-                <a
-                href="tel:+998+71+200-05-22"
+                <a href="tel:+998+71+200-05-22"
                     class="py-3 px-4 sm:py-4 sm:px-[23px] uppercase text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
                     <svg width="19" height="16" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -51,29 +50,31 @@ import { ref } from 'vue';
 const faculties = ref([
     {
         id: 1,
-        name: 'Engineering School',
-        desc: `We provide students with a first-class academic experience with a focus on research and development, building educational processes in accordance with leading international practices.`,
+        name: 'School of Engineering ',
+        desc: `We do offer our students first-class academic experience, which is focused on research and development, building the educational process in accordance with the leading international practices.`,
         semesters: '8',
         bg: new URL('@/assets/images/landing/semester-bg-1.webp', import.meta.url).href,
     },
     {
         id: 2,
-        name: 'Business School',
-        desc: `Business training based on the case method, which is inspired by the Harvard Business School. We prepare students for successful careers as leaders and entrepreneurs.`,
+        name: 'School of Business',
+        desc: `Teaching business is based on the "case method" inspired by the Harvard Business School. Students of the Business School of AKFA University are prepared for the successful career as professional leaders and entrepreneurs.`,
         semesters: '8',
         bg: new URL('@/assets/images/landing/semester-bg-2.webp', import.meta.url).href,
     },
     {
         id: 3,
         name: 'Medical School',
-        desc: `The mission of the school is to prepare good doctors with comprehensive knowledge, outstanding skills and love for patients, based on advanced international medical education systems.`,
+        desc: `The mission of the Medical School is to prepare professional doctors with outstanding practical skills and love for the patient on a basis of the leading international medical educational programs.`,
         semesters: '12',
         bg: new URL('@/assets/images/landing/semester-bg-3.webp', import.meta.url).href,
     },
     {
         id: 4,
         name: 'Dental School',
-        desc: `Through our partnership with ADEE (Association for Dental Education in Europe), we provide our students with a high-quality international program, participate in international competitions, grants, exchange programs, digital education`,
+        desc: `Thanks to our partnership with ADEE (Association for Dental Education in Europe):
+- we provide high-quality international educational program;
+-we can take part in the international competitions and various exchange programs`,
         semesters: '10',
         bg: new URL('@/assets/images/landing/semester-bg-4.webp', import.meta.url).href,
     }
