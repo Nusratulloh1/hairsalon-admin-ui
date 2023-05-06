@@ -3,7 +3,8 @@
         <LHeader></LHeader>
         <LFaculties id="faculty"></LFaculties>
         <LLifeStudents id="life"></LLifeStudents>
-        <section class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
+        <section
+            class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
             <div>
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
@@ -46,7 +47,7 @@
                     HOW TO APPLY?
                 </h5>
                 <div class="flex justify-center w-full">
-                    <div
+                    <!-- <div
                         class=" bg-[#737373] w-full h-56 sm:w-[871.73px] sm:h-[473px] rounded-[10px] flex items-center justify-center my-5 sm:my-8">
                         <button class="relative flex w-20 h-16 sm:w-[167px] sm:h-[160px]">
                             <span
@@ -60,6 +61,10 @@
                                 </svg>
                             </span>
                         </button>
+                    </div> -->
+                    <div class="w-full h-56 sm:w-[871.73px] sm:h-[473px] my-5 sm:my-8">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ofw_e5I0m7o">
+                        </iframe>
                     </div>
                 </div>
                 <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
@@ -106,8 +111,7 @@ import LQuestions from "./components/LQuestions.vue";
     }
 
     .gradient-button {
-        background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%)
-        ;
+        background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%);
         color: white;
         border-radius: 10px;
 
