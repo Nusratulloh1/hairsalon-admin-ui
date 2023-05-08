@@ -2,9 +2,7 @@
     <div class="landing">
         <LHeader></LHeader>
         <LFaculties id="faculty"></LFaculties>
-        <LLifeStudents id="life"></LLifeStudents>
-        <section
-            class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
+        <section class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
             <div>
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
@@ -28,7 +26,7 @@
                     </a>
                     <button @click="$router.push('/signin')"
                         class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                        APPLY NOW
+                        APPLY
                     </button>
                 </div>
             </div>
@@ -74,14 +72,12 @@
                     </button>
                     <button @click="$router.push('/signin')"
                         class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                        APPLY NOW
+                        APPLY
                     </button>
                 </div>
             </div>
         </section>
         <LFeedbackSlider></LFeedbackSlider>
-        <!-- <LQuestions></LQuestions> -->
-        <!-- <LGallery></LGallery> -->
         <LFooter></LFooter>
     </div>
 </template>
@@ -90,11 +86,7 @@ import LHeader from "./components/LHeader.vue";
 import LFooter from "./components/LFooter.vue";
 import LFaculties from "./components/LFaculties.vue";
 import LTeachersSlider from "./components/LTeachersSlider.vue";
-import LLifeStudents from "./components/LLifeStudents.vue";
-import LEvents from "./components/LEvents.vue";
 import LFeedbackSlider from "./components/LFeedbackSlider.vue";
-import LGallery from "./components/LGallery.vue";
-import LQuestions from "./components/LQuestions.vue";
 
 </script>
 <style lang="scss">

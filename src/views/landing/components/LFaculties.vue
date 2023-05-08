@@ -38,7 +38,7 @@
                 </a>
                 <button @click="$router.push('/signin')"
                     class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                    APPLY NOW
+                    APPLY
                 </button>
             </div>
         </div>

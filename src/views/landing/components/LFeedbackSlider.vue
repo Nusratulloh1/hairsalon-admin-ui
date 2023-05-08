@@ -66,7 +66,7 @@
             </a>
             <button @click="$router.push('/signin')"
                 class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                APPLY NOW
+                APPLY
             </button>
         </div>
     </section>
@@ -92,7 +92,7 @@ const feedbacks = ref([
         name: 'Emil Ismatov',
         position: 'First year student of the Engineering School',
         body: `As President of the Student Council, I would like to express my deep gratitude to all the faculty and administration of AKFA University for the quality program of study and for creating such an exciting and educational environment for us students. I am proud to be a student of AKFA University and grateful that I am given the opportunity to pursue higher education in such a wonderful institution.`,
-        image: new URL('@/assets/images/landing/emil.svg', import.meta.url).href,
+        image: new URL('@/assets/images/landing/emil.png', import.meta.url).href,
     },
     {
         id: 1,
@@ -100,7 +100,7 @@ const feedbacks = ref([
         position: 'First year student of the Business School',
         body: `I want to express my gratitude to AKFA University for a quality study program. I gained unique experience and knowledge that will help me in my future career. I especially liked the possibility of practical training and the use of advanced technologies in teaching.
 I would also like to note that AKFA University creates a good atmosphere for students who want to broaden their horizons and meet new people.`,
-        image: new URL('@/assets/images/landing/saodat.svg', import.meta.url).href,
+        image: new URL('@/assets/images/landing/saodat.png', import.meta.url).href,
     }
 ])
 

@@ -56,12 +56,15 @@
         <div class="flex items-center flex-wrap justify-center gap-[14px] mt-[4vh]">
             <button @click="scrollToElement('faculty')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:min-w-[310px] opacity-90 hover:opacity-100">What
-                departments do we offer?</button>
-            <button @click="scrollToElement('life')"
+                directions do we have?</button>
+            <!-- <button
+            @click="scrollToElement('life')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">Life
-                in AKFA University</button>
-            <button @click="scrollToElement('video')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:min-w-[310px] opacity-90 hover:opacity-100">How to apply to us?</button>
+                in AKFA University</button> -->
+            <button
+            @click="scrollToElement('video')"
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">How
+                to apply?</button>
         </div>
         <hr class=" mt-[4.2vh] mb-[5.4vh]" />
         <div class="flex items-center flex-wrap justify-center gap-3 sm:gap-11">
@@ -69,7 +72,7 @@
                 class="px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl bg-[#383838] rounded-[10px] text-white w-[303px] hover:bg-[#343434] transition-all">Log-In</button>
             <button @click="$router.push('/signin')"
                 class="gradient-button px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl w-[303px]">APPLY
-                NOW</button>
+                </button>
         </div>
         <button class="absolute bottom-[24px] left-0 right-0 m-auto w-8 sm:w-16 animate-bounce"
             @click="scrollToElement('faculty')">

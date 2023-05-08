@@ -5,8 +5,8 @@
                 class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[564px] mb-4">
                 OUR SPECIALISTS
             </h3>
-            <carousel :transition="500" id="teachers" :autoplay="4000" :breakpoints="breakpoints" :itemsToScroll="2"
-                class=" mt-14">
+            <carousel :transition="500" @init="initSlider" id="teachers" ref="teachersSlide" :autoplay="4000"
+                :breakpoints="breakpoints" class=" mt-14">
                 <slide v-for="teacher in teachers" :key="teacher.id">
                     <div class="w-[95%] teacher">
                         <img :src="teacher.image" class="w-full h-44 object-cover object-center" alt="teacgher">
@@ -23,7 +23,8 @@
                     </div>
                 </slide>
                 <template #addons="{ slidesCount }">
-                    <Pagination v-if="slidesCount > 1" class="container m-auto px-5 sm:px-10 xl:px-0" />
+                    <Pagination v-if="slidesCount > 1" class="container m-auto px-5 sm:px-10 xl:px-0 xl:!hidden" />
+                        <Pagination v-if="slidesCount / 5 > 1" class="container m-auto px-5 sm:px-10 xl:px-0 !hidden xl:!flex" />
                 </template>
             </carousel>
         </div>
@@ -33,7 +34,7 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation, Pagination } from 'vue3-carousel'
 import { onMounted, ref } from 'vue'
-
+const teachersSlide = ref();
 const teachers = ref([
     {
         id: 1,
@@ -78,7 +79,6 @@ const teachers = ref([
     //     image: new URL('@/assets/images/landing/teacher-6.jpg', import.meta.url).href,
     // }
 ])
-
 const breakpoints = ref(
     {
         200: {
@@ -97,9 +97,12 @@ const breakpoints = ref(
             itemsToShow: 5,
             snapAlign: 'center',
         },
-    }
+    },
 )
-
+const initSlider = (): void => {
+    teachersSlide.value.updateSlidesData()
+    
+}
 </script>
 <style lang="scss">
 #teachers {
@@ -142,4 +145,5 @@ const breakpoints = ref(
             }
         }
     }
-}</style>
+}
+</style>
