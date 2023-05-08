@@ -10,16 +10,16 @@
                 <slide v-for="teacher in teachers" :key="teacher.id">
                     <div class="w-[95%] teacher">
                         <img :src="teacher.image" class="w-full h-44 object-cover object-center" alt="teacgher">
-                        <p class=" text-[#C02221] text-[10px] leading-3 font-bold mt-2 uppercase text-start">{{
+                        <p class=" text-[#C02221] text-[10px] leading-3 font-bold uppercase text-start mt-[30%]">{{
                             teacher.position }}</p>
                         <h5 class="text-white my-2 text-lg font-medium text-start">
                             {{ teacher.name }}
                         </h5>
-                        <p class=" text-[#C1C1C1] text-xs font-medium text-start">
+                        <!-- <p class=" text-[#C1C1C1] text-xs font-medium text-start">
                             Understanding the importance of support to the applicants, AKFA University does offer merit
                             scholarship up to 100% to the prospective students who participate and gain the highest scores
                             in the scholarship-based entrance examination.
-                        </p>
+                        </p> -->
                     </div>
                 </slide>
                 <template #addons="{ slidesCount }">
