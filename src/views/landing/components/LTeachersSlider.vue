@@ -73,15 +73,15 @@ const teachers = ref([
     },
     {
         id: 6,
-        name: 'Dr. Sajid Khan, PhD',
-        position: 'профессор computer science',
+        name: 'Dr. Iyer Lakshmi',
+        position: 'Professor of Medicine at AKFA University',
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
         image: new URL('@/assets/images/landing/teacher-7.jpg', import.meta.url).href,
     },
     {
         id: 6,
         name: 'Nicola Pasquali',
-        position: 'профессор computer science',
+        position: 'Academic General Director',
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
         image: new URL('@/assets/images/landing/teacher-4.jpg', import.meta.url).href,
     }
