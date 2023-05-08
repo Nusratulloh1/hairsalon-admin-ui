@@ -45,7 +45,7 @@
                     HOW TO APPLY?
                 </h5>
                 <div class="flex justify-center w-full">
-                    <div
+                    <!-- <div
                         class=" bg-[#737373] w-full h-56 sm:w-[871.73px] sm:h-[473px] rounded-[10px] flex items-center justify-center my-5 sm:my-8">
                         <button class="relative flex w-20 h-16 sm:w-[167px] sm:h-[160px]">
                             <span
@@ -59,6 +59,10 @@
                                 </svg>
                             </span>
                         </button>
+                    </div> -->
+                    <div class="w-full h-56 sm:w-[871.73px] sm:h-[473px] my-5 sm:my-8">
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ofw_e5I0m7o">
+                        </iframe>
                     </div>
                 </div>
                 <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
@@ -99,8 +103,7 @@ import LFeedbackSlider from "./components/LFeedbackSlider.vue";
     }
 
     .gradient-button {
-        background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%)
-        ;
+        background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%);
         color: white;
         border-radius: 10px;
 

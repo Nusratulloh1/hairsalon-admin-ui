@@ -1,6 +1,7 @@
 <template>
     <header class="top-section relative">
-        <nav class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 2xl:max-w-[100%] 2xl:mx-0 sm:pt-9 2xl:px-[72px]">
+        <nav
+            class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 2xl:max-w-[100%] 2xl:mx-0 sm:pt-9 2xl:px-[72px]">
             <ul class="flex items-center justify-between">
                 <li>
                     <a href="/">
@@ -53,8 +54,7 @@
             </h4>
         </div>
         <div class="flex items-center flex-wrap justify-center gap-[14px] mt-[4vh]">
-            <button
-            @click="scrollToElement('faculty')"
+            <button @click="scrollToElement('faculty')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:min-w-[310px] opacity-90 hover:opacity-100">What
                 directions do we have?</button>
             <!-- <button
@@ -74,7 +74,8 @@
                 class="gradient-button px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl w-[303px]">APPLY
                 </button>
         </div>
-        <button class="absolute bottom-[24px] left-0 right-0 m-auto w-8 sm:w-16 animate-bounce" @click="scrollToElement('faculty')">
+        <button class="absolute bottom-[24px] left-0 right-0 m-auto w-8 sm:w-16 animate-bounce"
+            @click="scrollToElement('faculty')">
             <svg viewBox="0 0 59 34" class=" w-8 h-8 sm:w-[59px] sm:h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M1.16755 6.73732L27.3206 33.1382C27.6319 33.4516 27.9692 33.6741 28.3325 33.8057C28.6957 33.9373 29.0849 34.002 29.5 34C29.9151 34 30.3043 33.9341 30.6675 33.8025C31.0308 33.6709 31.3681 33.4495 31.6794 33.1382L57.9103 6.73732C58.6368 6.00613 59 5.09216 59 3.99538C59 2.89861 58.6108 1.95852 57.8325 1.17511C57.0541 0.391705 56.146 0 55.1082 0C54.0704 0 53.1623 0.391705 52.3839 1.17511L29.5 24.2073L6.6161 1.17511C5.88962 0.443932 4.99399 0.0783386 3.92919 0.0783386C2.86438 0.0783386 1.94384 0.470043 1.16755 1.25345C0.389183 2.03686 0 2.95084 0 3.99538C0 5.03993 0.389183 5.95391 1.16755 6.73732Z"
