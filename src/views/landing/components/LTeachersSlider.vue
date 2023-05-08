@@ -71,13 +71,20 @@ const teachers = ref([
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
         image: new URL('@/assets/images/landing/teacher-5.jpg', import.meta.url).href,
     },
-    // {
-    //     id: 6,
-    //     name: 'Dr. Sajid Khan, PhD',
-    //     position: 'профессор computer science',
-    //     body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-    //     image: new URL('@/assets/images/landing/teacher-6.jpg', import.meta.url).href,
-    // }
+    {
+        id: 6,
+        name: 'Dr. Sajid Khan, PhD',
+        position: 'профессор computer science',
+        body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
+        image: new URL('@/assets/images/landing/teacher-7.jpg', import.meta.url).href,
+    },
+    {
+        id: 6,
+        name: 'Nicola Pasquali',
+        position: 'профессор computer science',
+        body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
+        image: new URL('@/assets/images/landing/teacher-4.jpg', import.meta.url).href,
+    }
 ])
 const breakpoints = ref(
     {
