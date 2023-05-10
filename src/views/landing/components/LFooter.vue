@@ -135,7 +135,7 @@ ul {
 
         &:first-child {
             margin-bottom: 10px;
-            font-family: 'Manrope';
+            font-family: 'Manrope', sans-serif;
             font-weight: 600;
             font-size: 18px;
             line-height: 28px;

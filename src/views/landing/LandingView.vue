@@ -87,7 +87,6 @@ import LFooter from "./components/LFooter.vue";
 import LFaculties from "./components/LFaculties.vue";
 import LTeachersSlider from "./components/LTeachersSlider.vue";
 import LFeedbackSlider from "./components/LFeedbackSlider.vue";
-
 </script>
 <style lang="scss">
 .landing {
