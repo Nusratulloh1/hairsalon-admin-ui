@@ -2,7 +2,8 @@
     <div class="landing">
         <LHeader></LHeader>
         <LFaculties id="faculty"></LFaculties>
-        <section class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
+        <section
+            class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
             <div>
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
@@ -37,7 +38,6 @@
             </div>
         </section>
         <LTeachersSlider id="our_teachers"></LTeachersSlider>
-        <!-- <LEvents></LEvents> -->
         <section class="py-12 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0" id="video">
             <div>
                 <h5
@@ -61,15 +61,16 @@
                         </button>
                     </div> -->
                     <div class="w-full h-56 sm:w-[871.73px] sm:h-[473px] my-5 sm:my-8">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ofw_e5I0m7o">
+                        <iframe width="100%" loading="lazy" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                            height="100%" src="https://www.youtube.com/embed/Ofw_e5I0m7o">
                         </iframe>
                     </div>
                 </div>
                 <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
-                    <button
+                    <a href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name" target="_blank" rel="noopener noreferrer"
                         class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
                         TRY TUTORIAL
-                    </button>
+                </a>
                     <button @click="$router.push('/signin')"
                         class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
                         APPLY
@@ -83,10 +84,12 @@
 </template>
 <script lang="ts" setup>
 import LHeader from "./components/LHeader.vue";
-import LFooter from "./components/LFooter.vue";
-import LFaculties from "./components/LFaculties.vue";
-import LTeachersSlider from "./components/LTeachersSlider.vue";
-import LFeedbackSlider from "./components/LFeedbackSlider.vue";
+import { defineAsyncComponent } from "vue";
+
+const LFeedbackSlider = defineAsyncComponent(() => import('./components/LFeedbackSlider.vue'))
+const LFaculties = defineAsyncComponent(() => import('./components/LFaculties.vue'))
+const LTeachersSlider = defineAsyncComponent(() => import('./components/LTeachersSlider.vue'))
+const LFooter = defineAsyncComponent(() => import('./components/LFooter.vue'))
 </script>
 <style lang="scss">
 .landing {
