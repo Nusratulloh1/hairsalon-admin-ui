@@ -9,7 +9,7 @@
                 :breakpoints="breakpoints" class=" mt-14">
                 <slide v-for="teacher in teachers" :key="teacher.id">
                     <div class="w-[95%] teacher">
-                        <img :src="teacher.image" height="176px" width="auto" class="h-44 !w-full object-cover object-center" alt="teacgher">
+                        <img :src="teacher.image" width="200" height="176" class="object-cover object-center" alt="teacgher" />
                         <p class=" text-[#C02221] text-[10px] leading-3 font-bold uppercase text-start mt-[30%]">{{
                             teacher.position }}</p>
                         <h5 class="text-white my-2 text-lg font-medium text-start">
@@ -32,8 +32,8 @@
 </template>
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Navigation, Pagination } from 'vue3-carousel'
-import { onMounted, ref } from 'vue'
+import { Carousel, Slide, Pagination } from 'vue3-carousel'
+import { ref } from 'vue'
 const teachersSlide = ref();
 const teachers = ref([
     {
@@ -119,6 +119,10 @@ const initSlider = (): void => {
         box-shadow: 0px 9.13678px 12.1824px -3.04559px rgba(16, 24, 40, 0.08), 0px 3.04559px 4.56839px -1.5228px rgba(16, 24, 40, 0.03);
         border-radius: 11.448px;
         padding: 18.2736px 18.2736px 24.3647px;
+        img{
+            height: 176px;
+            width: 100%;
+        }
     }
 
     .carousel__pagination {
