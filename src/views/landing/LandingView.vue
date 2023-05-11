@@ -66,7 +66,7 @@
                 </div>
                 <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
                     <a href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name" target="_blank" rel="noopener noreferrer"
-                        class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
+                        class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] min-w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
                         {{ $t('landing.try_tutorial') }}
                 </a>
                     <button @click="$router.push('/signin')"

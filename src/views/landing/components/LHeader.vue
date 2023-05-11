@@ -35,13 +35,13 @@
                         </el-dropdown>
                     </div>
                     <a href="tel:+998 71 200-05-22"
-                        class="flex items-center gap-1 sm:gap-[14px] font-semibold text-white text-xs sm:text-2xl lg:text-[32px] border-[#FF0000] border-b-[3px]">
+                        class="  hidden sm:flex items-center gap-1 sm:gap-[14px] font-semibold text-white text-xs sm:text-2xl lg:text-[32px] border-[#FF0000] border-b-[3px]">
                         <span>+998 71 200-05-22</span>
                     </a>
                 </li>
             </ul>
         </nav>
-        <div class="max-w-[1084px] mx-auto mt-[6.5vh] text-center px-5 sm:px-0">
+        <div class="max-w-[1175px] mx-auto mt-[6.5vh] text-center px-5 sm:px-0">
             <h2 class="font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[65px] lg:leading-[79px] text-white">
                 {{ $t('landing.welcome') }}
                 <br>
