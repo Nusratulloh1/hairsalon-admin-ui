@@ -7,13 +7,11 @@
             <div>
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
-                    Get scholarships from the first steps according to your achievements!
+                    {{ $t('landing.get_scholarship') }}
                 </h5>
                 <p class=" text-white mt-10 md:mt-20 font-[450] text-sm md:text-xl max-w-[641px]" style="font-family: 
                 Arial, Helvetica, sans-serif">
-                    Understanding the importance of support to the applicants, AKFA University does offer merit scholarship
-                    up to 100% to the prospective students who participate and gain the highest scores in the
-                    scholarship-based entrance examination.
+                    {{ $t('landing.scholarship_title') }}
                 </p>
                 <div class="w-full flex items-center flex-wrap gap-5 sm:gap-12 mt-12">
                     <a href="tel:+998+71+200-05-22"
@@ -23,11 +21,11 @@
                                 d="M3.7054 6.21517C5.12746 7.8361 6.9953 8.92957 9.02156 9.32452L9.97203 7.38237C10.091 7.14002 10.3207 7.00511 10.5551 7.00902C11.3184 7.03045 12.1025 6.91943 12.874 6.66488C13.2179 6.55141 13.5769 6.7616 13.6808 7.13722L14.336 9.50603C14.4399 9.88166 14.2474 10.2738 13.9035 10.3873C8.08502 12.3072 1.94494 8.71263 0.187194 2.35747C0.0833011 1.98184 0.278842 1.58866 0.61965 1.47621L2.78842 0.760599C3.13233 0.647124 3.49137 0.857316 3.59527 1.23294C3.82832 2.07556 4.17782 2.85021 4.61675 3.53258C4.74949 3.74359 4.77386 4.02728 4.65493 4.26963L3.7054 6.21517Z"
                                 fill="white" />
                         </svg>
-                        Call
+                        {{ $t('landing.call') }}
                     </a>
                     <button @click="$router.push('/signin')"
                         class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                        APPLY
+                        {{ $t('landing.apply') }}
                     </button>
                 </div>
             </div>
@@ -42,7 +40,7 @@
             <div>
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
-                    HOW TO APPLY?
+                    {{ $t('landing.how_apply') }}
                 </h5>
                 <div class="flex justify-center w-full">
                     <!-- <div
@@ -68,12 +66,12 @@
                 </div>
                 <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
                     <a href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name" target="_blank" rel="noopener noreferrer"
-                        class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
-                        TRY TUTORIAL
+                        class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] min-w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
+                        {{ $t('landing.try_tutorial') }}
                 </a>
                     <button @click="$router.push('/signin')"
                         class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                        APPLY
+                        {{ $t('landing.apply') }}
                     </button>
                 </div>
             </div>
@@ -108,6 +106,7 @@ const LFooter = defineAsyncComponent(() => import('./components/LFooter.vue'))
         background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%);
         color: white;
         border-radius: 10px;
+        text-transform: uppercase;
 
         &:hover {
             background: #FF0000;

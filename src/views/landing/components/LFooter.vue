@@ -6,19 +6,19 @@
                     <AUIconWithName class="w-40 h-[86px]"></AUIconWithName>
                 </li>
                 <li class=" text-xs">
-                    Address: <a
+                    {{ $t('landing.location') }}: <a
                         href="https://yandex.com/maps/org/akfa_university/18660414568/?ll=69.427804%2C41.327040&mode=search&sctx=ZAAAAAgBEAAaKAoSCfFmDd5XtSVAEXmxMEROl0hAEhIJZKw2%2F688Y0ARDvRQ24aPS0AiBgABAgMEBSgKOABA7M4LSAFqBXdvcmxknQHNzEw9oAEAqAEAvQECDU0fwgEF6Kj9wUXqAQDyAQD4AQCCAg9ha2ZhIHVuaXZlcnNpdHmKAgCSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=69.427804%2C41.327040&sspn=0.007844%2C0.003208&text=akfa%20university&z=18"
                         class="underline" target="_blank" rel="noopener noreferrer">
-                        264, Milliy bog St, Tashkent, 111221, Uzbekistan
+                        {{ $t('landing.address') }}
                     </a>
                 </li>
                 <li>
-                    Phone: <a href="tel:+998-71-200-05-22">
+                    {{ $t('landing.phone') }}: <a href="tel:+998-71-200-05-22">
                         +998-71-200-05-22
                     </a>
                 </li>
                 <li>
-                    Email: <a href="mailto:info@akfauniversity.com">info@akfauniversity.com</a>
+                    {{ $t('landing.email') }}: <a href="mailto:info@akfauniversity.com">info@akfauniversity.com</a>
                 </li>
             </ul>
             <!-- <ul class="mt-[11px] md:mx-auto">
