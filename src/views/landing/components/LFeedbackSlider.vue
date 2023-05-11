@@ -2,7 +2,7 @@
     <section class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10 sm:py-20">
         <h3
             class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[1026px] mb-7 sm:mb-14">
-            WHAT OUR STUDENTS THINK:
+            {{ $t(`landing.students_think`) }}
         </h3>
         <carousel :items-to-show="2" :autoplay="6000" :transition="500" id="feedback" :breakpoints="breakpoints"
             class="h-[439px]">
@@ -15,16 +15,16 @@
                             fill="rgb(203 213 225 / 1)" />
                     </svg>
                     <p class=" text-sm sm:text-base text-black my-4 sm:my-8 text-left">
-                        {{ feedback.body }}
+                        {{ $t(`landing.student_text_${feedback.id}`) }}
                     </p>
                     <div class="flex items-center gap-2 flex-wrap sm:gap-4 absolute bottom-7 sm:bottom-[53px]">
                         <img :src="feedback.image" class=" w-12 h-12 sm:w-auto sm:h-auto" alt="avatar">
                         <div class=" text-start">
                             <p class=" text-sm sm:text-lg font-medium">
-                                {{ feedback.name }}
+                                {{ $t(`landing.student_name_${feedback.id}`) }}
                             </p>
                             <p class=" text-xs sm:text-base text-[#C02221] text-left">
-                                {{ feedback.position }}
+                                {{ $t(`landing.student_position_${feedback.id}`) }}
                             </p>
                         </div>
                     </div>
@@ -90,16 +90,11 @@ const feedbacks = ref([
     {
         id: 1,
         name: 'Emil Ismatov',
-        position: 'First year student of the Engineering School',
-        body: `As President of the Student Council, I would like to express my deep gratitude to all the faculty and administration of AKFA University for the quality program of study and for creating such an exciting and educational environment for us students. I am proud to be a student of AKFA University and grateful that I am given the opportunity to pursue higher education in such a wonderful institution.`,
         image: new URL('@/assets/images/landing/emil.png', import.meta.url).href,
     },
     {
-        id: 1,
+        id: 2,
         name: 'Saodat Nazarova',
-        position: 'First year student of the Business School',
-        body: `I want to express my gratitude to AKFA University for a quality study program. I gained unique experience and knowledge that will help me in my future career. I especially liked the possibility of practical training and the use of advanced technologies in teaching.
-I would also like to note that AKFA University creates a good atmosphere for students who want to broaden their horizons and meet new people.`,
         image: new URL('@/assets/images/landing/saodat.png', import.meta.url).href,
     }
 ])

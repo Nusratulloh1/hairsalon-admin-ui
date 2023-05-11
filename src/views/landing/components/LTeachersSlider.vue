@@ -3,7 +3,7 @@
         <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10">
             <h3
                 class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[564px] mb-4">
-                OUR SPECIALISTS
+                {{ $t('landing.teachers') }}
             </h3>
             <carousel :transition="500" @init="initSlider" id="teachers" ref="teachersSlide" :autoplay="4000"
                 :breakpoints="breakpoints" class=" mt-14">
