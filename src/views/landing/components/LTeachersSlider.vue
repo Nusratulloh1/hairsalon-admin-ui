@@ -78,13 +78,13 @@ const teachers = ref([
         body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
         image: new URL('@/assets/images/landing/teacher-7.webp', import.meta.url).href,
     },
-    {
-        id: 6,
-        name: 'Nicola Pasquali',
-        position: 'Academic General Director',
-        body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
-        image: new URL('@/assets/images/landing/teacher-4.webp', import.meta.url).href,
-    }
+    // {
+    //     id: 6,
+    //     name: 'Nicola Pasquali',
+    //     position: 'Academic General Director',
+    //     body: 'AKFA University предлагает индивидуальный подход к каждому студенту и готов оказать помощь в любой ситуации. Наши преподаватели и наставники всегда окажут вам необходимую поддержку и готовы помочь преодолеть любые трудности.',
+    //     image: new URL('@/assets/images/landing/teacher-4.webp', import.meta.url).href,
+    // }
 ])
 const breakpoints = ref(
     {
