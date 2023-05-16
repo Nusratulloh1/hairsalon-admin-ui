@@ -76,7 +76,7 @@
                 </div>
             </div>
         </section>
-        <LFeedbackSlider></LFeedbackSlider>
+        <!-- <LFeedbackSlider></LFeedbackSlider> -->
         <LFooter></LFooter>
     </div>
 </template>

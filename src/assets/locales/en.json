@@ -36,12 +36,12 @@
   },
   "landing": {
     "au": "AKFA UNIVERSITY",
-   "welcome": "DEAR APPLICANT, WELCOME TO",
-   "admission_open": "OUR Admissions 2023/2024 IS OPEN!",
+   "welcome": "DEAR APPLICANTS, WELCOME TO",
+   "admission_open": "ADMISSIONS 2023-2024 ARE OPEN NOW",
    "what_directions": "What directions do we have?",
    "life_au": "Life in AKFA University",
    "how_apply": "How to apply?",
-   "login": "Log-in",
+   "login": "LOGIN",
    "apply": "Apply",
    "semesters": "semesters",
    "engineering": "Engineering School",
@@ -52,7 +52,7 @@
    "business_desc": "Business training based on the case method, which is inspired by the Harvard Business School. We prepare students for successful careers as leaders and entrepreneurs.",
    "medical_desc": "The mission of the school is to prepare good doctors with comprehensive knowledge, outstanding skills and love for patients, based on advanced international medical education systems.",
    "dental_desc": "Through our partnership with ADEE (Association for Dental Education in Europe), we provide our students with a high-quality international program, participate in international competitions, grants, exchange programs, digital education",
-   "call": "Call",
+   "call": "CONTACT US",
    "s_life": "Students Life",
    "exp_au_life": "Experience Student Life Like Never Before at AKFA University",
    "watch_us": "Watch us",
@@ -70,7 +70,8 @@
    "address": "264, Milliy bog St, Tashkent, 111221, Uzbekistan",
    "email": "Email",
    "phone": "Phone",
-   "location": "Address"
+   "location": "Address",
+   "read_more": "READ MORE"
   },
   "app": {
     "dashboard": "Dashboard",
