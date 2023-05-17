@@ -60,7 +60,7 @@
             @click="scrollToElement('life')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.au_life') }}</button> -->
             <button @click="scrollToElement('video')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.how_apply') }}</button>
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white min-w-[236px] sm:min-w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.how_apply') }}</button>
         </div>
         <hr class=" mt-[4.2vh] mb-[5.4vh]" />
         <div class="flex items-center flex-wrap justify-center gap-3 sm:gap-11 uppercase">
