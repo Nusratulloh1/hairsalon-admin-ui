@@ -3,8 +3,9 @@
     "view": "Ko'rish"
   },
   "landing": {
-    "au": "",
-   "welcome": "AZIZ ABITURIYENTLAR!, AKFA UNIVERSITETIGA XUSH KELIBSIZ!",
+    "au": "AKFA UNIVERSITETIGA",
+   "welcome": "AZIZ ABITURIYENTLAR",
+   "welcome2":"XUSH KELIBSIZ",
    "admission_open": "2023-2024 AKADEMIK YILI UCHUN HUJJATLAR QABULI BOSHLANADI",
    "what_directions": "Какие направления у нас есть?",
    "life_au": "Жизнь в Университете AKFA",

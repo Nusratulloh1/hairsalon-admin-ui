@@ -46,6 +46,8 @@
                 {{ $t('landing.welcome') }}
                 <br>
                 <span class="text-[#FF0000]">{{ $t('landing.au') }}</span>
+                <br>
+                {{ $t('landing.welcome2') }}
             </h2>
             <h4
                 class=" mt-[2.8vh] font-semibold text-base sm:text-2xl md:text-3xl lg:text-5xl uppercase text-[#F6F6F6] lg:leading-[72px]">
