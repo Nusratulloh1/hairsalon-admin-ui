@@ -29,7 +29,8 @@
                             </button>
                             <template #dropdown>
                                 <el-dropdown-menu>
-                                    <el-dropdown-item v-for="locale in $i18n.availableLocales" @click="$i18n.locale = locale" class="uppercase">{{ locale }}</el-dropdown-item>
+                                    <el-dropdown-item v-for="locale in $i18n.availableLocales" @click="localeSet(locale)"
+                                        class="uppercase">{{ locale }}</el-dropdown-item>
                                 </el-dropdown-menu>
                             </template>
                         </el-dropdown>
@@ -62,14 +63,17 @@
             @click="scrollToElement('life')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.au_life') }}</button> -->
             <button @click="scrollToElement('video')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white min-w-[236px] sm:min-w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.how_apply') }}</button>
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white min-w-[236px] sm:min-w-[310px] opacity-90 hover:opacity-100">{{
+                    $t('landing.how_apply') }}</button>
         </div>
         <hr class=" mt-[4.2vh] mb-[5.4vh]" />
         <div class="flex items-center flex-wrap justify-center gap-3 sm:gap-11 uppercase">
             <button @click="$router.push('/login')"
-                class="px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl bg-[#383838] rounded-[10px] text-white w-[303px] hover:bg-[#343434] transition-all">{{ $t('landing.login') }}</button>
+                class="px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl bg-[#383838] rounded-[10px] text-white w-[303px] hover:bg-[#343434] transition-all">{{
+                    $t('landing.login') }}</button>
             <button @click="$router.push('/signin')"
-                class="gradient-button px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl w-[303px]">{{ $t('landing.apply') }}
+                class="gradient-button px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl w-[303px]">{{
+                    $t('landing.apply') }}
             </button>
         </div>
         <button class="absolute bottom-[24px] left-0 right-0 m-auto w-8 sm:w-16 animate-bounce"
@@ -84,7 +88,9 @@
 </template>
 <script lang="ts" setup>
 import { AUIconWithName } from "@/components/icons";
+import { setLocale } from "@/i18n"
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 const scrollToElement = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
@@ -92,6 +98,12 @@ const scrollToElement = (id: string) => {
             behavior: 'smooth'
         });
     }
+
+}
+const router = useRouter()
+const localeSet = (new_locale: string) => {
+    setLocale(new_locale)
+    router.replace({ params: { locale: new_locale } })
 
 }
 </script>

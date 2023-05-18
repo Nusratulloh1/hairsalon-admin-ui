@@ -11,6 +11,9 @@ const title = "Admission";
 NProgress.configure({ showSpinner: false });
 
 const whiteList = [
+  "/en",
+  "/uz",
+  "/ru",
   "/",
   "/login",
   "/signin",
