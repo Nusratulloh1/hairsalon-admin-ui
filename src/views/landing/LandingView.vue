@@ -1,6 +1,7 @@
 <template>
     <div class="landing">
         <LHeader></LHeader>
+        <LLifeStudents></LLifeStudents>
         <LFaculties id="faculty"></LFaculties>
         <section
             class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
@@ -85,6 +86,7 @@ import LHeader from "./components/LHeader.vue";
 import { defineAsyncComponent } from "vue";
 
 const LFeedbackSlider = defineAsyncComponent(() => import('./components/LFeedbackSlider.vue'))
+const LLifeStudents = defineAsyncComponent(() => import('./components/LLifeStudents.vue'))
 const LFaculties = defineAsyncComponent(() => import('./components/LFaculties.vue'))
 const LTeachersSlider = defineAsyncComponent(() => import('./components/LTeachersSlider.vue'))
 const LFooter = defineAsyncComponent(() => import('./components/LFooter.vue'))
