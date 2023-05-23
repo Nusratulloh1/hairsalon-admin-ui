@@ -308,18 +308,18 @@ const rules = reactive<FormRules>({
       message: i18n.t("validation.maximumLength", { value: 10 }),
       trigger: ['blur', 'change'],
     },
-    {
-      required: true,
-      message: i18n.t("validation.fillField"),
-      trigger: ['blur', 'change'],
-    },
-    {
-      type: "string",
-      required: true,
-      pattern: passportSeriesPattern,
-      message: i18n.t("validation.pattern"),
-      trigger: ['blur', 'change'],
-    },
+    // {
+    //   required: true,
+    //   message: i18n.t("validation.fillField"),
+    //   trigger: ['blur', 'change'],
+    // },
+    // {
+    //   type: "string",
+    //   required: true,
+    //   pattern: passportSeriesPattern,
+    //   message: i18n.t("validation.pattern"),
+    //   trigger: ['blur', 'change'],
+    // },
   ],
   birth_date: [
     {

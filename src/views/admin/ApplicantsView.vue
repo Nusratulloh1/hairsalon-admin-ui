@@ -153,6 +153,7 @@
           </div>
         </template>
       </el-table-column>
+      <!-- <el-table-column type="index" align="left" label="Number" min-width="100" /> -->
       <el-table-column
         fixed="right"
         label="Operations"
@@ -210,8 +211,9 @@ const filter = reactive({
   is_scholarship: "",
   status: "",
   exam_date_id: "",
+  // city_id: "6391db1ffbe74506a2842c95",
+  // gender: "female"
 });
-
 onMounted(async () => {
   fetchApplications();
   if (!guideStore.getExamDates.length) {
