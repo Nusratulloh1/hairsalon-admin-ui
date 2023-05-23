@@ -12,9 +12,9 @@
             <div class=" bg-black absolute bottom-12 w-full min-h-[288px]">
                 <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10">
                     <h3 class=" text-2xl sm:text-4xl md:text-5xl md:leading-[54px] xl:text-[56px] xl:leading-[68px] uppercase text-white">
-                        Experience Student Life Like Never Before at
+                        Experience Student Life
                         <br>
-                        <span class=" font-bold">AKFA University</span>
+                        <span class=" font-bold">Like Never Before at AKFA University</span>
                     </h3>
                     <!-- <button class="watch-button flex items-center gap-3 md:gap-4 md:w-[280.87px] md:h-[119px] py-4 px-5 md:py-6 text-lg md:px-8 md:text-[24px] md:leading-[29px] uppercase text-white font-bold">
                         <svg class=" w-14 h-14 md:w-[70px] md:h-[71px]" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
