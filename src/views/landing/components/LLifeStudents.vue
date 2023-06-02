@@ -9,7 +9,7 @@
             </div>
         </div> -->
         <div class="w-full min-h-[100vh] student-life mt-1 relative">
-            <div class=" bg-black absolute bottom-12 w-full min-h-[288px]">
+            <div class=" bg-black absolute top-[3%] w-full min-h-[288px]">
                 <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10">
                     <h3 class=" text-2xl sm:text-4xl md:text-5xl md:leading-[54px] xl:text-[56px] xl:leading-[68px] uppercase text-white">
                         {{ $t('landing.student_life_title_1') }}
