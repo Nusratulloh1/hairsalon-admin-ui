@@ -1,18 +1,11 @@
 <template>
-  <div class="wrapper">
-    <TheHeader
-      class="the-header border-b"
-      @onBurgerClick="drawer = !drawer"
-    ></TheHeader>
-    <el-drawer
-      v-model="drawer"
-      :with-header="false"
-      :show-close="false"
-      direction="ltr"
-      size="300px"
-    >
-      <TheSidebar :routes="routes" @onRouteClick="drawer = false" />
-    </el-drawer>
+  <div class="wrapper" :class="{ 'full-screen': drawer }">
+    <TheHeader class="the-header border-b" @onBurgerClick="drawer = !drawer"></TheHeader>
+    <div class="block md:hidden">
+      <el-drawer v-model="drawer" :with-header="false" :show-close="false" direction="ltr" size="300px">
+        <TheSidebar :routes="routes" @onRouteClick="drawer = false" />
+      </el-drawer>
+    </div>
     <TheSidebar class="sidebar" :routes="routes" />
     <div class="content p-4 md:p-8">
       <RouterView />
@@ -83,6 +76,7 @@ const drawer = ref(false);
 
 <style scoped lang="scss">
 @import "@/assets/styles/colors.scss";
+
 .wrapper {
   background: #ffffff;
   height: 100vh;
@@ -97,14 +91,30 @@ const drawer = ref(false);
   .the-header {
     height: 90px;
   }
+
   .content {
     grid-area: main;
     overflow: auto;
   }
+
   .sidebar {
     grid-area: sidebar;
   }
 }
+
+.wrapper.full-screen {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  .sidebar {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
@@ -114,6 +124,7 @@ const drawer = ref(false);
       "main"
       "footer";
   }
+
   .sidebar {
     display: none;
   }
