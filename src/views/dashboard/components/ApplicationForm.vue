@@ -9,7 +9,7 @@
             size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item label="Region" prop="city_id" id="city_id">
+      <el-form-item label="Region" prop="city_id" id="city_id" v-if="store.getUser?.country?.code === 'UZ'">
         <el-select v-model="ruleForm.city_id" placeholder="Select your region" filterable size="large" class="w-full">
           <el-option v-for="region of guideStore.getRegions" :key="region.value" :label="region.label"
             :value="region.value" />
