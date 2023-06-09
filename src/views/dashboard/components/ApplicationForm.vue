@@ -35,7 +35,7 @@
     </div>
     <div class="app-divider my-2 md:my-4" />
     <h1 class="title mb-3">Passport Information</h1>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-2">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-2" :class="{'lg:!grid-cols-5': store.getUser?.country?.code !== 'UZ'}">
       <el-form-item label="First Name" prop="first_name" id="first_name">
         <el-tooltip content="Please write your first name like in passport" placement="top">
           <el-input v-model="ruleForm.first_name" type="text" autocomplete="off" placeholder="Write your first name"
@@ -47,7 +47,7 @@
           <el-input v-model="ruleForm.last_name" autocomplete="off" placeholder="Write your last name" size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item label="Passport Series. (AB)" prop="passport_serial" id="passport_serial">
+      <el-form-item label="Passport Series. (AB)" v-if="store.getUser?.country?.code === 'UZ'" prop="passport_serial" id="passport_serial">
         <el-tooltip content="Please write your first letters in passport" placement="top">
           <el-input v-model="ruleForm.passport_serial" autocomplete="off"
             placeholder="Write down the numbers of your passport or ID card" size="large" />
