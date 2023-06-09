@@ -198,6 +198,16 @@ const rules = reactive<FormRules>({
     },
   ],
   phone: [
+  {
+      required: true,
+      message: i18n.t("validation.fillField"),
+      trigger: "blur",
+    },
+    {
+      min: 5,
+      message: i18n.t("validation.minimumLength", { value: 5 }),
+      trigger: "blur",
+    },
     {
       max: 20,
       message: i18n.t("validation.maximumLength", { value: 20 }),
