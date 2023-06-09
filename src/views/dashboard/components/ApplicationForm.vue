@@ -290,13 +290,13 @@ const rules = reactive<FormRules>({
       trigger: ['blur', 'change'],
     },
     {
-      min: 10,
-      message: i18n.t("validation.minimumLength", { value: 7 }),
+      min: store.getUser?.country?.code === 'UZ' ? 7 : 1,
+      message: i18n.t("validation.minimumLength", { value: store.getUser?.country?.code === 'UZ' ? 7 : 1 }),
       trigger: ['blur', 'change'],
     },
     {
-      max: 10,
-      message: i18n.t("validation.maximumLength", { value: 15 }),
+      max: store.getUser?.country?.code === 'UZ' ? 10 : 20,
+      message: i18n.t("validation.maximumLength", { value: store.getUser?.country?.code === 'UZ' ? 10 : 20 }),
       trigger: ['blur', 'change'],
     },
     {
