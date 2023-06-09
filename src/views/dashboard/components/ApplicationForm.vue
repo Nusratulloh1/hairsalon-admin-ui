@@ -290,14 +290,19 @@ const rules = reactive<FormRules>({
       trigger: ['blur', 'change'],
     },
     {
+      min: 10,
+      message: i18n.t("validation.minimumLength", { value: 7 }),
+      trigger: ['blur', 'change'],
+    },
+    {
       max: 10,
-      message: i18n.t("validation.maximumLength", { value: 10 }),
+      message: i18n.t("validation.maximumLength", { value: 15 }),
       trigger: ['blur', 'change'],
     },
     {
       type: "string",
       required: true,
-      pattern: passportNumberPattern,
+      pattern: store.getUser?.country?.code === 'UZ' ? passportNumberPattern : '',
       message: i18n.t("validation.pattern"),
       trigger: ['blur', 'change'],
     },
