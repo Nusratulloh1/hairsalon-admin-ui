@@ -8,8 +8,8 @@
                 </h3>
             </div>
         </div> -->
-        <div class="w-full min-h-[100vh] student-life mt-1 relative">
-            <div class=" bg-black absolute top-[3%] w-full min-h-[288px]">
+        <div class="w-full max-h-[90vh] student-life mt-4 relative">
+            <div class=" bg-black top-[3%] w-full min-h-[288px]">
                 <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10">
                     <h3 class=" text-2xl sm:text-4xl md:text-5xl md:leading-[54px] xl:text-[56px] xl:leading-[68px] uppercase text-white">
                         {{ $t('landing.student_life_title_1') }}
@@ -38,11 +38,11 @@
     </section>
 </template>
 <style scoped>
-.student-life {
+/* .student-life {
     background: url('@/assets/images/landing/student-life.webp'), no-repeat, 50%;
     background-size: cover;
     background-position: 100% 95vh;
-}
+} */
 
 .watch-button {
     background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, rgba(177, 4, 14, 0.8) 12.5%, rgba(237, 28, 36, 0.8) 100%)
