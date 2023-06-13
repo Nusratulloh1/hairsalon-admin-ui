@@ -31,9 +31,10 @@
                 </div>
             </div>
             <div class="flex justify-end">
-                <img src="@/assets/images/landing/stipent.webp"
+                <el-image :src="stidentImg" :key="stidentImg" width="200"
+                    height="176"
                     class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
-                    alt="stipent">
+                    alt="stipent" lazy />
             </div>
         </section>
         <LTeachersSlider id="our_teachers"></LTeachersSlider>
@@ -66,10 +67,11 @@
                     </div>
                 </div>
                 <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
-                    <a href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name"
+                        target="_blank" rel="noopener noreferrer"
                         class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] min-w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
                         {{ $t('landing.try_tutorial') }}
-                </a>
+                    </a>
                     <button @click="$router.push('/signin')"
                         class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
                         {{ $t('landing.apply') }}
@@ -90,6 +92,7 @@ const LLifeStudents = defineAsyncComponent(() => import('./components/LLifeStude
 const LFaculties = defineAsyncComponent(() => import('./components/LFaculties.vue'))
 const LTeachersSlider = defineAsyncComponent(() => import('./components/LTeachersSlider.vue'))
 const LFooter = defineAsyncComponent(() => import('./components/LFooter.vue'))
+const stidentImg = new URL('@/assets/images/landing/stipent.webp', import.meta.url).href
 </script>
 <style lang="scss">
 .landing {
