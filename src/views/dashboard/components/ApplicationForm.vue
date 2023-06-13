@@ -16,13 +16,13 @@
         </el-select>
       </el-form-item>
       <el-form-item label="Name of graduation place" prop="graduation_place" id="graduation_place">
-        <el-tooltip content="Be sure to write your correct place of graduation" placement="top">
-          <el-input v-model="ruleForm.graduation_place" autocomplete="off" placeholder="Write the name graduation place"
+        <el-tooltip content="Be sure to write your correct place of graduation" placement="top" :trigger-keys="['Enter']">
+          <el-input v-model="ruleForm.graduation_place" placeholder="Write the name graduation place"
             size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item label="Street Address" prop="address" id="address" v-if="store.getUser?.country?.code === 'UZ'">
-        <el-tooltip content="Be sure to enter your current address" placement="top">
+        <el-tooltip content="Be sure to enter your current address" placement="top" :trigger-keys="['Enter']">
           <el-input v-model="ruleForm.address" autocomplete="off" placeholder="Write your address" size="large" />
         </el-tooltip>
       </el-form-item>
