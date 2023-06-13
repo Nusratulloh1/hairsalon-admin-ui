@@ -176,7 +176,7 @@ onUpdated(() => {
       },
       tooltip: {
         trigger: "item",
-        formatter: "{a} <br/>{b} : {c}%",
+        formatter: "{a} <br/>{b} : {c}",
       },
       color: ["#4992ff", "#7cffb2", "#ff6e76"],
       series: [
@@ -208,7 +208,7 @@ onUpdated(() => {
       },
       tooltip: {
         trigger: "item",
-        formatter: "{a} <br/>{b} : {c}%",
+        formatter: "{a} <br/>{b} : {c}",
       },
       color: ["#4992ff", "#7cffb2"],
       series: [
