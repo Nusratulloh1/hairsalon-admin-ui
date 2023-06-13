@@ -138,7 +138,7 @@ const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
   // first_name: "",
   // last_name: "",
-  phone: "+998",
+  phone: "+",
   country_id: "",
   email: "",
   password: "",
