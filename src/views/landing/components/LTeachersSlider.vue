@@ -9,7 +9,7 @@
                 :breakpoints="breakpoints" class=" mt-14">
                 <slide v-for="teacher in teachers" :key="teacher.id">
                     <div class="w-[95%] teacher">
-                        <el-image :src="teacher.image" :key="teacher.image" width="200" height="176" class="object-cover object-center" alt="teacgher" lazy />
+                        <el-image :src="teacher.image" :key="teacher.image" width="200" height="176" class="object-cover object-center" alt="teacgher" />
                         <p class=" text-[#C02221] text-[10px] leading-3 font-bold uppercase text-start mt-[30%]">{{
                             teacher.position }}</p>
                         <h5 class="text-white my-2 text-lg font-medium text-start">
