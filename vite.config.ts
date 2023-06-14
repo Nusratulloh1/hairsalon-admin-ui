@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from "node:url";
 import { resolve, dirname } from "node:path";
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
 import { defineConfig } from "vite";
+import viteCompression from "vite-plugin-compression";
 import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
@@ -14,6 +15,7 @@ export default defineConfig({
         "./src/assets/locales/**"
       ),
     }),
+    viteCompression(),
   ],
   resolve: {
     alias: {
