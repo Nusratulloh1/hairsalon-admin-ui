@@ -105,6 +105,14 @@
         </template>
       </el-table-column>
       <el-table-column
+        show-overflow-tooltip
+        prop="country_name"
+        label="Country"
+        min-width="220"
+        align="left"
+      >
+      </el-table-column>
+      <el-table-column
         prop="program"
         label="Department"
         min-width="200"
@@ -113,6 +121,17 @@
       >
         <template #default="{ row }">
           {{ row.program.name }}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="created_at"
+        label="Created At"
+        min-width="180"
+        align="center"
+        show-overflow-tooltip
+      >
+        <template #default="{ row }">
+          {{ dayjs(row.created_at).format('DD MMMM, YYYY') }}
         </template>
       </el-table-column>
       <el-table-column
@@ -192,6 +211,7 @@ import { View } from "@element-plus/icons-vue";
 import { useModal } from "@/composables";
 import ApplicantDialog from "./components/ApplicantDialog.vue";
 import { useI18n } from "vue-i18n";
+import { dayjs } from "element-plus";
 const guideStore = useGuideStore();
 const modal = useModal();
 const formType = ref<"create" | "edit">("create");
