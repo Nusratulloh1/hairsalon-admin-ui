@@ -35,8 +35,9 @@
     "unit": "Единицы измерения"
   },
   "landing": {
-    "au": "AKFA UNIVERSITY",
-   "welcome": "DEAR APPLICANTS, WELCOME TO",
+    "au": "UNIVERSITY",
+    "dear": "DEAR APPLICANTS,",
+   "welcome": "WELCOME TO",
    "welcome2":"",
    "student_life_title_1": "Experience Student Life",
    "student_life_title_2": "Like Never Before at AKFA University",
