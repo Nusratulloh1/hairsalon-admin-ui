@@ -55,8 +55,8 @@
                 </li>
             </ul>
         </nav>
-        <div class="max-w-[1175px] mx-auto mt-[6.5vh] text-center px-5 sm:px-0">
-            <h2 class="font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[65px] lg:leading-[79px] text-white">
+        <div class="max-w-[770px] mx-auto mt-[6.5vh] text-center px-5 sm:px-0">
+            <h2 class="font-semibold text-3xl sm:text-5xl  lg:text-[56px] lg:leading-[68px] text-white">
                 {{ $t('landing.welcome') }}
                 <br>
                 <span class="text-[#FF0000]">{{ $t('landing.au') }}</span>
@@ -64,28 +64,28 @@
                 {{ $t('landing.welcome2') }}
             </h2>
             <h4
-                class=" mt-[2.8vh] font-semibold text-base sm:text-2xl md:text-3xl lg:text-5xl uppercase text-[#F6F6F6] lg:leading-[72px]">
+                class=" mt-[5.5vh] font-semibold text-base sm:text-2xl md:text-3xl lg:text-[34px] uppercase text-[#F6F6F6] lg:leading-[41px]">
                 {{ $t('landing.admission_open') }}
             </h4>
         </div>
-        <div class="flex items-center flex-wrap justify-center gap-[14px] mt-[4vh]">
-            <!-- <button @click="scrollToElement('faculty')"
+        <!-- <div class="flex items-center flex-wrap justify-center gap-[14px] mt-[4vh]">
+            <button @click="scrollToElement('faculty')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:min-w-[310px] opacity-90 hover:opacity-100">{{
-                    $t('landing.what_directions') }}</button> -->
-            <!-- <button
+                    $t('landing.what_directions') }}</button>
+            <button
             @click="scrollToElement('life')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.au_life') }}</button> -->
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.au_life') }}</button>
             <button @click="scrollToElement('video')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white min-w-[236px] sm:min-w-[310px] opacity-90 hover:opacity-100">{{
                     $t('landing.how_apply') }}</button>
-        </div>
-        <hr class=" mt-[4.2vh] mb-[5.4vh]" />
-        <div class="flex items-center flex-wrap justify-center gap-3 sm:gap-11 uppercase">
-            <button @click="$router.push('/login')"
+        </div> -->
+        <!-- <hr class=" mt-[4.2vh] mb-[5.4vh]" /> -->
+        <div class="flex items-center justify-center mt-5">
+            <!-- <button @click="$router.push('/login')"
                 class="px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl bg-[#383838] rounded-[10px] text-white w-[303px] hover:bg-[#343434] transition-all">{{
-                    $t('landing.login') }}</button>
+                    $t('landing.login') }}</button> -->
             <button @click="$router.push('/signin')"
-                class="gradient-button px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl w-[303px]">{{
+                class="bg-[#EA2127] text-white rounded-xl px-5 py-3 sm:px-9 font-bold text-base sm:text-xl w-[251px]">{{
                     $t('landing.apply') }}
             </button>
         </div>
