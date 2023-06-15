@@ -92,7 +92,7 @@
         </div>
         <div class="px-5 sm:px-0">
             <a href="https://t.me/s202210"
-                class="telegram-link mx-auto block sm:w-[472px] sm:min-h-[182px] text-xl sm:text-2xl p-5 sm:pt-8 sm:px-7 sm:pb-[26px]">
+                class="telegram-link mx-auto block sm:w-[472px] sm:h-[182px] text-xl sm:text-2xl p-5 sm:pt-8 sm:px-7 sm:pb-[26px]">
                 <div class="flex items-center gap-[18px]">
                     <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -106,20 +106,22 @@
                 <p class="text-[#BABABA] font-normal text-xs sm:text-base text-start mt-3 sm:mt-5 pl-12">
                     {{ $t('landing.tg_desc') }}
                 </p>
-                <svg width="40" height="40" viewBox="0 0 40 40" class=" float-right mt-1" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_32_109)">
-                        <path d="M6.25 20H33.75" stroke="white" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M24 11L34 20L24 29" stroke="white" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_32_109">
-                            <rect width="40" height="40" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
+                <div class=" mt-1 flex justify-end">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_32_109)">
+                            <path d="M6.25 20H33.75" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M24 11L34 20L24 29" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_32_109">
+                                <rect width="40" height="40" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </div>
 
             </a>
         </div>
