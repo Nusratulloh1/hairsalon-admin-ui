@@ -73,9 +73,9 @@
             <button @click="scrollToElement('faculty')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white sm:min-w-[310px] opacity-90 hover:opacity-100">{{
                     $t('landing.what_directions') }}</button>
-            <button
-            @click="scrollToElement('life')"
-                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">{{ $t('landing.au_life') }}</button>
+            <button @click="scrollToElement('life')"
+                class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white w-[236px] sm:w-[310px] opacity-90 hover:opacity-100">{{
+                    $t('landing.au_life') }}</button>
             <button @click="scrollToElement('video')"
                 class="px-5 py-3 sm:px-6 sm:py-4 font-bold text-sm sm:text-lg bg-[#9E9E9E] rounded-[10px] text-white min-w-[236px] sm:min-w-[310px] opacity-90 hover:opacity-100">{{
                     $t('landing.how_apply') }}</button>
@@ -91,7 +91,8 @@
             </button>
         </div>
         <div class="px-5 sm:px-0">
-            <button class="telegram-link mx-auto block sm:w-[400px] sm:h-[182px] text-xl sm:text-2xl p-5 sm:pt-8 sm:px-7 sm:pb-[26px]">
+            <button
+                class="telegram-link mx-auto block sm:w-[400px] sm:h-[182px] text-xl sm:text-2xl p-5 sm:pt-8 sm:px-7 sm:pb-[26px]">
                 <div class="flex items-center gap-[18px]">
                     <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -135,8 +136,8 @@
 <script lang="ts" setup>
 import { AUIconWithName } from "@/components/icons";
 import { setLocale } from "@/i18n"
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
 const scrollToElement = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
@@ -147,11 +148,23 @@ const scrollToElement = (id: string) => {
 
 }
 const router = useRouter()
+const route = useRoute()
 const localeSet = (new_locale: string) => {
     setLocale(new_locale)
     router.replace({ params: { locale: new_locale } })
-
 }
+onMounted(() => {
+    if (route.query.tutorial) {
+        const el = document.getElementById('video')
+        if (el) {
+            setTimeout(() => {
+                el.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 200);
+        }
+    }
+})
 </script>
 <style scoped>
 .bg-blur {
