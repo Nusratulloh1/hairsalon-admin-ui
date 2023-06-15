@@ -91,7 +91,7 @@
             </button>
         </div>
         <div class="px-5 sm:px-0">
-            <button
+            <a href="https://t.me/s202210"
                 class="telegram-link mx-auto block sm:w-[400px] sm:h-[182px] text-xl sm:text-2xl p-5 sm:pt-8 sm:px-7 sm:pb-[26px]">
                 <div class="flex items-center gap-[18px]">
                     <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@
                     </defs>
                 </svg>
 
-            </button>
+            </a>
         </div>
         <!-- <button class="absolute bottom-[24px] left-0 right-0 m-auto w-8 sm:w-16 animate-bounce"
             @click="scrollToElement('faculty')">

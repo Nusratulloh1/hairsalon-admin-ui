@@ -58,7 +58,7 @@
         <div class="mt-4">
           <p>
            Don't know  how to apply ? 
-            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-1">Watch instractions</RouterLink>
+            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-1">Watch instructions</RouterLink>
           </p>
         </div>
         <div class="bottom-12 mt-3">
