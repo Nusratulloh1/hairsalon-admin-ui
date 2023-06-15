@@ -90,14 +90,43 @@
                     $t('landing.apply') }}
             </button>
         </div>
-        <button class="absolute bottom-[24px] left-0 right-0 m-auto w-8 sm:w-16 animate-bounce"
+        <button class="telegram-link mx-auto block">
+            <div class="flex items-center gap-[18px]">
+                <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M27.6098 0.27352C27.4549 0.139731 27.2664 0.0507517 27.0646 0.0161696C26.8629 -0.0184126 26.6555 0.00271312 26.4648 0.0772705L1.13233 9.99102C0.773308 10.1306 0.469357 10.3831 0.266233 10.7104C0.063109 11.0377 -0.0281933 11.4221 0.00607135 11.8058C0.040336 12.1895 0.198313 12.5516 0.456219 12.8378C0.714126 13.1239 1.058 13.3185 1.43608 13.3923L7.99983 14.681V21.9998C7.99854 22.3984 8.117 22.7883 8.33988 23.1188C8.56276 23.4493 8.87977 23.7053 9.24983 23.8535C9.61932 24.0044 10.0257 24.0406 10.416 23.9575C10.8064 23.8743 11.1627 23.6756 11.4386 23.3873L14.6036 20.1048L19.6248 24.4998C19.9871 24.8211 20.4543 24.9989 20.9386 24.9998C21.1508 24.9996 21.3617 24.9663 21.5636 24.901C21.8935 24.7963 22.1903 24.607 22.4243 24.352C22.6583 24.0969 22.8214 23.785 22.8973 23.4473L27.9711 1.37477C28.0165 1.17571 28.0068 0.968046 27.9432 0.774046C27.8795 0.580046 27.7643 0.407022 27.6098 0.27352ZM20.9411 22.9998L10.6061 13.9373L25.4811 3.27602L20.9411 22.9998Z"
+                        fill="#BABABA" />
+                </svg>
+                <p>
+                    Learn about us more
+                </p>
+            </div>
+            <p class="text-[#BABABA] font-normal text-base text-start mt-5 pl-12">
+                Click the arrow and contact us via Telegram. We are ready to help you!
+            </p>
+            <svg width="40" height="40" viewBox="0 0 40 40" class=" float-right mt-1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_32_109)">
+                    <path d="M6.25 20H33.75" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M24 11L34 20L24 29" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_32_109">
+                        <rect width="40" height="40" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+
+        </button>
+        <!-- <button class="absolute bottom-[24px] left-0 right-0 m-auto w-8 sm:w-16 animate-bounce"
             @click="scrollToElement('faculty')">
             <svg viewBox="0 0 59 34" class=" w-8 h-8 sm:w-[59px] sm:h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M1.16755 6.73732L27.3206 33.1382C27.6319 33.4516 27.9692 33.6741 28.3325 33.8057C28.6957 33.9373 29.0849 34.002 29.5 34C29.9151 34 30.3043 33.9341 30.6675 33.8025C31.0308 33.6709 31.3681 33.4495 31.6794 33.1382L57.9103 6.73732C58.6368 6.00613 59 5.09216 59 3.99538C59 2.89861 58.6108 1.95852 57.8325 1.17511C57.0541 0.391705 56.146 0 55.1082 0C54.0704 0 53.1623 0.391705 52.3839 1.17511L29.5 24.2073L6.6161 1.17511C5.88962 0.443932 4.99399 0.0783386 3.92919 0.0783386C2.86438 0.0783386 1.94384 0.470043 1.16755 1.25345C0.389183 2.03686 0 2.95084 0 3.99538C0 5.03993 0.389183 5.95391 1.16755 6.73732Z"
                     fill="white" />
             </svg>
-        </button>
+        </button> -->
     </header>
 </template>
 <script lang="ts" setup>
@@ -125,5 +154,18 @@ const localeSet = (new_locale: string) => {
 .bg-blur {
     background: rgba(253, 253, 253, 0.4);
     backdrop-filter: blur(2px);
+}
+
+.telegram-link {
+    width: 400px;
+    height: 182px;
+    background: rgba(24, 24, 24, 0.7);
+    border-radius: 24px;
+    color: white;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    padding: 32px 30px 26px 27px;
+    margin-top: 62px;
 }
 </style>
