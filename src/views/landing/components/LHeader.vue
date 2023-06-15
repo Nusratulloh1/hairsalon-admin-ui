@@ -92,7 +92,7 @@
         </div>
         <div class="px-5 sm:px-0">
             <a href="https://t.me/s202210"
-                class="telegram-link mx-auto block sm:w-[400px] sm:h-[182px] text-xl sm:text-2xl p-5 sm:pt-8 sm:px-7 sm:pb-[26px]">
+                class="telegram-link mx-auto block sm:w-[472px] sm:min-h-[182px] text-xl sm:text-2xl p-5 sm:pt-8 sm:px-7 sm:pb-[26px]">
                 <div class="flex items-center gap-[18px]">
                     <svg width="28" height="25" viewBox="0 0 28 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -100,11 +100,11 @@
                             fill="#BABABA" />
                     </svg>
                     <p>
-                        Learn about us more
+                        {{ $t('landing.tg_title') }}
                     </p>
                 </div>
                 <p class="text-[#BABABA] font-normal text-xs sm:text-base text-start mt-3 sm:mt-5 pl-12">
-                    Click the arrow and contact us via Telegram. We are ready to help you!
+                    {{ $t('landing.tg_desc') }}
                 </p>
                 <svg width="40" height="40" viewBox="0 0 40 40" class=" float-right mt-1" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
