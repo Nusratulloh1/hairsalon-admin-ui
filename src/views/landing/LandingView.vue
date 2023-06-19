@@ -31,8 +31,7 @@
                 </div>
             </div>
             <div class="flex justify-end">
-                <el-image :src="stidentImg" :key="stidentImg" width="200"
-                    height="176"
+                <el-image :src="stidentImg" :key="stidentImg" width="200" height="176"
                     class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
                     alt="stipent" lazy />
             </div>
@@ -61,8 +60,18 @@
                         </button>
                     </div> -->
                     <div class="w-full h-56 sm:w-[871.73px] sm:h-[473px] my-5 sm:my-8">
-                        <iframe width="100%" loading="lazy" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                            height="100%" src="https://www.youtube.com/embed/Ofw_e5I0m7o">
+                        <iframe width="100%" loading="lazy"
+                            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,
+                                span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
+                                span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;
+                                    text-shadow:0 0 0.5em black}</style>
+                                    <a href=https://www.youtube.com/embed/Ofw_e5I0m7o?autoplay=1>
+                                        <img src=https://img.youtube.com/vi/Ofw_e5I0m7o/hqdefault.jpg alt='Video tutorial'>
+                                        <span style='color: #ED1C24; font-size: 80px'>▶</span></a>"
+                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen title="Video tutorial"
+                            allowtransparency="true" height="100%"
+                            src="https://www.youtube.com/embed/Ofw_e5I0m7o">
                         </iframe>
                     </div>
                 </div>

@@ -11,7 +11,8 @@
         <div class="w-full max-h-[90vh] student-life mt-4 relative">
             <div class=" bg-black top-[3%] w-full min-h-[288px]">
                 <div class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10">
-                    <h3 class=" text-2xl sm:text-4xl md:text-5xl md:leading-[54px] xl:text-[56px] xl:leading-[68px] uppercase text-white">
+                    <h3
+                        class=" text-2xl sm:text-4xl md:text-5xl md:leading-[54px] xl:text-[56px] xl:leading-[68px] uppercase text-white">
                         {{ $t('landing.student_life_title_1') }}
                         <br>
                         <span class=" font-bold">{{ $t('landing.student_life_title_2') }}</span>
@@ -27,10 +28,20 @@
                     </button> -->
                     <div class="flex justify-center mt-10 z-50">
                         <div class="w-full h-56 sm:w-[871.73px] sm:h-[473px] my-5 sm:my-8">
-                        <iframe width="100%" loading="lazy" frameborder="0" allowtransparency="true" allow="encrypted-media"
-                            height="100%" src="https://www.youtube.com/embed/B_uwmh5TqOs">
-                        </iframe>
-                    </div>
+                            <iframe width="100%" loading="lazy"
+                                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,
+                                span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
+                                span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;
+                                    text-shadow:0 0 0.5em black}</style>
+                                    <a href=https://www.youtube.com/embed/B_uwmh5TqOs?autoplay=1>
+                                        <img src=https://img.youtube.com/vi/B_uwmh5TqOs/hqdefault.jpg alt='Students life - Akfa University'>
+                                        <span style='color: #ED1C24; font-size: 80px' >▶</span></a>"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen title="Students life - Akfa University" allowtransparency="true" height="100%"
+                                src="https://www.youtube.com/embed/B_uwmh5TqOs">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,8 +56,7 @@
 } */
 
 .watch-button {
-    background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, rgba(177, 4, 14, 0.8) 12.5%, rgba(237, 28, 36, 0.8) 100%)
-    ;
+    background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, rgba(177, 4, 14, 0.8) 12.5%, rgba(237, 28, 36, 0.8) 100%);
     box-shadow: 0px 15px 36px rgba(246, 87, 20, 0.3);
     border-radius: 16px;
 }</style>
