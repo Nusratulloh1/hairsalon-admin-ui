@@ -1,7 +1,6 @@
 import { useUsersStore } from "@/stores/user";
 import axios from "axios";
 import { ElMessage } from "element-plus";
-import * as Sentry from "@sentry/vue";
 
 const request = axios.create({
   baseURL: import.meta.env.VITE_BASE_API,
@@ -26,7 +25,6 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    Sentry.captureException(error);
     const errorResponse = JSON.parse(error.request.response);
     if (errorResponse.statusCode !== 401) {
       ElMessage({
