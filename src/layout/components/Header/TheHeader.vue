@@ -19,7 +19,8 @@
         </div>
         <template #dropdown>
           <el-dropdown-menu class="purple-dropdown">
-            <el-dropdown-item command="staffs" class="flex items-center space-x-3 !py-3">
+            <el-dropdown-item command="staffs" class="flex items-center space-x-3 !py-3"
+              v-if="store?.user?.role === 'super_admin'">
               <Service class="h-5 w-5" />
               <span>Admin users management</span>
             </el-dropdown-item>
