@@ -41,19 +41,19 @@ const routes: ISidebarItem[] = [
   },
   {
     route: "/admin/departments",
-    title: "Departments",
+    title: "Programs management",
     icon: Memo,
   },
-  {
-    route: "/admin/users",
-    title: "Users",
-    icon: User,
-  },
-  {
-    route: "/admin/staffs",
-    title: "Staffs",
-    icon: Service,
-  },
+  // {
+  //   route: "/admin/users",
+  //   title: "Users",
+  //   icon: User,
+  // },
+  // {
+  //   route: "/admin/staffs",
+  //   title: "Staffs",
+  //   icon: Service,
+  // },
   {
     route: "/admin/exam-years",
     title: "Exam Years",
