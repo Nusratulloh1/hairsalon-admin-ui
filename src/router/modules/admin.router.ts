@@ -16,6 +16,12 @@ export const adminRoutes = {
       meta: { admin: true },
     },
     {
+      path: "applicants-programs",
+      name: "applicants-programs",
+      component: () => import("@/views/admin/ApplicantsProgramsView.vue"),
+      meta: { admin: true },
+    },
+    {
       path: "applicants/create",
       name: "create-applicants",
       component: () => import("@/views/admin/CreateApplicationView.vue"),

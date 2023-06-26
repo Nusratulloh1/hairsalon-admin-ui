@@ -23,6 +23,7 @@ import {
   Postcard,
   Memo,
   User,
+  Briefcase,
   Document,
   Service,
 } from "@element-plus/icons-vue";
@@ -38,6 +39,16 @@ const routes: ISidebarItem[] = [
     route: "/admin/applicants",
     title: "Applicants",
     icon: Postcard,
+    children: [
+      {
+        route: "/admin/applicants-programs",
+        title: "By Programs",
+      },
+      {
+        route: "/admin/applicants",
+        title: "By Students",
+      },
+    ]
   },
   {
     route: "/admin/departments",
