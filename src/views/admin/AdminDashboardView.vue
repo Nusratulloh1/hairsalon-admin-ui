@@ -2,113 +2,74 @@
   <div v-loading="loading">
     <div class="mb-16">
       <el-table :data="programsByMonth" border style="width: 100%" stripe>
-        <el-table-column
-          fixed
-          prop="program"
-          label="FACULTIES"
-          width="200"
-          show-overflow-tooltip
-        />
-        <el-table-column
-          prop="january"
-          label="January"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="february"
-          label="February"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="march"
-          label="March"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="april"
-          label="April"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="may"
-          label="May"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="june"
-          label="June"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="july"
-          label="July"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="august"
-          label="August"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="september"
-          label="September"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="october"
-          label="October"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="november"
-          label="November"
-          min-width="120"
-          align="center"
-        />
-        <el-table-column
-          prop="december"
-          label="December"
-          min-width="120"
-          align="center"
-        />
-        <el-table-column
-          fixed="right"
-          prop="total"
-          label="Total"
-          min-width="120"
-          align="center"
-        />
+        <el-table-column fixed prop="program" label="FACULTIES" width="200" show-overflow-tooltip />
+        <el-table-column prop="january" label="January" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-01&program_id=${row.id}`">{{ row.january }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="february" label="February" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-02&program_id=${row.id}`">{{ row.february }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="march" label="March" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-03&program_id=${row.id}`">{{ row.march }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="april" label="April" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-04&program_id=${row.id}`">{{ row.april }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="may" label="May" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-05&program_id=${row.id}`">{{ row.may }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="june" label="June" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-06&program_id=${row.id}`">{{ row.june }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="july" label="July" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-07&program_id=${row.id}`">{{ row.july }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="august" label="August" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-08&program_id=${row.id}`">{{ row.august }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="september" label="September" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-09&program_id=${row.id}`">{{ row.september }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="october" label="October" min-width="140" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-10&program_id=${row.id}`">{{ row.october }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="november" label="November" min-width="120" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-11&program_id=${row.id}`">{{ row.november }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column prop="december" label="December" min-width="120" align="center">
+          <template #default="{ row }">
+            <router-link :to="`/admin/applicants?date=${year}-12&program_id=${row.id}`">{{ row.december }}</router-link>
+          </template>
+        </el-table-column>
+        <el-table-column fixed="right" prop="total" label="Total" min-width="120" align="center" />
       </el-table>
     </div>
     <div class="grid md:grid-cols-3 max-h-80">
-      <v-chart
-        class="chart"
-        :option="applicationOption"
-        autoresize
-        ref="applicationChart"
-      />
-      <v-chart
-        class="chart"
-        :option="genderOption"
-        autoresize
-        ref="genderChart"
-      />
-      <v-chart
-        class="chart"
-        :option="applicantOption"
-        autoresize
-        ref="applicantChart"
-      />
+      <v-chart class="chart" :option="applicationOption" autoresize ref="applicationChart" />
+      <v-chart class="chart" :option="genderOption" autoresize ref="genderChart" />
+      <v-chart class="chart" :option="applicantOption" autoresize ref="applicantChart" />
     </div>
   </div>
 </template>
@@ -128,13 +89,13 @@ import { ref, onMounted, computed, onUpdated } from "vue";
 const appStore = useApplicationStore();
 
 const programsByMonth = computed(() => appStore.programsByMonth);
+const year = new Date().getFullYear()
 const applicationsByStatus = computed(() => appStore.applicationsByStatus);
 const applicationsByGender = computed(() => appStore.applicationsByGender);
 const loading = ref<boolean>(false);
 const applicationChart = ref();
 const genderChart = ref();
 const applicantChart = ref();
-
 const applicationOption = ref();
 const genderOption = ref();
 const applicantOption = ref();
@@ -268,5 +229,10 @@ onUpdated(() => {
 <style scoped>
 .chart {
   height: 500px;
+}
+
+a:hover {
+  color: brown;
+  text-decoration: underline;
 }
 </style>

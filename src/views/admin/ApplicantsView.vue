@@ -2,7 +2,7 @@
   <div class="flex justify-between mb-4">
     <div class="flex flex-col items-start space-y-2">
       <div class="grid grid-cols-2 md:grid-cols-4 items-center gap-2">
-        <el-select v-model="filter.program_id" placeholder="Departments" size="large" class="w-full">
+        <el-select v-model="filter.program_id" placeholder="Program" size="large" class="w-full">
           <el-option v-for="region of guideStore.getTuitions" :key="region.value" :label="region.label"
             :value="region.value" />
         </el-select>
@@ -17,6 +17,13 @@
         <el-select v-model="filter.is_scholarship" placeholder="Scholarship" size="large" class="w-full">
           <el-option label="Yes" :value="true" />
           <el-option label="No" :value="false" />
+        </el-select>
+        <el-select v-model="year" placeholder="Academic year" size="large" class="w-full">
+          <el-option :label="val.id" v-show="val.is_active" v-for="val in examYears" :value="val.id" />
+        </el-select>
+        <el-select v-model="month" placeholder="Month" size="large" class="w-full"
+          @change="filter.month = `${year.split('-')[0]}-${month}`">
+          <el-option :label="val.name" v-for="val in months" :value="val.id" />
         </el-select>
       </div>
       <div class="flex items-center space-x-2">
@@ -44,7 +51,7 @@
       </el-table-column>
       <el-table-column show-overflow-tooltip prop="country_name" label="Country" min-width="220" align="left">
       </el-table-column>
-      <el-table-column prop="program" label="Department" min-width="200" align="center" show-overflow-tooltip>
+      <el-table-column prop="program" label="Program" min-width="200" align="center" show-overflow-tooltip>
         <template #default="{ row }">
           {{ row.program.name }}
         </template>
@@ -99,37 +106,61 @@
 </template>
 
 <script setup lang="ts">
-import { useApplicationStore, useFileStore, useGuideStore } from "@/stores";
+import { useApplicationStore, useFileStore, useGuideStore, useExamDatesStore } from "@/stores";
 import { onMounted, computed, ref, reactive } from "vue";
 import { View } from "@element-plus/icons-vue";
 import { useModal } from "@/composables";
 import ApplicantDialog from "./components/ApplicantDialog.vue";
 import { useI18n } from "vue-i18n";
 import { dayjs } from "element-plus";
+import { useRoute, useRouter } from "vue-router";
 const guideStore = useGuideStore();
 const modal = useModal();
+const route = useRoute();
+const router = useRouter();
 const formType = ref<"create" | "edit">("create");
 const i18n = useI18n();
 const appStore = useApplicationStore();
 const fileStore = useFileStore();
+const examYearStore = useExamDatesStore();
 const showModal = computed(() => modal.show.value);
 const loading = ref(false);
-
 const applications = computed(() => appStore.applications);
 const application = ref();
-
+const examYears = computed(() => examYearStore.examYears);
+const year = ref("");
+const month = ref(route.query.date?.toLocaleString().split('-')[1] || '');
+const months = ref([
+  { name: 'January', id: '01' },
+  { name: 'February', id: '02' },
+  { name: 'March', id: '03' },
+  { name: 'April', id: '04' },
+  { name: 'May', id: '05' },
+  { name: 'June', id: '06' },
+  { name: 'July', id: '07' },
+  { name: 'August', id: '08' },
+  { name: 'September', id: '09' },
+  { name: 'October', id: '10' },
+  { name: 'November', id: '11' },
+  { name: 'December', id: '12' },
+])
 const filter = reactive({
   page: 1,
   limit: 20,
-  program_id: "",
+  program_id: route.query.program_id || "",
   is_scholarship: "",
   status: "",
   exam_date_id: "",
+  month: route.query.date || '',
   // city_id: "6391db1ffbe74506a2842c95",
   // gender: "female"
 });
 onMounted(async () => {
   fetchApplications();
+  examYearStore.fetchExamYears();
+  setTimeout(() => {
+    year.value = examYears.value[examYears.value.length - 1].id
+  }, 1000);
   if (!guideStore.getExamDates.length) {
     guideStore.fetchExamDates();
   }
@@ -176,7 +207,7 @@ const fetchApplications = () => {
   appStore.getApplications(data);
 };
 const onPaginationChange = (event: number) => {
-  filter.page = event;
+  filter.page = event
   fetchApplications();
 };
 
@@ -185,6 +216,9 @@ const resetFilterAndFetch = () => {
   filter.exam_date_id = "";
   filter.is_scholarship = "";
   filter.status = "";
+  filter.month = ""
+  month.value = ''
+  router.push({ path: '', query: {} })
   fetchApplications();
 };
 
