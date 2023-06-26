@@ -43,8 +43,8 @@ const emit = defineEmits(["onRouteClick"]);
   height: 75px;
 
   &-text {
-    font-weight: 700;
-    font-size: 22px;
+    font-weight: 400;
+    font-size: 34px;
     color: #000000;
     width: 189px;
     user-select: none;
