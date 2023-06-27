@@ -2,12 +2,15 @@
   <div class="h-full">
     <div class="space-y-6 mx-auto md:w-1/2 px-4 md:px-24 pt-4 md:pt-6 h-full relative">
       <div class="header flex flex-col items-start space-y-6 md:space-y-6">
-        <LogoutIconWithName />
+        <LogoutIconWithName class="sm:w-[477px]" />
         <h1 class="header__title">
-          Welcome to AKFA University Admissions 2023/2024!
+          Registration
         </h1>
+        <p class="header__text">
+          Please create your new account
+        </p>
       </div>
-      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" :hide-required-asterisk="true" label-position="top">
+      <el-form ref="ruleFormRef" class="mt-8" :model="ruleForm" :rules="rules" :hide-required-asterisk="true" label-position="top">
         <!-- <el-form-item label="First Name" prop="first_name">
           <el-input
             v-model="ruleForm.first_name"
@@ -49,20 +52,20 @@
         <el-button class="mt-2 md:mt-4" type="primary" size="large" @click="submitForm(ruleFormRef)" :loading="loading">
           Create Account
         </el-button>
-        <div class="mt-4 md:mt-6">
-          <p>
+        <div class=" mt-5 sm:mt-10">
+          <p class="header__text">
             Can’t register to our platform?
             <a href="tel:+998 71 200-05-22" class="text-primary font-medium">Click here</a>
           </p>
         </div>
-        <div class="mt-4">
-          <p>
-           Don't know  how to apply ? 
+        <div class="mt-3 sm:mt-6">
+          <p class="header__text">
+            Don't know how to apply ?
             <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-1">Watch instructions</RouterLink>
           </p>
         </div>
-        <div class="bottom-12 mt-3">
-          <p>
+        <div class="bottom-12 mt-3 sm:mt-6">
+          <p class="header__text">
             Already have an account?
             <RouterLink to="/login" class="text-primary font-medium">Log In</RouterLink>
           </p>
@@ -243,14 +246,16 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     line-height: 42px;
     color: #000000;
     max-width: 400px;
-    margin-bottom: 8px;
+    font-family: 'Jost', sans-serif;
+    margin-bottom: 10px;
   }
 
   &__text {
-    font-weight: 500;
+    color: rgba(24, 40, 87, 0.30);
     font-size: 14px;
-    line-height: 20px;
-    color: $light-text;
+    margin: 0 !important;
+    // font-family: 'HelveticaNeueCyr';
+    font-weight: 550;
   }
 }
 
