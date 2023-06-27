@@ -10,6 +10,9 @@ module.exports = {
         purple: "#8758FF",
         line: "#F2F2F2",
       },
+      fontFamily: {
+        'halverica': ['HelveticaNeueCyr', 'sans-serif']
+      }
     },
   },
   plugins: [],

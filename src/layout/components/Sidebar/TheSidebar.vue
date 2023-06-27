@@ -80,7 +80,7 @@ const emit = defineEmits(["onRouteClick"]);
 
     &.is-active {
       background: rgba(56, 56, 56, 0.1);
-      color: #182857;
+      color: #182857 !important;
       position: relative;
 
       &::before {

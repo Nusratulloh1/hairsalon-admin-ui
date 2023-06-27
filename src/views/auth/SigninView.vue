@@ -54,20 +54,20 @@
         </el-button>
         <div class=" mt-5 sm:mt-10">
           <p class="header__text">
-            Can’t register to our platform?
-            <a href="tel:+998 71 200-05-22" class="text-primary font-medium">Click here</a>
+            Don't know how to apply? 
+            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-2 underline">Watch instructions</RouterLink>
           </p>
         </div>
         <div class="mt-3 sm:mt-6">
           <p class="header__text">
-            Don't know how to apply ?
-            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-1">Watch instructions</RouterLink>
+            Can’t register to our platform?
+            <a href="tel:+998 71 200-05-22" class="text-primary ml-2 font-medium underline">Call us</a>
           </p>
         </div>
         <div class="bottom-12 mt-3 sm:mt-6">
           <p class="header__text">
             Already have an account?
-            <RouterLink to="/login" class="text-primary font-medium">Log In</RouterLink>
+            <RouterLink to="/login" class="text-primary font-medium ml-2 underline">Log In</RouterLink>
           </p>
         </div>
       </el-form>

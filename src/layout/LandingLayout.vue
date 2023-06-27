@@ -8,9 +8,9 @@
   
 <style scoped lang="scss">
 .wrapper {
-    background-color: black;
+    background-color: #131A34;
     height: 100%;
-    font-family: 'Inter';
+    font-family: 'Jost';
 }
 </style>
   
