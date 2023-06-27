@@ -85,6 +85,18 @@
   }
 }
 
+.el-sub-menu {
+  &__title {
+    &:hover {
+      background-color: #455378 !important;
+
+      .navigation {
+        color: #ffffff !important;
+      }
+    }
+  }
+}
+
 // Button
 
 .el-button {
