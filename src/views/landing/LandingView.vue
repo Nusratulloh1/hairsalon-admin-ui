@@ -135,7 +135,7 @@
     </transition>
     <transition name="pop" appear>
       <div
-        class="modal h-[600px] lg:h-[462px] w-[90%] md:w-[712px] py-4 px-5 md:pt-5 pr-9 pb-11 pl-16"
+        class="modal h-[600px] lg:h-[462px] w-[90%] md:w-[712px] py-4 px-5 md:pt-5 md:pr-9 md:pb-11 md:pl-16"
         role="dialog"
         v-if="showModal"
       >
@@ -209,7 +209,7 @@
         <div class="flex justify-start">
           <button
             @click="clicker()"
-            class="bg-primary text-white rounded-xl font-halverica mt-7 px-5 py-3 sm:px-9 font-medium font-halverica text-base w-[212px] hover:text-white hover:bg-primary"
+            class="bg-primary text-white rounded-xl mt-7 px-5 py-3 sm:px-9 font-medium font-halverica text-base w-[212px] hover:text-white hover:bg-primary"
           >
             {{ $t("landing.undestood") }}
           </button>
