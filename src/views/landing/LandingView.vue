@@ -27,7 +27,7 @@
             <div class="flex justify-end">
                 <el-image :src="stidentImg" :key="stidentImg" width="200" height="176"
                     class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
-                    alt="stipent" lazy />
+                    alt="stipent" />
             </div>
         </section>
         <!-- <LTeachersSlider id="our_teachers"></LTeachersSlider> -->
@@ -58,8 +58,8 @@
                                 span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;
                                     text-shadow:0 0 0.5em black}</style>
                                     <a href=https://www.youtube.com/embed/Ofw_e5I0m7o?autoplay=1>
-                                        <img src=https://img.youtube.com/vi/Ofw_e5I0m7o/hqdefault.jpg alt='Video tutorial'>
-                                        <span style='color: #ED1C24; font-size: 80px'>▶</span></a>" frameborder="0"
+                                        <img src=https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGl0Y2glMjBibGFja3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60 alt='Video tutorial'>
+                                        <span style='color: white; font-size: 80px'>▶</span></a>" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
                             title="Video tutorial" allowtransparency="true" height="100%"
                             src="https://www.youtube.com/embed/Ofw_e5I0m7o">
@@ -88,7 +88,7 @@
             <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
         </transition>
         <transition name="pop" appear>
-            <div class="modal" role="dialog" v-if="showModal">
+            <div class="modal h-[600px] lg:h-[462px] w-[90%] md:w-[712px] py-4 px-5 md:pt-5 pr-9 pb-11 pl-16" role="dialog" v-if="showModal">
                 <el-dropdown class="float-right">
                     <button
                         class="text-[#131A34] bg-[#EDEDED] text-xs sm:text-base font-semibold flex items-center uppercase gap-2 px-[6px] py-[1.5px] sm:p-[8px] rounded-md">
@@ -117,7 +117,7 @@
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
-                <img src="@/assets/images/landing/rebranding.png" class="mt-8" alt="sdfgsd">
+                <img src="@/assets/images/landing/rebranding.png" class="mt-12 md:mt-8" alt="sdfgsd">
                 <h6 class="mt-9 text-primary font-halverica font-bold text-base leading-[124.3%] text-start">
                     {{ $t('landing.rebrand-title') }}
                 </h6>
@@ -185,9 +185,6 @@ const localeSet = (new_locale: string) => {
         left: 0;
         margin: auto;
         text-align: center;
-        width: 712px;
-        height: 462px;
-        padding: 21px 36px 44px 64px;
         border-radius: 5px;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
         background: #FFF;

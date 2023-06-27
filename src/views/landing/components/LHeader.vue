@@ -68,7 +68,9 @@
         <div class="flex flex-col items-center justify-center h-[85%]">
             <div class="container mx-auto mt-[6.5vh] text-start px-5 sm:px-0">
                 <h2 class="font-semibold text-3xl sm:text-5xl  lg:text-[56px] lg:leading-[68px] text-white">
-                    {{ $t('landing.dear') }}
+                    <span class="text-[#CDD3DA]">
+                        {{ $t('landing.dear') }}
+                    </span>
                     <br class="mt-1">
                     {{ $t('landing.welcome') }}
                     {{ $t('landing.au') }}
@@ -96,7 +98,7 @@
                 class="px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl bg-[#383838] rounded-[10px] text-white w-[303px] hover:bg-[#343434] transition-all">{{
                     $t('landing.login') }}</button> -->
                 <button @click="$router.push('/signin')"
-                    class="bg-white text-[#182857] rounded-xl font-halverica px-5 py-3 sm:px-9 font-medium text-base sm:text-xl w-[251px] hover:text-white hover:bg-primary">{{
+                    class="bg-white text-[#182857] rounded-md font-halverica px-5 py-3 sm:px-9 font-[550] text-base sm:text-xl w-[251px] hover:text-white hover:bg-primary">{{
                         $t('landing.apply') }}
                 </button>
             </div>
@@ -120,10 +122,10 @@
                             {{ $t('landing.tg_title') }}
                         </p>
                     </div>
-                    <p class="font-normal text-xs text-start mt-3 pl-8">
+                    <p class="font-normal text-xs text-start mt-3 pl-8 max-w-[268px]">
                         {{ $t('landing.tg_desc') }}
                     </p>
-                    <div class=" flex justify-end">
+                    <div class=" flex justify-end mt-[-10px]">
                         <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.13672 13.2353H22.3353" stroke="white" stroke-width="1.32353" stroke-linecap="round"
                                 stroke-linejoin="round" />

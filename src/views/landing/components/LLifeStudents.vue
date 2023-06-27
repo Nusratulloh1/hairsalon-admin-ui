@@ -1,9 +1,9 @@
 <template>
-    <div class="w-full h-[80vh] student-life mt-4 relative">
-        <div class="bg-[#131A34] absolute bottom-[33%] w-full md:pt-10 min-h-[327px]">
-            <div class="xl:container flex flex-wrap gap-10 items-start justify-between mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-10">
-                <h3 class="text-2xl sm:text-4xl md:text-5xl text-white"> Experience student life like never before at <br>
-                    <span class="font-bold text-3xl md:text-[58px] uppercase block mt-4">CENTRAL ASIAN UNIVERSITY</span>
+    <div class="w-full h-[880px] student-life mt-4 relative">
+        <div class="bg-[#131A34] absolute bottom-[285px] w-full">
+            <div class="xl:container flex flex-wrap gap-10 items-start justify-between mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-20">
+                <h3 class="text-2xl sm:text-4xl md:text-5xl text-white font-normal"> Experience student life like never before at <br>
+                    <span class="font-bold text-3xl md:text-[58px] uppercase block mt-5">CENTRAL ASIAN UNIVERSITY</span>
                 </h3>
                 <button style="box-shadow: 0px 15px 36px 0px rgba(246, 87, 20, 0.30);"
                     class="bg-white text-[#182857] flex items-center gap-3 md:gap-4 md:w-[251px] md:h-[135px] rounded-md py-4 px-5 md:py-6 text-xl md:px-8 font-medium"><svg
@@ -22,6 +22,6 @@
 .student-life {
     background: url('@/assets/images/landing/student-life.webp'), no-repeat, 50%;
     background-size: cover;
-    background-position: 100% 83vh;
+    background-position: 100% 78vh;
 }
 </style>
