@@ -1,114 +1,9 @@
 <template>
   <div v-loading="loading">
-    <div class="mb-16">
-      <el-table :data="programsByMonth" border style="width: 100%" stripe>
-        <el-table-column
-          fixed
-          prop="program"
-          label="FACULTIES"
-          width="200"
-          show-overflow-tooltip
-        />
-        <el-table-column
-          prop="january"
-          label="January"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="february"
-          label="February"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="march"
-          label="March"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="april"
-          label="April"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="may"
-          label="May"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="june"
-          label="June"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="july"
-          label="July"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="august"
-          label="August"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="september"
-          label="September"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="october"
-          label="October"
-          min-width="140"
-          align="center"
-        />
-        <el-table-column
-          prop="november"
-          label="November"
-          min-width="120"
-          align="center"
-        />
-        <el-table-column
-          prop="december"
-          label="December"
-          min-width="120"
-          align="center"
-        />
-        <el-table-column
-          fixed="right"
-          prop="total"
-          label="Total"
-          min-width="120"
-          align="center"
-        />
-      </el-table>
-    </div>
     <div class="grid md:grid-cols-3 max-h-80">
-      <v-chart
-        class="chart"
-        :option="applicationOption"
-        autoresize
-        ref="applicationChart"
-      />
-      <v-chart
-        class="chart"
-        :option="genderOption"
-        autoresize
-        ref="genderChart"
-      />
-      <v-chart
-        class="chart"
-        :option="applicantOption"
-        autoresize
-        ref="applicantChart"
-      />
+      <v-chart class="chart" :option="applicationOption" autoresize ref="applicationChart" />
+      <v-chart class="chart" :option="genderOption" autoresize ref="genderChart" />
+      <v-chart class="chart" :option="applicantOption" autoresize ref="applicantChart" />
     </div>
   </div>
 </template>
@@ -126,15 +21,12 @@ import { useApplicationStore } from "@/stores";
 import VChart from "vue-echarts";
 import { ref, onMounted, computed, onUpdated } from "vue";
 const appStore = useApplicationStore();
-
-const programsByMonth = computed(() => appStore.programsByMonth);
 const applicationsByStatus = computed(() => appStore.applicationsByStatus);
 const applicationsByGender = computed(() => appStore.applicationsByGender);
 const loading = ref<boolean>(false);
 const applicationChart = ref();
 const genderChart = ref();
 const applicantChart = ref();
-
 const applicationOption = ref();
 const genderOption = ref();
 const applicantOption = ref();
@@ -148,9 +40,6 @@ use([
 ]);
 
 onMounted(async () => {
-  if (!programsByMonth.value.length) {
-    appStore.fetchProgramsByMonth();
-  }
   try {
     loading.value = true;
     if (!applicationsByStatus.value.total) {
@@ -176,7 +65,7 @@ onUpdated(() => {
       },
       tooltip: {
         trigger: "item",
-        formatter: "{a} <br/>{b} : {c}%",
+        formatter: "{a} <br/>{b} : {c}",
       },
       color: ["#4992ff", "#7cffb2", "#ff6e76"],
       series: [
@@ -208,7 +97,7 @@ onUpdated(() => {
       },
       tooltip: {
         trigger: "item",
-        formatter: "{a} <br/>{b} : {c}%",
+        formatter: "{a} <br/>{b} : {c}",
       },
       color: ["#4992ff", "#7cffb2"],
       series: [
@@ -268,5 +157,10 @@ onUpdated(() => {
 <style scoped>
 .chart {
   height: 500px;
+}
+
+a:hover {
+  color: brown;
+  text-decoration: underline;
 }
 </style>

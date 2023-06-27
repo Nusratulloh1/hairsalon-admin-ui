@@ -53,8 +53,8 @@ export const useGuideStore = defineStore("guide", {
       const examDates = await request.post("/application/exam-dates");
       this.examDates = examDates;
     },
-    async fetchRegions() {
-      const regions = await request.post("/application/regions");
+    async fetchRegions(data: any) {
+      const regions = await request.post("/application/regions", data);
       this.regions = regions;
     },
     async fetchUSD() {

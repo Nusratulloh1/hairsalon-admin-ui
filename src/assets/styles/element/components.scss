@@ -1,15 +1,18 @@
 @import "../colors.scss";
+
 // Table
 .el-table--striped {
   font-size: 14px;
   line-height: 17px;
   text-align: justify;
+
   th {
     border: none !important;
     font-weight: 500;
     background-color: $primary !important;
     color: #fff;
   }
+
   tr.el-table__row--striped td.el-table__cell {
     background: #f6f7f9 !important;
     color: #282e36;
@@ -19,6 +22,7 @@
 // Pagination
 
 .el-pagination {
+
   li,
   .btn-next {
     font-weight: 500 !important;
@@ -29,11 +33,13 @@
     color: #5db8e4 !important;
     width: 44px !important;
     height: 44px !important;
+
     &.is-active,
     &.more {
       background: transparent !important;
     }
   }
+
   .btn-next .el-icon {
     display: inline !important;
     width: auto !important;
@@ -43,14 +49,15 @@
 // Form
 .el-form {
   .el-form-item {
-    &.is-required:not(.is-no-asterisk).asterisk-right
-      > .el-form-item__label::after {
+    &.is-required:not(.is-no-asterisk).asterisk-right>.el-form-item__label::after {
       margin-left: 2px;
       color: #181c25;
     }
+
     &__label {
       font-weight: 600;
       font-size: 14px;
+      font-family: 'Jost', sans-serif;
       line-height: 21px;
 
       /* identical to box height */
@@ -62,6 +69,30 @@
       &--large {
         height: 54px !important;
       }
+
+      // &__wrapper {
+      //   border-radius: 5px;
+      //   border: 1px solid rgba(24, 40, 87, 0.50);
+      //   box-shadow: none;
+      // }
+
+      &__inner {
+        color: rgba(24, 40, 87, 0.30);
+        font-size: 14px;
+        font-weight: 550;
+      }
+    }
+  }
+}
+
+.el-sub-menu {
+  &__title {
+    &:hover {
+      background-color: #455378 !important;
+
+      .navigation {
+        color: #ffffff !important;
+      }
     }
   }
 }
@@ -70,6 +101,9 @@
 
 .el-button {
   &--large {
+    font-size: 16px !important;
+    font-family: 'Jost', sans-serif;
+    font-weight: 700 !important;
     height: 44px !important;
   }
 }

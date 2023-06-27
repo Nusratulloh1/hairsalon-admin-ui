@@ -22,7 +22,7 @@ const numberFormats: any = {
 export const i18n = createI18n({
   legacy: false,
   locale: "en",
-  fallbackLocale: "ru",
+  fallbackLocale: "en",
   globalInjection: true,
   messages,
   numberFormats,
@@ -30,6 +30,8 @@ export const i18n = createI18n({
 
 export async function setLocale(locale: string) {
   if (!i18n.global.availableLocales.includes(locale)) {
+    console.log('fdgdf');
+    
     const messages = await loadLocale(locale);
 
     if (messages === undefined) {
@@ -41,7 +43,14 @@ export async function setLocale(locale: string) {
 
   i18n.global.locale.value = locale;
 }
-
+export default async function routeMiddleware(to : any, _from : any, next: any) {
+  const paramLocale = to.params.locale
+  if(paramLocale.includes('uz ru en')) {
+    return next(paramLocale)
+  }
+  i18n.global.locale.value = paramLocale;
+  return next()
+}
 function loadLocale(locale: string) {
   return fetch(`./assets/locales/${locale}.json`)
     .then((response) => {

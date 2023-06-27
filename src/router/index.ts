@@ -1,23 +1,30 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory, RouterView } from "vue-router";
 import DashboardLayout from "@/layout/DashboardLayout.vue";
 import LoginLayout from "@/layout/LoginLayout.vue";
 import LandingLayout from "@/layout/LandingLayout.vue";
 import { adminRoutes } from "./modules";
-
+import routeMiddleware from "@/i18n" 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
-      component: LandingLayout,
+      path: "/:locale?",
+      component: RouterView,
+      beforeEnter: routeMiddleware,
       children: [
         {
           path: "",
-          name: "landing",
-          component: () => import("@/views/landing/LandingView.vue"),
-          meta: { breadcrumb: "landing" },
+          component: LandingLayout,
+          children: [
+            {
+              path: "",
+              name: "landing",
+              component: () => import("@/views/landing/LandingView.vue"),
+              meta: { breadcrumb: "landing", public: true },
+            },
+          ],
         },
-      ]
+      ],
     },
     {
       path: "/login",

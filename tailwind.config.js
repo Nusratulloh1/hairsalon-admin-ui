@@ -4,11 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#d63c31",
+        primary: "#182857",
+        default: '#182857',
         danger: "#FF7F51",
         purple: "#8758FF",
         line: "#F2F2F2",
       },
+      fontFamily: {
+        'halverica': ['HelveticaNeueCyr']
+      }
     },
   },
   plugins: [],

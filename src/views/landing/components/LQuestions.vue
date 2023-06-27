@@ -1,12 +1,12 @@
 <template>
-    <section class="container mx-auto py-20 px-5 sm:px-0">
+    <section class="xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 py-20">
         <h3 class="text-white uppercase text-xl  sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold max-w-[1026px]">
-            ЧАСТЫЕ ВОПРОСЫ:
+            Остались ВОПРОСЫ?:
         </h3>
         <div class="grid grid-cols-1 xl:grid-cols-2 mt-8 sm:mt-16 gap-[60px]">
             <div>
                 <h6 class=" uppercase text-xl sm:text-[32px] sm:leading-[39px] text-white mb-6 sm:mb-10">
-                    General Questions
+                    Часто задаваемые вопросы
                 </h6>
                 <div class="border-[1.6px] border-[#4E4E4E] pl-4 sm:pl-8 mb-6 rounded-md overflow-hidden"
                     v-for="(item, i) in questions" :key="item.id">
@@ -41,7 +41,7 @@
             <div class="xl:flex xl:justify-end">
                 <div class="xl:w-[90%]">
                     <h6 class=" uppercase text-xl sm:text-[32px] sm:leading-[39px] text-white mb-6 sm:mb-10">
-                        How to apply?
+                        Как поступить?
                     </h6>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-10 mt-10">
                         <div class="w-full border-[1.6px] border-[#4E4E4E] rounded-md pt-16 px-[14px] pb-20 relative">

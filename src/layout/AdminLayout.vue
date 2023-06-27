@@ -1,18 +1,11 @@
 <template>
-  <div class="wrapper">
-    <TheHeader
-      class="the-header border-b"
-      @onBurgerClick="drawer = !drawer"
-    ></TheHeader>
-    <el-drawer
-      v-model="drawer"
-      :with-header="false"
-      :show-close="false"
-      direction="ltr"
-      size="300px"
-    >
-      <TheSidebar :routes="routes" @onRouteClick="drawer = false" />
-    </el-drawer>
+  <div class="wrapper" :class="{ 'full-screen': drawer }">
+    <TheHeader class="the-header border-b" @onBurgerClick="drawer = !drawer"></TheHeader>
+    <div class="block md:hidden">
+      <el-drawer v-model="drawer" :with-header="false" :show-close="false" direction="ltr" size="300px">
+        <TheSidebar :routes="routes" @onRouteClick="drawer = false" />
+      </el-drawer>
+    </div>
     <TheSidebar class="sidebar" :routes="routes" />
     <div class="content p-4 md:p-8">
       <RouterView />
@@ -30,6 +23,7 @@ import {
   Postcard,
   Memo,
   User,
+  Briefcase,
   Document,
   Service,
 } from "@element-plus/icons-vue";
@@ -45,22 +39,32 @@ const routes: ISidebarItem[] = [
     route: "/admin/applicants",
     title: "Applicants",
     icon: Postcard,
+    children: [
+      {
+        route: "/admin/applicants-programs",
+        title: "By Programs",
+      },
+      {
+        route: "/admin/applicants",
+        title: "By Students",
+      },
+    ]
   },
   {
     route: "/admin/departments",
-    title: "Departments",
+    title: "Programs management",
     icon: Memo,
   },
-  {
-    route: "/admin/users",
-    title: "Users",
-    icon: User,
-  },
-  {
-    route: "/admin/staffs",
-    title: "Staffs",
-    icon: Service,
-  },
+  // {
+  //   route: "/admin/users",
+  //   title: "Users",
+  //   icon: User,
+  // },
+  // {
+  //   route: "/admin/staffs",
+  //   title: "Staffs",
+  //   icon: Service,
+  // },
   {
     route: "/admin/exam-years",
     title: "Exam Years",
@@ -83,6 +87,7 @@ const drawer = ref(false);
 
 <style scoped lang="scss">
 @import "@/assets/styles/colors.scss";
+
 .wrapper {
   background: #ffffff;
   height: 100vh;
@@ -97,14 +102,30 @@ const drawer = ref(false);
   .the-header {
     height: 90px;
   }
+
   .content {
     grid-area: main;
     overflow: auto;
   }
+
   .sidebar {
     grid-area: sidebar;
   }
 }
+
+.wrapper.full-screen {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  .sidebar {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .wrapper {
     grid-template-columns: 1fr;
@@ -114,6 +135,7 @@ const drawer = ref(false);
       "main"
       "footer";
   }
+
   .sidebar {
     display: none;
   }

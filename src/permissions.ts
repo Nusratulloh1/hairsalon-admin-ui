@@ -11,6 +11,9 @@ const title = "Admission";
 NProgress.configure({ showSpinner: false });
 
 const whiteList = [
+  "/en",
+  "/uz",
+  "/ru",
   "/",
   "/login",
   "/signin",
@@ -18,18 +21,15 @@ const whiteList = [
   "/forgot-password",
   "/reset-password",
 ];
-
 const getPageTitle = (key: string) => {
   const { t, te } = i18n.global as any;
   const hasKey = te(`app.${key}`) as any;
   if (hasKey) {
     const pageName = t(`app.${key}`);
-
     return `${pageName} - ${title}`;
   }
   return title;
 };
-
 router.beforeEach(
   async (
     to: RouteLocationNormalized,
@@ -57,12 +57,18 @@ router.beforeEach(
             if (!store.user) {
               store.resetToken();
               next(`/login`);
-            } else if (!store.user?.is_verified) {
-              next("/check-mail");
-            } else {
+            }
+            // else if (!store.user?.is_verified) {
+            //   next("/check-mail");
+            // }
+            else {
               if (to.meta?.admin && store.user.role === "user") {
                 next("/404");
-              } else if (store.user.role !== "user" && !to.meta.admin) {
+              } else if (
+                store.user.role !== "user" &&
+                !to.meta.admin &&
+                !to.meta.public
+              ) {
                 next("/admin");
               } else {
                 next({ ...to, replace: true });
