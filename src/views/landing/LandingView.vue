@@ -96,7 +96,7 @@
 import LHeader from "./components/LHeader.vue";
 import { defineAsyncComponent } from "vue";
 
-const LFeedbackSlider = defineAsyncComponent(() => import('./components/LFeedbackSlider.vue'))
+// const LFeedbackSlider = defineAsyncComponent(() => import('./components/LFeedbackSlider.vue'))
 const LLifeStudents = defineAsyncComponent(() => import('./components/LLifeStudents.vue'))
 const LFaculties = defineAsyncComponent(() => import('./components/LFaculties.vue'))
 const LTeachersSlider = defineAsyncComponent(() => import('./components/LTeachersSlider.vue'))
