@@ -2,11 +2,11 @@
   <div class="wrapper">
     <div class="content p-4 md:p-8">
       <RouterView />
-      <div class="w-full text-center mt-14">
+      <!-- <div class="w-full text-center mt-14">
         <a class="text-sm text-center px-4" href="tel:+998 71 200-05-22">If you have questions or difficulties,
           please contact us:
           <span class="text-primary">+998 71 200-05-22</span></a>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

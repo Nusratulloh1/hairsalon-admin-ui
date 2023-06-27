@@ -1,50 +1,73 @@
 <template>
-    <div class="landing">
-        <LHeader></LHeader>
-        <LLifeStudents></LLifeStudents>
-        <LFaculties id="faculty"></LFaculties>
-        <section
-            class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
-            <div>
-                <h5
-                    class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
-                    {{ $t('landing.get_scholarship') }}
-                </h5>
-                <p class=" text-white mt-10 md:mt-20 font-[450] text-sm md:text-xl max-w-[641px]" style="font-family: 
-                Arial, Helvetica, sans-serif">
-                    {{ $t('landing.scholarship_title') }}
-                </p>
-                <div class="w-full flex items-center flex-wrap gap-5 sm:gap-12 mt-12">
-                    <a href="tel:+998+71+200-05-22"
-                        class="py-3 px-4 sm:py-4 sm:px-[23px] uppercase text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
-                        <svg width="19" height="16" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M3.7054 6.21517C5.12746 7.8361 6.9953 8.92957 9.02156 9.32452L9.97203 7.38237C10.091 7.14002 10.3207 7.00511 10.5551 7.00902C11.3184 7.03045 12.1025 6.91943 12.874 6.66488C13.2179 6.55141 13.5769 6.7616 13.6808 7.13722L14.336 9.50603C14.4399 9.88166 14.2474 10.2738 13.9035 10.3873C8.08502 12.3072 1.94494 8.71263 0.187194 2.35747C0.0833011 1.98184 0.278842 1.58866 0.61965 1.47621L2.78842 0.760599C3.13233 0.647124 3.49137 0.857316 3.59527 1.23294C3.82832 2.07556 4.17782 2.85021 4.61675 3.53258C4.74949 3.74359 4.77386 4.02728 4.65493 4.26963L3.7054 6.21517Z"
-                                fill="white" />
-                        </svg>
-                        {{ $t('landing.call') }}
-                    </a>
-                    <button @click="$router.push('/signin')"
-                        class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                        {{ $t('landing.apply') }}
-                    </button>
-                </div>
-            </div>
-            <div class="flex justify-end">
-                <el-image :src="stidentImg" :key="stidentImg" width="200" height="176"
-                    class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
-                    alt="stipent" lazy />
-            </div>
-        </section>
-        <LTeachersSlider id="our_teachers"></LTeachersSlider>
-        <section class="py-12 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0" id="video">
-            <div>
-                <h5
-                    class=" text-white text-xl sm:text-3xl lg:text-[42px] lg:leading-[51px] font-bold uppercase mt-1 md:w-[692px]">
-                    {{ $t('landing.how_apply') }}
-                </h5>
-                <div class="flex justify-center w-full">
-                    <!-- <div
+  <div class="landing">
+    <LHeader></LHeader>
+    <LFaculties id="faculty"></LFaculties>
+    <LLifeStudents></LLifeStudents>
+    <section
+      class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0"
+    >
+      <div
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        <h5
+          class="text-white text-xl sm:text-3xl lg:text-[46px] lg:leading-[114.5%] font-bold mt-1 md:max-w-[631px]"
+        >
+          {{ $t("landing.get_scholarship") }}
+        </h5>
+        <p
+          class="text-white mt-10 md:mt-20 font-medium font-halverica text-sm md:text-xl max-w-[520px]"
+        >
+          {{ $t("landing.scholarship_title") }}
+        </p>
+        <div class="w-full flex items-center flex-wrap gap-5 sm:gap-12 mt-12">
+          <a
+            href="tel:+998+71+200-05-22"
+            class="py-3 px-4 sm:p-[21px] h-[65px] font-halverica border text-base sm:text-xl font-medium hover:bg-primary hover:border-primary hover:shadow-md bg-[#131A34] w-[228px] text-white rounded-md flex items-center justify-center"
+          >
+            {{ $t("landing.call") }}
+          </a>
+          <button
+            @click="$router.push('/signin')"
+            class="py-3 px-4 sm:p-[21px] font-halverica h-[65px] border text-base sm:text-xl font-medium hover:bg-primary hover:border-primary hover:text-white hover:shadow-md bg-white w-[228px] text-[#131A34] rounded-md flex items-center justify-center"
+          >
+            {{ $t("landing.apply") }}
+          </button>
+        </div>
+      </div>
+      <div
+        class="flex justify-end"
+        data-aos="fade-left"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        <el-image
+          :src="stidentImg"
+          :key="stidentImg"
+          width="200"
+          height="176"
+          class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
+          alt="stipent"
+        />
+      </div>
+    </section>
+    <!-- <LTeachersSlider id="our_teachers"></LTeachersSlider> -->
+    <section
+      class="py-12 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0"
+      id="video"
+      data-aos="zoom-in-up"
+    >
+      <div>
+        <h5
+          class="text-white text-xl sm:text-3xl lg:text-[46px] lg:leading-[51px] font-bold mt-1 md:w-[692px]"
+        >
+          {{ $t("landing.how_apply") }}
+        </h5>
+        <div
+          class="flex flex-wrap lg:flex-nowrap justify-start w-full gap-7 sm:gap-10"
+        >
+          <!-- <div
                         class=" bg-[#737373] w-full h-56 sm:w-[871.73px] sm:h-[473px] rounded-[10px] flex items-center justify-center my-5 sm:my-8">
                         <button class="relative flex w-20 h-16 sm:w-[167px] sm:h-[160px]">
                             <span
@@ -59,72 +82,253 @@
                             </span>
                         </button>
                     </div> -->
-                    <div class="w-full h-56 sm:w-[871.73px] sm:h-[473px] my-5 sm:my-8">
-                        <iframe width="100%" loading="lazy"
-                            srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,
+          <div class="w-full h-56 sm:w-[871.73px] sm:h-[473px] my-5 sm:my-8">
+            <iframe
+              width="100%"
+              loading="lazy"
+              srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,
                                 span{position:absolute;width:100%;top:0;bottom:0;margin:auto}
                                 span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;
                                     text-shadow:0 0 0.5em black}</style>
                                     <a href=https://www.youtube.com/embed/Ofw_e5I0m7o?autoplay=1>
-                                        <img src=https://img.youtube.com/vi/Ofw_e5I0m7o/hqdefault.jpg alt='Video tutorial'>
-                                        <span style='color: #ED1C24; font-size: 80px'>▶</span></a>"
-                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen title="Video tutorial"
-                            allowtransparency="true" height="100%"
-                            src="https://www.youtube.com/embed/Ofw_e5I0m7o">
-                        </iframe>
-                    </div>
-                </div>
-                <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
-                    <a href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name"
-                        target="_blank" rel="noopener noreferrer"
-                        class="py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 bg-[#9E9E9E] min-w-[229px] text-white rounded-xl flex items-center gap-1 justify-center">
-                        {{ $t('landing.try_tutorial') }}
-                    </a>
-                    <button @click="$router.push('/signin')"
-                        class="gradient-button py-3 px-4 sm:py-4 sm:px-[23px] text-sm sm:text-base font-bold hover:opacity-90 w-[249px]">
-                        {{ $t('landing.apply') }}
-                    </button>
-                </div>
-            </div>
-        </section>
-        <!-- <LFeedbackSlider></LFeedbackSlider> -->
-        <LFooter></LFooter>
-    </div>
+                                        <img src=https://imageio.forbes.com/specials-images/imageserve/5ed68e8310716f0007411996/A-black-screen--like-the-one-that-overtook-the-internet-on-the-morning-of-June-2-/960x0.jpg?format=jpg&width=960 alt='Video tutorial'>
+                                        <span style='color: white; font-size: 80px'>▶</span></a>"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              title="Video tutorial"
+              allowtransparency="true"
+              height="100%"
+              src="https://www.youtube.com/embed/Ofw_e5I0m7o"
+            >
+            </iframe>
+          </div>
+          <p
+            class="lg:max-w-[334px] text-xl sm:text-[26px] font-halverica font-medium leading-[155.5%] lg:mt-8 mb-10"
+            style="color: rgba(255, 255, 255, 0.8)"
+          >
+            {{ $t("landing.video-text") }}
+          </p>
+        </div>
+        <div
+          class="w-full flex items-center justify-start flex-wrap gap-5 sm:gap-12"
+        >
+          <a
+            href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name"
+            class="py-3 px-4 sm:p-[21px] font-halverica h-[65px] border text-base sm:text-xl font-medium hover:bg-primary hover:border-primary hover:shadow-md bg-[#131A34] w-[228px] text-white rounded-md flex items-center justify-center"
+          >
+            {{ $t("landing.try_tutorial") }}
+          </a>
+          <button
+            @click="$router.push('/signin')"
+            class="py-3 px-4 sm:p-[21px] font-halverica h-[65px] border text-base sm:text-xl font-medium hover:bg-primary hover:border-primary hover:text-white hover:shadow-md bg-white w-[228px] text-[#131A34] rounded-md flex items-center justify-center"
+          >
+            {{ $t("landing.apply") }}
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- <LFeedbackSlider></LFeedbackSlider> -->
+    <LFooter></LFooter>
+    <transition name="fade" appear>
+      <div class="modal-overlay" v-if="showModal" @click="clicker()"></div>
+    </transition>
+    <transition name="pop" appear>
+      <div
+        class="modal h-[600px] lg:h-[462px] w-[90%] md:w-[712px] py-4 px-5 md:pt-5 pr-9 pb-11 pl-16"
+        role="dialog"
+        v-if="showModal"
+      >
+        <el-dropdown class="float-right">
+          <button
+            class="text-[#131A34] bg-[#EDEDED] text-xs sm:text-base font-semibold flex items-center uppercase gap-2 px-[6px] py-[1.5px] sm:p-[8px] rounded-md"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_681_426)">
+                <path
+                  d="M12 2.25C10.0716 2.25 8.18657 2.82183 6.58319 3.89317C4.97982 4.96451 3.73013 6.48726 2.99218 8.26884C2.25422 10.0504 2.06114 12.0108 2.43735 13.9021C2.81355 15.7934 3.74215 17.5307 5.10571 18.8943C6.46928 20.2579 8.20656 21.1865 10.0979 21.5627C11.9892 21.9389 13.9496 21.7458 15.7312 21.0078C17.5127 20.2699 19.0355 19.0202 20.1068 17.4168C21.1782 15.8134 21.75 13.9284 21.75 12C21.7473 9.41498 20.7192 6.93661 18.8913 5.10872C17.0634 3.28084 14.585 2.25273 12 2.25ZM19.3472 8.25H16.0256C15.6429 6.74392 15.0001 5.31623 14.1263 4.03125C15.2427 4.33127 16.2839 4.86162 17.1831 5.58818C18.0823 6.31475 18.8194 7.22146 19.3472 8.25ZM12 3.76031C13.125 4.97906 13.9688 6.53062 14.4722 8.25H9.52782C10.0313 6.53062 10.875 4.98094 12 3.76031ZM9 12C9.00013 11.2461 9.06285 10.4935 9.1875 9.75H14.8125C15.0613 11.2397 15.0613 12.7603 14.8125 14.25H9.1875C9.06285 13.5065 9.00013 12.7539 9 12ZM9.52782 15.75H14.4722C13.9688 17.4694 13.125 19.0191 12 20.2397C10.875 19.0191 10.0313 17.4694 9.52782 15.75ZM14.1263 19.9688C15.0001 18.6838 15.6429 17.2561 16.0256 15.75H19.3472C18.8194 16.7785 18.0823 17.6852 17.1831 18.4118C16.2839 19.1384 15.2427 19.6687 14.1263 19.9688ZM16.3322 14.25C16.5559 12.7583 16.5559 11.2417 16.3322 9.75H19.9378C20.3541 11.2211 20.3541 12.7789 19.9378 14.25H16.3322Z"
+                  fill="#182857"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_681_426">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            <span class="hidden sm:flex">{{ $i18n.locale || "EN" }}</span>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 10L12 15L17 10"
+                stroke="#131A34"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item
+                v-for="locale in $i18n.availableLocales"
+                :key="locale"
+                @click="localeSet(locale)"
+                class="uppercase"
+                >{{ locale }}</el-dropdown-item
+              >
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+        <img
+          src="@/assets/images/landing/rebranding.png"
+          class="mt-12 md:mt-8"
+          alt="sdfgsd"
+        />
+        <h6
+          class="mt-9 text-primary font-halverica font-bold text-base leading-[124.3%] text-start"
+        >
+          {{ $t("landing.rebrand-title") }}
+        </h6>
+        <p
+          class="mt-5 text-base font-halverica text-primary leading-[124.3%] text-start"
+        >
+          {{ $t("landing.rebrand-desc") }}
+        </p>
+        <div class="flex justify-start">
+          <button
+            @click="clicker()"
+            class="bg-primary text-white rounded-xl font-halverica mt-7 px-5 py-3 sm:px-9 font-medium font-halverica text-base w-[212px] hover:text-white hover:bg-primary"
+          >
+            {{ $t("landing.undestood") }}
+          </button>
+        </div>
+      </div>
+    </transition>
+  </div>
 </template>
 <script lang="ts" setup>
 import LHeader from "./components/LHeader.vue";
-import { defineAsyncComponent } from "vue";
-
-// const LFeedbackSlider = defineAsyncComponent(() => import('./components/LFeedbackSlider.vue'))
-const LLifeStudents = defineAsyncComponent(() => import('./components/LLifeStudents.vue'))
-const LFaculties = defineAsyncComponent(() => import('./components/LFaculties.vue'))
-const LTeachersSlider = defineAsyncComponent(() => import('./components/LTeachersSlider.vue'))
-const LFooter = defineAsyncComponent(() => import('./components/LFooter.vue'))
-const stidentImg = new URL('@/assets/images/landing/stipent.webp', import.meta.url).href
+import { defineAsyncComponent, ref } from "vue";
+import { setLocale } from "@/i18n";
+import { useRouter } from "vue-router";
+const local = ref(localStorage.getItem("showModal") === null);
+const showModal = ref(local);
+const router = useRouter();
+const LFeedbackSlider = defineAsyncComponent(
+  () => import("./components/LFeedbackSlider.vue")
+);
+const LLifeStudents = defineAsyncComponent(
+  () => import("./components/LLifeStudents.vue")
+);
+const LFaculties = defineAsyncComponent(
+  () => import("./components/LFaculties.vue")
+);
+const LTeachersSlider = defineAsyncComponent(
+  () => import("./components/LTeachersSlider.vue")
+);
+const LFooter = defineAsyncComponent(() => import("./components/LFooter.vue"));
+const stidentImg = new URL(
+  "@/assets/images/landing/stipent.jpg",
+  import.meta.url
+).href;
+const localeSet = (new_locale: string) => {
+  setLocale(new_locale);
+  router.replace({ params: { locale: new_locale } });
+};
+const clicker = () => {
+  showModal.value = false;
+  localStorage.setItem("showModal", "false");
+};
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .landing {
+  .top-section {
+    height: 100vh;
+    background: url("../../assets/images/landing/top-header.webp"), no-repeat,
+      50%;
+    background-size: cover;
+  }
 
-    .top-section {
-        height: 100vh;
-        background: url("../../assets/images/landing/top-header.webp"), no-repeat, 50%;
-        background-size: cover;
+  .stipent {
+    object-position: 0 -30px;
+  }
+
+  .gradient-button {
+    background: radial-gradient(
+      127.68% 423.02% at 31.82% -13.39%,
+      #b1040e 12.5%,
+      #ed1c24 100%
+    );
+    color: white;
+    border-radius: 10px;
+    text-transform: uppercase;
+
+    &:hover {
+      background: #ff0000;
     }
+  }
 
-    .stipent {
-        object-position: 0 -30px;
-    }
+  .modal {
+    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    z-index: 999;
+    transform: none;
+  }
 
-    .gradient-button {
-        background: radial-gradient(127.68% 423.02% at 31.82% -13.39%, #B1040E 12.5%, #ED1C24 100%);
-        color: white;
-        border-radius: 10px;
-        text-transform: uppercase;
+  .modal-overlay {
+    content: "";
+    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 998;
+    background: #2c3e50;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}
 
-        &:hover {
-            background: #FF0000;
-        }
-    }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s linear;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.pop-enter-active,
+.pop-leave-active {
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.4s linear;
+}
+
+.pop-enter,
+.pop-leave-to {
+  opacity: 0;
+  transform: scale(0.3) translateY(-50%);
 }
 </style>

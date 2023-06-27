@@ -10,5 +10,6 @@ export interface INavigationItem {
 export interface ISidebarItem {
   route: string;
   title: string;
-  icon: any;
+  icon: any,
+  children?: any
 }
