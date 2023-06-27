@@ -5,12 +5,12 @@
         <LLifeStudents></LLifeStudents>
         <section
             class="py-12 md:py-24 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0 grid grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-0">
-            <div>
+            <div data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                 <h5
                     class=" text-white text-xl sm:text-3xl lg:text-[46px] lg:leading-[114.5%] font-bold mt-1 md:max-w-[631px]">
                     {{ $t('landing.get_scholarship') }}
                 </h5>
-                <p class=" text-white mt-10 md:mt-20 font-halverica font-[450] text-sm md:text-xl max-w-[520px]">
+                <p class=" text-white mt-10 md:mt-20 font-medium font-halverica text-sm md:text-xl max-w-[520px]">
                     {{ $t('landing.scholarship_title') }}
                 </p>
                 <div class="w-full flex items-center flex-wrap gap-5 sm:gap-12 mt-12">
@@ -24,19 +24,19 @@
                     </button>
                 </div>
             </div>
-            <div class="flex justify-end">
+            <div class="flex justify-end" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
                 <el-image :src="stidentImg" :key="stidentImg" width="200" height="176"
                     class="rounded-[10px] object-cover !object-center sm:!object-top xl:!object-center sm:h-[479px] w-full xl:w-[543px] stipent"
                     alt="stipent" />
             </div>
         </section>
         <!-- <LTeachersSlider id="our_teachers"></LTeachersSlider> -->
-        <section class="py-12 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0" id="video">
+        <section class="py-12 xl:container mx-auto px-5 sm:px-7 md:px-9 lg:px-12 xl:px-0" id="video" data-aos="zoom-in-up">
             <div>
                 <h5 class=" text-white text-xl sm:text-3xl lg:text-[46px] lg:leading-[51px] font-bold mt-1 md:w-[692px]">
                     {{ $t('landing.how_apply') }}
                 </h5>
-                <div class="flex flex-wrap lg:flex-nowrap justify-center w-full gap-7 sm:gap-10">
+                <div class="flex flex-wrap lg:flex-nowrap justify-start w-full gap-7 sm:gap-10">
                     <!-- <div
                         class=" bg-[#737373] w-full h-56 sm:w-[871.73px] sm:h-[473px] rounded-[10px] flex items-center justify-center my-5 sm:my-8">
                         <button class="relative flex w-20 h-16 sm:w-[167px] sm:h-[160px]">
@@ -58,19 +58,19 @@
                                 span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;
                                     text-shadow:0 0 0.5em black}</style>
                                     <a href=https://www.youtube.com/embed/Ofw_e5I0m7o?autoplay=1>
-                                        <img src=https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGl0Y2glMjBibGFja3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60 alt='Video tutorial'>
+                                        <img src=https://imageio.forbes.com/specials-images/imageserve/5ed68e8310716f0007411996/A-black-screen--like-the-one-that-overtook-the-internet-on-the-morning-of-June-2-/960x0.jpg?format=jpg&width=960 alt='Video tutorial'>
                                         <span style='color: white; font-size: 80px'>▶</span></a>" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
                             title="Video tutorial" allowtransparency="true" height="100%"
                             src="https://www.youtube.com/embed/Ofw_e5I0m7o">
                         </iframe>
                     </div>
-                    <p class="lg:max-w-[334px] text-xl sm:text-[26px] font-medium leading-[155.5%] lg:mt-8 mb-10" style="color:
+                    <p class="lg:max-w-[334px] text-xl sm:text-[26px] font-halverica font-medium leading-[155.5%] lg:mt-8 mb-10" style="color:
                     rgba(255, 255, 255, 0.80)">
-                        From the current video and our AI Tutorial, you can understand how to apply to our university.
+                        {{ $t('landing.video-text') }}
                     </p>
                 </div>
-                <div class="w-full flex items-center justify-center flex-wrap gap-5 sm:gap-12">
+                <div class="w-full flex items-center justify-start flex-wrap gap-5 sm:gap-12">
                     <a href="https://www.iorad.com/player/2188707/Admission-Akfauniversity---How-to-untitled-task-name"
                         class="py-3 px-4 sm:p-[21px] font-halverica  h-[65px] border text-base sm:text-xl font-medium hover:bg-primary hover:border-primary hover:shadow-md bg-[#131A34] w-[228px] text-white rounded-md flex items-center justify-center">
                         {{ $t('landing.try_tutorial') }}
@@ -85,10 +85,11 @@
         <!-- <LFeedbackSlider></LFeedbackSlider> -->
         <LFooter></LFooter>
         <transition name="fade" appear>
-            <div class="modal-overlay" v-if="showModal" @click="showModal = false"></div>
+            <div class="modal-overlay" v-if="showModal" @click="clicker()"></div>
         </transition>
         <transition name="pop" appear>
-            <div class="modal h-[600px] lg:h-[462px] w-[90%] md:w-[712px] py-4 px-5 md:pt-5 pr-9 pb-11 pl-16" role="dialog" v-if="showModal">
+            <div class="modal h-[600px] lg:h-[462px] w-[90%] md:w-[712px] py-4 px-5 md:pt-5 pr-9 pb-11 pl-16" role="dialog"
+                v-if="showModal">
                 <el-dropdown class="float-right">
                     <button
                         class="text-[#131A34] bg-[#EDEDED] text-xs sm:text-base font-semibold flex items-center uppercase gap-2 px-[6px] py-[1.5px] sm:p-[8px] rounded-md">
@@ -125,8 +126,8 @@
                     {{ $t('landing.rebrand-desc') }}
                 </p>
                 <div class="flex justify-start">
-                    <button @click="showModal = false"
-                        class="bg-primary text-white rounded-xl font-halverica mt-7 px-5 py-3 sm:px-9 font-medium text-base w-[212px] hover:text-white hover:bg-primary">
+                    <button @click="clicker()"
+                        class="bg-primary text-white rounded-xl font-halverica mt-7 px-5 py-3 sm:px-9 font-medium font-halverica text-base w-[212px] hover:text-white hover:bg-primary">
                         {{ $t('landing.undestood') }}
                     </button>
                 </div>
@@ -139,7 +140,8 @@ import LHeader from "./components/LHeader.vue";
 import { defineAsyncComponent, ref } from "vue";
 import { setLocale } from "@/i18n"
 import { useRouter } from "vue-router";
-const showModal = ref(true)
+const local = ref(localStorage.getItem('showModal') === null)
+const showModal = ref(local)
 const router = useRouter()
 const LFeedbackSlider = defineAsyncComponent(() => import('./components/LFeedbackSlider.vue'))
 const LLifeStudents = defineAsyncComponent(() => import('./components/LLifeStudents.vue'))
@@ -150,6 +152,11 @@ const stidentImg = new URL('@/assets/images/landing/stipent.jpg', import.meta.ur
 const localeSet = (new_locale: string) => {
     setLocale(new_locale)
     router.replace({ params: { locale: new_locale } })
+}
+const clicker = () => {
+    showModal.value = false
+    localStorage.setItem('showModal', 'false')
+
 }
 </script>
 <style lang="scss" scoped>

@@ -11,16 +11,60 @@
         </div> -->
         <div class="faculties grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 relative">
             <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 pb-[100px] relative h-[510px] md:h-[610px] !bg-left !bg-cover flex flex-col justify-between"
-                :style="`background: url(${faculty.bg}), no-repeat, 50%;`" v-for="faculty in faculties" :key="faculty.id">
+                data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                 <h6
                     class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px] max-w-[284px]">
-                    {{ $t(`landing.${faculty.name}`) }}
+                    {{ $t(`landing.engineering`) }}
                 </h6>
-                <p class=" text-white font-normal text-sm sm:text-base">
-                    {{ $t(`landing.${faculty.name}_desc`) }}
+                <p class=" text-white font-medium font-halverica text-sm sm:text-base">
+                    {{ $t(`landing.engineering_desc`) }}
                 </p>
-                <span class="text-white font-medium text-base block">{{ faculty.semesters }} {{ $t('landing.semesters') }}</span>
-                <a :href="faculty.link" target="_blank" class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
+                <span class="text-white font-medium text-base block">8 {{ $t('landing.semesters')
+                }}</span>
+                <a href="https://www.akfauniversity.uz/programs/school-of-engineering" target="_blank"
+                    class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
+            </div>
+            <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 pb-[100px] relative h-[510px] md:h-[610px] !bg-left !bg-cover flex flex-col justify-between"
+                data-aos="fade-down" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                <h6
+                    class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px] max-w-[284px]">
+                    {{ $t(`landing.business`) }}
+                </h6>
+                <p class=" text-white font-medium font-halverica text-sm sm:text-base">
+                    {{ $t(`landing.business_desc`) }}
+                </p>
+                <span class="text-white font-medium text-base block">8 {{ $t('landing.semesters')
+                }}</span>
+                <a href="https://www.akfauniversity.uz/programs/school-of-business" target="_blank"
+                    class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
+            </div>
+            <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 pb-[100px] relative h-[510px] md:h-[610px] !bg-left !bg-cover flex flex-col justify-between"
+                data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                <h6
+                    class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px] max-w-[284px]">
+                    {{ $t(`landing.medical`) }}
+                </h6>
+                <p class=" text-white font-medium font-halverica text-sm sm:text-base">
+                    {{ $t(`landing.medical_desc`) }}
+                </p>
+                <span class="text-white font-medium text-base block">12 {{ $t('landing.semesters')
+                }}</span>
+                <a href="https://www.akfauniversity.uz/programs/medical-school" target="_blank"
+                    class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
+            </div>
+            <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 pb-[100px] relative h-[510px] md:h-[610px] !bg-left !bg-cover flex flex-col justify-between"
+                data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                <h6
+                    class="text-white font-bold text-4xl sm:text-[42px] sm:leading-[51px] my-5 sm:mt-10 sm:mb-[37px] max-w-[234px]">
+                    {{ $t(`landing.dental`) }}
+                </h6>
+                <p class=" text-white font-medium font-halverica text-sm sm:text-base">
+                    {{ $t(`landing.dental_desc`) }}
+                </p>
+                <span class="text-white font-medium text-base block">10 {{ $t('landing.semesters')
+                }}</span>
+                <a href="https://www.akfauniversity.uz/programs/dental-school" target="_blank"
+                    class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
             </div>
             <!-- <div class="py-[60px] w-full absolute bottom-0 flex items-center justify-center flex-wrap gap-5 sm:gap-12"
                 style="background: rgba(118, 118, 118, 0.46)">
@@ -37,7 +81,8 @@
     </section>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import AOS from "aos";
 
 const faculties = ref([
     {
@@ -69,5 +114,27 @@ const faculties = ref([
         link: 'https://www.akfauniversity.uz/programs/dental-school'
     }
 ])
+onMounted(() => {
+    AOS.init({
+        once: true,
+    });
+})
 
 </script>
+<style lang="scss" scoped>
+.faculty {
+    background: url('@/assets/images/landing/semester-bg-1.jpg'), no-repeat, 50%;
+
+    &:nth-child(2) {
+        background: url('@/assets/images/landing/semester-bg-2.jpg'), no-repeat, 50%;
+    }
+
+    &:nth-child(3) {
+        background: url('@/assets/images/landing/semester-bg-3.jpg'), no-repeat, 50%;
+    }
+
+    &:nth-child(4) {
+        background: url('@/assets/images/landing/semester-bg-4.jpg'), no-repeat, 50%;
+    }
+}
+</style>

@@ -11,6 +11,7 @@ import "./assets/styles/element/index.scss";
 
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
+import 'aos/dist/aos.css'
 import { mask } from "vue-the-mask";
 
 import App from "./App.vue";

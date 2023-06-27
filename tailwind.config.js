@@ -11,7 +11,7 @@ module.exports = {
         line: "#F2F2F2",
       },
       fontFamily: {
-        'halverica': ['HelveticaNeueCyr', 'sans-serif']
+        'halverica': ['HelveticaNeueCyr']
       }
     },
   },

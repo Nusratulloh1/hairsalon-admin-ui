@@ -67,7 +67,7 @@
         </nav>
         <div class="flex flex-col items-center justify-center h-[85%]">
             <div class="container mx-auto mt-[6.5vh] text-start px-5 sm:px-0">
-                <h2 class="font-semibold text-3xl sm:text-5xl  lg:text-[56px] lg:leading-[68px] text-white">
+                <h2 class="font-semibold text-3xl sm:text-5xl  lg:text-[56px] lg:leading-[68px] text-white pr-[35px] sm-pr-0">
                     <span class="text-[#CDD3DA]">
                         {{ $t('landing.dear') }}
                     </span>
@@ -77,7 +77,7 @@
                     {{ $t('landing.welcome2') }}
                 </h2>
                 <h4
-                    class=" mt-[5.5vh] font-semibold text-base sm:text-2xl md:text-3xl lg:text-[34px] text-[#F6F6F6] lg:leading-[41px]">
+                    class=" mt-[5.5vh] font-medium text-base sm:text-2xl font-halverica md:text-3xl lg:text-[34px] text-[#F6F6F6] lg:leading-[41px]">
                     {{ $t('landing.admission_open') }}
                 </h4>
             </div>
@@ -98,12 +98,12 @@
                 class="px-5 py-3 sm:px-9 sm:py-5 font-bold text-base sm:text-xl bg-[#383838] rounded-[10px] text-white w-[303px] hover:bg-[#343434] transition-all">{{
                     $t('landing.login') }}</button> -->
                 <button @click="$router.push('/signin')"
-                    class="bg-white text-[#182857] rounded-md font-halverica px-5 py-3 sm:px-9 font-[550] text-base sm:text-xl w-[251px] hover:text-white hover:bg-primary">{{
+                    class="bg-white text-[#182857] rounded-md font-halverica px-5 py-3 sm:px-9 font-medium text-base sm:text-xl w-[251px] hover:text-white hover:bg-primary">{{
                         $t('landing.apply') }}
                 </button>
             </div>
             <div class="px-5 sm:px-0 container mx-auto">
-                <a href="https://t.me/cau_admission" class="telegram-link block sm:w-[331px] sm:h-[109px] p-4 ">
+                <a href="https://t.me/cau_admission" class="telegram-link block sm:w-[331px] sm:h-[119px] p-4 ">
                     <div class="flex items-center gap-[10px]">
                         <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_683_176)">
