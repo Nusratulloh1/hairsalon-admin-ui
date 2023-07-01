@@ -1,6 +1,11 @@
 <template>
   <div class="flex justify-between mb-4">
     <div class="flex flex-col items-start space-y-2">
+      <div class="flex items-center space-x-2">
+        <el-input type="text" class=" !w-96" v-model="search" autocomplete="off"
+          placeholder="Enter name surname or phone number" size="large" />
+        <el-button type="success" @click="searchApplicants">Search</el-button>
+      </div>
       <div class="grid grid-cols-2 md:grid-cols-4 items-center gap-2">
         <el-select v-model="filter.program_id" placeholder="Program" size="large" class="w-full">
           <el-option v-for="region of guideStore.getTuitions" :key="region.value" :label="region.label"
@@ -129,6 +134,7 @@ const applications = computed(() => appStore.applications);
 const application = ref();
 const examYears = computed(() => examYearStore.examYears);
 const year = ref("");
+const search = ref("")
 const month = ref(route.query.date?.toLocaleString().split('-')[1] || '');
 const months = ref([
   { name: 'January', id: '01' },
@@ -172,6 +178,22 @@ onMounted(async () => {
   }
 });
 
+const searchApplicants = () => {
+  const filterVal = { phone: '', search: '', page: filter.page, limit: filter.limit }
+  if (search.value.includes('998') || search.value.includes('+998')) {
+    filterVal.phone = search.value
+  }
+  else {
+    filterVal.search = search.value
+  }
+  const data = {} as any;
+  Object.keys(filterVal).forEach((key: any) => {
+    if ((filterVal as any)[key]) {
+      data[key] = (filterVal as any)[key];
+    }
+  });
+  appStore.getApplications(data);
+}
 const onViewClick = async (row: any) => {
   try {
     application.value = row;
@@ -198,6 +220,7 @@ const exportToExcel = async () => {
 };
 
 const fetchApplications = () => {
+  search.value = ''
   const data = {} as any;
   Object.keys(filter).forEach((key: any) => {
     if ((filter as any)[key]) {
