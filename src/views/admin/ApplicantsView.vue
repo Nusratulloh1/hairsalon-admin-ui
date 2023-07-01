@@ -179,6 +179,7 @@ onMounted(async () => {
 });
 
 const searchApplicants = () => {
+  resetOnlyFields()
   const filterVal = { phone: '', search: '', page: filter.page, limit: filter.limit }
   if (search.value.includes('998') || search.value.includes('+998')) {
     filterVal.phone = search.value
@@ -233,14 +234,16 @@ const onPaginationChange = (event: number) => {
   filter.page = event
   fetchApplications();
 };
-
-const resetFilterAndFetch = () => {
+const resetOnlyFields = () => {
   filter.program_id = "";
   filter.exam_date_id = "";
   filter.is_scholarship = "";
   filter.status = "";
   filter.month = ""
   month.value = ''
+}
+const resetFilterAndFetch = () => {
+  resetOnlyFields()
   router.push({ path: '', query: {} })
   fetchApplications();
 };
