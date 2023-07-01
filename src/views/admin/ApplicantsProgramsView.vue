@@ -1,7 +1,13 @@
 <template>
   <div v-loading="loading">
+    <div class="mb-8">
+      <el-select v-model="program_id" placeholder="Program" @change="filterProgram" size="large" class=" w-60">
+        <el-option v-for="region of [{ value: 'all', label: 'All' }, ...guideStore.getTuitions]" :key="region.value"
+          :label="region.label" :value="region.value" />
+      </el-select>
+    </div>
     <div class="mb-16">
-      <el-table v-if="programsByMonth.length" :data="programsByMonth" :default-sort="defalutSort" border
+      <el-table v-if="tableData.length" :data="tableData" :default-sort="defalutSort" border
         style="width: 100%" stripe>
         <el-table-column fixed prop="program" label="Programs" width="200" show-overflow-tooltip />
         <el-table-column prop="january" label="January" min-width="140" align="center">
@@ -71,17 +77,33 @@
 </template>
   
 <script setup lang="ts">
-import { useApplicationStore } from "@/stores";
+import { useApplicationStore, useGuideStore } from "@/stores";
 import { ref, onMounted, computed } from "vue";
 const appStore = useApplicationStore();
 
-const programsByMonth = computed(() => appStore.programsByMonth);
+const tableData: any = ref([...appStore.programsByMonth])
+const guideStore = useGuideStore();
 const year = new Date().getFullYear()
+const program_id = ref()
 const loading = ref<boolean>(true);
 const defalutSort: any = ref({ prop: 'total', order: 'descending' })
+
+const filterProgram = () => {
+  if (program_id.value === 'all') {
+    tableData.value = appStore.programsByMonth
+  }
+  else {
+    tableData.value = appStore.programsByMonth.filter((x: any) => program_id.value == x.id)
+  }
+}
 onMounted(async () => {
-  if (!programsByMonth.value.length) {
-    appStore.fetchProgramsByMonth();
+  if (!appStore.programsByMonth.length) {
+    appStore.fetchProgramsByMonth().then(() => {
+      tableData.value = appStore.programsByMonth
+    })
+  }
+  if (!guideStore.getTuitions.length) {
+    guideStore.fetchTuitions();
   }
   loading.value = false
 });
