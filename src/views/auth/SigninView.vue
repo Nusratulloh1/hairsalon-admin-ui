@@ -1,16 +1,21 @@
 <template>
   <div class="h-full">
-    <div class="space-y-6 mx-auto md:w-1/2 px-4 md:px-24 pt-4 md:pt-6 h-full relative">
-      <div class="header flex flex-col items-start space-y-6 md:space-y-6">
-        <LogoutIconWithName class="sm:w-[477px]" />
-        <h1 class="header__title">
-          Registration
-        </h1>
-        <p class="header__text">
-          Please create your new account
-        </p>
+    <div class="space-y-3 mx-auto lg:w-1/2 lg:px-24 md:pt-6 h-full relative">
+      <div class="header flex flex-col items-start space-y-3 md:space-y-6">
+        <div class="border-b w-full p-4 sm:border-none">
+          <LogoutIconWithName class="w-[214px] sm:w-[477px]" />
+        </div>
+        <div class="px-4">
+          <h1 class="header__title text-2xl sm:text-[28px] mb-1 sm:mb-[10px]">
+            Registration
+          </h1>
+          <p class="header__text">
+            Please create your new account
+          </p>
+        </div>
       </div>
-      <el-form ref="ruleFormRef" class="mt-8" :model="ruleForm" :rules="rules" :hide-required-asterisk="true" label-position="top">
+      <el-form ref="ruleFormRef" class="mt-3 sm:mt-8 px-4" :model="ruleForm" :rules="rules" :hide-required-asterisk="true"
+        label-position="top">
         <!-- <el-form-item label="First Name" prop="first_name">
           <el-input
             v-model="ruleForm.first_name"
@@ -28,43 +33,53 @@
           />
         </el-form-item> -->
         <el-form-item label="E-mail Address" prop="email">
-          <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-11" />
+          <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-form-item label="Country" prop="email">
-          <el-select v-model="ruleForm.country_id" filterable class="!h-11 w-full" @change="setNumber"
-            placeholder="Select your country here" size="large">
-            <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
-          </el-select>
+          <div class="hidden sm:block w-full">
+            <el-select v-model="ruleForm.country_id" filterable class="!h-11 w-full" @change="setNumber"
+              placeholder="Select your country here" size="large">
+              <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
+            </el-select>
+          </div>
+          <div class="sm:hidden w-full">
+            <el-select v-model="ruleForm.country_id" filterable class="!h-9 w-full" @change="setNumber"
+              placeholder="Select your country here">
+              <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
+            </el-select>
+          </div>
         </el-form-item>
         <el-form-item label="Phone Number" prop="phone">
           <el-input v-model.trim="ruleForm.phone" v-if="ruleForm.phone.includes('998')" v-mask="'+### ## ###-##-##'"
-            autocomplete="off" type="text" class="!h-11" />
-          <el-input v-model.trim="ruleForm.phone" v-else type="text" autocomplete="off" class="!h-11" />
+            autocomplete="off" type="text" class="!h-9 sm:!h-11" />
+          <el-input v-model.trim="ruleForm.phone" v-else type="text" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-form-item label="Password" prop="password">
           <el-input v-model.trim="ruleForm.password" type="password" placeholder="Enter your password" autocomplete="off"
-            class="!h-11" />
+            class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-form-item label="Confirm Password" prop="confirm_password">
           <el-input v-model.trim="ruleForm.confirm_password" type="password" placeholder="Re-enter your password"
-            autocomplete="off" class="!h-11" />
+            autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
-        <el-button class="mt-2 md:mt-4" type="primary" size="large" @click="submitForm(ruleFormRef)" :loading="loading">
+        <el-button class="md:mt-4 !h-9 !text-xs sm:!text-base  sm:!h-12 sm:w-[200px]" type="primary"
+          @click="submitForm(ruleFormRef)" :loading="loading">
           Create Account
         </el-button>
-        <div class=" mt-5 sm:mt-10">
+        <div class=" mt-4 sm:mt-10">
           <p class="header__text">
-            Don't know how to apply? 
-            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-2 underline">Watch instructions</RouterLink>
+            Don't know how to apply?
+            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-2 underline">Watch instructions
+            </RouterLink>
           </p>
         </div>
-        <div class="mt-3 sm:mt-6">
+        <div class="mt-2 sm:mt-6">
           <p class="header__text">
             Can’t register to our platform?
             <a href="tel:+998 71 200-05-22" class="text-primary ml-2 font-medium underline">Call us</a>
           </p>
         </div>
-        <div class="bottom-12 mt-3 sm:mt-6">
+        <div class="bottom-12 mt-2 sm:mt-6">
           <p class="header__text">
             Already have an account?
             <RouterLink to="/login" class="text-primary font-medium ml-2 underline">Log In</RouterLink>
@@ -242,19 +257,16 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 
   &__title {
     font-weight: 600;
-    font-size: 28px;
-    line-height: 42px;
     color: #000000;
     max-width: 400px;
     font-family: 'Jost', sans-serif;
-    margin-bottom: 10px;
   }
 
   &__text {
     color: rgba(24, 40, 87, 0.30);
     font-size: 14px;
     margin: 0 !important;
-    // font-family: 'HelveticaNeueCyr';
+    font-family: 'HelveticaNeueCyr';
     font-weight: 550;
   }
 }

@@ -1,25 +1,29 @@
 <template>
   <div class=" h-full">
-    <div class="space-y-6 mx-auto md:w-1/2 px-4 md:px-24 pt-4 md:pt-8 h-full relative">
+    <div class="space-y-4 mx-auto lg:w-1/2 md:px-24 md:pt-8 h-full relative">
       <div class="header flex flex-col items-start space-y-8 md:space-y-12">
-        <LogoutIconWithName class="sm:w-[477px]" />
-        <h1 class="header__title">
-          Sign In
-        </h1>
-        <p class="header__text">
-          Please sign In your account
-        </p>
+        <div class="border-b w-full p-4 sm:border-none">
+          <LogoutIconWithName class="w-[214px] sm:w-[477px]" />
+        </div>
+        <div class="px-4">
+          <h1 class="header__title text-2xl sm:text-[28px] mb-1 sm:mb-[10px]">
+            Sign In
+          </h1>
+          <p class="header__text">
+            Please sign In your account
+          </p>
+        </div>
       </div>
-      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" :hide-required-asterisk="true" label-position="top">
+      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" class="px-4" :hide-required-asterisk="true" label-position="top">
         <el-form-item label="E-mail Address" prop="email">
-          <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-11" />
+          <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-form-item label="Password" prop="password">
-          <el-input v-model.trim="ruleForm.password" type="password" autocomplete="off" class="!h-11" />
+          <el-input v-model.trim="ruleForm.password" type="password" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <div class="flex flex-col items-start">
           <RouterLink to="/forgot-password" class="forgot-password">Forgot Password?</RouterLink>
-          <el-button class="mt-4 md:mt-7" type="primary" size="large" @click="submitForm(ruleFormRef)" :loading="loading">
+          <el-button class="mt-4 md:mt-7 !h-9 !text-xs sm:!text-base  sm:!h-12 sm:w-[200px]" type="primary" @click="submitForm(ruleFormRef)" :loading="loading">
             Sign In
           </el-button>
         </div>
@@ -122,17 +126,13 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   &__logo {
     height: 123px;
     width: 54px;
-    margin-bottom: 12px;
   }
 
   &__title {
     font-weight: 600;
-    font-size: 28px;
-    line-height: 42px;
     color: #000000;
     max-width: 400px;
     font-family: 'Jost', sans-serif;
-    margin-bottom: 10px;
   }
 
   &__text {
