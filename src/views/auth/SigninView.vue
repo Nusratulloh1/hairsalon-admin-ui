@@ -33,7 +33,7 @@
           />
         </el-form-item> -->
         <el-form-item label="E-mail Address" prop="email">
-          <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-9 sm:!h-11" />
+          <el-input v-model.trim="ruleForm.email" type="text" placeholder="Enter your private e-mail address here" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-form-item label="Country" prop="email">
           <div class="hidden sm:block w-full">
