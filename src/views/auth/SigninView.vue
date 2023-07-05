@@ -224,8 +224,10 @@ const rules = reactive<FormRules>({
 const cancalReadOnly = (onOff: any) => {
   nextTick(() => {
     if (!onOff) {
+      console.log('sdsf'); 
       const input = select.value.$el.querySelector('.el-input__inner');
       input.removeAttribute('readonly');
+      input.blur()
     }
   });
 }
