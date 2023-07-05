@@ -130,7 +130,8 @@
           <el-option v-for="date of guideStore.getExamDates" :key="date.value" :label="date.label" :value="date.value" />
         </el-select>
       </el-form-item>
-      <el-form-item prop="is_scholarship" id="is_scholarship">
+      <div></div>
+      <!-- <el-form-item prop="is_scholarship" id="is_scholarship">
         <template #label>
           <div class="flex items-center space-x-2">
             <span>Scholarship</span>
@@ -151,7 +152,7 @@
           <el-radio :label="true">Yes</el-radio>
           <el-radio :label="false">No</el-radio>
         </el-radio-group>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item prop="is_accept">
         <el-checkbox v-model="ruleForm.is_accept" size="large">I allow to use of my personal Information.</el-checkbox>
       </el-form-item>
@@ -202,7 +203,7 @@ const ruleForm = reactive({
   phone: "",
   take_internal_exam: false,
   is_accept: false,
-  is_scholarship: true,
+  is_scholarship: false,
   certificate_number: null as any,
   proficiency_certificate: null as any,
   exam_date_id: "",

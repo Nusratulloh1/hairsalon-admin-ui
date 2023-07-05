@@ -1,7 +1,7 @@
 <template>
   <div class="app-footer">
     <p class="leading-none">
-      2023 Copyrights © <span class="text-primary">AKFA University</span>
+      2023 Copyrights © <span class="text-primary">CAU</span>
     </p>
     <a class="text-sm mt-1 text-center px-8" href="tel:+998 71 200-05-22"
       >If you have questions or difficulties, please contact us:
