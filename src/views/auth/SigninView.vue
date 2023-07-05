@@ -44,9 +44,8 @@
             </el-select>
           </div>
           <div class="sm:hidden w-full">
-            <el-select v-model="ruleForm.country_id" ref="select" @hook:mounted="cancalReadOnly"
-              @visible-change="cancalReadOnly" filterable class="!h-9 w-full" @change="setNumber"
-              placeholder="Select your country here">
+            <el-select v-model="ruleForm.country_id" multiple :multiple-limit="1" filterable class="!h-9 w-full"
+              @change="setNumber" placeholder="Select your country here">
               <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
             </el-select>
           </div>
@@ -116,7 +115,6 @@ import type { ISigninForm } from "@/models/backend";
 const i18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
-const select = ref()
 const staticRegion = ref("");
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
@@ -221,16 +219,6 @@ const rules = reactive<FormRules>({
   ],
   confirm_password: [{ validator: validatePass2, trigger: "blur" }],
 });
-const cancalReadOnly = (onOff: any) => {
-  nextTick(() => {
-    if (!onOff) {
-      console.log('sdsf'); 
-      const input = select.value.$el.querySelector('.el-input__inner');
-      input.removeAttribute('readonly');
-      input.blur()
-    }
-  });
-}
 const loading = ref(false);
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
@@ -240,6 +228,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         loading.value = true;
         const data: ISigninForm = {
           ...ruleForm,
+          country_id: typeof ruleForm.country_id == 'string' ? ruleForm.country_id : ruleForm.country_id[0],
           password: sha1(ruleForm.password),
           confirm_password: sha1(ruleForm.confirm_password),
         };
