@@ -33,7 +33,8 @@
           />
         </el-form-item> -->
         <el-form-item label="E-mail Address" prop="email">
-          <el-input v-model.trim="ruleForm.email" type="text" placeholder="Enter your private e-mail address here" autocomplete="off" class="!h-9 sm:!h-11" />
+          <el-input v-model.trim="ruleForm.email" type="text" placeholder="Enter your private e-mail address here"
+            autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-form-item label="Country" prop="email">
           <div class="hidden sm:block w-full">
@@ -43,7 +44,8 @@
             </el-select>
           </div>
           <div class="sm:hidden w-full">
-            <el-select v-model="ruleForm.country_id" filterable class="!h-9 w-full" @change="setNumber"
+            <el-select v-model="ruleForm.country_id" ref="select" @hook:mounted="cancalReadOnly"
+              @visible-change="cancalReadOnly" filterable class="!h-9 w-full" @change="setNumber"
               placeholder="Select your country here">
               <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
             </el-select>
@@ -104,7 +106,7 @@
 <script setup lang="ts">
 import sha1 from "sha1";
 import { LogoutIconWithName } from "@/components/icons";
-import { computed, onMounted, reactive, ref } from "vue";
+import { computed, onMounted, reactive, ref, nextTick } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { useUsersStore } from "@/stores/user";
 import { useRouter } from "vue-router";
@@ -114,6 +116,7 @@ import type { ISigninForm } from "@/models/backend";
 const i18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
+const select = ref()
 const staticRegion = ref("");
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
@@ -218,7 +221,14 @@ const rules = reactive<FormRules>({
   ],
   confirm_password: [{ validator: validatePass2, trigger: "blur" }],
 });
-
+const cancalReadOnly = (onOff: any) => {
+  nextTick(() => {
+    if (!onOff) {
+      const input = select.value.$el.querySelector('.el-input__inner');
+      input.removeAttribute('readonly');
+    }
+  });
+}
 const loading = ref(false);
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;

@@ -12,7 +12,7 @@
     :file-list="fileList"
   >
     <template #trigger>
-      <el-button :icon="Plus" type="primary"  plain size="large">
+      <el-button :icon="Plus" type="primary" size="large">
         Upload Photo
       </el-button>
     </template>
