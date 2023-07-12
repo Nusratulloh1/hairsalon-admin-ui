@@ -7,10 +7,10 @@
         </div>
         <div class="px-4">
           <h1 class="header__title text-2xl sm:text-[28px] mb-1 sm:mb-[10px]">
-            Registration
+            {{ $t('register.main') }}
           </h1>
           <p class="header__text">
-            Please create your new account
+            {{ $t('register.title') }}
           </p>
         </div>
       </div>
@@ -32,58 +32,60 @@
             class="!h-11"
           />
         </el-form-item> -->
-        <el-form-item label="E-mail Address" prop="email">
-          <el-input v-model.trim="ruleForm.email" type="text" placeholder="Enter your private e-mail address here"
-            autocomplete="off" class="!h-9 sm:!h-11" />
+        <el-form-item :label="$t('register.email')" prop="email">
+          <el-input v-model.trim="ruleForm.email" type="text" :placeholder="$t('register.email_title')" autocomplete="off"
+            class="!h-9 sm:!h-11" />
         </el-form-item>
-        <el-form-item label="Country" prop="email">
+        <el-form-item label="Country" prop="country">
           <div class="hidden sm:block w-full">
             <el-select v-model="ruleForm.country_id" filterable class="!h-11 w-full" @change="setNumber"
-              placeholder="Select your country here" size="large">
+              :placeholder="$t('register.country')" size="large">
               <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
             </el-select>
           </div>
           <div class="sm:hidden w-full">
             <el-select v-model="ruleForm.country_id" multiple :multiple-limit="1" filterable class="!h-9 w-full"
-              @change="setNumber" placeholder="Select your country here">
+              @change="setNumber" :placeholder="$t('register.country')">
               <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
             </el-select>
           </div>
         </el-form-item>
-        <el-form-item label="Phone Number" prop="phone">
+        <el-form-item :label="$t('register.phone')" prop="phone">
           <el-input v-model.trim="ruleForm.phone" v-if="ruleForm.phone.includes('998')" v-mask="'+### ## ###-##-##'"
             autocomplete="off" type="text" class="!h-9 sm:!h-11" />
           <el-input v-model.trim="ruleForm.phone" v-else type="text" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
-        <el-form-item label="Password" prop="password">
-          <el-input v-model.trim="ruleForm.password" type="password" placeholder="Enter your password" autocomplete="off"
-            class="!h-9 sm:!h-11" />
+        <el-form-item :label="$t('login.password')" prop="password">
+          <el-input v-model.trim="ruleForm.password" type="password" :placeholder="$t('register.enter_pass')"
+            autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
-        <el-form-item label="Confirm Password" prop="confirm_password">
-          <el-input v-model.trim="ruleForm.confirm_password" type="password" placeholder="Re-enter your password"
+        <el-form-item :label="$t('register.conf_pass')" prop="confirm_password">
+          <el-input v-model.trim="ruleForm.confirm_password" type="password" :placeholder="$t('register.re_pass')"
             autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-button class="md:mt-4 !h-9 !text-xs sm:!text-base  sm:!h-12 sm:w-[200px]" type="primary"
           @click="submitForm(ruleFormRef)" :loading="loading">
-          Create Account
+          {{ $t('register.create') }}
         </el-button>
         <div class=" mt-4 sm:mt-10">
           <p class="header__text">
-            Don't know how to apply?
-            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-2 underline">Watch instructions
+            {{ $t('register.dont_know') }}
+            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-2 underline">{{ $t('register.watch') }}
             </RouterLink>
           </p>
         </div>
         <div class="mt-2 sm:mt-6">
           <p class="header__text">
-            Can’t register to our platform?
-            <a href="tel:+998 71 200-05-22" class="text-primary ml-2 font-medium underline">Call us</a>
+            {{ $t('register.cant_register') }}
+            <a href="tel:+998 71 200-05-22" class="text-primary ml-2 font-medium underline">{{ $t('register.call')
+            }}</a>
           </p>
         </div>
         <div class="bottom-12 mt-2 sm:mt-6">
           <p class="header__text">
-            Already have an account?
-            <RouterLink to="/login" class="text-primary font-medium ml-2 underline">Log In</RouterLink>
+            {{ $t('register.have_account') }}
+            <RouterLink to="/login" class="text-primary font-medium ml-2 underline">{{ $t('register.login') }}
+            </RouterLink>
           </p>
         </div>
       </el-form>

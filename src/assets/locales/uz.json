@@ -2,6 +2,32 @@
   "shared": {
     "view": "Ko'rish"
   },
+  "login": {
+    "signin": "Tizimga kirish",
+    "sign_title": "Iltimos, profilingizga kiring",
+    "email": "Elektron pochta manzili",
+    "password": "Parol",
+    "forgot": "Parolni unutdingizmi?",
+    "dont_account": "Profilingiz yo'qmi?"
+  },
+  "register": {
+    "main": "Ro'yxatdan o'tish",
+    "title": "Iltimos, yangi shaxsiy profilingizni yarating",
+    "email": "Elektron pochta manzili",
+    "email_title": "Shaxsiy elektron pochta manzilingizni kiriting",
+    "country": "Mamlakatingizni tanlang",
+    "phone": "Telefon raqami",
+    "enter_pass": "Parolingizni kiriting",
+    "conf_pass": "Parolni tasdiqlang",
+    "re_pass": "Parolingizni qayta kiriting",
+    "create": "Profil yaratish",
+    "dont_know": "Qanday hujjat topshirishni bilmayapsizmi?",
+    "watch": "Ko'rsatmalarni tomosha qilish",
+    "cant_register": "Bizning platformamizda ro'yxatdan o'tolmayapsizmi?",
+    "call": "Bizga qo'ng'iroq qiling",
+    "have_account": "Allaqachon profilingiz bormi?",
+    "login": "Profilga kirish"
+  },
   "landing": {
     "rebrand-title": "2023-yilning 26-iyunida AKFA universiteti Central Asian University ga (CAU) qayta tuzildi.",
     "rebrand-desc": "Ushbu qaror Markaziy Osiyodagi yetakchi ta’lim muassasasi maqomini mustahkamlashga qaratilgan global rivojlanish va o‘sish strategiyamizning bir qismidir. Universitetni yangilash to‘g‘risidagi qarorimiz Markaziy Osiyo mintaqasidagi ko‘plab talabalar tomonidan bildirilgan ishonch, dunyoning yetakchi universitetlari bilan muvaffaqiyatli hamkorlik aloqalari va oliy ta’limning xalqaro standartlarini joriy etish bilan bog‘liq.",
@@ -50,5 +76,13 @@
     "phone": "Aloqa",
     "location": "Manzil",
     "read_more": "BATAFSIL"
+  },
+  "validation": {
+    "fillField": "Iltimos, ushbu maydonni to'ldiring",
+    "inputEmail": "Пожалуйста, введите адрес электронной почты",
+    "minimumLength": "Минимальная длина {value}",
+    "maximumLength": "Maximum длина {value}",
+    "pattern": "Введите в правильном формате",
+    "passwordsDontMatch": "Два пароля не совпадают!"
   }
 }

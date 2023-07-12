@@ -7,30 +7,32 @@
         </div>
         <div class="px-4">
           <h1 class="header__title text-2xl sm:text-[28px] mb-1 sm:mb-[10px]">
-            Sign In
+            {{ $t('login.signin') }}
           </h1>
           <p class="header__text">
-            Please sign In your account
+            {{ $t('login.sign_title') }}
           </p>
         </div>
       </div>
-      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" class="px-4" :hide-required-asterisk="true" label-position="top">
-        <el-form-item label="E-mail Address" prop="email">
+      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" class="px-4" :hide-required-asterisk="true"
+        label-position="top">
+        <el-form-item :label="$t('login.email')" prop="email">
           <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
-        <el-form-item label="Password" prop="password">
+        <el-form-item :label="$t('login.password')" prop="password">
           <el-input v-model.trim="ruleForm.password" type="password" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <div class="flex flex-col items-start">
-          <RouterLink to="/forgot-password" class="forgot-password">Forgot Password?</RouterLink>
-          <el-button class="mt-4 md:mt-7 !h-9 !text-xs sm:!text-base  sm:!h-12 sm:w-[200px]" type="primary" @click="submitForm(ruleFormRef)" :loading="loading">
-            Sign In
+          <RouterLink to="/forgot-password" class="forgot-password">{{ $t('login.forgot') }}</RouterLink>
+          <el-button class="mt-4 md:mt-7 !h-9 !text-xs sm:!text-base  sm:!h-12 sm:w-[200px]" type="primary"
+            @click="submitForm(ruleFormRef)" :loading="loading">
+            {{ $t('login.signin') }}
           </el-button>
         </div>
         <div class="bottom-12 mt-6 md:mt-8">
           <p class="header__text">
-            Don't have an account?
-            <RouterLink to="/signin" class="text-primary font-medium">Sign Up</RouterLink>
+            {{ $t('login.dont_account') }}
+            <RouterLink to="/signin" class="text-primary font-medium">{{ $t('register.main') }}</RouterLink>
           </p>
         </div>
       </el-form>
