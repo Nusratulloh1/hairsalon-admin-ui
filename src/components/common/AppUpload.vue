@@ -1,23 +1,14 @@
 <template>
-  <el-upload
-    ref="uploadRef"
-    class="upload-demo"
-    :limit="2"
-    action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-    :auto-upload="false"
-    list-type="picture"
-    accept="image/*"
-    :on-change="onFileChange"
-    :on-remove="onRemove"
-    :file-list="fileList"
-  >
+  <el-upload ref="uploadRef" class="upload-demo" :limit="2"
+    action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15" :auto-upload="false" list-type="picture"
+    accept="image/*" :on-change="onFileChange" :on-remove="onRemove" :file-list="fileList">
     <template #trigger>
       <el-button :icon="Plus" type="primary" size="large">
-        Upload Photo
+        {{ $t('dashboard.upload_photo') }}
       </el-button>
     </template>
     <template #tip>
-      <div class="el-upload__tip">image files with a size less than 2mb</div>
+      <div class="el-upload__tip">{{ $t('dashboard.photo_size') }}</div>
     </template>
   </el-upload>
 </template>

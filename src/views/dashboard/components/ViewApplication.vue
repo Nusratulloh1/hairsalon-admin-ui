@@ -5,14 +5,14 @@
         <img :src="file_url" alt="File" srcset="" class="w-36 h-48" />
         <dl class="w-full grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2">
           <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">Full Name</dt>
+            <dt class="text-sm font-medium text-gray-500">{{ $t('dashboard.first_name') }}</dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ application.first_name + " " + application.last_name }}
             </dd>
           </div>
           <div class="sm:col-span-1">
             <dt class="text-sm font-medium text-gray-500">
-              Passport Information
+              {{ $t('dashboard.passport') }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{
@@ -21,32 +21,32 @@
             </dd>
           </div>
           <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">Email address</dt>
+            <dt class="text-sm font-medium text-gray-500">{{ $t('login.email') }}</dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ userStore.getUser?.email }}
             </dd>
           </div>
           <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">Date of Birth</dt>
+            <dt class="text-sm font-medium text-gray-500">{{ $t('dashboard.birth_date') }}</dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ formatDate(application.birth_date) }}
             </dd>
           </div>
           <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">Phone Number</dt>
+            <dt class="text-sm font-medium text-gray-500">{{ $t('login.phone') }}</dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ application.phone }}
             </dd>
           </div>
           <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">Gender</dt>
+            <dt class="text-sm font-medium text-gray-500">{{ $t('dashboard.gender') }}</dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ application.gender }}
             </dd>
           </div>
           <div class="sm:col-span-1">
             <dt class="text-sm font-medium text-gray-500">
-              Adress Information
+              {{ $t('application_status.address') }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ application.city?.name?.en || application.city?.name?.uz }},
@@ -55,7 +55,7 @@
           </div>
           <div class="sm:col-span-1">
             <dt class="text-sm font-medium text-gray-500">
-              English Certificate
+              {{ $t('dashboard.english') }}
             </dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ application.certificate_number }}
@@ -65,25 +65,23 @@
       </div>
       <div class="app-divider my-2 md:my-4" />
       <h1 class="font-medium text-base text-center mb-4 md:mb-8">
-        Exam Preferences
+        {{ $t('dashboard.exam_type') }}
       </h1>
-      <dl
-        class="w-full grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2 md:grid-cols-3"
-      >
+      <dl class="w-full grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2 md:grid-cols-3">
         <div class="sm:col-span-1">
-          <dt class="text-sm font-medium text-gray-500">Department</dt>
+          <dt class="text-sm font-medium text-gray-500">{{ $t('dashboard.department') }}</dt>
           <dd class="mt-1 text-sm text-gray-900">
             {{ application.program?.program }}
           </dd>
         </div>
         <div class="sm:col-span-1">
-          <dt class="text-sm font-medium text-gray-500">Exam Date</dt>
+          <dt class="text-sm font-medium text-gray-500">{{ $t('dashboard.exam_date') }}</dt>
           <dd class="mt-1 text-sm text-gray-900">
             {{ application.exam_date?.duration }}
           </dd>
         </div>
         <div class="sm:col-span-1">
-          <dt class="text-sm font-medium text-gray-500">Scholarship</dt>
+          <dt class="text-sm font-medium text-gray-500">{{ $t('application_status.scholar') }}</dt>
           <dd class="mt-1 text-sm text-gray-900">
             {{ application.is_scholarship ? "Yes" : "No" }}
           </dd>
@@ -91,34 +89,17 @@
       </dl>
       <div class="app-divider my-2 md:my-4" />
       <div class="flex items-center space-x-4">
-        <p class="font-medium text-xl">Status:</p>
-        <el-tag
-          size="large"
-          v-if="application.status === 'pending'"
-          type="warning"
-          ><span class="text-base">Pending</span></el-tag
-        >
-        <el-tag
-          size="large"
-          v-if="application.status === 'accept'"
-          type="success"
-          ><span class="text-base">Accept</span></el-tag
-        >
-        <el-tag
-          size="large"
-          v-if="application.status === 'reject'"
-          type="danger"
-          ><span class="text-base">Reject</span></el-tag
-        >
+        <p class="font-medium text-xl">{{ $t('application_status.status') }}:</p>
+        <el-tag size="large" v-if="application.status === 'pending'" type="warning"><span class="text-base">{{
+          $t('application_status.pending') }}</span></el-tag>
+        <el-tag size="large" v-if="application.status === 'accept'" type="success"><span class="text-base">{{
+          $t('application_status.approved') }}</span></el-tag>
+        <el-tag size="large" v-if="application.status === 'reject'" type="danger"><span class="text-base">{{
+          $t('application_status.rejected') }}</span></el-tag>
       </div>
-      <el-button
-        class="mt-6"
-        v-if="application.status === 'reject'"
-        size="large"
-        type="primary"
-        @click="router.push(`/resend/${application.id}`)"
-        >Resend application</el-button
-      >
+      <el-button class="mt-6" v-if="application.status === 'reject'" size="large" type="primary"
+        @click="router.push(`/resend/${application.id}`)">{{
+          $t('application_status.resend') }}</el-button>
     </div>
   </div>
 </template>
