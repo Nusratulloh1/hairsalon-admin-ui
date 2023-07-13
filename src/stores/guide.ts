@@ -1,10 +1,8 @@
 import type { IRole, IUSD } from "@/models/backend";
 import { defineStore } from "pinia";
-
 import request from "@/utils/request";
 import type { ControlItem } from "@/models/frontend";
 import { makeControlItems } from "@/utils/mappers";
-
 interface GuideState {
   roles?: IRole[] | null;
   usd: IUSD | null;
@@ -96,7 +94,7 @@ export const useGuideStore = defineStore("guide", {
         .filter((region) => region.type === "province")
         .map((region) => ({
           value: region.id,
-          label: region.name?.en || region.name?.uz,
+          label: region.name,
         })),
     getTuitions: (state): any[] =>
       state.tuitions.map((tution) => ({

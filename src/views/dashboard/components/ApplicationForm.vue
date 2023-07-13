@@ -27,8 +27,9 @@
       </el-form-item>
       <el-form-item :label="$t('dashboard.region')" prop="city_id" id="city_id"
         v-if="store.getUser?.country?.code === 'UZ'">
-        <el-select v-model="ruleForm.city_id" :placeholder="$t('dashboard.select_region')" filterable size="large" class="w-full">
-          <el-option v-for="region of guideStore.getRegions" :key="region.value" :label="region.label"
+        <el-select v-model="ruleForm.city_id" :placeholder="$t('dashboard.select_region')" filterable size="large"
+          class="w-full">
+          <el-option v-for="region of guideStore.getRegions" :key="region.value" :label="region.label[`${$i18n.locale}`]"
             :value="region.value" />
         </el-select>
       </el-form-item>
@@ -40,11 +41,13 @@
       <el-form-item :label="$t('dashboard.street')" prop="address" id="address"
         v-if="store.getUser?.country?.code === 'UZ'">
         <el-tooltip content="Be sure to enter your current address" placement="top" :trigger-keys="['Enter']">
-          <el-input v-model="ruleForm.address" autocomplete="off" :placeholder="$t('dashboard.white_address')" size="large" />
+          <el-input v-model="ruleForm.address" autocomplete="off" :placeholder="$t('dashboard.white_address')"
+            size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.graduation')" prop="graduation_id" id="graduation_id">
-        <el-select v-model="ruleForm.graduation_id" :placeholder="$t('dashboard.select_graduation')" size="large" class="w-full">
+        <el-select v-model="ruleForm.graduation_id" :placeholder="$t('dashboard.select_graduation')" size="large"
+          class="w-full">
           <el-option label="School" value="SCHOOL" />
           <el-option label="Lyceum" value="LYCEUM" />
         </el-select>
