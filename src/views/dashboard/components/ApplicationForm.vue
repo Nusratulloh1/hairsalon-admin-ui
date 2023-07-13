@@ -208,7 +208,6 @@ import { useRouter } from "vue-router";
 import AppUpload from "@/components/common/AppUpload.vue";
 const router = useRouter();
 const store = useUsersStore();
-
 const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
 const language: any = ref([])
@@ -240,7 +239,6 @@ const ruleForm = reactive({
   certificate: "" as any,
   lang: ""
 });
-
 const rules = reactive<FormRules>({
   city_id: [
     {
@@ -425,7 +423,6 @@ onMounted(async () => {
     guideStore.fetchTuitions();
   }
 });
-
 const loading = ref(false);
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;

@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 import request from "@/utils/request";
 import type { ControlItem } from "@/models/frontend";
 import { makeControlItems } from "@/utils/mappers";
+import translate from "translate";
 interface GuideState {
   roles?: IRole[] | null;
   usd: IUSD | null;
@@ -33,7 +34,14 @@ export const useGuideStore = defineStore("guide", {
     },
     async fetchTuitions() {
       const tuitions = await request.post("/program/list");
-      this.tuitions = tuitions;
+      this.tuitions = tuitions
+    },
+    async langs(val: string, locale: string) {
+      const lang = await translate(val, locale)
+      console.log(lang);
+
+      return lang
+
     },
     async fetchTuitionsLang() {
       const langs = await request.post("/program/list-languages");
