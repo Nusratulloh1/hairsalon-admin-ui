@@ -92,7 +92,17 @@
     "exam_date": "Exam date",
     "allow": "I allow to use of my personal imformation",
     "submit": "Submit",
-    "difficult": "If you have questions or difficulties, please contact us"
+    "difficult": "If you have questions or difficulties, please contact us",
+    "lang": "Select a language",
+    "phone": "Your phone number",
+    "select_region": "Select your region",
+    "name_graduation": "Name of graduation place",
+    "white_graduation": "Write the name graduation place",
+    "white_address": "Write your adress",
+    "select_graduation": "Select your graduation",
+    "select_date": "Select your date of birth",
+    "select_gender": "Choose gender",
+    "select_exam": "Choose an exam day"
   },
   "application_status": {
     "address": "Adress Information",

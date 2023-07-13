@@ -1,6 +1,7 @@
 {
   "shared": {
-    "view": "Ko'rish"
+    "view": "Ko'rish",
+    "text": "Matn"
   },
   "dashboard": {
     "street": "Ko'cha manzili",
@@ -34,7 +35,17 @@
     "exam_date": "Imtihon sanasi",
     "allow": "Men shaxsiy ma'lumotlarimdan foydalanishga ruxsat beraman",
     "submit": "Yuborish",
-    "difficult": "Savollaringiz yoki qiyinchiliklaringiz bo'lsa, biz bilan bog'laning"
+    "difficult": "Savollaringiz yoki qiyinchiliklaringiz bo'lsa, biz bilan bog'laning",
+    "lang": "O'quv tilini tanlang",
+    "phone": "Telefon raqamingiz",
+    "select_region": "Ro'yxatdan o'tgan viloyatingizni tanlang",
+    "name_graduation": "Bitiruv maskani nomi",
+    "white_graduation": "Bitiruv maskani nomini kiriting",
+    "white_address": "Manzilingizni kiriting",
+    "select_graduation": "Bitiruv maskanini tanlang",
+    "select_date": "Tug'ilgan kuningizni kiriting",
+    "select_gender": "Jinsingizni tanlang",
+    "select_exam": "Imtihon kunini kiring"
   },
   "application_status": {
     "address": "Manzil ma'lumotlari",

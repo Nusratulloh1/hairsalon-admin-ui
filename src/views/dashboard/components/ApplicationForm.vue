@@ -1,23 +1,24 @@
 <template>
   <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-position="top" require-asterisk-position="right"
     v-loading="loading">
-    <h1 class="title mb-3">Department</h1>
+    <!-- <h1 class="title mb-3">Department</h1> -->
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item :label="$t('dashboard.department')" prop="program_id" id="program_id">
-        <el-select v-model="ruleForm.program_id" placeholder="Select a department" filterable size="large" class="w-full">
+        <el-select v-model="ruleForm.program_id" :placeholder="$t('dashboard.department')" filterable size="large"
+          class="w-full">
           <el-option v-for="region of guideStore.getTuitions" :key="region.value" @click="langUpdate(region.lang)"
             :label="region.label" :value="region.value" />
         </el-select>
       </el-form-item>
-      <el-form-item label="Language" prop="lang" id="lang">
-        <el-select v-model="ruleForm.lang" placeholder="Select a language" filterable size="large"
+      <el-form-item :label="$t('dashboard.lang')" prop="lang" id="lang">
+        <el-select v-model="ruleForm.lang" :placeholder="$t('dashboard.lang')" filterable size="large"
           class="w-full uppercase">
           <el-option v-for="region of language" :key="region" :label="region" :value="region" class=" uppercase" />
         </el-select>
       </el-form-item>
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item :label="$t('login.phone')" prop="phone" id="phone" v-if="store.getUser?.country?.code === 'UZ'">
+      <el-form-item :label="$t('dashboard.phone')" prop="phone" id="phone" v-if="store.getUser?.country?.code === 'UZ'">
         <el-tooltip content="Be sure to enter your personal phone number as we need it to support feedback with you"
           placement="top">
           <el-input v-model="ruleForm.phone" v-mask="'998 ## ###-##-##'" autocomplete="off" placeholder="+998"
@@ -26,24 +27,24 @@
       </el-form-item>
       <el-form-item :label="$t('dashboard.region')" prop="city_id" id="city_id"
         v-if="store.getUser?.country?.code === 'UZ'">
-        <el-select v-model="ruleForm.city_id" placeholder="Select your region" filterable size="large" class="w-full">
+        <el-select v-model="ruleForm.city_id" :placeholder="$t('dashboard.select_region')" filterable size="large" class="w-full">
           <el-option v-for="region of guideStore.getRegions" :key="region.value" :label="region.label"
             :value="region.value" />
         </el-select>
       </el-form-item>
-      <el-form-item label="Name of graduation place" prop="graduation_place" id="graduation_place">
+      <el-form-item :label="$t('dashboard.name_graduation')" prop="graduation_place" id="graduation_place">
         <el-tooltip content="Be sure to write your correct place of graduation" placement="top" :trigger-keys="['Enter']">
-          <el-input v-model="ruleForm.graduation_place" placeholder="Write the name graduation place" size="large" />
+          <el-input v-model="ruleForm.graduation_place" :placeholder="$t('dashboard.white_graduation')" size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.street')" prop="address" id="address"
         v-if="store.getUser?.country?.code === 'UZ'">
         <el-tooltip content="Be sure to enter your current address" placement="top" :trigger-keys="['Enter']">
-          <el-input v-model="ruleForm.address" autocomplete="off" placeholder="Write your address" size="large" />
+          <el-input v-model="ruleForm.address" autocomplete="off" :placeholder="$t('dashboard.white_address')" size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.graduation')" prop="graduation_id" id="graduation_id">
-        <el-select v-model="ruleForm.graduation_id" placeholder="Select your graduation" size="large" class="w-full">
+        <el-select v-model="ruleForm.graduation_id" :placeholder="$t('dashboard.select_graduation')" size="large" class="w-full">
           <el-option label="School" value="SCHOOL" />
           <el-option label="Lyceum" value="LYCEUM" />
         </el-select>
@@ -78,12 +79,12 @@
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.birth_date')" prop="birth_date" id="birth_date">
-        <el-date-picker v-model="ruleForm.birth_date" placeholder="Select your date of birth" size="large"
+        <el-date-picker v-model="ruleForm.birth_date" :placeholder="$t('dashboard.select_date')" size="large"
           class="!w-full">
         </el-date-picker>
       </el-form-item>
       <el-form-item :label="$t('dashboard.gender')" prop="gender" id="gender">
-        <el-select v-model="ruleForm.gender" size="large" placeholder="Choose gender" class="w-full">
+        <el-select v-model="ruleForm.gender" size="large" :placeholder="$t('dashboard.select_gender')" class="w-full">
           <el-option :label="$t('dashboard.male')" value="male" />
           <el-option :label="$t('dashboard.female')" value="female" />
         </el-select>
@@ -141,7 +142,7 @@
     <h1 class="title mb-3">{{ $t('dashboard.exam_type') }}</h1>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item :label="$t('dashboard.exam_date')" prop="exam_date_id" id="exam_date_id">
-        <el-select v-model="ruleForm.exam_date_id" placeholder="Choose an exam day" size="large" class="w-full">
+        <el-select v-model="ruleForm.exam_date_id" :placeholder="$t('dashboard.select_exam')" size="large" class="w-full">
           <el-option v-for="date of guideStore.getExamDates" :key="date.value" :label="date.label" :value="date.value" />
         </el-select>
       </el-form-item>
