@@ -98,7 +98,7 @@ export const useGuideStore = defineStore("guide", {
           value: region.id,
           label: region.name?.en || region.name?.uz,
         })),
-    getTuitions: (state): ControlItem[] =>
+    getTuitions: (state): any[] =>
       state.tuitions.map((tution) => ({
         value: tution.id,
         label: tution.program,
