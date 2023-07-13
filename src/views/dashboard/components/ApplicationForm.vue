@@ -476,6 +476,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   });
 };
 const langUpdate = (lang: any) => {
+  ruleForm.lang = ''
   language.value = lang
   if (lang.length == 1) {
     ruleForm.lang = lang[0]

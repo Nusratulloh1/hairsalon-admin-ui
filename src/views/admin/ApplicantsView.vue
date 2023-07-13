@@ -61,6 +61,13 @@
           {{ row.program.name }}
         </template>
       </el-table-column>
+      <el-table-column prop="program" label="Language of education" min-width="200" align="center" show-overflow-tooltip>
+        <template #default="{ row }">
+          <span class=" uppercase">
+            {{ row.language }}
+          </span>
+        </template>
+      </el-table-column>
       <el-table-column prop="created_at" label="Created At" min-width="180" align="center" show-overflow-tooltip>
         <template #default="{ row }">
           {{ dayjs(row.created_at).format('DD MMMM, YYYY') }}

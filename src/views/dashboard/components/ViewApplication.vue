@@ -33,7 +33,7 @@
             </dd>
           </div>
           <div class="sm:col-span-1">
-            <dt class="text-sm font-medium text-gray-500">{{ $t('login.phone') }}</dt>
+            <dt class="text-sm font-medium text-gray-500">{{ $t('register.phone') }}</dt>
             <dd class="mt-1 text-sm text-gray-900">
               {{ application.phone }}
             </dd>
@@ -67,11 +67,17 @@
       <h1 class="font-medium text-base text-center mb-4 md:mb-8">
         {{ $t('dashboard.exam_type') }}
       </h1>
-      <dl class="w-full grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2 md:grid-cols-3">
+      <dl class="w-full grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2 md:grid-cols-4">
         <div class="sm:col-span-1">
           <dt class="text-sm font-medium text-gray-500">{{ $t('dashboard.department') }}</dt>
           <dd class="mt-1 text-sm text-gray-900">
             {{ application.program?.program }}
+          </dd>
+        </div>
+        <div class="sm:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">Language of Education</dt>
+          <dd class="mt-1 text-sm text-gray-900 uppercase">
+            {{ application.language }}
           </dd>
         </div>
         <div class="sm:col-span-1">
