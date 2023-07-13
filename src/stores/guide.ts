@@ -9,6 +9,7 @@ interface GuideState {
   roles?: IRole[] | null;
   usd: IUSD | null;
   weather: any;
+  langs: any[],
   tuitions: any[];
   examDates: any[];
   regions: any[];
@@ -20,6 +21,7 @@ export const useGuideStore = defineStore("guide", {
     usd: null,
     weather: null,
     tuitions: [],
+    langs: [],
     examDates: [],
     regions: [],
   }),
@@ -34,6 +36,10 @@ export const useGuideStore = defineStore("guide", {
     async fetchTuitions() {
       const tuitions = await request.post("/program/list");
       this.tuitions = tuitions;
+    },
+    async fetchTuitionsLang() {
+      const langs = await request.post("/program/list-languages");
+      this.langs = langs;
     },
     async createTuition(Tuition: any) {
       await request.post("/program/create", Tuition);
@@ -96,6 +102,7 @@ export const useGuideStore = defineStore("guide", {
       state.tuitions.map((tution) => ({
         value: tution.id,
         label: tution.program,
+        lang: tution.lang || []
       })),
   },
 });

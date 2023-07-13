@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="content md:p-8">
-      <el-dropdown class=" float-right border-b p-[17px] sm:border-none">
+      <el-dropdown class=" float-right border-b p-[17px] sm:border-none z-[999]">
         <button
           class="text-[#131A34] bg-[#EDEDED] text-xs sm:text-base font-semibold flex items-center uppercase gap-2 px-[6px] py-[1.5px] sm:p-[8px] rounded-md">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

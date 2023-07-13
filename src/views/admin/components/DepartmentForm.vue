@@ -1,50 +1,26 @@
 <template>
   <div class="bg-white px-4 py-8 rounded">
-    <el-form
-      ref="ruleFormRef"
-      :model="ruleForm"
-      :rules="rules"
-      label-position="top"
-      require-asterisk-position="right"
-    >
+    <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-position="top" require-asterisk-position="right">
       <div class="grid sm:grid-cols-1 gap-y-1">
         <el-form-item label="Faculties & Departments" prop="program">
-          <el-input
-            v-model="ruleForm.program"
-            type="text"
-            autocomplete="off"
-            :placeholder="$t('shared.text')"
-            size="large"
-          />
+          <el-input v-model="ruleForm.program" type="text" autocomplete="off" :placeholder="$t('shared.text')"
+            size="large" />
         </el-form-item>
         <el-form-item label="Local Students (UZS)" prop="per_semester">
-          <el-input
-            v-model="ruleForm.per_semester"
-            autocomplete="off"
-            :placeholder="$t('shared.text')"
-            size="large"
-            type="number"
-          />
+          <el-input v-model="ruleForm.per_semester" autocomplete="off" :placeholder="$t('shared.text')" size="large"
+            type="number" />
         </el-form-item>
-        <el-form-item
-          label="International Students (USD)"
-          prop="fee_foreign_student"
-        >
-          <el-input
-            v-model="ruleForm.fee_foreign_student"
-            autocomplete="off"
-            :placeholder="$t('shared.text')"
-            size="large"
-            type="number"
-          />
+        <el-form-item label="International Students (USD)" prop="fee_foreign_student">
+          <el-input v-model="ruleForm.fee_foreign_student" autocomplete="off" :placeholder="$t('shared.text')"
+            size="large" type="number" />
+        </el-form-item>
+        <el-form-item label="Language" prop="lang">
+          <el-select v-model="ruleForm.lang" size="large" class=" w-full" multiple>
+            <el-option v-for="lang of langs" :key="lang.code" :label="lang.name" :value="lang.code" />
+          </el-select>
         </el-form-item>
         <el-form-item label="Duration (Semestrs)" prop="duration">
-          <el-input
-            v-model="ruleForm.duration"
-            autocomplete="off"
-            :placeholder="$t('shared.text')"
-            size="large"
-          />
+          <el-input v-model="ruleForm.duration" autocomplete="off" :placeholder="$t('shared.text')" size="large" />
         </el-form-item>
       </div>
     </el-form>
@@ -65,6 +41,7 @@ const i18n = useI18n();
 
 const props = defineProps<{
   department?: any | null;
+  langs?: any | null,
   type?: "create" | "edit";
 }>();
 
@@ -74,6 +51,7 @@ const ruleForm = reactive({
   per_semester: "",
   fee_foreign_student: "",
   duration: "",
+  lang: []
 });
 
 const rules = reactive<FormRules>({
@@ -105,6 +83,13 @@ const rules = reactive<FormRules>({
       trigger: "change",
     },
   ],
+  lang: [
+    {
+      required: true,
+      message: i18n.t("validation.fillField"),
+      trigger: "change",
+    },
+  ]
 });
 
 const emit = defineEmits(["onSubmit"]);

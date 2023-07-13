@@ -1,69 +1,42 @@
 <template>
   <div class="flex justify-end mb-4">
-    <el-button type="primary" size="large" @click="openDepartmentFormDialog"
-      >Add programs</el-button
-    >
+    <el-button type="primary" size="large" @click="openDepartmentFormDialog">Add programs</el-button>
   </div>
   <div class="table-wrapper" v-loading="loading">
-    <el-table
-      :data="tuitions"
-      stripe
-      style="width: 100%"
-      row-class-name="cursor-pointer"
-    >
-      <el-table-column
-        prop="program"
-        label="Faculties & Departments"
-        min-width="200"
-        align="left"
-      />
-      <el-table-column
-        prop="per_semester"
-        label="Local Students (UZS)"
-        min-width="160"
-        align="center"
-      >
+    <el-table :data="tuitions" stripe style="width: 100%" row-class-name="cursor-pointer">
+      <el-table-column prop="program" label="Faculties & Departments" min-width="200" align="left" />
+      <el-table-column prop="alng" label="Language" max-width="100" align="center">
+        <template #default="{ row }">
+          <div class="flex gap-2 w-full justify-center">
+            <div v-for="lang in row.lang || ['-']" class=" uppercase">
+              {{ lang }}
+            </div>
+          </div>
+
+        </template>
+      </el-table-column>
+      <el-table-column prop="per_semester" label="Local Students (UZS)" min-width="160" align="center">
         <template #default="{ row }">
           {{ $n(row.per_semester) }}
         </template>
       </el-table-column>
-      <el-table-column
-        prop="fee_foreign_student"
-        label="International Students (USD)"
-        min-width="160"
-        align="center"
-      >
+      <el-table-column prop="fee_foreign_student" label="International Students (USD)" min-width="160" align="center">
         <template #default="{ row }">
           {{ $n(row.fee_foreign_student) }}
         </template>
       </el-table-column>
-      <el-table-column
-        prop="duration"
-        label="Duration (Semestrs)"
-        min-width="180"
-        align="center"
-      />
+      <el-table-column prop="duration" label="Duration (Semestrs)" min-width="180" align="center" />
       <el-table-column label="Operations" align="center">
         <template #default="scope">
           <div class="flex justify-center space-x-3">
-            <EditPen
-              class="h-4 w-4 text-blue-500"
-              @click="onEditClick(scope.row)"
-            />
-            <Delete
-              class="h-4 w-4 text-primary"
-              @click="confirmDelete(scope.row.id)"
-            />
+            <EditPen class="h-4 w-4 text-blue-500" @click="onEditClick(scope.row)" />
+            <Delete class="h-4 w-4 text-primary" @click="confirmDelete(scope.row.id)" />
           </div>
         </template>
       </el-table-column>
     </el-table>
     <teleport to="#modal" v-if="showModal">
-      <DepartmentForm
-        :type="formType"
-        :department="tuition"
-        @on-submit="submitForm($event)"
-      />
+      <DepartmentForm :type="formType" :department="tuition" :langs="langs" @on-submit="submitForm($event)" />
     </teleport>
   </div>
 </template>
@@ -84,10 +57,12 @@ const showModal = computed(() => modal.show.value);
 const loading = ref(false);
 
 const tuitions = computed(() => guideStore.tuitions);
+const langs = computed(() => guideStore.langs);
 const tuition = ref(tuitions.value[0]);
 
 onMounted(() => {
   guideStore.fetchTuitions();
+  guideStore.fetchTuitionsLang();
 });
 const openDepartmentFormDialog = () => {
   formType.value = "create";
@@ -131,7 +106,7 @@ const confirmDelete = (id: string) => {
         console.log("error", error);
       }
     })
-    .catch(() => {});
+    .catch(() => { });
 };
 const submitForm = async (department: any) => {
   try {

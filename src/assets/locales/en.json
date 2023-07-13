@@ -62,6 +62,7 @@
   },
   "dashboard": {
     "street": "Street Address",
+    "region": "Region",
     "address": "Write your address",
     "graduation": "Graduation",
     "school": "School",
@@ -84,10 +85,24 @@
     "photo": "Photo",
     "diploma": "Diploma",
     "english": "English proficiency certificate",
-    
-
+    "certify": "Certificate Number (TRF if you have IELTS)",
+    "no_certify": "If you do not have English certificate, you can take the INTERNAL ENGLISH EXAM",
+    "exam_type": "Exam Preferences",
+    "department": "Select a department",
+    "exam_date": "Exam date",
+    "allow": "I allow to use of my personal imformation",
+    "submit": "Submit",
+    "difficult": "If you have questions or difficulties, please contact us"
   },
-  "application_status": {},
+  "application_status": {
+    "address": "Adress Information",
+    "scholar": "Scholarship",
+    "status": "Status",
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "resend": "Resend application"
+  },
   "landing": {
     "rebrand-title": "From June 26, 2023, AKFA University will transform into Central Asian University (CAU).",
     "rebrand-desc": "This decision is part of our global development and growth strategy to strengthen our position as a leading educational institution in Central Asia. The university's rebranding is based on the trust we have received from numerous students in the Central Asian region, successful partnerships with leading universities worldwide, and the implementation of international higher education standards.",
