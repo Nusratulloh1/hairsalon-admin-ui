@@ -116,8 +116,7 @@
             @remove="() => (ruleForm.diploma = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.english')" v-if="ruleForm.lang ? ruleForm.lang === 'en' : true"
-        prop="proficiency_certificate">
+      <el-form-item :label="$t('dashboard.english')" v-if="showEng" prop="proficiency_certificate">
         <el-select v-model="ruleForm.proficiency_certificate" size="large" class="w-full">
           <el-option label="IELTS" value="ielts" />
           <el-option label="TOEFL" value="toefl" />
@@ -125,8 +124,7 @@
           <el-option label="IEPTE" value="iepte" />
         </el-select>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.english')" prop="certificate"
-        v-if="ruleForm.lang ? ruleForm.lang === 'en' : true">
+      <el-form-item :label="$t('dashboard.english')" prop="certificate" v-if="showEng">
         <el-tooltip
           content="Make sure that there is nothing in the photo except for the certigicate and all the necessary data are visible correctly"
           placement="top">
@@ -134,12 +132,11 @@
             @remove="() => (ruleForm.certificate = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.certify')" prop="certificate_number"
-        v-if="ruleForm.lang ? ruleForm.lang === 'en' : true">
+      <el-form-item :label="$t('dashboard.certify')" prop="certificate_number" v-if="showEng">
         <el-input v-model="ruleForm.certificate_number" autocomplete="off" placeholder="Write the number of your document"
           size="large" />
       </el-form-item>
-      <el-form-item prop="take_internal_exam" v-if="ruleForm.lang ? ruleForm.lang === 'en' : true">
+      <el-form-item prop="take_internal_exam" v-if="showEng">
         <el-checkbox class="!whitespace-normal" v-model="ruleForm.take_internal_exam" size="large">
           {{ $t('dashboard.no_certify') }}</el-checkbox>
       </el-form-item>
@@ -215,7 +212,7 @@ const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
 const language: any = ref([])
 const i18n = useI18n();
-
+const showEng = ref(true)
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
   city_id: "",
@@ -481,7 +478,14 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 };
 const langUpdate = (lang: any) => {
   ruleForm.lang = ''
+  console.log(lang.filter((x: any) => x == 'en').length);
   language.value = lang
+  if (lang.filter((x: any) => x == 'en').length == 1) {
+    showEng.value = true
+  }
+  else {
+    showEng.value = false
+  }
   if (lang.length == 1) {
     ruleForm.lang = lang[0]
   }
