@@ -34,14 +34,25 @@ export const useGuideStore = defineStore("guide", {
     },
     async fetchTuitions() {
       const tuitions = await request.post("/program/list");
-      this.tuitions = tuitions
+      this.tuitions = tuitions.map((tution: any) => ({
+        ...tution,
+        langs: {
+          en: tution.program,
+          uz: "",
+          ru: ""
+        }
+      })),
+      this.tuitions.forEach((acc: any, curr : any) => {
+        this.langs(acc.program, curr)
+       });
     },
-    async langs(val: string, locale: string) {
-      const lang = await translate(val, locale)
-      console.log(lang);
-
-      return lang
-
+    async langs(val: string, index: any) {
+      const uzb = await translate(val, 'uz')
+      const rus = await translate(val, 'ru')
+      this.tuitions[index].langs.uz = uzb
+      this.tuitions[index].langs.ru = rus
+      //  uz.value.push(uzb)
+      //  ru.value.push(rus)
     },
     async fetchTuitionsLang() {
       const langs = await request.post("/program/list-languages");
@@ -107,7 +118,7 @@ export const useGuideStore = defineStore("guide", {
     getTuitions: (state): any[] =>
       state.tuitions.map((tution) => ({
         value: tution.id,
-        label: tution.program,
+        label: tution.langs,
         lang: tution.lang || []
       })),
   },

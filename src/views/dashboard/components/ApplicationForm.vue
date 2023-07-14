@@ -6,11 +6,11 @@
       <el-form-item :label="$t('dashboard.department')" prop="program_id" id="program_id">
         <el-select v-model="ruleForm.program_id" :placeholder="$t('dashboard.department')" filterable size="large"
           class="w-full">
-          <el-option v-for="region of guideStore.getTuitions" :key="region.value" @click="langUpdate(region.lang)"
-            :label="region.label" :value="region.value" />
+          <el-option v-for="region of guideStore.getTuitions" class=" capitalize" :key="region.value"
+            @click="langUpdate(region.lang)" :label="region.label[`${$i18n.locale}`]" :value="region.value" />
         </el-select>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.lang')" prop="lang" id="lang">
+      <el-form-item :label="$t('dashboard.lang_edu')" prop="lang" id="lang">
         <el-select v-model="ruleForm.lang" :placeholder="$t('dashboard.lang')" filterable size="large"
           class="w-full uppercase">
           <el-option v-for="region of language" :key="region" :label="region" :value="region" class=" uppercase" />
@@ -102,13 +102,13 @@
             @remove="() => (ruleForm.passport = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.passport_photo')" prop="photo" id="photo">
+      <el-form-item :label="$t('dashboard.photo')" prop="photo" id="photo">
         <el-tooltip content="Make sure your photo matches your passport photo and format" placement="top">
           <AppUpload @upload="(file) => { ruleForm.photo = file, ruleFormRef?.clearValidate('photo') }"
             @remove="() => (ruleForm.photo = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.photo')" prop="diploma" id="diploma">
+      <el-form-item :label="$t('dashboard.diploma')" prop="diploma" id="diploma">
         <el-tooltip
           content="Make sure that there is nothing in the photo except for the diploma and all the necessary data are visible correctly"
           placement="top">
@@ -116,7 +116,8 @@
             @remove="() => (ruleForm.diploma = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.english')" v-if="ruleForm.lang === 'en'" prop="proficiency_certificate">
+      <el-form-item :label="$t('dashboard.english')" v-if="ruleForm.lang ? ruleForm.lang === 'en' : true"
+        prop="proficiency_certificate">
         <el-select v-model="ruleForm.proficiency_certificate" size="large" class="w-full">
           <el-option label="IELTS" value="ielts" />
           <el-option label="TOEFL" value="toefl" />
@@ -124,7 +125,8 @@
           <el-option label="IEPTE" value="iepte" />
         </el-select>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.english')" prop="certificate" v-if="ruleForm.lang === 'en'">
+      <el-form-item :label="$t('dashboard.english')" prop="certificate"
+        v-if="ruleForm.lang ? ruleForm.lang === 'en' : true">
         <el-tooltip
           content="Make sure that there is nothing in the photo except for the certigicate and all the necessary data are visible correctly"
           placement="top">
@@ -132,12 +134,13 @@
             @remove="() => (ruleForm.certificate = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item :label="$t('dashboard.certify')" prop="certificate_number" v-if="ruleForm.lang === 'en'">
+      <el-form-item :label="$t('dashboard.certify')" prop="certificate_number"
+        v-if="ruleForm.lang ? ruleForm.lang === 'en' : true">
         <el-input v-model="ruleForm.certificate_number" autocomplete="off" placeholder="Write the number of your document"
           size="large" />
       </el-form-item>
-      <el-form-item prop="take_internal_exam" v-if="ruleForm.lang === 'en'">
-        <el-checkbox class="!whitespace-normal" v-model="ruleForm.take_internal_exam" size="large">If you do not have
+      <el-form-item prop="take_internal_exam" v-if="ruleForm.lang ? ruleForm.lang === 'en' : true">
+        <el-checkbox class="!whitespace-normal" v-model="ruleForm.take_internal_exam" size="large">
           {{ $t('dashboard.no_certify') }}</el-checkbox>
       </el-form-item>
     </div>

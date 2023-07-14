@@ -8,7 +8,7 @@
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 items-center gap-2">
         <el-select v-model="filter.program_id" placeholder="Program" size="large" class="w-full">
-          <el-option v-for="region of guideStore.getTuitions" :key="region.value" :label="region.label"
+          <el-option v-for="region of guideStore.getTuitions" :key="region.value" :label="region.label[`${$i18n.locale}`]"
             :value="region.value" />
         </el-select>
         <el-select v-model="filter.exam_date_id" placeholder="Exam date" size="large" class="w-full">

@@ -3,7 +3,7 @@
     <div class="mb-8">
       <el-select v-model="program_id" placeholder="Program" @change="filterProgram" size="large" class=" w-60">
         <el-option v-for="region of [{ value: 'all', label: 'All' }, ...guideStore.getTuitions]" :key="region.value"
-          :label="region.label" :value="region.value" />
+          :label="region.label[`${$i18n.locale}`]" :value="region.value" />
       </el-select>
     </div>
     <div class="mb-16">

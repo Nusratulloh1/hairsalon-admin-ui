@@ -216,7 +216,7 @@
           <el-option
             v-for="region of guideStore.getTuitions"
             :key="region.value"
-            :label="region.label"
+            :label="region.label[`${$i18n.locale}`]"
             :value="region.value"
           />
         </el-select>
