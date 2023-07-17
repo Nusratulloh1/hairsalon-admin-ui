@@ -22,6 +22,12 @@
         <el-form-item label="Duration (Semestrs)" prop="duration">
           <el-input v-model="ruleForm.duration" autocomplete="off" :placeholder="$t('shared.text')" size="large" />
         </el-form-item>
+        <el-form-item prop="has_scholarship" label="Scholarship">
+          <el-radio-group v-model="ruleForm.has_scholarship">
+            <el-radio :label="true">Yes</el-radio>
+            <el-radio :label="false">No</el-radio>
+          </el-radio-group>
+        </el-form-item>
       </div>
     </el-form>
     <div class="flex">
@@ -51,7 +57,8 @@ const ruleForm = reactive({
   per_semester: "",
   fee_foreign_student: "",
   duration: "",
-  lang: []
+  lang: [],
+  has_scholarship: false,
 });
 
 const rules = reactive<FormRules>({
