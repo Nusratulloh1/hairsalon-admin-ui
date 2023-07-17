@@ -30,22 +30,17 @@ export const i18n = createI18n({
 
 export async function setLocale(locale: string) {
   if (!i18n.global.availableLocales.includes(locale)) {
-    console.log('fdgdf');
-    
     const messages = await loadLocale(locale);
-
     if (messages === undefined) {
       return;
     }
-
     i18n.global.setLocaleMessage(locale, messages);
   }
-
   i18n.global.locale.value = locale;
 }
-export default async function routeMiddleware(to : any, _from : any, next: any) {
+export default async function routeMiddleware(to: any, _from: any, next: any) {
   const paramLocale = to.params.locale
-  if(paramLocale.includes('uz ru en')) {
+  if (paramLocale.includes('uz ru en')) {
     return next(paramLocale)
   }
   i18n.global.locale.value = paramLocale;

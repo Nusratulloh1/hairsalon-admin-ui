@@ -38,21 +38,21 @@ export const useGuideStore = defineStore("guide", {
         ...tution,
         langs: {
           en: tution.program,
-          uz: "",
-          ru: ""
+          uz: tution.program,
+          ru: tution.program
         }
       })),
-      this.tuitions.forEach((acc: any, curr : any) => {
-        this.langs(acc.program, curr)
-       });
+        this.tuitions.forEach((acc: any, curr: any) => {
+          this.langs(acc.program, curr)
+        });
     },
-    async langs(val: string, index: any) {
-      const uzb = await translate(val, 'uz')
-      const rus = await translate(val, 'ru')
-      this.tuitions[index].langs.uz = uzb
-      this.tuitions[index].langs.ru = rus
-      //  uz.value.push(uzb)
-      //  ru.value.push(rus)
+    langs(val: string, index: any) {
+      translate(val, 'uz').then((res) => {
+        this.tuitions[index].langs.uz = res
+      })
+      translate(val, 'ru').then((res) => {
+        this.tuitions[index].langs.ru = res
+      })
     },
     async fetchTuitionsLang() {
       const langs = await request.post("/program/list-languages");
