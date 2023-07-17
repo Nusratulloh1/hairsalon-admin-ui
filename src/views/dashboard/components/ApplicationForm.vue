@@ -7,7 +7,8 @@
         <el-select v-model="ruleForm.program_id" :placeholder="$t('dashboard.department')" filterable size="large"
           class="w-full">
           <el-option v-for="region of guideStore.getTuitions" class=" capitalize" :key="region.value"
-            @click="langUpdate(region.lang)" :label="region.label[`${$i18n.locale}`]" :value="region.value" />
+            @click="langUpdate(region.lang, region.has_scholarship)" :label="region.label[`${$i18n.locale}`]"
+            :value="region.value" />
         </el-select>
       </el-form-item>
       <el-form-item :label="$t('dashboard.lang_edu')" prop="lang" id="lang">
@@ -151,7 +152,7 @@
       </el-form-item>
       <div></div>
       <div></div>
-      <!-- <el-form-item prop="is_scholarship" id="is_scholarship">
+      <el-form-item v-show="!has_scholarship" prop="is_scholarship" id="is_scholarship">
         <template #label>
           <div class="flex items-center space-x-2">
             <span>Scholarship</span>
@@ -172,14 +173,14 @@
           <el-radio :label="true">Yes</el-radio>
           <el-radio :label="false">No</el-radio>
         </el-radio-group>
-      </el-form-item> -->
+      </el-form-item>
       <el-form-item prop="is_accept">
         <el-checkbox v-model="ruleForm.is_accept" size="large">{{ $t('dashboard.allow') }}</el-checkbox>
       </el-form-item>
     </div>
   </el-form>
   <div class="flex pt-4">
-    <el-button :disabled="!ruleForm.is_accept" type="primary" size="large" @click="submitForm(ruleFormRef)">
+    <el-button :disabled="ruleForm.is_accept" type="primary" size="large" @click="submitForm(ruleFormRef)">
       {{ $t('dashboard.submit') }}
     </el-button>
   </div>
@@ -211,6 +212,7 @@ const store = useUsersStore();
 const guideStore = useGuideStore();
 const applicationStore = useApplicationStore();
 const language: any = ref([])
+const has_scholarship = ref(false)
 const i18n = useI18n();
 const showEng = ref(true)
 const ruleFormRef = ref<FormInstance>();
@@ -476,7 +478,8 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     }
   });
 };
-const langUpdate = (lang: any) => {
+const langUpdate = (lang: any, scholarship: any) => {
+  has_scholarship.value = scholarship
   ruleForm.lang = ''
   console.log(lang.filter((x: any) => x == 'en').length);
   language.value = lang
