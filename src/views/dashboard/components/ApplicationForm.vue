@@ -152,7 +152,7 @@
       </el-form-item>
       <div></div>
       <div></div>
-      <el-form-item v-show="!has_scholarship" prop="is_scholarship" id="is_scholarship">
+      <el-form-item v-show="has_scholarship" prop="is_scholarship" id="is_scholarship">
         <template #label>
           <div class="flex items-center space-x-2">
             <span>Scholarship</span>
@@ -180,7 +180,7 @@
     </div>
   </el-form>
   <div class="flex pt-4">
-    <el-button :disabled="ruleForm.is_accept" type="primary" size="large" @click="submitForm(ruleFormRef)">
+    <el-button :disabled="!ruleForm.is_accept" type="primary" size="large" @click="submitForm(ruleFormRef)">
       {{ $t('dashboard.submit') }}
     </el-button>
   </div>

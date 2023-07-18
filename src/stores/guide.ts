@@ -119,7 +119,8 @@ export const useGuideStore = defineStore("guide", {
       state.tuitions.map((tution) => ({
         value: tution.id,
         label: tution.langs,
-        lang: tution.lang || []
+        lang: tution.lang || [],
+        has_scholarship: tution.has_scholarship
       })),
   },
 });
