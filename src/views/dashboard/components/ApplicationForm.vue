@@ -7,8 +7,7 @@
         <el-select v-model="ruleForm.program_id" :placeholder="$t('dashboard.department')" filterable size="large"
           class="w-full">
           <el-option v-for="region of guideStore.getTuitions" class=" capitalize" :key="region.value"
-            @click="langUpdate(region.lang, region.has_scholarship)" :label="region.label[`${$i18n.locale}`]"
-            :value="region.value" />
+            @click="langUpdate(region.lang, region.has_scholarship)" :label="$t(`${region.label}`)" :value="region.value" />
         </el-select>
       </el-form-item>
       <el-form-item :label="$t('dashboard.lang_edu')" prop="lang" id="lang">

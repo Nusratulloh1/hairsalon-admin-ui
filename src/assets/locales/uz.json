@@ -139,5 +139,20 @@
     "maximumLength": "Maximum длина {value}",
     "pattern": "Введите в правильном формате",
     "passwordsDontMatch": "Два пароля не совпадают!"
-  }
+  },
+  "Marketing": "Marketing",
+  "PR Management": "PR boshqaruvi",
+  "Computer Science": "Kompyuter fanlari",
+  "Economics": "Iqtisodiyot",
+  "International Business": "Xalqaro biznes",
+  "Industrial Engineering": "Sanoat muhandisligi",
+  "Architecture & Design": "Arxitektura va dizayn",
+  "Fintech": "Fintex",
+  "English Language Teaching and Educational Management (ELTEM)": "Ingliz tilini o'qitish va ta'lim boshqaruvi (ELTEM)",
+  "Capital Markets and Trading": "Kapital bozorlari va treyding",
+  "Dental School": "Stomatologiya maktabi",
+  "Medical School": "Tibbiyot maktabi",
+  "Accounting & Finance": "Buxgalteriya va moliya",
+  "Biomedical Engineering": "Biotibbiyot muhandisligi",
+  "Tourism and Hospitality Management": "Turizm va mehmonxona boshqaruvi"
 }

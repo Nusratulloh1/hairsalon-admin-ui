@@ -306,5 +306,20 @@
   "warehouse": {
     "1": "Активный",
     "0": "Не активный"
-  }
+  },
+  "Marketing": "Маркетинг",
+  "PR Management": "PR-менеджмент",
+  "Computer Science": "Компьютерные науки",
+  "Economics": "Экономика",
+  "International Business": "Международный бизнес",
+  "Industrial Engineering": "Промышленная инженерия",
+  "Architecture & Design": "Архитектура и дизайн",
+  "Fintech": "Финтех",
+  "English Language Teaching and Educational Management (ELTEM)": "Преподавание английского языка и управление образованием (ELTEM)",
+  "Capital Markets and Trading": "Рынки капитала и трейдинг",
+  "Dental School": "Стоматологическая школа",
+  "Medical School": "Медицинская школа",
+  "Accounting & Finance": "Бухгалтерский учет и финансы",
+  "Biomedical Engineering": "Биомедицинская инженерия",
+  "Tourism and Hospitality Management": "Туризм и гостиничное управление"
 }

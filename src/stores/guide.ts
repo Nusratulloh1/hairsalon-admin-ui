@@ -3,7 +3,6 @@ import { defineStore } from "pinia";
 import request from "@/utils/request";
 import type { ControlItem } from "@/models/frontend";
 import { makeControlItems } from "@/utils/mappers";
-import translate from "translate";
 interface GuideState {
   roles?: IRole[] | null;
   usd: IUSD | null;
@@ -34,25 +33,7 @@ export const useGuideStore = defineStore("guide", {
     },
     async fetchTuitions() {
       const tuitions = await request.post("/program/list");
-      this.tuitions = tuitions.map((tution: any) => ({
-        ...tution,
-        langs: {
-          en: tution.program,
-          uz: tution.program,
-          ru: tution.program
-        }
-      })),
-        this.tuitions.forEach((acc: any, curr: any) => {
-          this.langs(acc.program, curr)
-        });
-    },
-    langs(val: string, index: any) {
-      translate(val, 'uz').then((res) => {
-        this.tuitions[index].langs.uz = res
-      })
-      translate(val, 'ru').then((res) => {
-        this.tuitions[index].langs.ru = res
-      })
+      this.tuitions = tuitions
     },
     async fetchTuitionsLang() {
       const langs = await request.post("/program/list-languages");
@@ -118,7 +99,7 @@ export const useGuideStore = defineStore("guide", {
     getTuitions: (state): any[] =>
       state.tuitions.map((tution) => ({
         value: tution.id,
-        label: tution.langs,
+        label: tution.program,
         lang: tution.lang || [],
         has_scholarship: tution.has_scholarship
       })),
