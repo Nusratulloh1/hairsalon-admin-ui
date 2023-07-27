@@ -17,7 +17,7 @@
     "axios": "^1.2.3",
     "date-fns": "^2.29.3",
     "echarts": "^5.4.1",
-    "element-plus": "^2.2.28",
+    "element-plus": "2.3.8",
     "js-cookie": "^3.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.29",

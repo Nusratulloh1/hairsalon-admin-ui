@@ -1,8 +1,18 @@
 <template>
   <div class="wrapper" :class="{ 'full-screen': !drawer }">
-    <TheHeader class="the-header border-b" @onBurgerClick="drawer = !drawer"></TheHeader>
+    <TheHeader
+      class="the-header border-b"
+      @onBurgerClick="drawer = !drawer"
+    ></TheHeader>
     <div class="block md:hidden">
-      <el-drawer v-model="drawer" :with-header="false" :show-close="false" direction="ltr" size="300px">
+      <el-drawer
+        v-if="drawer"
+        v-model="drawer"
+        :with-header="false"
+        :show-close="false"
+        direction="ltr"
+        size="300px"
+      >
         <TheSidebar :routes="routes" @onRouteClick="drawer = false" />
       </el-drawer>
     </div>
@@ -10,7 +20,7 @@
     <div class="content p-4 md:p-8">
       <RouterView />
     </div>
-    <TheFooter />
+    <TheFooter class="footer" />
   </div>
 </template>
 
@@ -42,7 +52,7 @@ const drawer = ref(false);
 
 .wrapper {
   background: #ffffff;
-  height: 100vh;
+
   display: grid;
   grid-template-columns: 300px 1fr;
   grid-template-rows: auto 1fr auto;
@@ -50,6 +60,7 @@ const drawer = ref(false);
     "sidebar header"
     "sidebar main"
     "sidebar footer";
+  min-height: 100vh;
 
   .the-header {
     height: 90px;
@@ -72,6 +83,7 @@ const drawer = ref(false);
     "header"
     "main"
     "footer";
+  min-height: 100vh;
 
   .sidebar {
     display: none;
