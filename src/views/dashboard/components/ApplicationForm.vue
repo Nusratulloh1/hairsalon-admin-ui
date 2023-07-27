@@ -7,7 +7,8 @@
         <el-select v-model="ruleForm.program_id" :placeholder="$t('dashboard.department')" filterable size="large"
           class="w-full">
           <el-option v-for="region of guideStore.getTuitions" class=" capitalize" :key="region.value"
-            @click="langUpdate(region.lang, region.has_scholarship)" :label="$t(`${region.label}`)" :value="region.value" />
+            @click="langUpdate(region.lang, region.has_scholarship)" :label="$t(`${region.label}`)"
+            :value="region.value" />
         </el-select>
       </el-form-item>
       <el-form-item :label="$t('dashboard.lang_edu')" prop="lang" id="lang">
@@ -29,7 +30,8 @@
         v-if="store.getUser?.country?.code === 'UZ'">
         <el-select v-model="ruleForm.city_id" :placeholder="$t('dashboard.select_region')" filterable size="large"
           class="w-full">
-          <el-option v-for="region of guideStore.getRegions" :key="region.value" :label="region.label[`${$i18n.locale}`]"
+          <el-option v-for="region of guideStore.getRegions" :key="region.value"
+            :label="region.label[`${$i18n.locale}`] ? region.label[`${$i18n.locale}`] : region.label.en"
             :value="region.value" />
         </el-select>
       </el-form-item>
