@@ -1,145 +1,54 @@
 <template>
-  <el-form
-    ref="ruleFormRef"
-    :model="ruleForm"
-    :rules="rules"
-    label-position="top"
-    require-asterisk-position="right"
-    v-loading="loading"
-  >
+  <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" label-position="top" require-asterisk-position="right"
+    v-loading="loading">
     <!-- <h1 class="title mb-3">Department</h1> -->
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item
-        :label="$t('dashboard.department')"
-        prop="program_id"
-        id="program_id"
-      >
-        <el-select
-          v-model="ruleForm.program_id"
-          :placeholder="$t('dashboard.department')"
-          size="large"
-          class="w-full"
-          filterable
-          @change="onProgramChange"
-        >
-          <el-option
-            v-for="region of guideStore.getTuitions"
-            class="capitalize"
-            :key="region.value"
-            :label="$t(`${region.label}`)"
-            :value="region.value"
-          />
+      <el-form-item :label="$t('dashboard.department')" prop="program_id" id="program_id">
+        <el-select v-model="ruleForm.program_id" :multiple="screen < 640" :multiple-limit="1"
+          :placeholder="$t('dashboard.department')" size="large" class="w-full" filterable @change="onProgramChange">
+          <el-option v-for="region of guideStore.getTuitions" class="capitalize" :key="region.value"
+            :label="$t(`${region.label}`)" :value="region.value" />
         </el-select>
       </el-form-item>
       <el-form-item :label="$t('dashboard.lang_edu')" prop="lang" id="lang">
-        <el-select
-          v-model="ruleForm.lang"
-          :placeholder="$t('dashboard.lang')"
-          filterable
-          size="large"
-          class="w-full uppercase"
-        >
-          <el-option
-            v-for="region of language"
-            :key="region"
-            :label="region"
-            :value="region"
-            class="uppercase"
-          />
+        <el-select v-model="ruleForm.lang" :multiple="screen < 640" :multiple-limit="1"
+          :placeholder="$t('dashboard.lang')" filterable size="large" class="w-full uppercase">
+          <el-option v-for="region of language" :key="region" :label="region" :value="region" class="uppercase" />
         </el-select>
       </el-form-item>
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item
-        :label="$t('dashboard.phone')"
-        prop="phone"
-        id="phone"
-        v-if="store.getUser?.country?.code === 'UZ'"
-      >
-        <el-tooltip
-          content="Be sure to enter your personal phone number as we need it to support feedback with you"
-          placement="top"
-        >
-          <el-input
-            v-model="ruleForm.phone"
-            v-mask="'998 ## ###-##-##'"
-            autocomplete="off"
-            placeholder="+998"
-            size="large"
-          />
+      <el-form-item :label="$t('dashboard.phone')" prop="phone" id="phone" v-if="store.getUser?.country?.code === 'UZ'">
+        <el-tooltip content="Be sure to enter your personal phone number as we need it to support feedback with you"
+          placement="top">
+          <el-input v-model="ruleForm.phone" v-mask="'998 ## ###-##-##'" autocomplete="off" placeholder="+998"
+            size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.region')"
-        prop="city_id"
-        v-if="store.getUser?.country?.code === 'UZ'"
-      >
-        <el-select
-          v-model="ruleForm.city_id"
-          :placeholder="$t('dashboard.select_region')"
-          filterable
-          size="large"
-          class="w-full"
-        >
-          <el-option
-            v-for="region of guideStore.getRegions"
-            :key="region.value"
-            :label="
-              region.label[`${$i18n.locale}`]
-                ? region.label[`${$i18n.locale}`]
-                : region.label.en
-            "
-            :value="region.value"
-          />
+      <el-form-item :label="$t('dashboard.region')" prop="city_id" v-if="store.getUser?.country?.code === 'UZ'">
+        <el-select v-model="ruleForm.city_id" :multiple="screen < 640" :multiple-limit="1"
+          :placeholder="$t('dashboard.select_region')" filterable size="large" class="w-full">
+          <el-option v-for="region of guideStore.getRegions" :key="region.value" :label="region.label[`${$i18n.locale}`]
+            ? region.label[`${$i18n.locale}`]
+            : region.label.en
+            " :value="region.value" />
         </el-select>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.name_graduation')"
-        prop="graduation_place"
-        id="graduation_place"
-      >
-        <el-tooltip
-          content="Be sure to write your correct place of graduation"
-          placement="top"
-          :trigger-keys="['Enter']"
-        >
-          <el-input
-            v-model="ruleForm.graduation_place"
-            :placeholder="$t('dashboard.white_graduation')"
-            size="large"
-          />
+      <el-form-item :label="$t('dashboard.name_graduation')" prop="graduation_place" id="graduation_place">
+        <el-tooltip content="Be sure to write your correct place of graduation" placement="top" :trigger-keys="['Enter']">
+          <el-input v-model="ruleForm.graduation_place" :placeholder="$t('dashboard.white_graduation')" size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.street')"
-        prop="address"
-        id="address"
-        v-if="store.getUser?.country?.code === 'UZ'"
-      >
-        <el-tooltip
-          content="Be sure to enter your current address"
-          placement="top"
-          :trigger-keys="['Enter']"
-        >
-          <el-input
-            v-model="ruleForm.address"
-            autocomplete="off"
-            :placeholder="$t('dashboard.white_address')"
-            size="large"
-          />
+      <el-form-item :label="$t('dashboard.street')" prop="address" id="address"
+        v-if="store.getUser?.country?.code === 'UZ'">
+        <el-tooltip content="Be sure to enter your current address" placement="top" :trigger-keys="['Enter']">
+          <el-input v-model="ruleForm.address" autocomplete="off" :placeholder="$t('dashboard.white_address')"
+            size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.graduation')"
-        prop="graduation_id"
-        id="graduation_id"
-      >
-        <el-select
-          v-model="ruleForm.graduation_id"
-          :placeholder="$t('dashboard.select_graduation')"
-          size="large"
-          class="w-full"
-        >
+      <el-form-item :label="$t('dashboard.graduation')" prop="graduation_id" id="graduation_id">
+        <el-select v-model="ruleForm.graduation_id" :multiple="screen < 640" :multiple-limit="1"
+          :placeholder="$t('dashboard.select_graduation')" size="large" class="w-full">
           <el-option label="School" value="SCHOOL" />
           <el-option label="Lyceum" value="LYCEUM" />
         </el-select>
@@ -147,260 +56,124 @@
     </div>
     <div class="app-divider my-2 md:my-4"></div>
     <h1 class="title mb-3">{{ $t("dashboard.passport") }}</h1>
-    <div
-      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-2"
-      :class="{ 'lg:!grid-cols-5': store.getUser?.country?.code !== 'UZ' }"
-    >
-      <el-form-item
-        :label="$t('dashboard.first_name')"
-        prop="first_name"
-        id="first_name"
-      >
-        <el-tooltip
-          content="Please write your first name like in passport"
-          placement="top"
-        >
-          <el-input
-            v-model="ruleForm.first_name"
-            type="text"
-            autocomplete="off"
-            :placeholder="$t('dashboard.write_first')"
-            size="large"
-          />
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-2"
+      :class="{ 'lg:!grid-cols-5': store.getUser?.country?.code !== 'UZ' }">
+      <el-form-item :label="$t('dashboard.first_name')" prop="first_name" id="first_name">
+        <el-tooltip content="Please write your first name like in passport" placement="top">
+          <el-input v-model="ruleForm.first_name" type="text" autocomplete="off"
+            :placeholder="$t('dashboard.write_first')" size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.last_name')"
-        prop="last_name"
-        id="last_name"
-      >
-        <el-tooltip
-          content="Please write your last name like in passport"
-          placement="top"
-        >
-          <el-input
-            v-model="ruleForm.last_name"
-            autocomplete="off"
-            :placeholder="$t('dashboard.write_last')"
-            size="large"
-          />
+      <el-form-item :label="$t('dashboard.last_name')" prop="last_name" id="last_name">
+        <el-tooltip content="Please write your last name like in passport" placement="top">
+          <el-input v-model="ruleForm.last_name" autocomplete="off" :placeholder="$t('dashboard.write_last')"
+            size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.passport_seria')"
-        v-if="store.getUser?.country?.code === 'UZ'"
-        prop="passport_serial"
-        id="passport_serial"
-      >
-        <el-tooltip
-          content="Please write your first letters in passport"
-          placement="top"
-        >
-          <el-input
-            v-model="ruleForm.passport_serial"
-            autocomplete="off"
-            :placeholder="$t('dashboard.passport_title')"
-            size="large"
-          />
+      <el-form-item :label="$t('dashboard.passport_seria')" v-if="store.getUser?.country?.code === 'UZ'"
+        prop="passport_serial" id="passport_serial">
+        <el-tooltip content="Please write your first letters in passport" placement="top">
+          <el-input v-model="ruleForm.passport_serial" autocomplete="off" :placeholder="$t('dashboard.passport_title')"
+            size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.passport_number')"
-        prop="passport_number"
-        id="passport_number"
-      >
-        <el-tooltip
-          content="Please write your passport numbers (numbers after letters)"
-          placement="top"
-        >
-          <el-input
-            v-model="ruleForm.passport_number"
-            autocomplete="off"
-            :placeholder="$t('shared.text')"
-            size="large"
-          />
+      <el-form-item :label="$t('dashboard.passport_number')" prop="passport_number" id="passport_number">
+        <el-tooltip content="Please write your passport numbers (numbers after letters)" placement="top">
+          <el-input v-model="ruleForm.passport_number" autocomplete="off" :placeholder="$t('shared.text')" size="large" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.birth_date')"
-        prop="birth_date"
-        id="birth_date"
-      >
-        <el-date-picker
-          v-model="ruleForm.birth_date"
-          :placeholder="$t('dashboard.select_date')"
-          size="large"
-          class="!w-full"
-        >
+      <el-form-item :label="$t('dashboard.birth_date')" prop="birth_date" id="birth_date">
+        <el-date-picker v-model="ruleForm.birth_date" :placeholder="$t('dashboard.select_date')" size="large"
+          class="!w-full">
         </el-date-picker>
       </el-form-item>
       <el-form-item :label="$t('dashboard.gender')" prop="gender" id="gender">
-        <el-select
-          v-model="ruleForm.gender"
-          size="large"
-          :placeholder="$t('dashboard.select_gender')"
-          class="w-full"
-        >
+        <el-select v-model="ruleForm.gender" :multiple="screen < 640" :multiple-limit="1" size="large"
+          :placeholder="$t('dashboard.select_gender')" class="w-full">
           <el-option :label="$t('dashboard.male')" value="male" />
           <el-option :label="$t('dashboard.female')" value="female" />
         </el-select>
       </el-form-item>
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item
-        :label="$t('dashboard.passport_photo')"
-        prop="passport"
-        id="passport"
-      >
+      <el-form-item :label="$t('dashboard.passport_photo')" prop="passport" id="passport">
         <el-tooltip
           content="Make sure that your passport does not exceed two megabytes and that all the necessary data is visible on the photo"
-          placement="top"
-        >
-          <AppUpload
-            @upload="
-              (file) => {
-                (ruleForm.passport = file),
-                  ruleFormRef?.clearValidate('passport');
-              }
-            "
-            @remove="() => (ruleForm.passport = null)"
-          />
+          placement="top">
+          <AppUpload @upload="(file) => {
+            (ruleForm.passport = file),
+              ruleFormRef?.clearValidate('passport');
+          }
+            " @remove="() => (ruleForm.passport = null)" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.photo')" prop="photo" id="photo">
-        <el-tooltip
-          content="Make sure your photo matches your passport photo and format"
-          placement="top"
-        >
-          <AppUpload
-            @upload="
-              (file) => {
-                (ruleForm.photo = file), ruleFormRef?.clearValidate('photo');
-              }
-            "
-            @remove="() => (ruleForm.photo = null)"
-          />
+        <el-tooltip content="Make sure your photo matches your passport photo and format" placement="top">
+          <AppUpload @upload="(file) => {
+            (ruleForm.photo = file), ruleFormRef?.clearValidate('photo');
+          }
+            " @remove="() => (ruleForm.photo = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.diploma')"
-        prop="diploma"
-        id="diploma"
-      >
+      <el-form-item :label="$t('dashboard.diploma')" prop="diploma" id="diploma">
         <el-tooltip
           content="Make sure that there is nothing in the photo except for the diploma and all the necessary data are visible correctly"
-          placement="top"
-        >
-          <AppUpload
-            @upload="
-              (file) => {
-                (ruleForm.diploma = file),
-                  ruleFormRef?.clearValidate('diploma');
-              }
-            "
-            @remove="() => (ruleForm.diploma = null)"
-          />
+          placement="top">
+          <AppUpload @upload="(file) => {
+            (ruleForm.diploma = file),
+              ruleFormRef?.clearValidate('diploma');
+          }
+            " @remove="() => (ruleForm.diploma = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.english')"
-        v-if="showEng"
-        prop="proficiency_certificate"
-      >
-        <el-select
-          v-model="ruleForm.proficiency_certificate"
-          size="large"
-          class="w-full"
-        >
+      <el-form-item :label="$t('dashboard.english')" v-if="showEng" prop="proficiency_certificate">
+        <el-select v-model="ruleForm.proficiency_certificate" :multiple="screen < 640" :multiple-limit="1" size="large"
+          class="w-full">
           <el-option label="IELTS" value="ielts" />
           <el-option label="TOEFL" value="toefl" />
           <el-option label="DUOLINGO" value="duolingo" />
           <el-option label="IEPTE" value="iepte" />
         </el-select>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.english')"
-        prop="certificate"
-        v-if="showEng"
-      >
+      <el-form-item :label="$t('dashboard.english')" prop="certificate" v-if="showEng">
         <el-tooltip
           content="Make sure that there is nothing in the photo except for the certigicate and all the necessary data are visible correctly"
-          placement="top"
-        >
-          <AppUpload
-            @upload="
-              (file) => {
-                (ruleForm.certificate = file),
-                  ruleFormRef?.clearValidate('certificate');
-              }
-            "
-            @remove="() => (ruleForm.certificate = null)"
-          />
+          placement="top">
+          <AppUpload @upload="(file) => {
+            (ruleForm.certificate = file),
+              ruleFormRef?.clearValidate('certificate');
+          }
+            " @remove="() => (ruleForm.certificate = null)" />
         </el-tooltip>
       </el-form-item>
-      <el-form-item
-        :label="$t('dashboard.certify')"
-        prop="certificate_number"
-        v-if="showEng"
-      >
-        <el-input
-          v-model="ruleForm.certificate_number"
-          autocomplete="off"
-          placeholder="Write the number of your document"
-          size="large"
-        />
+      <el-form-item :label="$t('dashboard.certify')" prop="certificate_number" v-if="showEng">
+        <el-input v-model="ruleForm.certificate_number" autocomplete="off" placeholder="Write the number of your document"
+          size="large" />
       </el-form-item>
       <el-form-item prop="take_internal_exam" v-if="showEng">
-        <el-checkbox
-          class="!whitespace-normal"
-          v-model="ruleForm.take_internal_exam"
-          size="large"
-        >
-          {{ $t("dashboard.no_certify") }}</el-checkbox
-        >
+        <el-checkbox class="!whitespace-normal" v-model="ruleForm.take_internal_exam" size="large">
+          {{ $t("dashboard.no_certify") }}</el-checkbox>
       </el-form-item>
     </div>
     <div class="app-divider my-2 md:my-4" />
     <h1 class="title mb-3">{{ $t("dashboard.exam_type") }}</h1>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-      <el-form-item
-        :label="$t('dashboard.exam_date')"
-        prop="exam_date_id"
-        id="exam_date_id"
-      >
-        <el-select
-          v-model="ruleForm.exam_date_id"
-          :placeholder="$t('dashboard.select_exam')"
-          size="large"
-          class="w-full"
-        >
-          <el-option
-            v-for="date of guideStore.getExamDates"
-            :key="date.value"
-            :label="date.label"
-            :value="date.value"
-          />
+      <el-form-item :label="$t('dashboard.exam_date')" prop="exam_date_id" id="exam_date_id">
+        <el-select v-model="ruleForm.exam_date_id" :multiple="screen < 640" :multiple-limit="1"
+          :placeholder="$t('dashboard.select_exam')" size="large" class="w-full">
+          <el-option v-for="date of guideStore.getExamDates" :key="date.value" :label="date.label" :value="date.value" />
         </el-select>
       </el-form-item>
       <div></div>
       <div></div>
-      <el-form-item
-        v-show="has_scholarship"
-        prop="is_scholarship"
-        id="is_scholarship"
-      >
+      <el-form-item v-show="has_scholarship" prop="is_scholarship" id="is_scholarship">
         <template #label>
           <div class="flex items-center space-x-2">
             <span>Scholarship</span>
-            <el-popover
-              placement="top-start"
-              :width="300"
-              trigger="hover"
-              content="Do you want to participate in the scholarship
+            <el-popover placement="top-start" :width="300" trigger="hover" content="Do you want to participate in the scholarship
     exam? I agree that If I can not meet the
     scholarship exam requirements, then I will not
-    be able to attend it."
-            >
+    be able to attend it.">
               <template #reference>
                 <el-icon>
                   <InfoFilled />
@@ -423,12 +196,7 @@
     </div>
   </el-form>
   <div class="flex pt-4">
-    <el-button
-      :disabled="!ruleForm.is_accept"
-      type="primary"
-      size="large"
-      @click="submitForm(ruleFormRef)"
-    >
+    <el-button :disabled="!ruleForm.is_accept" type="primary" size="large" @click="submitForm(ruleFormRef)">
       {{ $t("dashboard.submit") }}
     </el-button>
   </div>
@@ -439,7 +207,7 @@ import { InfoFilled } from "@element-plus/icons-vue";
 import { useGuideStore, useApplicationStore } from "@/stores";
 import { useUsersStore } from "@/stores/user";
 import { ElMessage, type FormInstance, type FormRules } from "element-plus";
-import { ref, reactive, onMounted } from "vue";
+import { ref, reactive, onMounted, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import {
   passportNumberPattern,
@@ -459,6 +227,7 @@ const has_scholarship = ref(false);
 const i18n = useI18n();
 const showEng = ref(true);
 const ruleFormRef = ref<FormInstance>();
+const screen = computed(() => window.innerWidth)
 const ruleForm = reactive({
   city_id: "",
   graduation_place: "",
@@ -659,6 +428,8 @@ const props = defineProps<{
 }>();
 
 onMounted(async () => {
+
+  ruleFormRef.value?.resetFields()
   if (!guideStore.getExamDates.length) {
     guideStore.fetchExamDates();
   }
@@ -676,6 +447,8 @@ onMounted(async () => {
 const loading = ref(false);
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
+  console.log(ruleForm);
+
   await formEl.validate(async (valid, fields) => {
     console.log(valid, fields);
 
@@ -684,6 +457,15 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         loading.value = true;
         const data = {
           ...ruleForm,
+          program_id: typeof ruleForm.program_id == 'string' ? ruleForm.program_id : ruleForm.program_id[0],
+          lang: typeof ruleForm.lang == 'string' ? ruleForm.lang : ruleForm.lang[0],
+          graduation_id: ruleForm.graduation_id == null || typeof ruleForm.graduation_id == 'string' ?
+            ruleForm.graduation_id : ruleForm.graduation_id[0],
+          gender: typeof ruleForm.gender == 'string' ? ruleForm.gender : ruleForm.gender[0],
+          exam_date_id: typeof ruleForm.exam_date_id == 'string' ? ruleForm.exam_date_id : ruleForm.exam_date_id[0],
+          city_id: typeof ruleForm.city_id == 'string' ? ruleForm.city_id : ruleForm.city_id[0],
+          proficiency_certificate: ruleForm.proficiency_certificate == null || typeof ruleForm.proficiency_certificate == 'string'
+            ? ruleForm.proficiency_certificate : ruleForm.proficiency_certificate[0],
           phone: convertPhone(ruleForm.phone),
           birth_date: format(new Date(ruleForm.birth_date), "yyyy-MM-dd"),
         } as any;
@@ -735,9 +517,12 @@ const goDown = (target: string) => {
 };
 
 const onProgramChange = (program: any) => {
+  const currentProgram = typeof program == 'string' ? program : program[0]
+
   const region = guideStore.getTuitions.find(
-    (region) => region.value === program
+    (region) => region.value === currentProgram
   );
+
   if (region) {
     has_scholarship.value = region.has_scholarship;
     ruleForm.lang = "";
@@ -748,7 +533,7 @@ const onProgramChange = (program: any) => {
       showEng.value = false;
     }
     if (region.lang.length == 1) {
-      ruleForm.lang = region.lang[0];
+      ruleForm.lang = screen.value < 640 ? region.lang : region.lang[0]
     }
   }
 };
@@ -778,27 +563,19 @@ const onProgramChange = (program: any) => {
   z-index: -1;
 }
 
-[data-v-onboarding-wrapper]
-  [data-popper-placement^="top"]
-  > [data-popper-arrow] {
+[data-v-onboarding-wrapper] [data-popper-placement^="top"]>[data-popper-arrow] {
   bottom: 5px;
 }
 
-[data-v-onboarding-wrapper]
-  [data-popper-placement^="right"]
-  > [data-popper-arrow] {
+[data-v-onboarding-wrapper] [data-popper-placement^="right"]>[data-popper-arrow] {
   left: -4px;
 }
 
-[data-v-onboarding-wrapper]
-  [data-popper-placement^="bottom"]
-  > [data-popper-arrow] {
+[data-v-onboarding-wrapper] [data-popper-placement^="bottom"]>[data-popper-arrow] {
   top: -4px;
 }
 
-[data-v-onboarding-wrapper]
-  [data-popper-placement^="left"]
-  > [data-popper-arrow] {
+[data-v-onboarding-wrapper] [data-popper-placement^="left"]>[data-popper-arrow] {
   right: -4px;
 }
 </style>
