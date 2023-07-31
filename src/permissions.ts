@@ -62,17 +62,19 @@ router.beforeEach(
             //   next("/check-mail");
             // }
             else {
-              if (to.meta?.admin && store.user.role === "user") {
-                next("/404");
-              } else if (
-                store.user.role !== "user" &&
-                !to.meta.admin &&
-                !to.meta.public
-              ) {
-                next("/admin");
-              } else {
+              // if (to.meta?.admin && store.user.role === "user") {
+              //   next("/404");
+              // } 
+              // else if (
+              //   store.user.role !== "user" &&
+              //   !to.meta.admin &&
+              //   !to.meta.public
+              // ) {
+              //   next("/admin");
+              // } 
+              // else {
                 next({ ...to, replace: true });
-              }
+              // }
             }
           } catch (err: any) {
             store.resetToken();
