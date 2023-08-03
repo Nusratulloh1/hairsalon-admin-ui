@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper w-full border-t p-[17px] sm:border-none !h-[85vh]">
     <div class="content shadow-xl md:w-96 space-y-6">
       <div class="header flex flex-col">
         <div class="text-center space-y-4"></div>

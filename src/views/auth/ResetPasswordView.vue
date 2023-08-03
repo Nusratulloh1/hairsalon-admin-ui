@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper w-full">
     <div class="content shadow-xl md:w-96 space-y-6">
       <div class="header flex flex-col items-center space-y-4">
         <LogoutIconWithName />
