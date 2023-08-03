@@ -3,12 +3,11 @@
     <div class="mb-8">
       <el-select v-model="program_id" placeholder="Program" @change="filterProgram" size="large" class=" w-60">
         <el-option v-for="region of [{ value: 'all', label: 'All' }, ...guideStore.getTuitions]" :key="region.value"
-          :label="region.label[`${$i18n.locale}`]" :value="region.value" />
+          :label="$t(`${region.label}`)" :value="region.value" />
       </el-select>
     </div>
     <div class="mb-16">
-      <el-table v-if="tableData.length" :data="tableData" :default-sort="defalutSort" border
-        style="width: 100%" stripe>
+      <el-table v-if="tableData.length" :data="tableData" :default-sort="defalutSort" border style="width: 100%" stripe>
         <el-table-column fixed prop="program" label="Programs" width="200" show-overflow-tooltip />
         <el-table-column prop="january" label="January" min-width="140" align="center">
           <template #default="{ row }">

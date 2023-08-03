@@ -8,7 +8,7 @@
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 items-center gap-2">
         <el-select v-model="filter.program_id" placeholder="Program" size="large" class="w-full">
-          <el-option v-for="region of guideStore.getTuitions" :key="region.value" :label="region.label[`${$i18n.locale}`]"
+          <el-option v-for="region of guideStore.getTuitions" :key="region.value" :label="$t(`${region.label}`)"
             :value="region.value" />
         </el-select>
         <el-select v-model="filter.exam_date_id" placeholder="Exam date" size="large" class="w-full">
@@ -24,11 +24,11 @@
           <el-option label="No" :value="false" />
         </el-select>
         <el-select v-model="year" placeholder="Academic year" size="large" class="w-full">
-          <el-option :label="val.id" v-show="val.is_active" v-for="val in examYears" :value="val.id" />
+          <el-option :label="val.id" v-show="val.is_active" v-for="val in examYears" :value="val.id" :key="val.id" />
         </el-select>
         <el-select v-model="month" placeholder="Month" size="large" class="w-full"
           @change="filter.month = `${year.split('-')[0]}-${month}`">
-          <el-option :label="val.name" v-for="val in months" :value="val.id" />
+          <el-option :label="val.name" v-for="val in months" :value="val.id" :key="val.id" />
         </el-select>
       </div>
       <div class="flex items-center space-x-2">
