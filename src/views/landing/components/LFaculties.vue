@@ -21,7 +21,7 @@
                 </p>
                 <span class="text-white font-medium text-base block">8 {{ $t('landing.semesters')
                 }}</span>
-                <a href="https://www.akfauniversity.uz/programs/school-of-engineering" target="_blank"
+                <a href="https://centralasian.uz/engineeringschool" target="_blank"
                     class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
             </div>
             <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 pb-[100px] relative h-[510px] md:h-[610px] !bg-left !bg-cover flex flex-col justify-between"
@@ -35,7 +35,7 @@
                 </p>
                 <span class="text-white font-medium text-base block">8 {{ $t('landing.semesters')
                 }}</span>
-                <a href="https://www.akfauniversity.uz/programs/school-of-business" target="_blank"
+                <a href="https://centralasian.uz/business-faculty" target="_blank"
                     class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
             </div>
             <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 pb-[100px] relative h-[510px] md:h-[610px] !bg-left !bg-cover flex flex-col justify-between"
@@ -49,7 +49,7 @@
                 </p>
                 <span class="text-white font-medium text-base block">12 {{ $t('landing.semesters')
                 }}</span>
-                <a href="https://www.akfauniversity.uz/programs/medical-school" target="_blank"
+                <a href="https://centralasian.uz/medica-faculty" target="_blank"
                     class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
             </div>
             <div class="faculty w-full py-6 px-4 sm:py-12 sm:px-8 pb-[100px] relative h-[510px] md:h-[610px] !bg-left !bg-cover flex flex-col justify-between"
@@ -63,7 +63,7 @@
                 </p>
                 <span class="text-white font-medium text-base block">10 {{ $t('landing.semesters')
                 }}</span>
-                <a href="https://www.akfauniversity.uz/programs/dental-school" target="_blank"
+                <a href="https://centralasian.uz/dental-faculty" target="_blank"
                     class="text-white underline text-xl font-medium" rel="noopener noreferrer">Read more</a>
             </div>
             <!-- <div class="py-[60px] w-full absolute bottom-0 flex items-center justify-center flex-wrap gap-5 sm:gap-12"
@@ -90,7 +90,7 @@ const faculties = ref([
         name: 'engineering',
         semesters: '8',
         bg: new URL('@/assets/images/landing/semester-bg-1.jpg', import.meta.url).href,
-        link: 'https://www.akfauniversity.uz/programs/school-of-engineering'
+        link: 'https://centralasian.uz/engineeringschool'
     },
     {
         id: 2,
