@@ -3,10 +3,11 @@ import DashboardLayout from "@/layout/DashboardLayout.vue";
 import LoginLayout from "@/layout/LoginLayout.vue";
 import LandingLayout from "@/layout/LandingLayout.vue";
 import { adminRoutes } from "./modules";
-import routeMiddleware from "@/i18n" 
+import routeMiddleware from "@/i18n"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    { path: '/', redirect: '/login' },
     {
       path: "/:locale?",
       component: RouterView,
