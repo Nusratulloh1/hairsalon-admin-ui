@@ -4,7 +4,7 @@
       2023 Copyrights © <span class="text-primary">CAU</span>
     </p>
     <a class="text-sm mt-1 text-center px-8" href="tel:+998 71 200-05-22"
-      >If you have questions or difficulties, please contact us:
+      > {{ $t("support") }}
       <span class="text-primary">+998 71 200-05-22</span></a
     >
   </div>
