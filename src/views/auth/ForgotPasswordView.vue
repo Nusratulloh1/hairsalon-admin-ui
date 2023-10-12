@@ -1,53 +1,41 @@
 <template>
-  <div class="wrapper w-full border-t p-[17px] sm:border-none !h-[85vh]">
-    <div class="content shadow-xl md:w-96 space-y-6">
-      <div class="header flex flex-col">
-        <div class="text-center space-y-4"></div>
-        <LogoutIconWithName />
-        <h1 class="header__title mt-4">Forgot password?</h1>
+  <div class=" h-full">
+    <div class="space-y-4 mx-auto lg:w-1/2 md:px-24 md:pt-8 h-full relative">
+      <div class="header flex flex-col items-start space-y-8 md:space-y-12">
+        <div class="border-b w-full p-4 sm:border-none">
+          <LogoutIconWithName class="w-[214px] sm:w-[477px]" />
+        </div>
+        <div class="px-4" v-if="!success">
+          <h1 class="header__title text-2xl sm:text-[28px] mb-1 sm:mb-[10px]">
+            {{ $t('forgot.title') }}
+          </h1>
+          <p class="header__text">
+            {{ $t('forgot.desc') }}
+          </p>
+        </div>
       </div>
-      <el-form
-        ref="ruleFormRef"
-        :model="ruleForm"
-        :rules="rules"
-        :hide-required-asterisk="true"
-        label-position="top"
-        v-if="!success"
-      >
-        <el-form-item label="Enter your email" prop="email">
-          <el-input
-            v-model="ruleForm.email"
-            type="text"
-            autocomplete="off"
-            size="large"
-            class="!h-11"
-          />
+      <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" :hide-required-asterisk="true" label-position="top"
+        class="px-4" v-if="!success">
+        <el-form-item :label="$t('login.email')" prop="email">
+          <el-input v-model="ruleForm.email" type="text" autocomplete="off" size="large" class="!h-9 sm:!h-11" />
         </el-form-item>
         <div class="md:mt-4 text-sm">
           <p>
-            Just remembered your password?
-            <RouterLink to="/login" class="text-primary font-medium"
-              >Log In</RouterLink
-            >
+            {{ $t('forgot.remem') }}
+            <RouterLink to="/login" class="text-primary font-medium">{{ $t('forgot.login') }}</RouterLink>
           </p>
         </div>
-        <el-button
-          class="w-full mt-4 md:mt-8"
-          type="primary"
-          size="large"
-          @click="submitForm(ruleFormRef)"
-          :loading="loading"
-        >
-          Resset password
+        <el-button class="w-full mt-4 md:mt-8" type="primary" size="large" @click="submitForm(ruleFormRef)"
+          :loading="loading">
+          {{ $t('forgot.title') }}
         </el-button>
       </el-form>
-      <div v-else>
-        <p class="font-medium mb-2">
-          Please, verify your email from the message that has been sent to you
-          via email!
+      <div v-else class=" px-5 !mt-20">
+        <p class="font-medium mb-2 font-halverica">
+          {{ $t('forgot.verify_1') }}
         </p>
         <p class="text-primary">
-          Note, if you can not find the email, check the spam folder!
+          {{ $t('forgot.verify_2') }}
         </p>
       </div>
     </div>
@@ -115,6 +103,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   display: flex;
   align-items: center;
   justify-content: center;
+
   .content {
     // @include card;
     padding: 2rem;
@@ -122,11 +111,13 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     min-width: 300px;
   }
 }
+
 .header {
   &__logo {
     height: 25px;
     width: 129px;
   }
+
   &__title {
     font-weight: 700;
     font-size: 26px;

@@ -65,6 +65,14 @@
     "forgot": "Parolni unutdingizmi?",
     "dont_account": "Profilingiz yo'qmi?"
   },
+  "forgot": {
+    "title": "Parolni tiklash",
+    "desc": "Iltimos, parolingizni tiklang",
+    "remem": "Parolingizni esladingizmi?",
+    "login": "Tizimga kirish",
+    "verify_1": "Iltimos, elektron pochta orqali sizga yuborilgan xabardan elektron pochtangizni tasdiqlang!",
+    "verify_2": "Eslatma, agar siz elektron pochtani topa olmasangiz, spam papkasini tekshiring!"
+  },
   "register": {
     "main": "Ro'yxatdan o'tish",
     "title": "Iltimos, yangi shaxsiy profilingizni yarating",

@@ -42,6 +42,14 @@
     "forgot": "Forgot Password?",
     "dont_account": "Don't have an account?"
   },
+  "forgot": {
+    "title": "Reset password",
+    "desc": "Please reset your password",
+    "remem": "Just remembered your password?",
+    "login": "Log In",
+    "verify_1": "Please, verify your email from the message that has been sent to you via email!",
+    "verify_2": "Note, if you can not find the email, check the spam folder!"
+  },
   "register": {
     "main": "Registration",
     "title": "Please create your new account",
