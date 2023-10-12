@@ -1,22 +1,12 @@
 <template>
-  <div class="wrapper" :class="{ 'full-screen': !drawer }">
-    <TheHeader
-      class="the-header border-b"
-      @onBurgerClick="drawer = !drawer"
-    ></TheHeader>
-    <div class="block md:hidden">
-      <el-drawer
-        v-if="drawer"
-        v-model="drawer"
-        :with-header="false"
-        :show-close="false"
-        direction="ltr"
-        size="300px"
-      >
+  <div class="wrapper full-screen">
+    <TheHeader class="the-header border-b" @onBurgerClick="drawer = !drawer"></TheHeader>
+    <div class="block">
+      <el-drawer v-if="drawer" v-model="drawer" :with-header="false" :show-close="false" direction="ltr" size="300px">
         <TheSidebar :routes="routes" @onRouteClick="drawer = false" />
       </el-drawer>
     </div>
-    <TheSidebar class="sidebar" :routes="routes" />
+    <!-- <TheSidebar class="sidebar hidden" :routes="routes" /> -->
     <div class="content p-4 md:p-8">
       <RouterView />
     </div>

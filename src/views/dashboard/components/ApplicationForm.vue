@@ -19,8 +19,7 @@
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item :label="$t('dashboard.phone')" prop="phone" id="phone" v-if="store.getUser?.country?.code === 'UZ'">
-        <el-tooltip content="Be sure to enter your personal phone number as we need it to support feedback with you"
-          placement="top">
+        <el-tooltip :content="$t('dashboard.phone_tooltip')" placement="top">
           <el-input v-model="ruleForm.phone" v-mask="'998 ## ###-##-##'" autocomplete="off" placeholder="+998"
             size="large" />
         </el-tooltip>
@@ -35,13 +34,13 @@
         </el-select>
       </el-form-item>
       <el-form-item :label="$t('dashboard.name_graduation')" prop="graduation_place" id="graduation_place">
-        <el-tooltip content="Be sure to write your correct place of graduation" placement="top" :trigger-keys="['Enter']">
+        <el-tooltip :content="$t('dashboard.graduation_tooltip')" placement="top" :trigger-keys="['Enter']">
           <el-input v-model="ruleForm.graduation_place" :placeholder="$t('dashboard.white_graduation')" size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.street')" prop="address" id="address"
         v-if="store.getUser?.country?.code === 'UZ'">
-        <el-tooltip content="Be sure to enter your current address" placement="top" :trigger-keys="['Enter']">
+        <el-tooltip :content="$t('dashboard.street_tooltip')" placement="top" :trigger-keys="['Enter']">
           <el-input v-model="ruleForm.address" autocomplete="off" :placeholder="$t('dashboard.white_address')"
             size="large" />
         </el-tooltip>
@@ -59,26 +58,26 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-2"
       :class="{ 'lg:!grid-cols-5': store.getUser?.country?.code !== 'UZ' }">
       <el-form-item :label="$t('dashboard.first_name')" prop="first_name" id="first_name">
-        <el-tooltip content="Please write your first name like in passport" placement="top">
+        <el-tooltip :content="$t('dashboard.first_name_tooltip')" placement="top">
           <el-input v-model="ruleForm.first_name" type="text" autocomplete="off"
             :placeholder="$t('dashboard.write_first')" size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.last_name')" prop="last_name" id="last_name">
-        <el-tooltip content="Please write your last name like in passport" placement="top">
+        <el-tooltip :content="$t('dashboard.last_name_tooltip')" placement="top">
           <el-input v-model="ruleForm.last_name" autocomplete="off" :placeholder="$t('dashboard.write_last')"
             size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.passport_seria')" v-if="store.getUser?.country?.code === 'UZ'"
         prop="passport_serial" id="passport_serial">
-        <el-tooltip content="Please write your first letters in passport" placement="top">
+        <el-tooltip :content="$t('dashboard.passport_serie_tooltip')" placement="top">
           <el-input v-model="ruleForm.passport_serial" autocomplete="off" :placeholder="$t('dashboard.passport_title')"
             size="large" />
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.passport_number')" prop="passport_number" id="passport_number">
-        <el-tooltip content="Please write your passport numbers (numbers after letters)" placement="top">
+        <el-tooltip :content="$t('dashboard.passport_number_tooltip')" placement="top">
           <el-input v-model="ruleForm.passport_number" autocomplete="off" :placeholder="$t('shared.text')" size="large" />
         </el-tooltip>
       </el-form-item>
@@ -97,9 +96,7 @@
     </div>
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
       <el-form-item :label="$t('dashboard.passport_photo')" prop="passport" id="passport">
-        <el-tooltip
-          content="Make sure that your passport does not exceed two megabytes and that all the necessary data is visible on the photo"
-          placement="top">
+        <el-tooltip :content="$t('dashboard.passport_photo_tooltip')" placement="top">
           <AppUpload @upload="(file) => {
             (ruleForm.passport = file),
               ruleFormRef?.clearValidate('passport');
@@ -108,7 +105,7 @@
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.photo')" prop="photo" id="photo">
-        <el-tooltip content="Make sure your photo matches your passport photo and format" placement="top">
+        <el-tooltip :content="$t('dashboard.photo_tooltip')" placement="top">
           <AppUpload @upload="(file) => {
             (ruleForm.photo = file), ruleFormRef?.clearValidate('photo');
           }
@@ -116,9 +113,7 @@
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.diploma')" prop="diploma" id="diploma">
-        <el-tooltip
-          content="Make sure that there is nothing in the photo except for the diploma and all the necessary data are visible correctly"
-          placement="top">
+        <el-tooltip :content="$t('dashboard.diploma_photo')" placement="top">
           <AppUpload @upload="(file) => {
             (ruleForm.diploma = file),
               ruleFormRef?.clearValidate('diploma');
@@ -127,8 +122,8 @@
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.english')" v-if="showEng" prop="proficiency_certificate">
-        <el-select v-model="ruleForm.proficiency_certificate" :multiple="screen < 640" :multiple-limit="1" size="large"
-          class="w-full">
+        <el-select v-model="ruleForm.proficiency_certificate" :placeholder="$t('shared.select')" :multiple="screen < 640"
+          :multiple-limit="1" size="large" class="w-full">
           <el-option label="IELTS" value="ielts" />
           <el-option label="TOEFL" value="toefl" />
           <el-option label="DUOLINGO" value="duolingo" />
@@ -136,9 +131,7 @@
         </el-select>
       </el-form-item>
       <el-form-item :label="$t('dashboard.english')" prop="certificate" v-if="showEng">
-        <el-tooltip
-          content="Make sure that there is nothing in the photo except for the certigicate and all the necessary data are visible correctly"
-          placement="top">
+        <el-tooltip :content="$t('dashboard.english_cert_tooltip')" placement="top">
           <AppUpload @upload="(file) => {
             (ruleForm.certificate = file),
               ruleFormRef?.clearValidate('certificate');
@@ -147,12 +140,14 @@
         </el-tooltip>
       </el-form-item>
       <el-form-item :label="$t('dashboard.certify')" prop="certificate_number" v-if="showEng">
-        <el-input v-model="ruleForm.certificate_number" autocomplete="off" placeholder="Write the number of your document"
+        <el-input v-model="ruleForm.certificate_number" autocomplete="off" :placeholder="$t('dashboard.white')"
           size="large" />
       </el-form-item>
       <el-form-item prop="take_internal_exam" v-if="showEng">
         <el-checkbox class="!whitespace-normal" v-model="ruleForm.take_internal_exam" size="large">
-          {{ $t("dashboard.no_certify") }}</el-checkbox>
+          <span class=" !leading-5">
+            {{ $t("dashboard.no_certify") }}
+          </span></el-checkbox>
       </el-form-item>
     </div>
     <div class="app-divider my-2 md:my-4" />

@@ -46,7 +46,19 @@
     "select_graduation": "Bitiruv maskanini tanlang",
     "select_date": "Tug'ilgan kuningizni kiriting",
     "select_gender": "Jinsingizni tanlang",
-    "select_exam": "Imtihon kunini kiring"
+    "select_exam": "Imtihon kunini kiring",
+    "white": "Hujjatingizning raqamini yozing",
+    "phone_tooltip": "Shaxsiy telefon raqamingizni kiritganingizga ishonch hosil qiling, chunki biz siz bilan fikr-mulohazalarni qo'llab-quvvatlash uchun kerak",
+    "graduation_tooltip": "Bitiruv joyingizni to'g'ri yozganingizga ishonch hosil qiling",
+    "street_tooltip": "Joriy manzilingizni kiritganingizga ishonch hosil qiling",
+    "first_name_tooltip": "Iltimos, ismingizni pasportdagi kabi yozing",
+    "last_name_tooltip": "Iltimos, familiyangizni pasportdagi kabi yozing",
+    "passport_serie_tooltip": "Iltimos, birinchi xatlaringizni pasportga yozing",
+    "passport_number_tooltip": "Iltimos, pasport raqamlarini yozing (harflardan keyingi raqamlar)",
+    "passport_photo_tooltip": "Pasportingiz ikki megabaytdan oshmasligiga va fotosuratda barcha kerakli ma'lumotlar ko'rinishiga ishonch hosil qiling",
+    "photo_tooltip": "Fotosuratingiz pasport fotosurati va formatiga mos kelishiga ishonch hosil qiling",
+    "diploma_photo": "Fotosuratda diplomdan boshqa hech narsa yo'qligiga va barcha kerakli ma'lumotlar to'g'ri ko'rinishiga ishonch hosil qiling",
+    "english_cert_tooltip": "Fotosuratda sertifikatdan boshqa hech narsa yo'qligiga va barcha kerakli ma'lumotlar to'g'ri ko'rinishiga ishonch hosil qiling"
   },
   "application_status": {
     "address": "Manzil ma'lumotlari",

@@ -111,7 +111,19 @@
     "select_graduation": "Select your graduation",
     "select_date": "Select your date of birth",
     "select_gender": "Choose gender",
-    "select_exam": "Choose an exam day"
+    "select_exam": "Choose an exam day",
+    "white": "Write the number of your document",
+    "phone_tooltip": "Be sure to enter your personal phone number as we need it to support feedback with you",
+    "graduation_tooltip": "Be sure to write your correct place of graduation",
+    "street_tooltip": "Be sure to enter your current address",
+    "first_name_tooltip": "Please write your first name like in passport",
+    "last_name_tooltip": "Please write your last name like in passport",
+    "passport_serie_tooltip": "Please write your first letters in passport",
+    "passport_number_tooltip": "Please write your passport numbers (numbers after letters)",
+    "passport_photo_tooltip": "Make sure that your passport does not exceed two megabytes and that all the necessary data is visible on the photo",
+    "photo_tooltip": "Make sure your photo matches your passport photo and format",
+    "diploma_photo": "Make sure that there is nothing in the photo except for the diploma and all the necessary data are visible correctly",
+    "english_cert_tooltip": "Make sure that there is nothing in the photo except for the certigicate and all the necessary data are visible correctly"
   },
   "application_status": {
     "address": "Adress Information",
