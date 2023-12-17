@@ -6,15 +6,11 @@ import type { RouteLocationNormalized } from "vue-router";
 import { useUsersStore } from "./stores/user";
 import { i18n } from "@/i18n";
 
-const title = "Admission";
+const title = "Shodmon";
 
 NProgress.configure({ showSpinner: false });
 
 const whiteList = [
-  "/en",
-  "/uz",
-  "/ru",
-  "/",
   "/login",
   "/signin",
   "/check-mail",

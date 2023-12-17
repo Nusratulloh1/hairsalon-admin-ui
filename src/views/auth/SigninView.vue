@@ -16,7 +16,7 @@
       </div>
       <el-form ref="ruleFormRef" class="mt-3 sm:mt-8 px-4" :model="ruleForm" :rules="rules" :hide-required-asterisk="true"
         label-position="top">
-        <!-- <el-form-item label="First Name" prop="first_name">
+        <el-form-item :label="$t('register.first_name')" prop="first_name">
           <el-input
             v-model="ruleForm.first_name"
             type="text"
@@ -24,18 +24,18 @@
             class="!h-11"
           />
         </el-form-item>
-        <el-form-item label="Last Name" prop="last_name">
+        <el-form-item :label="$t('register.last_name')" prop="last_name">
           <el-input
             v-model="ruleForm.last_name"
             type="text"
             autocomplete="off"
             class="!h-11"
           />
-        </el-form-item> -->
-        <el-form-item :label="$t('register.email')" prop="email">
+        </el-form-item>
+        <!-- <el-form-item :label="$t('register.email')" prop="email">
           <el-input v-model.trim="ruleForm.email" type="text" :placeholder="$t('register.email_title')" autocomplete="off"
             class="!h-9 sm:!h-11" />
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item label="Country" prop="country">
           <div class="hidden sm:block w-full">
             <el-select v-model="ruleForm.country_id" filterable class="!h-11 w-full" @change="setNumber"
@@ -67,20 +67,6 @@
           @click="submitForm(ruleFormRef)" :loading="loading">
           {{ $t('register.create') }}
         </el-button>
-        <div class=" mt-4 sm:mt-10">
-          <p class="header__text">
-            {{ $t('register.dont_know') }}
-            <RouterLink to="/?tutorial=true" class="text-primary font-medium ml-2 underline">{{ $t('register.watch') }}
-            </RouterLink>
-          </p>
-        </div>
-        <div class="mt-2 sm:mt-6">
-          <p class="header__text">
-            {{ $t('register.cant_register') }}
-            <a href="tel:+998 71 200-05-22" class="text-primary ml-2 font-medium underline">{{ $t('register.call')
-            }}</a>
-          </p>
-        </div>
         <div class="bottom-12 mt-2 sm:mt-6">
           <p class="header__text">
             {{ $t('register.have_account') }}
@@ -90,17 +76,6 @@
         </div>
       </el-form>
     </div>
-    <!-- <div
-      class="relative hidden md:flex right-content h-full flex items-center justify-center"
-    >
-      <p>Join us now and start empowering your future!</p>
-      <a
-        class="ml-2 absolute text-sm bottom-2 text-white text-center"
-        href="tel:+998-71-200-01-23"
-        >If you have questions or difficulties, please contact us:
-        +998-71-200-01-23</a
-      >
-    </div> -->
   </div>
 </template>
 
@@ -120,11 +95,11 @@ const router = useRouter();
 const staticRegion = ref("");
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
-  // first_name: "",
-  // last_name: "",
+  first_name: "",
+  last_name: "",
   phone: "+",
   country_id: "",
-  email: "",
+  // email: "",
   password: "",
   confirm_password: "",
 });
@@ -160,20 +135,20 @@ onMounted(() => {
   store.countryCode();
 });
 const rules = reactive<FormRules>({
-  // first_name: [
-  //   {
-  //     required: true,
-  //     message: i18n.t("validation.fillField"),
-  //     trigger: "blur",
-  //   },
-  // ],
-  // last_name: [
-  //   {
-  //     required: true,
-  //     message: i18n.t("validation.fillField"),
-  //     trigger: "blur",
-  //   },
-  // ],
+  first_name: [
+    {
+      required: true,
+      message: i18n.t("validation.fillField"),
+      trigger: "blur",
+    },
+  ],
+  last_name: [
+    {
+      required: true,
+      message: i18n.t("validation.fillField"),
+      trigger: "blur",
+    },
+  ],
   country_id: [
     {
       required: true,

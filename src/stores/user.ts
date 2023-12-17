@@ -40,7 +40,7 @@ export const useUsersStore = defineStore("users", {
 
   actions: {
     async login(loginInfo: ILoginInfo) {
-      const response = await request.post("/auth/login", loginInfo);
+      const response = await request.post("/auth/authenticate", loginInfo);
 
       this.token = response.access_token;
       setAccessToken(response.access_token);
