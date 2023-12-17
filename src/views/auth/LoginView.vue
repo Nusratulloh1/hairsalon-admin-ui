@@ -16,8 +16,8 @@
       </div>
       <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" class="px-4" :hide-required-asterisk="true"
         label-position="top">
-        <el-form-item :label="$t('login.email')" prop="email">
-          <el-input v-model.trim="ruleForm.email" type="text" autocomplete="off" class="!h-9 sm:!h-11" />
+        <el-form-item :label="$t('login.email')" prop="username">
+          <el-input v-model.trim="ruleForm.username" type="text" autocomplete="off" class="!h-9 sm:!h-11" />
         </el-form-item>
         <el-form-item :label="$t('login.password')" prop="password">
           <el-input v-model.trim="ruleForm.password" type="password" autocomplete="off" class="!h-9 sm:!h-11" />
@@ -65,20 +65,15 @@ const router = useRouter();
 
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
-  email: "",
+  username: "",
   password: "",
 });
 
 const rules = reactive<FormRules>({
-  email: [
+  username: [
     {
       required: true,
       message: i18n.t("validation.fillField"),
-      trigger: "blur",
-    },
-    {
-      type: "email",
-      message: i18n.t("validation.inputEmail"),
       trigger: "blur",
     },
   ],
@@ -103,11 +98,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (valid) {
       try {
         loading.value = true;
-        const data = {
-          ...ruleForm,
-          password: sha1(ruleForm.password),
-        };
-        await store.login(data);
+        await store.login(ruleForm);
         loading.value = false;
         router.push("/dashboard");
       } catch (error: any) {

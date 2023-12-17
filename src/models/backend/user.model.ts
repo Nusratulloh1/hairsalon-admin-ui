@@ -1,5 +1,5 @@
 export interface ILoginInfo {
-  email: string;
+  username: string;
   password: string;
 }
 export interface IAcceptInvite {
@@ -9,10 +9,9 @@ export interface IAcceptInvite {
 }
 
 export interface ISigninForm {
-  email: string;
-  country_id: string;
-  phone: string;
-  confirm_password: string;
+  firstName: string,
+  lastName: string,
+  phoneNumber: string;
   password: string;
 }
 export interface ICountryCodes {

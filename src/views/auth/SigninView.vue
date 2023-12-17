@@ -17,26 +17,16 @@
       <el-form ref="ruleFormRef" class="mt-3 sm:mt-8 px-4" :model="ruleForm" :rules="rules" :hide-required-asterisk="true"
         label-position="top">
         <el-form-item :label="$t('register.first_name')" prop="first_name">
-          <el-input
-            v-model="ruleForm.first_name"
-            type="text"
-            autocomplete="off"
-            class="!h-11"
-          />
+          <el-input v-model="ruleForm.first_name" type="text" autocomplete="off" class="!h-11" />
         </el-form-item>
         <el-form-item :label="$t('register.last_name')" prop="last_name">
-          <el-input
-            v-model="ruleForm.last_name"
-            type="text"
-            autocomplete="off"
-            class="!h-11"
-          />
+          <el-input v-model="ruleForm.last_name" type="text" autocomplete="off" class="!h-11" />
         </el-form-item>
         <!-- <el-form-item :label="$t('register.email')" prop="email">
           <el-input v-model.trim="ruleForm.email" type="text" :placeholder="$t('register.email_title')" autocomplete="off"
             class="!h-9 sm:!h-11" />
         </el-form-item> -->
-        <el-form-item label="Country" prop="country">
+        <!-- <el-form-item label="Country" prop="country">
           <div class="hidden sm:block w-full">
             <el-select v-model="ruleForm.country_id" filterable class="!h-11 w-full" @change="setNumber"
               :placeholder="$t('register.country')" size="large">
@@ -49,7 +39,7 @@
               <el-option v-for="(code, i) in countryCodesList" :key="i" :label="code.name" :value="code.id" />
             </el-select>
           </div>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item :label="$t('register.phone')" prop="phone">
           <el-input v-model.trim="ruleForm.phone" v-if="ruleForm.phone.includes('998')" v-mask="'+### ## ###-##-##'"
             autocomplete="off" type="text" class="!h-9 sm:!h-11" />
@@ -98,19 +88,19 @@ const ruleForm = reactive({
   first_name: "",
   last_name: "",
   phone: "+",
-  country_id: "",
+  // country_id: "",
   // email: "",
   password: "",
   confirm_password: "",
 });
 const countryCodesList = computed(() => store.countryCodes);
-const setNumber = (country_id: string): void => {
-  const country = countryCodesList.value?.find((c) => c.id === country_id);
-  if (country) {
-    ruleForm.country_id = country.id;
-    ruleForm.phone = country.dial_code;
-  }
-};
+// const setNumber = (country_id: string): void => {
+//   const country = countryCodesList.value?.find((c) => c.id === country_id);
+//   if (country) {
+//     ruleForm.country_id = country.id;
+//     ruleForm.phone = country.dial_code;
+//   }
+// };
 const validatePass = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error(i18n.t("validation.fillField")));
@@ -143,13 +133,6 @@ const rules = reactive<FormRules>({
     },
   ],
   last_name: [
-    {
-      required: true,
-      message: i18n.t("validation.fillField"),
-      trigger: "blur",
-    },
-  ],
-  country_id: [
     {
       required: true,
       message: i18n.t("validation.fillField"),
@@ -204,14 +187,14 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       try {
         loading.value = true;
         const data: ISigninForm = {
-          ...ruleForm,
-          country_id: typeof ruleForm.country_id == 'string' ? ruleForm.country_id : ruleForm.country_id[0],
-          password: sha1(ruleForm.password),
-          confirm_password: sha1(ruleForm.confirm_password),
+          firstName: ruleForm.first_name,
+          lastName: ruleForm.last_name,
+          phoneNumber: ruleForm.phone,
+          password: ruleForm.password,
         };
         await store.signin(data);
         // await store.sendVerifyEmail();
-        router.push("/login");
+        // router.push("/login");
         loading.value = false;
       } catch (error) {
         console.log("error", error);

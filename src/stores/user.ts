@@ -42,15 +42,15 @@ export const useUsersStore = defineStore("users", {
     async login(loginInfo: ILoginInfo) {
       const response = await request.post("/auth/authenticate", loginInfo);
 
-      this.token = response.access_token;
-      setAccessToken(response.access_token);
-      setRefreshToken(response.refresh_token);
+      this.token = response.token;
+      setAccessToken(response.token);
     },
 
     async signin(signinForm: ISigninForm) {
       const response = await request.post("/auth/register", signinForm);
-      this.token = response.access_token;
-      setAccessToken(response.access_token);
+      
+      this.token = response.token;
+      setAccessToken(response.token);
     },
     async countryCode() {
       const countryCode = await request.post("/country/list");
@@ -59,32 +59,25 @@ export const useUsersStore = defineStore("users", {
     async sendVerifyEmail() {
       return request.post("/auth/send-verify-email");
     },
-
     async verifyEmail(code: string) {
       return request.post("/auth/verify", { code });
     },
-
     async acceptInviteSetPassword(acceptInvite: IAcceptInvite) {
       return request.post("/auth/accept-invite-set-password", acceptInvite);
     },
-
     async resetPassword(acceptInvite: IResetInvite) {
       return request.post("/auth/reset-password", acceptInvite);
     },
-
     async sendCodeToEmail(formData: { email: string }) {
       await request.post("/auth/send-email-reset-token", formData);
       // setCode(response.code);
     },
-
     async createUser(formData: Omit<IUser, "id" | "is_verified">) {
       await request.post("/users/create", formData);
     },
-
     async updateUser(formData: Omit<IUser, "is_verified">) {
       await request.post("/users/update", formData);
     },
-
     async remoevUser(id: string) {
       await request.post("/users/remove", { id });
     },
@@ -94,8 +87,7 @@ export const useUsersStore = defineStore("users", {
     },
 
     async getUserInfo() {
-      const user = await request.post("/auth/get-user");
-
+      const user = await request.get("/get-user");
       this.user = user;
     },
 
