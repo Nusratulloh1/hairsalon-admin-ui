@@ -1,5 +1,3 @@
-# axel-web
-
 ## Project Setup
 
 ```sh
