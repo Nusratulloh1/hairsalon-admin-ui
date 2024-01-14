@@ -28,17 +28,6 @@ const router = createRouter({
         },
       ],
     },
-    {
-      path: "/reset-password",
-      component: LoginLayout,
-      children: [
-        {
-          path: "",
-          name: "reset-password",
-          component: () => import("@/views/auth/ResetPasswordView.vue"),
-        },
-      ],
-    },
     adminRoutes,
     {
       path: "/:pathMatch(.*)*",

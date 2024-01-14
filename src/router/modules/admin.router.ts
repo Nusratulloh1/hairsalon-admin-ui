@@ -4,13 +4,13 @@ export const adminRoutes = {
   component: AdminLayout,
   children: [
     {
-      path: "/dashboard",
+      path: "dashboard",
       name: "admin-dashboard",
       component: () => import("@/views/dashboard/DashboardView.vue"),
       meta: { admin: true },
     },
     {
-      path: "/contact",
+      path: "contact",
       name: "admin-contact",
       component: () => import("@/views/contact/ContactView.vue"),
       meta: { admin: true },

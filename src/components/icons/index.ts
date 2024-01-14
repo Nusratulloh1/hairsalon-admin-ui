@@ -1,7 +1,6 @@
 export { default as DiamondIcon } from "./DiamondIcon.vue";
 export { default as UserIcon } from "./UserIcon.vue";
 export { default as LogoutIcon } from "./LogoutIcon.vue";
-export { default as AccountTree } from "./AccountTree.vue";
 export { default as UserTeam } from "./UserTeam.vue";
 export { default as FinanceHandCoin } from "./FinanceHandCoin.vue";
 export { default as LogoIcon } from "./LogoIcon.vue";
