@@ -3,10 +3,10 @@
     <p class="leading-none">
       2023 Copyrights © <span class="text-primary">Shodmon Hair Salon</span>
     </p>
-    <a class="text-sm mt-1 text-center px-8" href="tel:+998 97 737-30-98"
+    <!-- <a class="text-sm mt-1 text-center px-8" href="tel:+998 97 737-30-98"
       > {{ $t("support") }}
       <span class="text-primary">+998 97 737-30-98</span></a
-    >
+    > -->
   </div>
 </template>
 

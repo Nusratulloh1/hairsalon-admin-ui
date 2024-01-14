@@ -11,8 +11,8 @@
       <el-dropdown @command="handleProfileChange" trigger="click" class="flex justify-center">
         <div class="flex items-center justify-center space-x-2 px-2">
           <UserIcon class="h-5 w-5 fill-gray-400" />
-          <span class="text-gray-500 font-medium text-base">{{ store.getUser?.first_name || " " }}
-            {{ store.getUser?.last_name }}</span>
+          <span class="text-gray-500 font-medium text-base">{{ store.getUser?.firstName || " " }}
+            {{ store.getUser?.lastName }}</span>
           <el-icon class="text-gray-500 text-base">
             <arrow-down class="text-gray-500" />
           </el-icon>
@@ -62,9 +62,6 @@ const handleProfileChange = (command: string) => {
       store.resetToken();
       router.push(`/login?redirect=${route.fullPath}`);
     });
-  }
-  else {
-    router.push(`/admin/staffs`);
   }
 };
 </script>

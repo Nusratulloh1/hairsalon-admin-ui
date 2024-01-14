@@ -122,7 +122,7 @@ const validatePass2 = (rule: any, value: any, callback: any) => {
   }
 };
 onMounted(() => {
-  store.countryCode();
+  // store.countryCode();
 });
 const rules = reactive<FormRules>({
   first_name: [
@@ -194,7 +194,9 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         };
         await store.signin(data);
         // await store.sendVerifyEmail();
-        // router.push("/login");
+        if (store.user.role === "ROLE_USER") {
+          window.location.href = `https://shodmon-hair.netlify.app?token=${store.token}`
+        }
         loading.value = false;
       } catch (error) {
         console.log("error", error);

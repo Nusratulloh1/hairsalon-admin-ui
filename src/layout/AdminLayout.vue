@@ -26,59 +26,32 @@ import {
   Briefcase,
   Document,
   Service,
+Phone,
+PhoneFilled,
 } from "@element-plus/icons-vue";
 import type { ISidebarItem } from "@/models/frontend";
 import { ref } from "vue";
 const routes: ISidebarItem[] = [
   {
-    route: "/admin",
+    route: "/dashboard",
     title: "Dashboard",
     icon: Menu,
   },
   {
-    route: "/admin/applicants",
-    title: "Applicants",
-    icon: Postcard,
-    children: [
-      {
-        route: "/admin/applicants-programs",
-        title: "By Programs",
-      },
-      {
-        route: "/admin/applicants",
-        title: "By Students",
-      },
-    ]
-  },
-  {
-    route: "/admin/departments",
-    title: "Programs management",
-    icon: Memo,
+    route: "/contact",
+    title: "Contacts",
+    icon: PhoneFilled,
   },
   // {
-  //   route: "/admin/users",
-  //   title: "Users",
-  //   icon: User,
-  // },
-  // {
-  //   route: "/admin/staffs",
-  //   title: "Staffs",
-  //   icon: Service,
-  // },
-  {
-    route: "/admin/exam-years",
-    title: "Exam Years",
-    icon: Document,
-  },
-  // {
-  //   route: "/admin/notifications",
-  //   title: "Notifications",
-  //   icon: Bell,
-  // },
-  // {
-  //   route: "/admin/sms",
-  //   title: "Sms mailing",
-  //   icon: ChatRound,
+  //   route: "/404",
+  //   title: "No",
+  //   icon: Postcard,
+  //   children: [
+  //     {
+  //       route: "/admin/applicants-programs",
+  //       title: "By Programs",
+  //     },
+  //   ]
   // },
 ];
 

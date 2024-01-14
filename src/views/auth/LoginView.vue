@@ -99,8 +99,14 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       try {
         loading.value = true;
         await store.login(ruleForm);
+        await store.getUserInfo()
         loading.value = false;
-        router.push("/dashboard");
+        if (store?.user?.role === "ROLE_USER") {
+          window.location.href = `https://shodmon-hair.netlify.app?token=${store.token}`
+        }
+        else {
+          router.push("/dashboard");
+        }
       } catch (error: any) {
         console.log("error", error.message);
 

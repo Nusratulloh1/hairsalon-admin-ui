@@ -53,24 +53,17 @@ router.beforeEach(
             if (!store.user) {
               store.resetToken();
               next(`/login`);
-            }
-            // else if (!store.user?.is_verified) {
-            //   next("/check-mail");
-            // }
-            else {
-              // if (to.meta?.admin && store.user.role === "user") {
-              //   next("/404");
-              // } 
-              // else if (
-              //   store.user.role !== "user" &&
-              //   !to.meta.admin &&
-              //   !to.meta.public
-              // ) {
-              //   next("/admin");
-              // } 
-              // else {
+            } else {
+              if (store.user.role === "ROLE_USER") {
+                window.location.href = "https://shodmon-hair.netlify.app/";
+              } else if (
+                store.user.role === "ROLE_ADMIN" ||
+                (store.user.role === "ROLE_SUPERADMIN" && to.meta.admin)
+              ) {
+                next("/dashboard");
+              } else {
                 next({ ...to, replace: true });
-              // }
+              }
             }
           } catch (err: any) {
             store.resetToken();
