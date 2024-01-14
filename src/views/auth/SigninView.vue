@@ -82,7 +82,6 @@ import type { ISigninForm } from "@/models/backend";
 const i18n = useI18n();
 const store = useUsersStore();
 const router = useRouter();
-const staticRegion = ref("");
 const ruleFormRef = ref<FormInstance>();
 const ruleForm = reactive({
   first_name: "",
@@ -93,14 +92,6 @@ const ruleForm = reactive({
   password: "",
   confirm_password: "",
 });
-const countryCodesList = computed(() => store.countryCodes);
-// const setNumber = (country_id: string): void => {
-//   const country = countryCodesList.value?.find((c) => c.id === country_id);
-//   if (country) {
-//     ruleForm.country_id = country.id;
-//     ruleForm.phone = country.dial_code;
-//   }
-// };
 const validatePass = (rule: any, value: any, callback: any) => {
   if (value === "") {
     callback(new Error(i18n.t("validation.fillField")));
@@ -194,7 +185,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
         };
         await store.signin(data);
         // await store.sendVerifyEmail();
-        if (store.user.role === "ROLE_USER") {
+        if (store.user?.role === "ROLE_USER") {
           window.location.href = `https://shodmon-hair.netlify.app?token=${store.token}`
         }
         loading.value = false;

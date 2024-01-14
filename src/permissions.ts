@@ -43,8 +43,6 @@ router.beforeEach(
         // If is logged in, redirect to the home page
         next({ path: "/dashboard" });
         NProgress.done();
-      } else if (to.path === "/verification" && !store.user?.is_verified) {
-        next();
       } else {
         // Check whether the user has obtained his permission roles
         if (!store.getUser) {
