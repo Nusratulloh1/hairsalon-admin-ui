@@ -20,14 +20,10 @@ import TheFooter from "./components/Footer/TheFooter.vue";
 import TheSidebar from "./components/Sidebar/TheSidebar.vue";
 import {
   Menu,
-  Postcard,
-  Memo,
   User,
+  PhoneFilled,
+  UserFilled,
   Briefcase,
-  Document,
-  Service,
-Phone,
-PhoneFilled,
 } from "@element-plus/icons-vue";
 import type { ISidebarItem } from "@/models/frontend";
 import { ref } from "vue";
@@ -36,6 +32,16 @@ const routes: ISidebarItem[] = [
     route: "/dashboard",
     title: "Dashboard",
     icon: Menu,
+  },
+  {
+    route: "/users",
+    title: "Users",
+    icon: UserFilled,
+  },
+  {
+    route: "/barbers",
+    title: "Barbers",
+    icon: Briefcase,
   },
   {
     route: "/contact",

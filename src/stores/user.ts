@@ -1,8 +1,4 @@
-import type {
-  ILoginInfo,
-  IUser,
-  ISigninForm,
-} from "@/models/backend";
+import type { ILoginInfo, IUser, ISigninForm } from "@/models/backend";
 import { defineStore } from "pinia";
 import {
   setAccessToken,
@@ -17,12 +13,14 @@ import request from "@/utils/request";
 interface UserState {
   token?: string;
   user: IUser | null;
+  users: IUser[];
 }
 
 export const useUsersStore = defineStore("users", {
   state: (): UserState => ({
     token: getAccessToken() || "",
     user: null,
+    users: [],
   }),
 
   actions: {
@@ -35,14 +33,19 @@ export const useUsersStore = defineStore("users", {
 
     async signin(signinForm: ISigninForm) {
       const response = await request.post("/auth/register", signinForm);
-      
+
       this.token = response.token;
       setAccessToken(response.token);
     },
+    async getUsers() {
+      const users = await request.get("/auth");
+      this.users = users;
+    },
+    changeRole(data: any) {
+      return request.post(`/barber/change-role`, data);
+    },
     async getUserInfo() {
       const user = await request.get("/get-user");
-      console.log(user);
-      
       this.user = user;
     },
 

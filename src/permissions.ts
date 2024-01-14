@@ -58,7 +58,7 @@ router.beforeEach(
                 store.user.role === "ROLE_ADMIN" ||
                 (store.user.role === "ROLE_SUPERADMIN" && to.meta.admin)
               ) {
-                next("/dashboard");
+                next();
               } else {
                 next({ ...to, replace: true });
               }

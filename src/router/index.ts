@@ -5,7 +5,7 @@ import routeMiddleware from "@/i18n"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', redirect: '/login' },
+    { path: '/', redirect: '/dashboard' },
     {
       path: "/login",
       component: LoginLayout,
